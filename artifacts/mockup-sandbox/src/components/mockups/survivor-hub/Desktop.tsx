@@ -8,7 +8,7 @@ import {
   ChevronRight, Sparkles, Radio, Bell, Settings, MessageSquare,
   Hash, Zap, ArrowUpRight, X,
 } from "lucide-react";
-import { ChymeApp } from "./ChymeApp";
+import { ChymeApp } from "./Chyme";
 
 const MINI_APPS = [
   { id: "chyme", name: "Chyme", emoji: "🎙️", icon: Radio, desc: "Social audio rooms", color: "#22C55E", bg: "#052e16", tag: "Phase 0" },
