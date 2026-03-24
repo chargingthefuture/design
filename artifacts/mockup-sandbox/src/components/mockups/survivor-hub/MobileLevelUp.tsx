@@ -1,3 +1,8 @@
+import {
+  Home, Target, MessageSquare, Coins, User,
+  TrendingUp, CheckCircle, Clock, Trophy, Search, Battery, Wifi, Signal,
+} from "lucide-react";
+
 export default function MobileLevelUp() {
   const green = "#22C55E";
   const bg = "#0F1117";
@@ -63,7 +68,6 @@ export default function MobileLevelUp() {
 
   const myEnrollment = {
     title: "Web Development Fundamentals",
-    track: "Tech",
     trainer: "Maya R.",
     milestones: 5,
     completed: 2,
@@ -74,13 +78,23 @@ export default function MobileLevelUp() {
 
   const pct = Math.round((myEnrollment.completed / myEnrollment.milestones) * 100);
 
+  const navItems = [
+    { Icon: Home, label: "Home", active: false },
+    { Icon: Target, label: "LevelUp", active: true },
+    { Icon: MessageSquare, label: "Chat", active: false },
+    { Icon: Coins, label: "Credits", active: false },
+    { Icon: User, label: "Profile", active: false },
+  ];
+
   return (
     <div style={{ width: 390, height: 844, background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column", overflow: "hidden", position: "relative" }}>
       {/* Status bar */}
-      <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 20px 4px", fontSize: 12, color: subtle }}>
-        <span>9:41</span>
-        <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-          <span>●●●</span><span>WiFi</span><span>🔋</span>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 20px 4px", fontSize: 12, color: subtle }}>
+        <span style={{ fontWeight: 600 }}>9:41</span>
+        <div style={{ display: "flex", gap: 5, alignItems: "center" }}>
+          <Signal size={12} color={subtle} />
+          <Wifi size={12} color={subtle} />
+          <Battery size={12} color={subtle} />
         </div>
       </div>
 
@@ -88,7 +102,9 @@ export default function MobileLevelUp() {
       <div style={{ padding: "10px 20px 14px", borderBottom: `1px solid ${border}` }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 32, height: 32, borderRadius: 9, background: green, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>🎯</div>
+            <div style={{ width: 32, height: 32, borderRadius: 9, background: green, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Target size={17} color="#000" />
+            </div>
             <div>
               <div style={{ fontSize: 16, fontWeight: 700, color: text }}>LevelUp</div>
               <div style={{ fontSize: 10, color: subtle }}>Training Cohorts</div>
@@ -129,7 +145,10 @@ export default function MobileLevelUp() {
       <div style={{ margin: "0 16px 12px", background: `${green}10`, border: `1px solid ${green}25`, borderRadius: 12, padding: "12px 14px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
           <div>
-            <div style={{ fontSize: 11, color: green, fontWeight: 600, marginBottom: 2 }}>📈 Currently Enrolled</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, color: green, fontWeight: 600, marginBottom: 2 }}>
+              <TrendingUp size={11} />
+              Currently Enrolled
+            </div>
             <div style={{ fontSize: 13, fontWeight: 600, color: text, lineHeight: 1.3 }}>{myEnrollment.title}</div>
             <div style={{ fontSize: 11, color: subtle }}>with {myEnrollment.trainer}</div>
           </div>
@@ -145,7 +164,10 @@ export default function MobileLevelUp() {
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: 10, color: "#F59E0B" }}>⏳ {myEnrollment.escrow} SC in escrow</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 10, color: "#F59E0B" }}>
+            <Clock size={10} />
+            {myEnrollment.escrow} SC in escrow
+          </div>
           <span style={{ fontSize: 10, color: subtle }}>Due {myEnrollment.dueDate}</span>
         </div>
       </div>
@@ -164,7 +186,10 @@ export default function MobileLevelUp() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
                 <div style={{ flex: 1, paddingRight: 8 }}>
                   <div style={{ fontSize: 13, fontWeight: 600, color: text, lineHeight: 1.4, marginBottom: 4 }}>{cohort.title}</div>
-                  <div style={{ fontSize: 11, color: subtle }}>👨‍🏫 {cohort.trainer} · {cohort.milestones} milestones</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: subtle }}>
+                    <User size={11} />
+                    {cohort.trainer} · {cohort.milestones} milestones
+                  </div>
                 </div>
                 <span style={{ flexShrink: 0, fontSize: 10, color: trackColor, background: `${trackColor}18`, padding: "3px 8px", borderRadius: 12, fontWeight: 600 }}>
                   {cohort.track}
@@ -201,16 +226,10 @@ export default function MobileLevelUp() {
         display: "flex", alignItems: "center", justifyContent: "space-around",
         paddingBottom: 8,
       }}>
-        {[
-          { icon: "🏠", label: "Home" },
-          { icon: "🎯", label: "LevelUp", active: true },
-          { icon: "💬", label: "Chat" },
-          { icon: "💳", label: "Credits" },
-          { icon: "👤", label: "Profile" },
-        ].map((item) => (
-          <div key={item.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3, cursor: "pointer" }}>
-            <span style={{ fontSize: 20 }}>{item.icon}</span>
-            <span style={{ fontSize: 9, color: item.active ? green : muted, fontWeight: item.active ? 600 : 400 }}>{item.label}</span>
+        {navItems.map(({ Icon, label, active }) => (
+          <div key={label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3, cursor: "pointer" }}>
+            <Icon size={20} color={active ? green : muted} />
+            <span style={{ fontSize: 9, color: active ? green : muted, fontWeight: active ? 600 : 400 }}>{label}</span>
           </div>
         ))}
       </div>

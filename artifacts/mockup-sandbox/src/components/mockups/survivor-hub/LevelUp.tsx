@@ -1,3 +1,9 @@
+import {
+  Home, BookOpen, TrendingUp, Users, Trophy, Coins,
+  Plus, CheckCircle, DollarSign, Target, Search, Clock,
+  User, ChevronRight,
+} from "lucide-react";
+
 export default function LevelUp() {
   const green = "#22C55E";
   const bg = "#0F1117";
@@ -16,7 +22,6 @@ export default function LevelUp() {
       totalSeats: 12,
       credits: 40,
       milestones: 5,
-      completed: 0,
       status: "open",
       tags: ["HTML", "CSS", "React"],
     },
@@ -28,7 +33,6 @@ export default function LevelUp() {
       totalSeats: 10,
       credits: 25,
       milestones: 4,
-      completed: 0,
       status: "open",
       tags: ["Budgeting", "Credit", "Savings"],
     },
@@ -40,7 +44,6 @@ export default function LevelUp() {
       totalSeats: 8,
       credits: 30,
       milestones: 6,
-      completed: 0,
       status: "full",
       tags: ["Leadership", "Healing", "Advocacy"],
     },
@@ -52,7 +55,6 @@ export default function LevelUp() {
       totalSeats: 10,
       credits: 50,
       milestones: 7,
-      completed: 0,
       status: "open",
       tags: ["Freelance", "Contracts", "Marketing"],
     },
@@ -64,7 +66,6 @@ export default function LevelUp() {
       totalSeats: 12,
       credits: 20,
       milestones: 4,
-      completed: 0,
       status: "open",
       tags: ["CBT", "Grounding", "Self-care"],
     },
@@ -76,7 +77,6 @@ export default function LevelUp() {
       totalSeats: 8,
       credits: 35,
       milestones: 5,
-      completed: 0,
       status: "active",
       tags: ["Excel", "Google Workspace", "Admin"],
     },
@@ -85,7 +85,6 @@ export default function LevelUp() {
   const myEnrollments = [
     {
       title: "Web Development Fundamentals",
-      track: "Tech",
       trainer: "Maya R.",
       milestones: 5,
       completed: 2,
@@ -95,7 +94,6 @@ export default function LevelUp() {
     },
     {
       title: "Financial Literacy & Budgeting",
-      track: "Finance",
       trainer: "Jordan T.",
       milestones: 4,
       completed: 4,
@@ -119,6 +117,33 @@ export default function LevelUp() {
     full: muted,
   };
 
+  const navItems = [
+    { Icon: Home, label: "Dashboard", active: false },
+    { Icon: BookOpen, label: "Browse Cohorts", active: true },
+    { Icon: TrendingUp, label: "My Progress", active: false },
+    { Icon: Users, label: "My Trainers", active: false },
+    { Icon: Trophy, label: "Achievements", active: false },
+    { Icon: Coins, label: "Credits Wallet", active: false },
+  ];
+
+  const trainerItems = [
+    { Icon: Plus, label: "Create Cohort" },
+    { Icon: CheckCircle, label: "Validate Milestones" },
+    { Icon: DollarSign, label: "Payout History" },
+  ];
+
+  const stats = [
+    { label: "Open Cohorts", value: "18", Icon: BookOpen, color: green },
+    { label: "Enrolled Learners", value: "342", Icon: Users, color: "#3B82F6" },
+    { label: "Milestones Validated", value: "1,204", Icon: CheckCircle, color: "#F59E0B" },
+    { label: "Credits Released", value: "8,910 SC", Icon: Coins, color: "#A855F7" },
+  ];
+
+  const pendingValidations = [
+    { learner: "Amara J.", milestone: "Portfolio site deployed" },
+    { learner: "Tiana B.", milestone: "Budget spreadsheet submitted" },
+  ];
+
   return (
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
       {/* Sidebar */}
@@ -126,7 +151,9 @@ export default function LevelUp() {
         {/* Logo */}
         <div style={{ padding: "20px 16px 16px", borderBottom: `1px solid ${border}` }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-            <div style={{ width: 28, height: 28, borderRadius: 8, background: green, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>🎯</div>
+            <div style={{ width: 28, height: 28, borderRadius: 8, background: green, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Target size={15} color="#000" />
+            </div>
             <span style={{ fontWeight: 700, fontSize: 15, color: text }}>LevelUp</span>
           </div>
           <div style={{ fontSize: 11, color: subtle }}>Training Cohort Marketplace</div>
@@ -134,40 +161,29 @@ export default function LevelUp() {
 
         {/* Nav */}
         <nav style={{ padding: "12px 8px", flex: 1 }}>
-          {[
-            { icon: "🏠", label: "Dashboard", active: false },
-            { icon: "📚", label: "Browse Cohorts", active: true },
-            { icon: "📈", label: "My Progress", active: false },
-            { icon: "👨‍🏫", label: "My Trainers", active: false },
-            { icon: "🏆", label: "Achievements", active: false },
-            { icon: "💳", label: "Credits Wallet", active: false },
-          ].map((item) => (
-            <div key={item.label} style={{
+          {navItems.map(({ Icon, label, active }) => (
+            <div key={label} style={{
               display: "flex", alignItems: "center", gap: 10, padding: "9px 10px",
               borderRadius: 8, marginBottom: 2, cursor: "pointer",
-              background: item.active ? `${green}18` : "transparent",
-              color: item.active ? green : subtle,
-              fontSize: 13, fontWeight: item.active ? 600 : 400,
-              borderLeft: item.active ? `3px solid ${green}` : "3px solid transparent",
+              background: active ? `${green}18` : "transparent",
+              color: active ? green : subtle,
+              fontSize: 13, fontWeight: active ? 600 : 400,
+              borderLeft: active ? `3px solid ${green}` : "3px solid transparent",
             }}>
-              <span style={{ fontSize: 15 }}>{item.icon}</span>
-              {item.label}
+              <Icon size={15} />
+              {label}
             </div>
           ))}
 
           <div style={{ marginTop: 24, padding: "0 10px 8px", fontSize: 11, color: muted, letterSpacing: "0.08em", textTransform: "uppercase" }}>Trainer Tools</div>
-          {[
-            { icon: "➕", label: "Create Cohort" },
-            { icon: "✅", label: "Validate Milestones" },
-            { icon: "💰", label: "Payout History" },
-          ].map((item) => (
-            <div key={item.label} style={{
+          {trainerItems.map(({ Icon, label }) => (
+            <div key={label} style={{
               display: "flex", alignItems: "center", gap: 10, padding: "9px 10px",
               borderRadius: 8, marginBottom: 2, cursor: "pointer",
               color: subtle, fontSize: 13,
             }}>
-              <span style={{ fontSize: 15 }}>{item.icon}</span>
-              {item.label}
+              <Icon size={15} />
+              {label}
             </div>
           ))}
         </nav>
@@ -189,25 +205,21 @@ export default function LevelUp() {
               <h1 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: text }}>Browse Cohorts</h1>
               <div style={{ fontSize: 13, color: subtle, marginTop: 4 }}>Enroll in a training program and grow your skills</div>
             </div>
-            <button style={{ background: green, color: "#000", border: "none", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
-              + Create Cohort
+            <button style={{ display: "flex", alignItems: "center", gap: 6, background: green, color: "#000", border: "none", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+              <Plus size={14} />
+              Create Cohort
             </button>
           </div>
 
           {/* Stats bar */}
           <div style={{ display: "flex", gap: 12, marginBottom: 24 }}>
-            {[
-              { label: "Open Cohorts", value: "18", icon: "📚", color: green },
-              { label: "Enrolled Learners", value: "342", icon: "👥", color: "#3B82F6" },
-              { label: "Milestones Validated", value: "1,204", icon: "✅", color: "#F59E0B" },
-              { label: "Credits Released", value: "8,910 SC", icon: "💳", color: "#A855F7" },
-            ].map((stat) => (
-              <div key={stat.label} style={{ flex: 1, background: surface, borderRadius: 10, padding: "14px 16px", border: `1px solid ${border}` }}>
+            {stats.map(({ label, value, Icon, color }) => (
+              <div key={label} style={{ flex: 1, background: surface, borderRadius: 10, padding: "14px 16px", border: `1px solid ${border}` }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-                  <span style={{ fontSize: 16 }}>{stat.icon}</span>
-                  <span style={{ fontSize: 12, color: subtle }}>{stat.label}</span>
+                  <Icon size={14} color={color} />
+                  <span style={{ fontSize: 12, color: subtle }}>{label}</span>
                 </div>
-                <div style={{ fontSize: 20, fontWeight: 700, color: stat.color }}>{stat.value}</div>
+                <div style={{ fontSize: 20, fontWeight: 700, color }}>{value}</div>
               </div>
             ))}
           </div>
@@ -218,13 +230,13 @@ export default function LevelUp() {
               <button key={track} style={{
                 padding: "7px 14px", borderRadius: 20, border: "none", cursor: "pointer",
                 fontSize: 12, fontWeight: 500,
-                background: i === 0 ? green : `${border}`,
+                background: i === 0 ? green : border,
                 color: i === 0 ? "#000" : subtle,
               }}>{track}</button>
             ))}
             <div style={{ flex: 1 }} />
             <div style={{ display: "flex", alignItems: "center", gap: 8, background: surface, border: `1px solid ${border}`, borderRadius: 8, padding: "7px 12px" }}>
-              <span style={{ color: muted, fontSize: 14 }}>🔍</span>
+              <Search size={13} color={muted} />
               <span style={{ fontSize: 12, color: muted }}>Search cohorts…</span>
             </div>
           </div>
@@ -248,8 +260,11 @@ export default function LevelUp() {
                     </span>
                   </div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: text, marginBottom: 8, lineHeight: 1.4 }}>{cohort.title}</div>
-                  <div style={{ fontSize: 12, color: subtle, marginBottom: 12 }}>
-                    👨‍🏫 {cohort.trainer} &nbsp;·&nbsp; {cohort.milestones} milestones
+                  <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 12, color: subtle, marginBottom: 12 }}>
+                    <User size={12} />
+                    {cohort.trainer}
+                    <span style={{ color: muted }}>·</span>
+                    {cohort.milestones} milestones
                   </div>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
                     {cohort.tags.map(tag => (
@@ -270,7 +285,8 @@ export default function LevelUp() {
                     <button style={{
                       background: cohort.status === "full" ? border : green,
                       color: cohort.status === "full" ? muted : "#000",
-                      border: "none", borderRadius: 7, padding: "7px 14px", fontSize: 12, fontWeight: 600, cursor: cohort.status === "full" ? "not-allowed" : "pointer",
+                      border: "none", borderRadius: 7, padding: "7px 14px", fontSize: 12, fontWeight: 600,
+                      cursor: cohort.status === "full" ? "not-allowed" : "pointer",
                     }}>
                       {cohort.status === "full" ? "Waitlist" : "Enroll"}
                     </button>
@@ -283,8 +299,9 @@ export default function LevelUp() {
 
         {/* Right panel — My Progress */}
         <div style={{ width: 300, background: surface, borderLeft: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
-          <div style={{ padding: "20px 16px 14px", borderBottom: `1px solid ${border}` }}>
-            <div style={{ fontSize: 13, fontWeight: 600, color: text }}>📈 My Enrollments</div>
+          <div style={{ padding: "20px 16px 14px", borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", gap: 8 }}>
+            <TrendingUp size={14} color={green} />
+            <div style={{ fontSize: 13, fontWeight: 600, color: text }}>My Enrollments</div>
           </div>
           <div style={{ flex: 1, overflowY: "auto", padding: "14px 14px" }}>
             {myEnrollments.map((enr) => {
@@ -293,8 +310,6 @@ export default function LevelUp() {
                 <div key={enr.title} style={{ background: bg, borderRadius: 10, padding: "14px", marginBottom: 12, border: `1px solid ${border}` }}>
                   <div style={{ fontSize: 13, fontWeight: 600, color: text, marginBottom: 6, lineHeight: 1.4 }}>{enr.title}</div>
                   <div style={{ fontSize: 11, color: subtle, marginBottom: 10 }}>with {enr.trainer}</div>
-
-                  {/* Progress bar */}
                   <div style={{ marginBottom: 8 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: subtle, marginBottom: 4 }}>
                       <span>Milestones</span>
@@ -304,15 +319,20 @@ export default function LevelUp() {
                       <div style={{ width: `${pct}%`, height: "100%", background: pct === 100 ? green : "#3B82F6", borderRadius: 99 }} />
                     </div>
                   </div>
-
                   {pct === 100 ? (
-                    <div style={{ fontSize: 12, color: green, fontWeight: 600, marginTop: 8 }}>🏆 Completed — credits released!</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: green, fontWeight: 600, marginTop: 8 }}>
+                      <Trophy size={13} />
+                      Completed — credits released!
+                    </div>
                   ) : (
                     <>
                       <div style={{ fontSize: 11, color: subtle, marginTop: 8 }}>Next milestone:</div>
                       <div style={{ fontSize: 12, color: text, marginTop: 2, marginBottom: 8 }}>{enr.nextMilestone}</div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span style={{ fontSize: 11, color: "#F59E0B" }}>⏳ {enr.escrow} SC in escrow</span>
+                        <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "#F59E0B" }}>
+                          <Clock size={11} />
+                          {enr.escrow} SC in escrow
+                        </div>
                         <span style={{ fontSize: 11, color: subtle }}>Due {enr.dueDate}</span>
                       </div>
                     </>
@@ -323,11 +343,11 @@ export default function LevelUp() {
 
             {/* Milestone validation panel for trainers */}
             <div style={{ marginTop: 8, padding: "14px", background: `${green}08`, borderRadius: 10, border: `1px solid ${green}20` }}>
-              <div style={{ fontSize: 12, fontWeight: 600, color: green, marginBottom: 10 }}>✅ Pending Validations</div>
-              {[
-                { learner: "Amara J.", milestone: "Portfolio site deployed", cohort: "Web Dev" },
-                { learner: "Tiana B.", milestone: "Budget spreadsheet submitted", cohort: "Finance" },
-              ].map((v) => (
+              <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 600, color: green, marginBottom: 10 }}>
+                <CheckCircle size={13} />
+                Pending Validations
+              </div>
+              {pendingValidations.map((v) => (
                 <div key={v.learner} style={{ marginBottom: 10, padding: "10px", background: surface, borderRadius: 8, border: `1px solid ${border}` }}>
                   <div style={{ fontSize: 12, color: text, fontWeight: 500 }}>{v.learner}</div>
                   <div style={{ fontSize: 11, color: subtle, marginBottom: 8 }}>{v.milestone}</div>
