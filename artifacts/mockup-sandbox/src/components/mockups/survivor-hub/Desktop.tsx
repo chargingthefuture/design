@@ -6,7 +6,7 @@ import {
   Mic, Home, Car, BookOpen, Hammer, Users, Globe, Coins,
   BarChart2, Heart, Smile, Share2, Search, Send, Plus,
   ChevronRight, Sparkles, Radio, Bell, Settings, MessageSquare,
-  Hash, Zap, ArrowUpRight, X,
+  Hash, Zap, ArrowUpRight, X, ShieldCheck, Eye, ChevronDown,
 } from "lucide-react";
 import { ChymeApp } from "./Chyme";
 
@@ -278,6 +278,40 @@ export function Desktop() {
                 <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 10 }}>Member since 2024</div>
                 <Badge style={{ background: "rgba(124,58,237,0.15)", color: "#A78BFA", border: "1px solid rgba(124,58,237,0.25)", fontSize: 11, padding: "4px 12px", borderRadius: 20 }}>Safe Space ✓</Badge>
               </div>
+
+              {/* Trust widget */}
+              <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(14,165,233,0.06)", border: "1px solid rgba(14,165,233,0.18)", marginBottom: 16 }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+                    <ShieldCheck size={14} style={{ color: "#0EA5E9" }} />
+                    <span style={{ fontSize: 12, fontWeight: 700, color: "#38BDF8", letterSpacing: "0.06em", textTransform: "uppercase" }}>Trust</span>
+                  </div>
+                  <Badge style={{ background: "rgba(14,165,233,0.15)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.3)", fontSize: 10, padding: "2px 8px", borderRadius: 20, display: "flex", alignItems: "center", gap: 4 }}>
+                    <ShieldCheck size={9} /> Verified
+                  </Badge>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginBottom: 10 }}>
+                  {[
+                    { label: "Last Active", value: "Recently" },
+                    { label: "Activity", value: "High" },
+                    { label: "Transactions", value: "Established" },
+                    { label: "Active Plugins", value: "7 apps" },
+                  ].map(({ label, value }) => (
+                    <div key={label} style={{ background: "rgba(255,255,255,0.03)", borderRadius: 8, padding: "7px 9px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                      <div style={{ fontSize: 10, color: "#4B5563", marginBottom: 2 }}>{label}</div>
+                      <div style={{ fontSize: 12, fontWeight: 600, color: "#E2E8F0" }}>{value}</div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "7px 9px", background: "rgba(255,255,255,0.03)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)", cursor: "pointer" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <Eye size={11} style={{ color: "#4B5563" }} />
+                    <span style={{ fontSize: 11, color: "#6B7280" }}>Visible to: All Members</span>
+                  </div>
+                  <ChevronDown size={11} style={{ color: "#4B5563" }} />
+                </div>
+              </div>
+
               <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.15)", marginBottom: 16 }}>
                 <div style={{ fontSize: 13, color: "#C4B5FD", lineHeight: 1.6, fontStyle: "italic", marginBottom: 8 }}>"You are not what happened to you. You are what you choose to become."</div>
                 <div style={{ fontSize: 11, color: "#6B7280" }}>— Carl Jung</div>
