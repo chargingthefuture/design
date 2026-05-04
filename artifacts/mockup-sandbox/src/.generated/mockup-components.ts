@@ -32,6 +32,7 @@ export const modules: ModuleMap = {
   "./components/mockups/survivor-hub/ServiceCredits.tsx": () => import("../components/mockups/survivor-hub/ServiceCredits.tsx"),
   "./components/mockups/survivor-hub/SkillsHunt.tsx": () => import("../components/mockups/survivor-hub/SkillsHunt.tsx"),
   "./components/mockups/survivor-hub/SocketRelay.tsx": () => import("../components/mockups/survivor-hub/SocketRelay.tsx"),
+  "./components/mockups/survivor-hub/Trust.tsx": () => import("../components/mockups/survivor-hub/Trust.tsx"),
   "./components/mockups/survivor-hub/TrustTransport.tsx": () => import("../components/mockups/survivor-hub/TrustTransport.tsx"),
   "./components/mockups/survivor-hub/Workforce.tsx": () => import("../components/mockups/survivor-hub/Workforce.tsx")
 };

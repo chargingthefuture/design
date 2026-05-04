@@ -279,95 +279,57 @@ export function Desktop() {
                 <Badge style={{ background: "rgba(124,58,237,0.15)", color: "#A78BFA", border: "1px solid rgba(124,58,237,0.25)", fontSize: 11, padding: "4px 12px", borderRadius: 20 }}>Safe Space ✓</Badge>
               </div>
 
-              {/* Trust widget */}
+              {/* Trust widget — EMPTY STATE (new members with no activity yet) */}
+              {/* See Trust.tsx for the verified/populated state side-by-side reference */}
               <div style={{ borderRadius: 12, background: "rgba(14,165,233,0.06)", border: "1px solid rgba(14,165,233,0.18)", marginBottom: 16, overflow: "hidden" }}>
-                {/* Header — always visible */}
+                {/* Header */}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 14px 10px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
                     <ShieldCheck size={14} style={{ color: "#0EA5E9" }} />
                     <span style={{ fontSize: 12, fontWeight: 700, color: "#38BDF8", letterSpacing: "0.06em", textTransform: "uppercase" }}>Trust</span>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    {/* Wireframe toggle — shows both states for engineer reference */}
-                    <button onClick={() => setTrustState(trustState === "empty" ? "verified" : "empty")} style={{ fontSize: 9, color: "#4B5563", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, padding: "2px 7px", cursor: "pointer" }}>
-                      {trustState === "empty" ? "▶ preview verified" : "▶ preview empty"}
-                    </button>
-                    <Badge style={{ background: trustState === "verified" ? "rgba(14,165,233,0.15)" : "rgba(255,255,255,0.05)", color: trustState === "verified" ? "#38BDF8" : "#6B7280", border: `1px solid ${trustState === "verified" ? "rgba(14,165,233,0.3)" : "rgba(255,255,255,0.08)"}`, fontSize: 10, padding: "2px 8px", borderRadius: 20, display: "flex", alignItems: "center", gap: 4 }}>
-                      <ShieldCheck size={9} />
-                      {trustState === "verified" ? "Verified" : "Unverified"}
-                    </Badge>
-                  </div>
+                  <Badge style={{ background: "rgba(255,255,255,0.05)", color: "#6B7280", border: "1px solid rgba(255,255,255,0.08)", fontSize: 10, padding: "2px 8px", borderRadius: 20, display: "flex", alignItems: "center", gap: 4 }}>
+                    <ShieldCheck size={9} /> Unverified
+                  </Badge>
                 </div>
 
-                {trustState === "empty" ? (
-                  /* ── EMPTY STATE ── */
-                  <div style={{ padding: "4px 14px 14px" }}>
-                    {/* Visual placeholder */}
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "16px 0 14px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-                      <div style={{ width: 44, height: 44, borderRadius: "50%", border: "2px dashed rgba(14,165,233,0.3)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 10 }}>
-                        <ShieldCheck size={20} style={{ color: "rgba(14,165,233,0.4)" }} />
-                      </div>
-                      <div style={{ fontSize: 13, fontWeight: 600, color: "#9CA3AF", marginBottom: 4 }}>No trust signals yet</div>
-                      <div style={{ fontSize: 11, color: "#4B5563", textAlign: "center", lineHeight: 1.5 }}>
-                        Trust signals appear as you participate in the community
-                      </div>
+                {/* Empty body */}
+                <div style={{ padding: "4px 14px 14px" }}>
+                  {/* Visual placeholder */}
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "16px 0 14px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", border: "2px dashed rgba(14,165,233,0.3)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 10 }}>
+                      <ShieldCheck size={20} style={{ color: "rgba(14,165,233,0.4)" }} />
                     </div>
-
-                    {/* Steps to earn trust */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 12 }}>
-                      {[
-                        { label: "Complete your profile", done: false },
-                        { label: "Make your first transaction", done: false },
-                        { label: "Use at least one plugin", done: false },
-                      ].map(({ label, done }) => (
-                        <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 9px", background: "rgba(255,255,255,0.02)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)" }}>
-                          <div style={{ width: 16, height: 16, borderRadius: "50%", border: `1.5px solid ${done ? "#0EA5E9" : "rgba(255,255,255,0.12)"}`, background: done ? "rgba(14,165,233,0.15)" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                            {done && <ChevronDown size={9} style={{ color: "#0EA5E9" }} />}
-                          </div>
-                          <span style={{ fontSize: 11, color: "#6B7280" }}>{label}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Request verification CTA */}
-                    <button style={{ width: "100%", background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.25)", borderRadius: 8, padding: "8px 0", fontSize: 12, fontWeight: 600, color: "#38BDF8", cursor: "pointer" }}>
-                      Request Verification
-                    </button>
-
-                    {/* Visibility — still user-controlled even when empty */}
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "7px 0 0", marginTop: 10, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                        <Eye size={11} style={{ color: "#4B5563" }} />
-                        <span style={{ fontSize: 11, color: "#4B5563" }}>Visible to: Public</span>
-                      </div>
-                      <ChevronDown size={11} style={{ color: "#4B5563" }} />
+                    <div style={{ fontSize: 13, fontWeight: 600, color: "#9CA3AF", marginBottom: 4 }}>No trust signals yet</div>
+                    <div style={{ fontSize: 11, color: "#4B5563", textAlign: "center", lineHeight: 1.5 }}>
+                      Trust signals appear as you participate in the community
                     </div>
                   </div>
-                ) : (
-                  /* ── VERIFIED STATE ── */
-                  <div style={{ padding: "4px 14px 14px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginBottom: 10 }}>
-                      {[
-                        { label: "Last Active", value: "Recently" },
-                        { label: "Activity", value: "High" },
-                        { label: "Transactions", value: "Established" },
-                        { label: "Active Plugins", value: "7 apps" },
-                      ].map(({ label, value }) => (
-                        <div key={label} style={{ background: "rgba(255,255,255,0.03)", borderRadius: 8, padding: "7px 9px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                          <div style={{ fontSize: 10, color: "#4B5563", marginBottom: 2 }}>{label}</div>
-                          <div style={{ fontSize: 12, fontWeight: 600, color: "#E2E8F0" }}>{value}</div>
-                        </div>
-                      ))}
-                    </div>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "7px 9px", background: "rgba(255,255,255,0.03)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)", cursor: "pointer" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                        <Eye size={11} style={{ color: "#4B5563" }} />
-                        <span style={{ fontSize: 11, color: "#6B7280" }}>Visible to: All Members</span>
+
+                  {/* Steps to earn trust — all unchecked */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 12 }}>
+                    {["Complete your profile", "Make your first transaction", "Use at least one plugin"].map((label) => (
+                      <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 9px", background: "rgba(255,255,255,0.02)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)" }}>
+                        <div style={{ width: 16, height: 16, borderRadius: "50%", border: "1.5px solid rgba(255,255,255,0.12)", flexShrink: 0 }} />
+                        <span style={{ fontSize: 11, color: "#6B7280" }}>{label}</span>
                       </div>
-                      <ChevronDown size={11} style={{ color: "#4B5563" }} />
-                    </div>
+                    ))}
                   </div>
-                )}
+
+                  {/* CTA */}
+                  <button style={{ width: "100%", background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.25)", borderRadius: 8, padding: "8px 0", fontSize: 12, fontWeight: 600, color: "#38BDF8", cursor: "pointer" }}>
+                    Request Verification
+                  </button>
+
+                  {/* Visibility — user-controlled even when empty */}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "7px 0 0", marginTop: 10, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <Eye size={11} style={{ color: "#4B5563" }} />
+                      <span style={{ fontSize: 11, color: "#4B5563" }}>Visible to: Public</span>
+                    </div>
+                    <ChevronDown size={11} style={{ color: "#4B5563" }} />
+                  </div>
+                </div>
               </div>
 
               <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.15)", marginBottom: 16 }}>
