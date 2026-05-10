@@ -34,6 +34,7 @@ export function Directory() {
   const [tab, setTab] = useState<"browse" | "chat">("browse");
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
+  const [emptyMode, setEmptyMode] = useState(false);
 
   const send = () => {
     if (!input.trim()) return;
@@ -184,9 +185,39 @@ export function Directory() {
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>✓ Verified Network</Badge>
           <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
+          <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
         {tab === "browse" ? (
+          emptyMode ? (
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 16 }}>
+              <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Users size={32} style={{ color: COLOR, opacity: 0.5 }} />
+              </div>
+              <div style={{ textAlign: "center", maxWidth: 400 }}>
+                <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No providers found</div>
+                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>No trauma-informed providers match your current filter. Try broadening your search, or check back as new providers join the network. All providers are background-verified before listing.</div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, width: "100%", maxWidth: 540 }}>
+                {["Therapists", "Housing", "Legal", "Employment", "Finance", "Tech"].map((cat) => (
+                  <div key={cat} style={{ padding: "12px", borderRadius: 10, background: "rgba(59,130,246,0.04)", border: "1px dashed rgba(59,130,246,0.2)", textAlign: "center" }}>
+                    <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(59,130,246,0.08)", margin: "0 auto 6px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Briefcase size={14} style={{ color: COLOR, opacity: 0.4 }} />
+                    </div>
+                    <div style={{ fontSize: 12, color: "#4B5563" }}>{cat}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", gap: 12 }}>
+                <button style={{ padding: "12px 24px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+                  <Globe size={16} /> Browse All Providers
+                </button>
+                <button style={{ padding: "12px 24px", borderRadius: 12, background: "rgba(59,130,246,0.12)", border: "1px solid rgba(59,130,246,0.3)", color: COLOR, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+                  Clear Filters
+                </button>
+              </div>
+            </div>
+          ) : (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               <div style={{ marginBottom: 20, padding: "20px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}20 0%,rgba(14,165,233,0.1) 100%)`, border: `1px solid ${COLOR}25` }}>
@@ -235,6 +266,7 @@ export function Directory() {
               </div>
             </div>
           </ScrollArea>
+          )
         ) : (
           <div style={{ flex: 1, display: "flex", flexDirection: "column", minHeight: 0 }}>
             <ScrollArea style={{ flex: 1, padding: "16px 24px" }}>

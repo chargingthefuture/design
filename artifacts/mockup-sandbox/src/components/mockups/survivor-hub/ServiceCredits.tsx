@@ -47,6 +47,7 @@ export function ServiceCredits() {
   const [msgs, setMsgs] = useState(CHAT);
   const [sendAmount, setSendAmount] = useState("");
   const [sending, setSending] = useState(false);
+  const [emptyMode, setEmptyMode] = useState(false);
 
   const send = () => {
     if (!input.trim()) return;
@@ -121,9 +122,43 @@ export function ServiceCredits() {
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>2,420 Credits</Badge>
           <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
+          <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
         {tab === "wallet" ? (
+          emptyMode ? (
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 20 }}>
+              <div style={{ padding: "28px 40px", borderRadius: 20, background: "rgba(245,158,11,0.06)", border: "1px dashed rgba(245,158,11,0.2)", textAlign: "center", width: "100%", maxWidth: 420 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "#F59E0B", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 12 }}>Your Balance</div>
+                <div style={{ fontSize: 56, fontWeight: 900, color: "#4B5563", lineHeight: 1, marginBottom: 8 }}>0 <span style={{ fontSize: 20, color: "#6B7280", fontWeight: 700 }}>credits</span></div>
+                <div style={{ fontSize: 14, color: "#4B5563" }}>No purchasing power yet</div>
+              </div>
+              <div style={{ textAlign: "center", maxWidth: 380 }}>
+                <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>Your wallet is empty</div>
+                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7 }}>Earn your first Service Credits by completing a Skills Hunt round, verifying your profile, or receiving a peer transfer. Every transaction is recorded on the Formance ledger.</div>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 440 }}>
+                {[
+                  { action: "Complete Skills Hunt round", reward: "+200 credits", color: "#A855F7" },
+                  { action: "Verify your provider profile", reward: "+50 credits", color: "#3B82F6" },
+                  { action: "Refer a survivor to the Hub", reward: "+100 credits", color: "#22C55E" },
+                ].map(({ action, reward, color }) => (
+                  <div key={action} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", borderRadius: 12, background: `${color}08`, border: `1px solid ${color}20` }}>
+                    <Zap size={16} style={{ color, flexShrink: 0 }} />
+                    <span style={{ flex: 1, fontSize: 13, color: "#E8EAF0" }}>{action}</span>
+                    <span style={{ fontSize: 13, fontWeight: 700, color }}>{reward}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ padding: "12px 20px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 10 }}>
+                <RefreshCw size={14} style={{ color: "#4B5563" }} />
+                <span style={{ fontSize: 12, color: "#4B5563" }}>No transaction history · Formance ledger is ready and waiting</span>
+              </div>
+              <button style={{ padding: "12px 28px", borderRadius: 12, background: COLOR, border: "none", color: "#0F1117", fontSize: 14, fontWeight: 800, cursor: "pointer" }}>
+                Start Earning Credits
+              </button>
+            </div>
+          ) : (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               {/* Balance card */}
@@ -171,6 +206,7 @@ export function ServiceCredits() {
               </div>
             </div>
           </ScrollArea>
+          )
         ) : tab === "earn" ? (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>

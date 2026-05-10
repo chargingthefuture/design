@@ -47,6 +47,7 @@ export function SkillsHunt() {
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
   const [joined, setJoined] = useState<number[]>([]);
+  const [emptyMode, setEmptyMode] = useState(false);
 
   const send = () => {
     if (!input.trim()) return;
@@ -120,9 +121,37 @@ export function SkillsHunt() {
           </div>
           <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E35", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>🔴 2 Live</Badge>
           <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
+          <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
         {tab === "rounds" ? (
+          emptyMode ? (
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 16 }}>
+              <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Award size={32} style={{ color: COLOR, opacity: 0.5 }} />
+              </div>
+              <div style={{ textAlign: "center", maxWidth: 380 }}>
+                <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No rounds available</div>
+                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>Skills Hunt rounds are cohort-based learning programs posted by verified trainers. New rounds are announced in real-time via GetStream. Check back soon or get notified.</div>
+              </div>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+                {[{ label: "No live rounds", icon: Zap }, { label: "No upcoming rounds", icon: Clock }, { label: "No completed rounds", icon: CheckCircle }].map(({ label, icon: Icon }) => (
+                  <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "12px 16px", borderRadius: 10, background: "rgba(168,85,247,0.06)", border: "1px dashed rgba(168,85,247,0.2)" }}>
+                    <Icon size={14} style={{ color: COLOR }} />
+                    <span style={{ fontSize: 13, color: "#6B7280" }}>{label}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", gap: 12 }}>
+                <button style={{ padding: "12px 24px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+                  <Bell size={16} /> Notify Me When Live
+                </button>
+                <button style={{ padding: "12px 24px", borderRadius: 12, background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: COLOR, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+                  Post a Round
+                </button>
+              </div>
+            </div>
+          ) : (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Active Rounds</div>
@@ -171,6 +200,7 @@ export function SkillsHunt() {
               </div>
             </div>
           </ScrollArea>
+          )
         ) : tab === "leaderboard" ? (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>

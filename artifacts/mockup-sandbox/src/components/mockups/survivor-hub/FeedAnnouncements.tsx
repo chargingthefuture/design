@@ -56,6 +56,7 @@ export function FeedAnnouncements() {
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
   const [liked, setLiked] = useState<number[]>([]);
+  const [emptyMode, setEmptyMode] = useState(false);
 
   const send = () => {
     if (!input.trim()) return;
@@ -123,9 +124,32 @@ export function FeedAnnouncements() {
             <Plus size={14} /> New Post
           </button>
           <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
+          <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
         {tab === "feed" ? (
+          emptyMode ? (
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 16 }}>
+              <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Megaphone size={32} style={{ color: COLOR, opacity: 0.5 }} />
+              </div>
+              <div style={{ textAlign: "center", maxWidth: 380 }}>
+                <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No posts yet</div>
+                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>The community feed is quiet right now. Posts, announcements, and urgent alerts will stream here in real-time via GetStream as the community grows.</div>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 520 }}>
+                {["Announcements from the Hub team", "Community stories from survivors", "Urgent housing and safety alerts", "Milestones and celebrations"].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px dashed rgba(255,255,255,0.08)" }}>
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(139,92,246,0.3)", flexShrink: 0 }} />
+                    <span style={{ fontSize: 13, color: "#6B7280" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <button style={{ padding: "12px 28px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+                <Plus size={16} /> Create First Announcement
+              </button>
+            </div>
+          ) : (
           <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
             <ScrollArea style={{ flex: 1, padding: "20px 24px" }}>
               {POSTS.filter((p) => filter === "All" || p.type === filter.toLowerCase().replace(" ", "")).map((post) => (
@@ -171,6 +195,7 @@ export function FeedAnnouncements() {
               ))}
             </ScrollArea>
           </div>
+          )
         ) : tab === "chat" ? (
           <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
             <ScrollArea style={{ flex: 1, padding: "16px 24px" }}>

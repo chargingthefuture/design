@@ -158,6 +158,7 @@ export function Foundation() {
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
   const [selected, setSelected] = useState<number | null>(null);
+  const [emptyQuotes, setEmptyQuotes] = useState(false);
 
   const send = () => {
     if (!input.trim()) return;
@@ -946,20 +947,35 @@ export function Foundation() {
         ) : tab === "quotes" ? (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
-              <div
-                style={{
-                  fontSize: 20,
-                  fontWeight: 800,
-                  color: "#F9FAFB",
-                  marginBottom: 4,
-                }}
-              >
-                My Quote Requests
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB" }}>My Quote Requests</div>
+                <button onClick={() => setEmptyQuotes(q => !q)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyQuotes ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyQuotes ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyQuotes ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyQuotes ? "Empty State ✓" : "Show Empty State"}</button>
               </div>
               <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>
                 Track your service requests and responses
               </div>
-              {QUOTES.map((q) => (
+              {emptyQuotes ? (
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "48px 24px", gap: 16 }}>
+                  <div style={{ width: 64, height: 64, borderRadius: 18, background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <FileText size={28} style={{ color: COLOR, opacity: 0.5 }} />
+                  </div>
+                  <div style={{ textAlign: "center", maxWidth: 360 }}>
+                    <div style={{ fontSize: 18, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No quote requests yet</div>
+                    <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 20 }}>When you request quotes from trade providers, they'll appear here. You can track status (Pending, Accepted, Rejected) and manage your service history in one place.</div>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 400 }}>
+                    {["Request an electrician or plumber", "Get quotes from multiple providers", "Accept a quote and pay with Service Credits"].map((step, i) => (
+                      <div key={step} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px dashed rgba(239,68,68,0.15)" }}>
+                        <div style={{ width: 22, height: 22, borderRadius: "50%", background: `${COLOR}15`, border: `1px solid ${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 11, fontWeight: 700, color: COLOR }}>{i + 1}</div>
+                        <span style={{ fontSize: 13, color: "#6B7280" }}>{step}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <button style={{ padding: "12px 24px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+                    <Wrench size={16} /> Request a Trade Service
+                  </button>
+                </div>
+              ) : QUOTES.map((q) => (
                 <div
                   key={q.id}
                   style={{

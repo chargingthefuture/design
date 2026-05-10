@@ -1,7 +1,8 @@
+import { useState } from "react";
 import {
   Home, BookOpen, TrendingUp, Users, Trophy, Coins,
   Plus, CheckCircle, DollarSign, Target, Search, Clock,
-  User, ChevronRight,
+  User, ChevronRight, BookMarked,
 } from "lucide-react";
 
 export default function LevelUp() {
@@ -143,6 +144,8 @@ export default function LevelUp() {
     { learner: "Amara J.", milestone: "Portfolio site deployed" },
     { learner: "Tiana B.", milestone: "Budget spreadsheet submitted" },
   ];
+
+  const [emptyMode, setEmptyMode] = useState(false);
 
   return (
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
@@ -301,10 +304,32 @@ export default function LevelUp() {
         <div style={{ width: 300, background: surface, borderLeft: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
           <div style={{ padding: "20px 16px 14px", borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", gap: 8 }}>
             <TrendingUp size={14} color={green} />
-            <div style={{ fontSize: 13, fontWeight: 600, color: text }}>My Enrollments</div>
+            <div style={{ fontSize: 13, fontWeight: 600, color: text, flex: 1 }}>My Enrollments</div>
+            <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "3px 10px", borderRadius: 20, background: emptyMode ? "rgba(239,68,68,0.12)" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid rgba(239,68,68,0.3)" : `1px solid ${border}`, color: emptyMode ? "#EF4444" : "#4B5563", fontSize: 10, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty ✓" : "Empty?"}</button>
           </div>
           <div style={{ flex: 1, overflowY: "auto", padding: "14px 14px" }}>
-            {myEnrollments.map((enr) => {
+            {emptyMode ? (
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 16px", gap: 12, textAlign: "center" }}>
+                <div style={{ width: 52, height: 52, borderRadius: 14, background: `${green}10`, border: `1px solid ${green}20`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <BookMarked size={22} style={{ color: green, opacity: 0.5 }} />
+                </div>
+                <div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: text, marginBottom: 6 }}>Not enrolled yet</div>
+                  <div style={{ fontSize: 12, color: subtle, lineHeight: 1.6 }}>Browse cohorts and enroll to start tracking your milestones. Service Credits are held in escrow until each milestone is verified by your trainer.</div>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "100%" }}>
+                  {["Choose a cohort", "Pay credits into escrow", "Complete milestones", "Trainer validates & credits release"].map((step, i) => (
+                    <div key={step} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, background: bg, border: `1px solid ${border}` }}>
+                      <div style={{ width: 18, height: 18, borderRadius: "50%", background: `${green}15`, border: `1px solid ${green}25`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, color: green, flexShrink: 0 }}>{i + 1}</div>
+                      <span style={{ fontSize: 11, color: subtle }}>{step}</span>
+                    </div>
+                  ))}
+                </div>
+                <button style={{ width: "100%", padding: "10px", borderRadius: 8, background: green, border: "none", color: "#000", fontSize: 13, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+                  <Plus size={13} /> Browse Cohorts
+                </button>
+              </div>
+            ) : myEnrollments.map((enr) => {
               const pct = Math.round((enr.completed / enr.milestones) * 100);
               return (
                 <div key={enr.title} style={{ background: bg, borderRadius: 10, padding: "14px", marginBottom: 12, border: `1px solid ${border}` }}>

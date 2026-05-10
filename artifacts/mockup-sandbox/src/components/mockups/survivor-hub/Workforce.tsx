@@ -37,6 +37,7 @@ export function Workforce() {
   const [tab, setTab] = useState<"dashboard" | "chat">("dashboard");
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
+  const [emptyMode, setEmptyMode] = useState(false);
 
   const send = () => {
     if (!input.trim()) return;
@@ -99,9 +100,38 @@ export function Workforce() {
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>Phase 1</Badge>
           <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
+          <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
         {tab === "dashboard" ? (
+          emptyMode ? (
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 16 }}>
+              <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <BarChart2 size={32} style={{ color: "#6366F1", opacity: 0.5 }} />
+              </div>
+              <div style={{ textAlign: "center", maxWidth: 360 }}>
+                <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No workforce data yet</div>
+                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>Once survivors complete their profile and onboarding, workforce distribution and skill gap analysis will appear here. Live data is powered by GetStream.</div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, width: "100%", maxWidth: 700 }}>
+                {[{ label: "Total Members", color: "#6366F1" }, { label: "Employed", color: "#22C55E" }, { label: "In Training", color: "#F59E0B" }, { label: "Skill Gaps", color: "#EF4444" }].map(({ label, color }) => (
+                  <div key={label} style={{ padding: "20px", borderRadius: 16, background: `${color}06`, border: `1px dashed ${color}25`, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+                    <div style={{ width: 32, height: 8, borderRadius: 4, background: `${color}20` }} />
+                    <div style={{ fontSize: 12, color: "#4B5563", textAlign: "center" }}>{label}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ padding: "16px 24px", borderRadius: 12, background: "rgba(99,102,241,0.06)", border: "1px dashed rgba(99,102,241,0.2)", width: "100%", maxWidth: 700 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#6366F1", marginBottom: 6, display: "flex", alignItems: "center", gap: 6 }}>
+                  <Target size={14} /> Critical Skill Gaps
+                </div>
+                <div style={{ fontSize: 13, color: "#4B5563" }}>No skill gap data — gaps populate as workforce profiles are submitted and analyzed. Sourced from Workforce × LevelUp cross-reference.</div>
+              </div>
+              <button style={{ padding: "12px 28px", borderRadius: 12, background: "#6366F1", border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+                <Plus size={16} /> Invite Survivors to Onboard
+              </button>
+            </div>
+          ) : (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               {/* Hero stats */}
@@ -167,6 +197,7 @@ export function Workforce() {
               </div>
             </div>
           </ScrollArea>
+          )
         ) : (
           <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
             <ScrollArea style={{ flex: 1, padding: "16px 24px" }}>
