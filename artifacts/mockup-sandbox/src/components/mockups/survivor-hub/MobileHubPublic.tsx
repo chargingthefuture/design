@@ -44,7 +44,7 @@ export function MobileHubPublic() {
         <button style={{ padding: "5px 10px", borderRadius: 6, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.25)", color: "#fff", fontWeight: 600, fontSize: 11, display: "flex", alignItems: "center", gap: 4 }}>
           <LogIn size={11} /> Sign In
         </button>
-        <button style={{ padding: "5px 10px", borderRadius: 6, background: "#fff", border: "none", color: accent, fontWeight: 700, fontSize: 11 }}>
+        <button style={{ padding: "5px 10px", borderRadius: 6, background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.45)", color: "#fff", fontWeight: 700, fontSize: 11 }}>
           Join Free
         </button>
       </div>
