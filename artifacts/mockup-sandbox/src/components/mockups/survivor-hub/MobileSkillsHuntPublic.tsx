@@ -26,7 +26,7 @@ export function MobileSkillsHuntPublic() {
           <span style={{ color: COLOR }}>& map their skills</span>
         </h2>
         <p style={{ margin: 0, fontSize: 13, color: "#9CA3AF", lineHeight: 1.6 }}>
-          This is not a referral button. You nominate survivors you personally know — entering their name, Quora profile, and skills so we can trade with each other and stop depending on traffickers.
+          This is not a referral button. You nominate someone you believe may be a survivor — first name, bio, Quora profile, skills, and professions. Their profile seeds the Directory so we can trade and stop depending on traffickers.
         </p>
 
         {/* Stats */}
@@ -46,7 +46,7 @@ export function MobileSkillsHuntPublic() {
       <div style={{ flex: 1, padding: "0 20px 20px", position: "relative" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, filter: "blur(4px)", pointerEvents: "none", opacity: 0.4 }}>
           <div style={{ fontSize: 14, fontWeight: 700 }}>Nominate a Survivor</div>
-          {["First Name / Last Name", "Quora Profile URL", "Skills"].map(f => (
+          {["First Name", "Bio", "Quora Profile URL", "Skills", "Claimed Professions"].map(f => (
             <div key={f}>
               <div style={{ fontSize: 11, color: "#6B7280", marginBottom: 4 }}>{f}</div>
               <div style={{ height: 40, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }} />
@@ -59,7 +59,7 @@ export function MobileSkillsHuntPublic() {
             <Lock size={20} color={COLOR} />
           </div>
           <div style={{ fontSize: 15, fontWeight: 700, textAlign: "center" }}>Join to start scouting</div>
-          <div style={{ fontSize: 12, color: "#6B7280", textAlign: "center", maxWidth: 260, lineHeight: 1.5 }}>Survivors only. Nominate people you know and help build our self-sustaining economy.</div>
+          <div style={{ fontSize: 12, color: "#6B7280", textAlign: "center", maxWidth: 260, lineHeight: 1.5 }}>Survivors only. Nominate people you believe may be survivors and help build our self-sustaining economy.</div>
           <button style={{ padding: "11px 28px", borderRadius: 9, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Sign in to scout</button>
         </div>
       </div>

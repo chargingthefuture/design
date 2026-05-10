@@ -52,16 +52,15 @@ export function SkillsHuntLoading() {
 
           <div style={{ display: "flex", gap: 24 }}>
             <div style={{ flex: 1, maxWidth: 560, display: "flex", flexDirection: "column", gap: 18 }}>
-              {/* Name row */}
-              <div style={{ display: "flex", gap: 12 }}>
-                <div style={{ flex: 1 }}>
-                  <Sk w={80} h={10} r={4} />
-                  <div style={{ marginTop: 8 }}><Sk h={40} r={10} /></div>
-                </div>
-                <div style={{ flex: 1 }}>
-                  <Sk w={80} h={10} r={4} />
-                  <div style={{ marginTop: 8 }}><Sk h={40} r={10} /></div>
-                </div>
+              {/* First Name */}
+              <div>
+                <Sk w={80} h={10} r={4} />
+                <div style={{ marginTop: 8 }}><Sk h={40} r={10} /></div>
+              </div>
+              {/* Bio */}
+              <div>
+                <Sk w={120} h={10} r={4} />
+                <div style={{ marginTop: 8 }}><Sk h={60} r={10} /></div>
               </div>
               {/* Quora */}
               <div>
@@ -78,6 +77,14 @@ export function SkillsHuntLoading() {
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
                   {[1,2,3,4,5,6].map(i => <Sk key={i} w={80} h={26} r={13} />)}
                 </div>
+              </div>
+              {/* Claimed Professions */}
+              <div>
+                <Sk w={160} h={10} r={4} />
+                <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+                  {[1,2].map(i => <Sk key={i} w={80} h={26} r={13} />)}
+                </div>
+                <div style={{ marginTop: 10 }}><Sk h={40} r={10} /></div>
               </div>
               <Sk h={48} r={12} />
             </div>

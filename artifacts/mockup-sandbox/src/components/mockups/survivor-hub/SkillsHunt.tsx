@@ -4,8 +4,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
   Search, Trophy, Target, Plus, X, ExternalLink,
-  Bell, Settings, CheckCircle, Lock, Zap, Star,
-  Users, TrendingUp, Send,
+  Bell, Settings, CheckCircle, Lock, Zap,
+  Users, Send,
 } from "lucide-react";
 
 const COLOR = "#A855F7";
@@ -27,14 +27,14 @@ const MISSIONS = [
 ];
 
 const MY_FINDS = [
-  { name: "D. Williams", skills: ["Carpentry", "Plumbing"], quora: true, status: "verified",  date: "2 days ago" },
-  { name: "C. Mensah",   skills: ["Graphic Design", "Photography"], quora: true, status: "verified",  date: "5 days ago" },
-  { name: "R. Torres",   skills: ["Nursing", "Counseling"], quora: false, status: "pending",  date: "1 week ago" },
-  { name: "A. Kim",      skills: ["Software Engineering", "UI Design"], quora: true, status: "hidden_gem", date: "2 weeks ago" },
+  { name: "D. Williams", skills: ["Carpentry", "Plumbing"],              quora: true,  status: "verified",   date: "2 days ago" },
+  { name: "C. Mensah",   skills: ["Graphic Design", "Photography"],      quora: true,  status: "verified",   date: "5 days ago" },
+  { name: "R. Torres",   skills: ["Nursing", "Counseling"],              quora: false, status: "pending",    date: "1 week ago" },
+  { name: "A. Kim",      skills: ["Software Engineering", "UI Design"],  quora: true,  status: "hidden_gem", date: "2 weeks ago" },
 ];
 
 const BADGES = [
-  { name: "First Find",    emoji: "🔍", earned: true,  desc: "Submitted your first survivor" },
+  { name: "First Find",    emoji: "🔍", earned: true,  desc: "Submitted your first entry" },
   { name: "Seedling",      emoji: "🌱", earned: true,  desc: "5 submissions" },
   { name: "Scout",         emoji: "🌿", earned: true,  desc: "10 submissions" },
   { name: "Hidden Gem",    emoji: "💎", earned: true,  desc: "Found a rare skill" },
@@ -49,33 +49,46 @@ const SKILL_SUGGESTIONS = [
   "Auto Repair", "Hair & Beauty", "Farming", "Welding", "Masonry",
 ];
 
+const PROFESSION_SUGGESTIONS = [
+  "Electrician", "Nurse", "Software Developer", "Designer", "Teacher",
+  "Carpenter", "Chef", "Paralegal", "Translator", "Accountant",
+];
+
 type Tab = "scout" | "leaderboard" | "missions" | "my-finds";
 
 export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
-  const [tab, setTab]           = useState<Tab>("scout");
-  const [firstName, setFirst]   = useState("");
-  const [lastName, setLast]     = useState("");
-  const [quora, setQuora]       = useState("");
-  const [skills, setSkills]     = useState<string[]>([]);
+  const [tab, setTab]               = useState<Tab>("scout");
+  const [firstName, setFirst]       = useState("");
+  const [bio, setBio]               = useState("");
+  const [quora, setQuora]           = useState("");
+  const [skills, setSkills]         = useState<string[]>([]);
   const [skillInput, setSkillInput] = useState("");
+  const [professions, setProfessions] = useState<string[]>([]);
+  const [profInput, setProfInput]   = useState("");
   const [submitted, setSubmitted]   = useState(false);
-  const [emptyMode]             = useState(initialEmpty);
+  const [emptyMode]                 = useState(initialEmpty);
 
   const addSkill = (s: string) => {
-    const trimmed = s.trim();
-    if (trimmed && !skills.includes(trimmed)) setSkills(sk => [...sk, trimmed]);
+    const t = s.trim();
+    if (t && !skills.includes(t)) setSkills(sk => [...sk, t]);
     setSkillInput("");
   };
 
+  const addProfession = (s: string) => {
+    const t = s.trim();
+    if (t && !professions.includes(t)) setProfessions(p => [...p, t]);
+    setProfInput("");
+  };
+
   const handleSubmit = () => {
-    if (firstName && lastName && skills.length) setSubmitted(true);
+    if (firstName && skills.length) setSubmitted(true);
   };
 
   const TABS: { key: Tab; icon: typeof Search; label: string }[] = [
-    { key: "scout",       icon: Search,     label: "Scout" },
-    { key: "leaderboard", icon: Trophy,     label: "Leaderboard" },
-    { key: "missions",    icon: Target,     label: "Missions" },
-    { key: "my-finds",    icon: Users,      label: "My Finds" },
+    { key: "scout",       icon: Search,  label: "Scout" },
+    { key: "leaderboard", icon: Trophy,  label: "Leaderboard" },
+    { key: "missions",    icon: Target,  label: "Missions" },
+    { key: "my-finds",    icon: Users,   label: "My Finds" },
   ];
 
   return (
@@ -103,18 +116,17 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
       <aside style={{ width: 240, background: "#0D0F14", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 4 }}>🔍 Skills Hunt</div>
-          <div style={{ fontSize: 12, color: "#4B5563", lineHeight: 1.5, marginBottom: 12 }}>Nominate survivors you know — populate the Directory, build the economy.</div>
+          <div style={{ fontSize: 12, color: "#4B5563", lineHeight: 1.5, marginBottom: 12 }}>Nominate survivors — populate the Directory, build the economy.</div>
         </div>
         <ScrollArea style={{ flex: 1 }}>
           <div style={{ padding: "0 8px 16px" }}>
-            {TABS.map(({ key, icon: Icon, label }, i) => (
+            {TABS.map(({ key, icon: Icon, label }) => (
               <button key={key} onClick={() => setTab(key)} style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: tab === key ? `${COLOR}18` : "transparent", borderLeft: tab === key ? `2px solid ${COLOR}` : "2px solid transparent", marginLeft: 2, marginBottom: 2, border: "none", textAlign: "left" }}>
                 <Icon size={14} style={{ color: tab === key ? COLOR : "#6B7280" }} />
                 <span style={{ fontSize: 13, color: tab === key ? "#E8EAF0" : "#9CA3AF", flex: 1 }}>{label}</span>
                 {key === "missions" && <span style={{ background: "#22C55E", borderRadius: 10, fontSize: 11, fontWeight: 700, color: "#fff", padding: "1px 6px" }}>4</span>}
               </button>
             ))}
-
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Your Badges</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, padding: "0 10px" }}>
               {BADGES.map((b) => (
@@ -158,7 +170,7 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                   </div>
                   <div>
                     <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 8 }}>No scouts yet — be first</div>
-                    <div style={{ fontSize: 14, color: "#6B7280", maxWidth: 400, lineHeight: 1.7 }}>You know survivors who aren't in the network yet. Nominate them below — their Quora profile provides social proof, and their skills help us match services within our economy.</div>
+                    <div style={{ fontSize: 14, color: "#6B7280", maxWidth: 400, lineHeight: 1.7 }}>Think of someone you believe may be a survivor. Their Quora profile provides social proof, and their skills help build our economy so we can trade with each other.</div>
                   </div>
                   <button onClick={() => setSubmitted(false)} style={{ padding: "13px 32px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
                     <Plus size={16} /> Nominate Your First Survivor
@@ -172,7 +184,7 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                   <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB" }}>Nomination submitted!</div>
                   <div style={{ fontSize: 14, color: "#6B7280", maxWidth: 380, lineHeight: 1.7 }}>Thank you for growing the network. This submission will be reviewed. You've earned <span style={{ color: COLOR, fontWeight: 700 }}>+50 pts</span> and are 1 step closer to your next mission goal.</div>
                   <div style={{ display: "flex", gap: 12 }}>
-                    <button onClick={() => setSubmitted(false)} style={{ padding: "12px 24px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Nominate Another</button>
+                    <button onClick={() => { setSubmitted(false); setFirst(""); setBio(""); setQuora(""); setSkills([]); setProfessions([]); }} style={{ padding: "12px 24px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Nominate Another</button>
                     <button onClick={() => setTab("leaderboard")} style={{ padding: "12px 24px", borderRadius: 12, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#9CA3AF", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>View Leaderboard</button>
                   </div>
                 </div>
@@ -182,29 +194,32 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                   <div style={{ flex: 1, maxWidth: 560 }}>
                     <div style={{ marginBottom: 20 }}>
                       <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Nominate a Survivor</div>
-                      <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.6 }}>You don't refer strangers — you nominate people you personally know to be survivors. Their Quora profile is social proof. Their skills become part of our economy.</div>
+                      <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.6 }}>Think of someone you believe may be a survivor — you don't need to be 100% certain. Their Quora profile helps verify their identity, and their skills join our economy.</div>
                     </div>
 
                     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                      <div style={{ display: "flex", gap: 12 }}>
-                        <div style={{ flex: 1 }}>
-                          <label style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 6 }}>First Name <span style={{ color: COLOR }}>*</span></label>
-                          <input
-                            value={firstName} onChange={e => setFirst(e.target.value)}
-                            placeholder="e.g. Amara"
-                            style={{ width: "100%", padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${firstName ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }}
-                          />
-                        </div>
-                        <div style={{ flex: 1 }}>
-                          <label style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 6 }}>Last Name <span style={{ color: COLOR }}>*</span></label>
-                          <input
-                            value={lastName} onChange={e => setLast(e.target.value)}
-                            placeholder="e.g. Okonkwo"
-                            style={{ width: "100%", padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${lastName ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }}
-                          />
-                        </div>
+                      {/* First name */}
+                      <div>
+                        <label style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 6 }}>First Name <span style={{ color: COLOR }}>*</span></label>
+                        <input
+                          value={firstName} onChange={e => setFirst(e.target.value)}
+                          placeholder="e.g. Amara"
+                          style={{ width: "100%", padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${firstName ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }}
+                        />
                       </div>
 
+                      {/* Bio */}
+                      <div>
+                        <label style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 6 }}>Bio <span style={{ fontSize: 11, color: "#4B5563", fontWeight: 400 }}>(optional — a brief description of who they are)</span></label>
+                        <textarea
+                          value={bio} onChange={e => setBio(e.target.value)}
+                          rows={2}
+                          placeholder="e.g. Lives in Houston, works in construction, connected through mutual contact…"
+                          style={{ width: "100%", padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${bio ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", resize: "vertical", boxSizing: "border-box", fontFamily: "inherit" }}
+                        />
+                      </div>
+
+                      {/* Quora */}
                       <div>
                         <label style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 6 }}>Quora Profile URL <span style={{ fontSize: 11, color: "#4B5563", fontWeight: 400 }}>(social proof — highly recommended)</span></label>
                         <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${quora ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10 }}>
@@ -215,30 +230,22 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                             style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }}
                           />
                         </div>
-                        <div style={{ fontSize: 11, color: "#4B5563", marginTop: 4 }}>Quora activity helps verify this is a real person. Not a guarantee, but reduces risk of trafficker infiltration.</div>
+                        <div style={{ fontSize: 11, color: "#4B5563", marginTop: 4 }}>Quora activity helps verify this is a real person. Not a guarantee, but reduces the risk of trafficker infiltration.</div>
                       </div>
 
+                      {/* Skills */}
                       <div>
                         <label style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 6 }}>Skills <span style={{ color: COLOR }}>*</span> <span style={{ fontSize: 11, color: "#4B5563", fontWeight: 400 }}>— what can they offer in the economy?</span></label>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
                           {skills.map(s => (
                             <span key={s} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 10px", borderRadius: 20, background: `${COLOR}20`, border: `1px solid ${COLOR}40`, fontSize: 12, color: COLOR, fontWeight: 600 }}>
-                              {s}
-                              <button onClick={() => setSkills(sk => sk.filter(x => x !== s))} style={{ background: "none", border: "none", color: COLOR, cursor: "pointer", padding: 0, lineHeight: 1, marginLeft: 2 }}><X size={12} /></button>
+                              {s}<button onClick={() => setSkills(sk => sk.filter(x => x !== s))} style={{ background: "none", border: "none", color: COLOR, cursor: "pointer", padding: 0, lineHeight: 1, marginLeft: 2 }}><X size={12} /></button>
                             </span>
                           ))}
                         </div>
                         <div style={{ display: "flex", gap: 8 }}>
-                          <input
-                            value={skillInput}
-                            onChange={e => setSkillInput(e.target.value)}
-                            onKeyDown={e => { if (e.key === "Enter" || e.key === ",") { e.preventDefault(); addSkill(skillInput); }}}
-                            placeholder="Type a skill and press Enter…"
-                            style={{ flex: 1, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none" }}
-                          />
-                          <button onClick={() => addSkill(skillInput)} style={{ padding: "10px 14px", borderRadius: 10, background: `${COLOR}20`, border: `1px solid ${COLOR}40`, color: COLOR, cursor: "pointer", display: "flex", alignItems: "center" }}>
-                            <Plus size={16} />
-                          </button>
+                          <input value={skillInput} onChange={e => setSkillInput(e.target.value)} onKeyDown={e => { if (e.key === "Enter" || e.key === ",") { e.preventDefault(); addSkill(skillInput); }}} placeholder="Type a skill and press Enter…" style={{ flex: 1, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none" }} />
+                          <button onClick={() => addSkill(skillInput)} style={{ padding: "10px 14px", borderRadius: 10, background: `${COLOR}20`, border: `1px solid ${COLOR}40`, color: COLOR, cursor: "pointer", display: "flex", alignItems: "center" }}><Plus size={16} /></button>
                         </div>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
                           {SKILL_SUGGESTIONS.filter(s => !skills.includes(s)).slice(0, 10).map(s => (
@@ -247,23 +254,44 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                         </div>
                       </div>
 
+                      {/* Claimed Professions */}
+                      <div>
+                        <label style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 6 }}>Claimed Professions <span style={{ fontSize: 11, color: "#4B5563", fontWeight: 400 }}>(optional — job titles or trades they identify with)</span></label>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
+                          {professions.map(p => (
+                            <span key={p} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 10px", borderRadius: 20, background: "#22C55E20", border: "1px solid #22C55E40", fontSize: 12, color: "#22C55E", fontWeight: 600 }}>
+                              {p}<button onClick={() => setProfessions(ps => ps.filter(x => x !== p))} style={{ background: "none", border: "none", color: "#22C55E", cursor: "pointer", padding: 0, lineHeight: 1, marginLeft: 2 }}><X size={12} /></button>
+                            </span>
+                          ))}
+                        </div>
+                        <div style={{ display: "flex", gap: 8 }}>
+                          <input value={profInput} onChange={e => setProfInput(e.target.value)} onKeyDown={e => { if (e.key === "Enter" || e.key === ",") { e.preventDefault(); addProfession(profInput); }}} placeholder="e.g. Electrician, Chef, Paralegal…" style={{ flex: 1, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none" }} />
+                          <button onClick={() => addProfession(profInput)} style={{ padding: "10px 14px", borderRadius: 10, background: "#22C55E20", border: "1px solid #22C55E40", color: "#22C55E", cursor: "pointer", display: "flex", alignItems: "center" }}><Plus size={16} /></button>
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
+                          {PROFESSION_SUGGESTIONS.filter(p => !professions.includes(p)).slice(0, 6).map(p => (
+                            <button key={p} onClick={() => addProfession(p)} style={{ padding: "3px 10px", borderRadius: 20, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#9CA3AF", fontSize: 12, cursor: "pointer" }}>{p}</button>
+                          ))}
+                        </div>
+                      </div>
+
                       <button
                         onClick={handleSubmit}
-                        disabled={!firstName || !lastName || skills.length === 0}
-                        style={{ padding: "14px", borderRadius: 12, background: (firstName && lastName && skills.length) ? COLOR : "rgba(255,255,255,0.05)", border: "none", color: (firstName && lastName && skills.length) ? "#fff" : "#4B5563", fontSize: 15, fontWeight: 700, cursor: (firstName && lastName && skills.length) ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+                        disabled={!firstName || skills.length === 0}
+                        style={{ padding: "14px", borderRadius: 12, background: (firstName && skills.length) ? COLOR : "rgba(255,255,255,0.05)", border: "none", color: (firstName && skills.length) ? "#fff" : "#4B5563", fontSize: 15, fontWeight: 700, cursor: (firstName && skills.length) ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
                         <Send size={16} /> Submit Nomination · +50 pts
                       </button>
                     </div>
                   </div>
 
-                  {/* How it works */}
+                  {/* Why this works */}
                   <div style={{ width: 260, flexShrink: 0 }}>
                     <div style={{ padding: "18px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, marginBottom: 16 }}>
                       <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 12 }}>Why this works</div>
                       {[
-                        { icon: "🧩", text: "You nominate someone you personally know — not a random referral" },
+                        { icon: "🧩", text: "You nominate someone you believe may be a survivor — certainty not required" },
                         { icon: "🔗", text: "Quora profile = social proof, reducing trafficker infiltration risk" },
-                        { icon: "⚡", text: "Skills populate the Directory so survivors can trade and build our economy" },
+                        { icon: "⚡", text: "Skills and professions populate the Directory so we can trade and build our own economy" },
                         { icon: "🏆", text: "The more you scout, the higher you climb the leaderboard" },
                       ].map((item, i) => (
                         <div key={i} style={{ display: "flex", gap: 10, marginBottom: 12, alignItems: "flex-start" }}>
@@ -272,7 +300,6 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                         </div>
                       ))}
                     </div>
-
                     <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
                       <div style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", marginBottom: 8 }}>🎯 Active Mission</div>
                       <div style={{ fontSize: 13, color: "#E8EAF0", marginBottom: 8, lineHeight: 1.4 }}>Find 3 survivors with coding skills</div>
@@ -291,29 +318,21 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
               <>
                 <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Scout Leaderboard</div>
                 <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>Ranked by survivors found & verified — not by skills hoarded</div>
-
-                {/* Stats bar */}
                 <div style={{ display: "flex", gap: 14, marginBottom: 24 }}>
                   {[{ label: "Found this week", value: "247", icon: Search, color: COLOR }, { label: "Skills discovered", value: "1,482", icon: Zap, color: "#22C55E" }, { label: "Scouts active", value: "63", icon: Users, color: "#F59E0B" }].map(({ label, value, icon: Icon, color }) => (
                     <div key={label} style={{ flex: 1, padding: "16px 18px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: `1px solid ${color}20` }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-                        <Icon size={14} style={{ color }} />
-                        <span style={{ fontSize: 11, color: "#6B7280" }}>{label}</span>
-                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}><Icon size={14} style={{ color }} /><span style={{ fontSize: 11, color: "#6B7280" }}>{label}</span></div>
                       <div style={{ fontSize: 24, fontWeight: 800, color }}>{value}</div>
                     </div>
                   ))}
                 </div>
-
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {LEADERBOARD.map((p) => (
                     <div key={p.rank} style={{ padding: "16px 20px", borderRadius: 14, background: p.isMe ? `${COLOR}12` : "rgba(255,255,255,0.02)", border: `1px solid ${p.isMe ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, display: "flex", alignItems: "center", gap: 16 }}>
                       <div style={{ width: 32, height: 32, borderRadius: 8, background: p.rank <= 3 ? `${["#F59E0B","#9CA3AF","#CD7C2F"][p.rank-1]}20` : "rgba(255,255,255,0.04)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: 800, color: p.rank <= 3 ? ["#F59E0B","#9CA3AF","#CD7C2F"][p.rank-1] : "#6B7280", flexShrink: 0 }}>
                         {p.rank <= 3 ? ["🥇","🥈","🥉"][p.rank-1] : `#${p.rank}`}
                       </div>
-                      <Avatar style={{ width: 40, height: 40 }}>
-                        <AvatarFallback style={{ background: `${COLOR}25`, color: COLOR, fontSize: 15, fontWeight: 800 }}>{p.avatar}</AvatarFallback>
-                      </Avatar>
+                      <Avatar style={{ width: 40, height: 40 }}><AvatarFallback style={{ background: `${COLOR}25`, color: COLOR, fontSize: 15, fontWeight: 800 }}>{p.avatar}</AvatarFallback></Avatar>
                       <div style={{ flex: 1 }}>
                         <div style={{ fontSize: 14, fontWeight: 700, color: p.isMe ? COLOR : "#F9FAFB" }}>{p.name}{p.isMe ? " (You)" : ""}</div>
                         <div style={{ fontSize: 12, color: "#6B7280" }}>{p.verified} verified · {p.hidden} hidden gems found</div>
@@ -348,7 +367,7 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                               <span style={{ color: m.color, fontWeight: 700 }}>+{m.reward} pts</span>
                             </div>
                             <div style={{ height: 6, background: "rgba(255,255,255,0.05)", borderRadius: 3, overflow: "hidden" }}>
-                              <div style={{ height: "100%", background: m.color, borderRadius: 3, width: `${Math.min(100, (m.progress / m.goal) * 100)}%` }} />
+                              <div style={{ height: "100%", background: m.color, borderRadius: 3, width: `${Math.min(100,(m.progress/m.goal)*100)}%` }} />
                             </div>
                           </div>
                         </div>
@@ -366,17 +385,15 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
             {tab === "my-finds" && (
               <>
                 <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>My Finds</div>
-                <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>Survivors you've nominated · names shown partially for privacy</div>
+                <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>People you've nominated · first names only for privacy</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {MY_FINDS.map((f, i) => (
                     <div key={i} style={{ padding: "16px 20px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: `1px solid ${f.status === "hidden_gem" ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, display: "flex", alignItems: "flex-start", gap: 16 }}>
-                      <Avatar style={{ width: 40, height: 40 }}>
-                        <AvatarFallback style={{ background: `${COLOR}20`, color: COLOR, fontSize: 14, fontWeight: 700 }}>{f.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
-                      </Avatar>
+                      <Avatar style={{ width: 40, height: 40 }}><AvatarFallback style={{ background: `${COLOR}20`, color: COLOR, fontSize: 14, fontWeight: 700 }}>{f.name.split(" ").map(n => n[0]).join("")}</AvatarFallback></Avatar>
                       <div style={{ flex: 1 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
                           <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>{f.name}</div>
-                          <div style={{ padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 700, background: f.status === "verified" ? "#22C55E20" : f.status === "hidden_gem" ? `${COLOR}20` : "rgba(255,165,0,0.15)", color: f.status === "verified" ? "#22C55E" : f.status === "hidden_gem" ? COLOR : "#F59E0B", border: `1px solid ${f.status === "verified" ? "#22C55E40" : f.status === "hidden_gem" ? COLOR + "40" : "rgba(255,165,0,0.3)"}` }}>
+                          <div style={{ padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 700, background: f.status === "verified" ? "#22C55E20" : f.status === "hidden_gem" ? `${COLOR}20` : "rgba(255,165,0,0.15)", color: f.status === "verified" ? "#22C55E" : f.status === "hidden_gem" ? COLOR : "#F59E0B", border: `1px solid ${f.status === "verified" ? "#22C55E40" : f.status === "hidden_gem" ? COLOR+"40" : "rgba(255,165,0,0.3)"}` }}>
                             {f.status === "verified" ? "✓ Verified" : f.status === "hidden_gem" ? "💎 Hidden Gem" : "⏳ Pending"}
                           </div>
                           {f.quora && <span style={{ fontSize: 11, color: "#4B5563" }}>Quora ✓</span>}
@@ -412,7 +429,6 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
           </div>
           <div style={{ fontSize: 12, color: "#6B7280" }}>💎 3 hidden gems discovered</div>
         </div>
-
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Badges Earned</div>
         {BADGES.filter(b => b.earned).map(b => (
           <div key={b.name} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px", borderRadius: 8, background: "rgba(255,255,255,0.02)", border: `1px solid ${COLOR}15`, marginBottom: 6 }}>

@@ -35,7 +35,7 @@ export function SkillsHuntPublic() {
             <span style={{ color: COLOR }}>and map their hidden talents</span>
           </h1>
           <p style={{ margin: 0, fontSize: 15, color: "#9CA3AF", maxWidth: 520, lineHeight: 1.7 }}>
-            This is not a referral button. You nominate people you <em>personally know</em> to be survivors — entering their name, Quora profile, and skills. Their skills populate our Directory so we can trade with each other and stop depending on traffickers for basic needs.
+            This is not a referral button. You nominate someone you believe may be a survivor — entering their first name, bio, Quora profile, skills, and claimed professions. Their profile seeds the Directory so we can trade and stop depending on traffickers for basic needs.
           </p>
           <div style={{ display: "flex", gap: 16, marginTop: 8 }}>
             {[{ n: "247", l: "found this week" }, { n: "1,482", l: "skills mapped" }, { n: "63", l: "scouts active" }].map(({ n, l }) => (
@@ -57,8 +57,8 @@ export function SkillsHuntPublic() {
           <div style={{ padding: "20px", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: `1px solid ${COLOR}20` }}>
             <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 14 }}>How Skills Hunt works</div>
             {[
-              { step: "1", icon: "👤", title: "You know a survivor", desc: "Someone from your real life — not a random stranger." },
-              { step: "2", icon: "🔗", title: "Enter their info", desc: "First name, last name, Quora profile for social proof, and their skills." },
+              { step: "1", icon: "👤", title: "Someone you believe may be a survivor", desc: "You don't need to be 100% certain — your best judgment is enough." },
+              { step: "2", icon: "🔗", title: "Enter their info", desc: "First name, bio, Quora profile for social proof, skills, and claimed professions." },
               { step: "3", icon: "⚡", title: "They join our economy", desc: "Their skills become tradeable in the network. We stop needing traffickers." },
               { step: "4", icon: "🏆", title: "You earn points", desc: "Climb the leaderboard. Earn badges. Find hidden gems." },
             ].map(item => (
@@ -80,7 +80,7 @@ export function SkillsHuntPublic() {
           {/* Blurred form */}
           <div style={{ flex: 1, maxWidth: 420, padding: "20px", borderRadius: 16, border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)" }}>
             <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 16 }}>Nominate a Survivor</div>
-            {["First Name", "Last Name", "Quora Profile URL", "Skills"].map(f => (
+            {["First Name", "Bio", "Quora Profile URL", "Skills", "Claimed Professions"].map(f => (
               <div key={f} style={{ marginBottom: 12 }}>
                 <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 4 }}>{f}</div>
                 <div style={{ height: 40, borderRadius: 8, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }} />
@@ -109,7 +109,7 @@ export function SkillsHuntPublic() {
           </div>
           <div style={{ fontSize: 16, fontWeight: 700, textAlign: "center" }}>Join to start scouting</div>
           <div style={{ fontSize: 13, color: "#6B7280", textAlign: "center", maxWidth: 320 }}>
-            Survivors only. Sign in to nominate people you know and help grow our self-sustaining economy.
+            Survivors only. Sign in to nominate people you believe may be survivors and help grow our self-sustaining economy.
           </div>
           <button style={{ padding: "12px 28px", borderRadius: 9, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
             Sign in to scout

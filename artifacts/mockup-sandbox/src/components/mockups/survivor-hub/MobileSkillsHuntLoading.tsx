@@ -30,14 +30,14 @@ export function MobileSkillsHuntLoading() {
           <Sk w={260} h={11} r={4} />
         </div>
 
-        {/* Name row */}
-        <div style={{ display: "flex", gap: 8 }}>
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 6 }}>
-            <Sk w={70} h={10} r={4} /><Sk h={40} r={10} />
-          </div>
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 6 }}>
-            <Sk w={70} h={10} r={4} /><Sk h={40} r={10} />
-          </div>
+        {/* First Name */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <Sk w={80} h={10} r={4} /><Sk h={40} r={10} />
+        </div>
+
+        {/* Bio */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <Sk w={100} h={10} r={4} /><Sk h={56} r={10} />
         </div>
 
         {/* Quora */}
@@ -53,8 +53,17 @@ export function MobileSkillsHuntLoading() {
           </div>
           <Sk h={40} r={10} />
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-            {[1,2,3,4,5].map(i => <Sk key={i} w={75} h={26} r={13} />)}
+            {[1,2,3,4].map(i => <Sk key={i} w={75} h={26} r={13} />)}
           </div>
+        </div>
+
+        {/* Claimed Professions */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <Sk w={150} h={10} r={4} />
+          <div style={{ display: "flex", gap: 6 }}>
+            {[1,2].map(i => <Sk key={i} w={80} h={26} r={13} />)}
+          </div>
+          <Sk h={40} r={10} />
         </div>
 
         {/* Submit button */}

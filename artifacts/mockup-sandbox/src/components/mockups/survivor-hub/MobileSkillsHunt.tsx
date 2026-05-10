@@ -26,22 +26,31 @@ const MY_FINDS = [
 ];
 
 const SKILL_SUGGESTIONS = ["Carpentry","Nursing","Software Engineering","Graphic Design","Cooking","Legal Aid","Teaching","Translation","Auto Repair","Welding"];
+const PROF_SUGGESTIONS   = ["Electrician","Nurse","Developer","Chef","Carpenter","Paralegal"];
 
 type NavKey = "scout" | "leaderboard" | "missions" | "finds";
 
 export function MobileSkillsHunt() {
-  const [activeNav, setActiveNav] = useState<NavKey>("scout");
-  const [firstName, setFirst]     = useState("");
-  const [lastName, setLast]       = useState("");
-  const [quora, setQuora]         = useState("");
-  const [skills, setSkills]       = useState<string[]>([]);
-  const [skillInput, setSkill]    = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [activeNav, setActiveNav]     = useState<NavKey>("scout");
+  const [firstName, setFirst]         = useState("");
+  const [bio, setBio]                 = useState("");
+  const [quora, setQuora]             = useState("");
+  const [skills, setSkills]           = useState<string[]>([]);
+  const [skillInput, setSkill]        = useState("");
+  const [professions, setProfessions] = useState<string[]>([]);
+  const [profInput, setProf]          = useState("");
+  const [submitted, setSubmitted]     = useState(false);
 
   const addSkill = (s: string) => {
     const t = s.trim();
     if (t && !skills.includes(t)) setSkills(sk => [...sk, t]);
     setSkill("");
+  };
+
+  const addProf = (s: string) => {
+    const t = s.trim();
+    if (t && !professions.includes(t)) setProfessions(p => [...p, t]);
+    setProf("");
   };
 
   const NAV = [
@@ -54,13 +63,11 @@ export function MobileSkillsHunt() {
   return (
     <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
 
-      {/* Status bar */}
       <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div>
         <div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
 
-      {/* App header */}
       <div style={{ padding: "14px 20px 12px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -89,27 +96,29 @@ export function MobileSkillsHunt() {
                 </div>
                 <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB" }}>Nomination submitted!</div>
                 <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.6, maxWidth: 280 }}>Thank you for growing the network. You earned <span style={{ color: COLOR, fontWeight: 700 }}>+50 pts</span>.</div>
-                <button onClick={() => { setSubmitted(false); setFirst(""); setLast(""); setQuora(""); setSkills([]); }} style={{ padding: "12px 28px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Nominate Another</button>
+                <button onClick={() => { setSubmitted(false); setFirst(""); setBio(""); setQuora(""); setSkills([]); setProfessions([]); }} style={{ padding: "12px 28px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Nominate Another</button>
               </div>
             ) : (
               <>
                 <div style={{ marginBottom: 14 }}>
                   <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Nominate a Survivor</div>
-                  <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.5 }}>Someone you personally know. Their Quora profile = social proof. Their skills = our economy.</div>
+                  <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.5 }}>Think of someone you believe may be a survivor — no certainty needed. Their Quora profile helps verify their identity, and their skills join our economy.</div>
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  <div style={{ display: "flex", gap: 8 }}>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>First Name <span style={{ color: COLOR }}>*</span></div>
-                      <input value={firstName} onChange={e => setFirst(e.target.value)} placeholder="e.g. Amara" style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${firstName ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>Last Name <span style={{ color: COLOR }}>*</span></div>
-                      <input value={lastName} onChange={e => setLast(e.target.value)} placeholder="e.g. Okonkwo" style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${lastName ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
-                    </div>
+                  {/* First Name */}
+                  <div>
+                    <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>First Name <span style={{ color: COLOR }}>*</span></div>
+                    <input value={firstName} onChange={e => setFirst(e.target.value)} placeholder="e.g. Amara" style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${firstName ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
                   </div>
 
+                  {/* Bio */}
+                  <div>
+                    <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>Bio <span style={{ color: "#4B5563", fontWeight: 400 }}>(optional)</span></div>
+                    <textarea value={bio} onChange={e => setBio(e.target.value)} rows={2} placeholder="A brief description of who they are…" style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${bio ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 13, color: "#E8EAF0", outline: "none", resize: "vertical", boxSizing: "border-box", fontFamily: "inherit" }} />
+                  </div>
+
+                  {/* Quora */}
                   <div>
                     <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>Quora Profile URL <span style={{ color: "#4B5563", fontWeight: 400 }}>(social proof)</span></div>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${quora ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10 }}>
@@ -118,6 +127,7 @@ export function MobileSkillsHunt() {
                     </div>
                   </div>
 
+                  {/* Skills */}
                   <div>
                     <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>Skills <span style={{ color: COLOR }}>*</span></div>
                     {skills.length > 0 && (
@@ -134,19 +144,41 @@ export function MobileSkillsHunt() {
                       <button onClick={() => addSkill(skillInput)} style={{ padding: "10px 12px", borderRadius: 10, background: `${COLOR}20`, border: `1px solid ${COLOR}40`, color: COLOR, cursor: "pointer" }}><Plus size={15} /></button>
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
-                      {SKILL_SUGGESTIONS.filter(s => !skills.includes(s)).slice(0, 6).map(s => (
+                      {SKILL_SUGGESTIONS.filter(s => !skills.includes(s)).slice(0, 5).map(s => (
                         <button key={s} onClick={() => addSkill(s)} style={{ padding: "3px 10px", borderRadius: 20, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#9CA3AF", fontSize: 12, cursor: "pointer" }}>{s}</button>
                       ))}
                     </div>
                   </div>
 
+                  {/* Claimed Professions */}
+                  <div>
+                    <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>Claimed Professions <span style={{ color: "#4B5563", fontWeight: 400 }}>(optional)</span></div>
+                    {professions.length > 0 && (
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
+                        {professions.map(p => (
+                          <span key={p} style={{ display: "flex", alignItems: "center", gap: 4, padding: "3px 8px", borderRadius: 20, background: "#22C55E20", border: "1px solid #22C55E40", fontSize: 12, color: "#22C55E" }}>
+                            {p}<button onClick={() => setProfessions(ps => ps.filter(x => x !== p))} style={{ background: "none", border: "none", color: "#22C55E", cursor: "pointer", padding: 0 }}><X size={11} /></button>
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <div style={{ display: "flex", gap: 8 }}>
+                      <input value={profInput} onChange={e => setProf(e.target.value)} onKeyDown={e => { if (e.key === "Enter") { e.preventDefault(); addProf(profInput); }}} placeholder="e.g. Electrician, Chef…" style={{ flex: 1, padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 10, fontSize: 13, color: "#E8EAF0", outline: "none" }} />
+                      <button onClick={() => addProf(profInput)} style={{ padding: "10px 12px", borderRadius: 10, background: "#22C55E20", border: "1px solid #22C55E40", color: "#22C55E", cursor: "pointer" }}><Plus size={15} /></button>
+                    </div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
+                      {PROF_SUGGESTIONS.filter(p => !professions.includes(p)).slice(0, 4).map(p => (
+                        <button key={p} onClick={() => addProf(p)} style={{ padding: "3px 10px", borderRadius: 20, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#9CA3AF", fontSize: 12, cursor: "pointer" }}>{p}</button>
+                      ))}
+                    </div>
+                  </div>
+
                   <button
-                    onClick={() => { if (firstName && lastName && skills.length) setSubmitted(true); }}
-                    style={{ padding: "14px", borderRadius: 12, background: (firstName && lastName && skills.length) ? COLOR : "rgba(255,255,255,0.06)", border: "none", color: (firstName && lastName && skills.length) ? "#fff" : "#4B5563", fontSize: 15, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+                    onClick={() => { if (firstName && skills.length) setSubmitted(true); }}
+                    style={{ padding: "14px", borderRadius: 12, background: (firstName && skills.length) ? COLOR : "rgba(255,255,255,0.06)", border: "none", color: (firstName && skills.length) ? "#fff" : "#4B5563", fontSize: 15, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
                     <Send size={16} /> Submit · +50 pts
                   </button>
 
-                  {/* Active mission teaser */}
                   <div style={{ padding: "12px", borderRadius: 12, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, display: "flex", gap: 10, alignItems: "center" }}>
                     <Target size={16} style={{ color: COLOR, flexShrink: 0 }} />
                     <div style={{ flex: 1 }}>
@@ -167,9 +199,7 @@ export function MobileSkillsHunt() {
               {LEADERBOARD.map(p => (
                 <div key={p.rank} style={{ padding: "12px 14px", borderRadius: 12, background: p.isMe ? `${COLOR}12` : "rgba(255,255,255,0.02)", border: `1px solid ${p.isMe ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, marginBottom: 8, display: "flex", alignItems: "center", gap: 12 }}>
                   <div style={{ fontSize: 18, width: 28, textAlign: "center" }}>{p.rank <= 3 ? ["🥇","🥈","🥉"][p.rank-1] : `#${p.rank}`}</div>
-                  <Avatar style={{ width: 36, height: 36 }}>
-                    <AvatarFallback style={{ background: `${COLOR}25`, color: COLOR, fontSize: 13, fontWeight: 800 }}>{p.avatar}</AvatarFallback>
-                  </Avatar>
+                  <Avatar style={{ width: 36, height: 36 }}><AvatarFallback style={{ background: `${COLOR}25`, color: COLOR, fontSize: 13, fontWeight: 800 }}>{p.avatar}</AvatarFallback></Avatar>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 13, fontWeight: 700, color: p.isMe ? COLOR : "#F9FAFB" }}>{p.name}{p.isMe ? " (You)" : ""}</div>
                   </div>
@@ -196,7 +226,7 @@ export function MobileSkillsHunt() {
                       <span style={{ color: m.color, fontWeight: 700 }}>+{m.reward} pts</span>
                     </div>
                     <div style={{ height: 5, background: "rgba(255,255,255,0.05)", borderRadius: 2, overflow: "hidden" }}>
-                      <div style={{ height: "100%", background: m.color, width: `${Math.min(100, (m.progress / m.goal) * 100)}%` }} />
+                      <div style={{ height: "100%", background: m.color, width: `${Math.min(100,(m.progress/m.goal)*100)}%` }} />
                     </div>
                   </div>
                   <button onClick={() => setActiveNav("scout")} style={{ width: "100%", padding: "9px", borderRadius: 10, background: m.color, border: "none", color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer" }}>Scout Now</button>
@@ -209,7 +239,7 @@ export function MobileSkillsHunt() {
           {activeNav === "finds" && (
             <>
               <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>My Finds</div>
-              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 14 }}>Survivors you've nominated · partial names for privacy</div>
+              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 14 }}>People you've nominated · first names only for privacy</div>
               {MY_FINDS.map((f, i) => (
                 <div key={i} style={{ padding: "12px 14px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: `1px solid ${f.status === "hidden_gem" ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, marginBottom: 8 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
@@ -219,9 +249,7 @@ export function MobileSkillsHunt() {
                     </div>
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
-                    {f.skills.map(s => (
-                      <span key={s} style={{ padding: "2px 8px", borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", fontSize: 11, color: "#9CA3AF" }}>{s}</span>
-                    ))}
+                    {f.skills.map(s => <span key={s} style={{ padding: "2px 8px", borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", fontSize: 11, color: "#9CA3AF" }}>{s}</span>)}
                   </div>
                   <div style={{ fontSize: 11, color: "#4B5563", marginTop: 6 }}>{f.date}</div>
                 </div>
@@ -231,7 +259,6 @@ export function MobileSkillsHunt() {
         </div>
       </ScrollArea>
 
-      {/* Bottom nav */}
       <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>

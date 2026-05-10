@@ -26,16 +26,16 @@ export function SkillsHuntEmpty() {
           <div>
             <div style={{ fontSize: 26, fontWeight: 800, color: "#F9FAFB", marginBottom: 10 }}>No scouts yet — the hunt starts with you</div>
             <div style={{ fontSize: 15, color: "#6B7280", lineHeight: 1.8, maxWidth: 480 }}>
-              Think of survivors you know personally. Do they have a Quora profile? What skills do they have? Nominating them populates the Directory and helps build our economy — so we stop depending on traffickers for basic needs.
+              Think of someone you believe may be a survivor. Their Quora profile provides social proof, and their skills and professions help build our economy — so we stop depending on traffickers for basic needs.
             </div>
           </div>
 
           {/* Steps */}
           <div style={{ display: "flex", gap: 12, width: "100%" }}>
             {[
-              { emoji: "👤", title: "Someone you know", desc: "A real survivor in your life" },
-              { emoji: "🔗", title: "Their Quora profile", desc: "Social proof. Reduces infiltration." },
-              { emoji: "⚡", title: "Their skills", desc: "What they can offer the economy" },
+              { emoji: "👤", title: "Someone you believe may be a survivor", desc: "No certainty required — your judgment counts." },
+              { emoji: "🔗", title: "Their Quora profile", desc: "Social proof. Reduces infiltration risk." },
+              { emoji: "⚡", title: "Skills + professions", desc: "What they can offer the economy" },
             ].map(item => (
               <div key={item.title} style={{ flex: 1, padding: "16px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", textAlign: "center" }}>
                 <div style={{ fontSize: 28, marginBottom: 8 }}>{item.emoji}</div>
