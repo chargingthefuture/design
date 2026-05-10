@@ -49,7 +49,7 @@ export function ChymePublic() {
           <button style={{ padding: "6px 16px", borderRadius: 7, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", fontWeight: 600, fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
             <LogIn size={13} /> Sign In
           </button>
-          <button style={{ padding: "6px 16px", borderRadius: 7, background: "#fff", border: "none", color: accent, fontWeight: 700, fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
+          <button style={{ padding: "6px 16px", borderRadius: 7, background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.45)", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
             <UserPlus size={13} /> Join Free
           </button>
         </div>
@@ -152,39 +152,48 @@ export function ChymePublic() {
               <div style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(255,255,255,0.04)", border: `1px dashed ${border}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, color: subtle }}>+116</div>
             </div>
 
-            {/* Auth gate */}
-            <div style={{ borderRadius: 16, border: `2px solid ${COLOR}30`, background: `${COLOR}06`, padding: "28px 32px", textAlign: "center" }}>
-              <Radio size={32} color={`${COLOR}60`} style={{ marginBottom: 12 }} />
-              <div style={{ fontSize: 18, fontWeight: 800, color: text, marginBottom: 8 }}>Join the room to participate</div>
-              <div style={{ fontSize: 14, color: subtle, lineHeight: 1.6, marginBottom: 20, maxWidth: 400, margin: "0 auto 20px" }}>
-                Create a free account to listen, raise your hand to speak, and start your own rooms. Rooms are end-to-end encrypted and Safe Space verified.
+            {/* Guest listener status — public rooms are open to listen without sign-in */}
+            {/* DESIGN NOTE: Do NOT gate listening behind auth. Public rooms stream freely.
+                Sign-in is only required to speak, react, raise hand, or start a room. */}
+            <div style={{ borderRadius: 12, border: `1px solid ${COLOR}25`, background: `${COLOR}08`, padding: "14px 20px", display: "flex", alignItems: "center", gap: 14 }}>
+              <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.06)", border: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <Users size={16} color={subtle} />
               </div>
-              <div style={{ display: "flex", gap: 10, justifyContent: "center" }}>
-                <button style={{ padding: "11px 28px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontWeight: 700, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", gap: 7 }}>
-                  <UserPlus size={15} /> Join Free to Listen
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: text }}>You're listening as a guest</div>
+                <div style={{ fontSize: 12, color: subtle, marginTop: 2 }}>Public rooms are open to all. Sign in to speak, react, or raise your hand.</div>
+              </div>
+              <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+                <button style={{ padding: "7px 16px", borderRadius: 8, background: "transparent", border: `1px solid ${border}`, color: subtle, fontWeight: 600, fontSize: 12, cursor: "pointer", display: "flex", alignItems: "center", gap: 5 }}>
+                  <LogIn size={12} /> Sign In
                 </button>
-                <button style={{ padding: "11px 20px", borderRadius: 10, background: "transparent", border: `1px solid ${border}`, color: text, fontWeight: 600, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", gap: 7 }}>
-                  <LogIn size={14} /> Sign In
+                <button style={{ padding: "7px 16px", borderRadius: 8, background: COLOR, border: "none", color: "#fff", fontWeight: 700, fontSize: 12, cursor: "pointer", display: "flex", alignItems: "center", gap: 5 }}>
+                  <UserPlus size={12} /> Create Account
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Bottom — locked controls */}
+          {/* Bottom controls — listening is open to guests; speaking/participation requires sign-in */}
           <div style={{ padding: "16px 32px", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", gap: 12 }}>
+            {/* Locked: speak, react, save — require auth */}
             {[
               { Icon: Mic, label: "Speak" },
               { Icon: Heart, label: "React" },
-              { Icon: Bell, label: "Notify me" },
               { Icon: Star, label: "Save" },
             ].map(({ Icon, label }) => (
-              <div key={label} style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, border: `1px solid ${border}`, color: subtle, cursor: "not-allowed", opacity: 0.5 }}>
-                <Lock size={12} /><Icon size={14} /><span style={{ fontSize: 13 }}>{label}</span>
+              <div key={label} style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, border: `1px solid ${border}`, color: subtle, cursor: "not-allowed", opacity: 0.45 }}>
+                <Lock size={11} /><Icon size={14} /><span style={{ fontSize: 13 }}>{label}</span>
               </div>
             ))}
-            <div style={{ marginLeft: "auto" }}>
-              <button style={{ padding: "9px 24px", borderRadius: 9, background: `linear-gradient(90deg,${accent},${accentCyan})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
-                Create Free Account →
+            {/* Unlocked: notify — guests can opt-in to reminders */}
+            <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 14px", borderRadius: 8, border: `1px solid ${COLOR}30`, color: COLOR, cursor: "pointer" }}>
+              <Bell size={14} /><span style={{ fontSize: 13 }}>Notify me</span>
+            </div>
+            <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontSize: 12, color: subtle }}>Want to speak?</span>
+              <button style={{ padding: "8px 20px", borderRadius: 8, background: `linear-gradient(90deg,${accent},${accentCyan})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
+                Sign In to Participate →
               </button>
             </div>
           </div>
