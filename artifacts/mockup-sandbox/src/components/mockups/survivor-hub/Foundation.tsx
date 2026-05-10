@@ -152,13 +152,13 @@ const CHAT = [
   },
 ];
 
-export function Foundation() {
-  const [tab, setTab] = useState<"browse" | "quotes" | "chat">("browse");
+export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?: boolean } = {}) {
+  const [tab, setTab] = useState<"browse" | "quotes" | "chat">(initialEmptyQuotes ? "quotes" : "browse");
   const [trade, setTrade] = useState("All Trades");
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
   const [selected, setSelected] = useState<number | null>(null);
-  const [emptyQuotes, setEmptyQuotes] = useState(false);
+  const [emptyQuotes, setEmptyQuotes] = useState(initialEmptyQuotes);
 
   const send = () => {
     if (!input.trim()) return;

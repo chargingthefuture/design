@@ -50,13 +50,13 @@ const CHAT = [
   { id: 3, from: "hub", text: "3 urgent alerts active. Houston housing (47 units), TrustTransport safety update, and a new Foundation provider in your area.", action: "View Alerts" },
 ];
 
-export function FeedAnnouncements() {
+export function FeedAnnouncements({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
   const [tab, setTab] = useState<"feed" | "chat" | "admin">("feed");
   const [filter, setFilter] = useState("All");
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
   const [liked, setLiked] = useState<number[]>([]);
-  const [emptyMode, setEmptyMode] = useState(false);
+  const [emptyMode, setEmptyMode] = useState(initialEmpty);
 
   const send = () => {
     if (!input.trim()) return;

@@ -28,13 +28,13 @@ const CHAT = [
   { id: 3, from: "hub", text: "Found 12 verified trauma therapists accepting Service Credits within 25 miles. Maria Gonzalez is available now.", action: "View Maria's Profile" },
 ];
 
-export function Directory() {
+export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
   const [activeFilter, setActiveFilter] = useState("All");
   const [selected, setSelected] = useState<number | null>(null);
   const [tab, setTab] = useState<"browse" | "chat">("browse");
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
-  const [emptyMode, setEmptyMode] = useState(false);
+  const [emptyMode, setEmptyMode] = useState(initialEmpty);
 
   const send = () => {
     if (!input.trim()) return;

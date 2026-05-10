@@ -41,13 +41,13 @@ const CHAT = [
   { id: 3, from: "hub", text: "5 ways to earn right now: Skills Hunt round (+200), Facilitating a cohort (+500), Profile verification (+50), Referrals (+100 each), or 30-day GentlePulse streak (+150). Fastest is profile verification — takes 5 minutes.", action: "Verify Profile Now" },
 ];
 
-export function ServiceCredits() {
+export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
   const [tab, setTab] = useState<"wallet" | "earn" | "chat">("wallet");
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
   const [sendAmount, setSendAmount] = useState("");
   const [sending, setSending] = useState(false);
-  const [emptyMode, setEmptyMode] = useState(false);
+  const [emptyMode, setEmptyMode] = useState(initialEmpty);
 
   const send = () => {
     if (!input.trim()) return;

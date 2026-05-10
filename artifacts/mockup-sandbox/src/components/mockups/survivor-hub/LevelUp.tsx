@@ -5,7 +5,7 @@ import {
   User, ChevronRight, BookMarked,
 } from "lucide-react";
 
-export default function LevelUp() {
+export default function LevelUp({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
   const green = "#22C55E";
   const bg = "#0F1117";
   const surface = "#161B27";
@@ -145,7 +145,7 @@ export default function LevelUp() {
     { learner: "Tiana B.", milestone: "Budget spreadsheet submitted" },
   ];
 
-  const [emptyMode, setEmptyMode] = useState(false);
+  const [emptyMode, setEmptyMode] = useState(initialEmpty);
 
   return (
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>

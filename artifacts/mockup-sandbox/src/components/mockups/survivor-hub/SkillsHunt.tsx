@@ -42,12 +42,12 @@ const CHAT = [
   { id: 3, from: "hub", text: "Based on your Workforce profile, Web Development (87% match) and Financial Literacy (74% match) are your top picks. Both are accepting applications.", action: "Apply Now" },
 ];
 
-export function SkillsHunt() {
+export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
   const [tab, setTab] = useState<"rounds" | "leaderboard" | "chat">("rounds");
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
   const [joined, setJoined] = useState<number[]>([]);
-  const [emptyMode, setEmptyMode] = useState(false);
+  const [emptyMode, setEmptyMode] = useState(initialEmpty);
 
   const send = () => {
     if (!input.trim()) return;

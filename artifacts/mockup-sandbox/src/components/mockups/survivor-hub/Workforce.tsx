@@ -33,11 +33,11 @@ const CHAT = [
   { id: 3, from: "hub", text: "Software Development has the largest gap: 14,600 unmet demand slots. Your profile shows coding interest — want me to map a pathway?", action: "Map My Pathway" },
 ];
 
-export function Workforce() {
+export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
   const [tab, setTab] = useState<"dashboard" | "chat">("dashboard");
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState(CHAT);
-  const [emptyMode, setEmptyMode] = useState(false);
+  const [emptyMode, setEmptyMode] = useState(initialEmpty);
 
   const send = () => {
     if (!input.trim()) return;
