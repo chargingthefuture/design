@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/survivor-hub-deck/"
+title = "Survivor Hub — Mockup Deck"
+version = "1.0.0"
+id = "artifacts/survivor-hub-deck"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/survivor-hub-deck/" ]
+localPort = 25511
+
+[services.development]
+run = "pnpm --filter @workspace/survivor-hub-deck run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/survivor-hub-deck", "run", "build" ]
+publicDir = "artifacts/survivor-hub-deck/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25511"
+BASE_PATH = "/survivor-hub-deck/"
