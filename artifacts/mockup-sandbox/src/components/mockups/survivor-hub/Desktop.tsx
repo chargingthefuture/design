@@ -7,6 +7,7 @@ import {
   BarChart2, Heart, Smile, Share2, Search, Send, Plus,
   ChevronRight, Sparkles, Radio, Bell, Settings, MessageSquare,
   Hash, Zap, ArrowUpRight, X, ShieldCheck, Eye, ChevronDown,
+  Megaphone, Award, Target,
 } from "lucide-react";
 import { ChymeApp } from "./Chyme";
 
@@ -23,6 +24,9 @@ const MINI_APPS = [
   { id: "gentlepulse", name: "GentlePulse", emoji: "💚", icon: Heart, desc: "Guided meditation", color: "#14B8A6", bg: "#011c1a", tag: "Phase 2" },
   { id: "mood", name: "Mood", emoji: "😁", icon: Smile, desc: "Anonymous mood check-ins", color: "#EC4899", bg: "#1c0416", tag: "Phase 0" },
   { id: "socketrelay", name: "SocketRelay", emoji: "🔂", icon: Share2, desc: "Mutual aid network", color: "#F43F5E", bg: "#1c0409", tag: "Phase 0" },
+  { id: "feed", name: "Feed", emoji: "📣", icon: Megaphone, desc: "Community pulse & alerts", color: "#8B5CF6", bg: "#150d2e", tag: "Phase 0" },
+  { id: "skillshunt", name: "Skills Hunt", emoji: "🎓", icon: Award, desc: "Cohort learning & badges", color: "#A855F7", bg: "#1a0d2e", tag: "Phase 1" },
+  { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, desc: "Training cohort marketplace", color: "#22C55E", bg: "#052e16", tag: "Phase 1" },
 ];
 
 const CHAT_MESSAGES = [

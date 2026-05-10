@@ -6,7 +6,7 @@ import {
   Mic, Home, Car, BookOpen, Hammer, Users, Globe, Coins,
   BarChart2, Heart, Smile, Share2, Search, Send, Radio,
   Bell, Settings, MessageSquare, Zap, ChevronRight, Sparkles,
-  Hash, ArrowUpRight, Plus,
+  Hash, ArrowUpRight, Plus, Megaphone, Award, Target,
 } from "lucide-react";
 
 const MINI_APPS = [
@@ -22,6 +22,9 @@ const MINI_APPS = [
   { id: "gentlepulse", name: "GentlePulse", emoji: "💚", icon: Heart, color: "#14B8A6" },
   { id: "mood", name: "Mood", emoji: "😁", icon: Smile, color: "#EC4899" },
   { id: "socketrelay", name: "SocketRelay", emoji: "🔂", icon: Share2, color: "#F43F5E" },
+  { id: "feed", name: "Feed", emoji: "📣", icon: Megaphone, color: "#8B5CF6" },
+  { id: "skillshunt", name: "Skills Hunt", emoji: "🎓", icon: Award, color: "#A855F7" },
+  { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, color: "#22C55E" },
 ];
 
 const LIVE_ROOMS = [

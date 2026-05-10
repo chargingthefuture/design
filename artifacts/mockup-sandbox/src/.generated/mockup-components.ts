@@ -29,6 +29,7 @@ export const modules: ModuleMap = {
   "./components/mockups/survivor-hub/MobileServiceCredits.tsx": () => import("../components/mockups/survivor-hub/MobileServiceCredits.tsx"),
   "./components/mockups/survivor-hub/MobileSkillsHunt.tsx": () => import("../components/mockups/survivor-hub/MobileSkillsHunt.tsx"),
   "./components/mockups/survivor-hub/MobileSocketRelay.tsx": () => import("../components/mockups/survivor-hub/MobileSocketRelay.tsx"),
+  "./components/mockups/survivor-hub/MobileTrust.tsx": () => import("../components/mockups/survivor-hub/MobileTrust.tsx"),
   "./components/mockups/survivor-hub/MobileTrustTransport.tsx": () => import("../components/mockups/survivor-hub/MobileTrustTransport.tsx"),
   "./components/mockups/survivor-hub/MobileWorkforce.tsx": () => import("../components/mockups/survivor-hub/MobileWorkforce.tsx"),
   "./components/mockups/survivor-hub/Mood.tsx": () => import("../components/mockups/survivor-hub/Mood.tsx"),
