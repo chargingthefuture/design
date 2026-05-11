@@ -6,12 +6,14 @@ import { BookOpen, Search, Star, CheckCircle, MapPin, MessageSquare, Users, Chev
 
 const COLOR = "#3B82F6";
 
+// Spec §2.2 / §4.2: @handle routing; §4.1: source column
+const COMMUNITY_COLOR = "#A855F7";
 const PROFILES = [
-  { id: 1, name: "Maria Gonzalez", role: "Trauma Therapist", location: "Houston, TX", rating: 4.9, online: true, avatar: "MG", verified: true, credits: true },
-  { id: 2, name: "James Thibodeau", role: "Housing Navigator", location: "Atlanta, GA", rating: 4.8, online: true, avatar: "JT", verified: true, credits: true },
-  { id: 3, name: "Amara Okonkwo", role: "Employment Coach", location: "Chicago, IL", rating: 4.7, online: false, avatar: "AO", verified: true, credits: false },
-  { id: 4, name: "Priya Sharma", role: "Legal Advocate", location: "New York, NY", rating: 5.0, online: true, avatar: "PS", verified: true, credits: true },
-  { id: 5, name: "Lena Hoffmann", role: "Tech Skills Trainer", location: "Remote", rating: 4.9, online: true, avatar: "LH", verified: true, credits: false },
+  { id: 1, name: "Maria Gonzalez",  role: "Trauma Therapist",    location: "Houston, TX",  rating: 4.9, online: true,  avatar: "MG", verified: true,  credits: true,  handle: "@maria-g",         source: "self"               },
+  { id: 2, name: "James Thibodeau", role: "Housing Navigator",   location: "Atlanta, GA",  rating: 4.8, online: true,  avatar: "JT", verified: true,  credits: true,  handle: "@james-t",         source: "self"               },
+  { id: 3, name: "Amara Okonkwo",   role: "Employment Coach",    location: "Chicago, IL",  rating: 4.7, online: false, avatar: "AO", verified: true,  credits: false, handle: "@community-7f3a2b", source: "community-generated" },
+  { id: 4, name: "Priya Sharma",    role: "Legal Advocate",      location: "New York, NY", rating: 5.0, online: true,  avatar: "PS", verified: true,  credits: true,  handle: "@priya-s",         source: "self"               },
+  { id: 5, name: "Lena Hoffmann",   role: "Tech Skills Trainer", location: "Remote",       rating: 4.9, online: true,  avatar: "LH", verified: true,  credits: false, handle: "@community-b2e9f1", source: "community-generated" },
 ];
 
 const NAV = [
@@ -47,7 +49,11 @@ export function MobileDirectory() {
               <div style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: "center", marginBottom: 4 }}>
                 <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB" }}>{p.name}</div>
                 {p.verified && <CheckCircle size={16} style={{ color: COLOR }} />}
+                {p.source === "community-generated" && (
+                  <span style={{ fontSize: 10, background: `${COMMUNITY_COLOR}20`, color: COMMUNITY_COLOR, border: `1px solid ${COMMUNITY_COLOR}30`, borderRadius: 7, padding: "2px 7px", fontWeight: 700 }}>Community generated</span>
+                )}
               </div>
+              <div style={{ fontSize: 11, color: "#374151", fontFamily: "monospace", marginBottom: 4 }}>{p.handle}</div>
               <div style={{ fontSize: 14, color: "#9CA3AF", marginBottom: 8 }}>{p.role}</div>
               <div style={{ display: "flex", gap: 6, justifyContent: "center", flexWrap: "wrap" }}>
                 <Badge style={{ background: "rgba(250,204,21,0.1)", color: "#FBBF24", border: "1px solid rgba(250,204,21,0.2)", fontSize: 11 }}>⭐ {p.rating}</Badge>
@@ -111,11 +117,15 @@ export function MobileDirectory() {
                 <AvatarFallback style={{ background: `${COLOR}25`, color: COLOR, fontSize: 18, fontWeight: 800 }}>{p.avatar}</AvatarFallback>
               </Avatar>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 5, marginBottom: 1 }}>
                   <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{p.name}</div>
                   {p.verified && <CheckCircle size={12} style={{ color: COLOR, flexShrink: 0 }} />}
+                  {p.source === "community-generated" && (
+                    <span style={{ fontSize: 9, background: `${COMMUNITY_COLOR}20`, color: COMMUNITY_COLOR, border: `1px solid ${COMMUNITY_COLOR}30`, borderRadius: 5, padding: "1px 5px", fontWeight: 700, flexShrink: 0 }}>Community</span>
+                  )}
                 </div>
-                <div style={{ fontSize: 12, color: "#9CA3AF", marginBottom: 4 }}>{p.role}</div>
+                <div style={{ fontSize: 10, color: "#374151", fontFamily: "monospace", marginBottom: 2 }}>{p.handle}</div>
+                <div style={{ fontSize: 12, color: "#9CA3AF", marginBottom: 3 }}>{p.role}</div>
                 <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: p.online ? "#22C55E" : "#4B5563" }} />
                   <span style={{ fontSize: 11, color: p.online ? "#22C55E" : "#4B5563" }}>{p.online ? "Online" : "Away"}</span>

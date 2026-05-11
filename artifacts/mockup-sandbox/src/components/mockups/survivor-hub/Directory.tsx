@@ -11,13 +11,17 @@ import {
 const COLOR = "#3B82F6";
 const BG = "#0c1a3d";
 
+// Spec §2.2 / §4.2: profiles have @handle routing
+// Claimed profiles: /apps/directory/@{users.username}
+// Unclaimed profiles: /apps/directory/@{directory_profiles.unclaimed_handle} (format: community-<6-char-hex>)
+// Spec §4.1: source column — 'admin' | 'self' | 'community-generated'
 const PROFILES = [
-  { id: 1, name: "Maria Gonzalez", role: "Trauma-Informed Therapist", location: "Houston, TX", rating: 4.9, reviews: 127, skills: ["CBT", "EMDR", "Group Therapy"], verified: true, online: true, avatar: "MG", phase: "Phase 0" },
-  { id: 2, name: "James Thibodeau", role: "Housing Navigator", location: "Atlanta, GA", rating: 4.8, reviews: 89, skills: ["Case Mgmt", "HUD", "Legal Aid"], verified: true, online: true, avatar: "JT", phase: "Phase 0" },
-  { id: 3, name: "Amara Okonkwo", role: "Employment Coach", location: "Chicago, IL", rating: 4.7, reviews: 203, skills: ["Resume", "Interviewing", "Networking"], verified: true, online: false, avatar: "AO", phase: "Phase 1" },
-  { id: 4, name: "Priya Sharma", role: "Legal Advocate", location: "New York, NY", rating: 5.0, reviews: 61, skills: ["Immigration", "Civil Rights", "T-Visa"], verified: true, online: true, avatar: "PS", phase: "Phase 0" },
-  { id: 5, name: "DeShawn Williams", role: "Financial Counselor", location: "Dallas, TX", rating: 4.6, reviews: 144, skills: ["Budgeting", "Credit", "Benefits"], verified: false, online: true, avatar: "DW", phase: "Phase 1" },
-  { id: 6, name: "Lena Hoffmann", role: "Tech Skills Trainer", location: "Remote", rating: 4.9, reviews: 312, skills: ["Coding", "UX Design", "Freelancing"], verified: true, online: true, avatar: "LH", phase: "Phase 2" },
+  { id: 1, name: "Maria Gonzalez",  role: "Trauma-Informed Therapist", location: "Houston, TX",  rating: 4.9, reviews: 127, skills: ["CBT", "EMDR", "Group Therapy"],       verified: true,  online: true,  avatar: "MG", phase: "Phase 0", handle: "@maria-g",        source: "self"              },
+  { id: 2, name: "James Thibodeau", role: "Housing Navigator",          location: "Atlanta, GA",  rating: 4.8, reviews: 89,  skills: ["Case Mgmt", "HUD", "Legal Aid"],      verified: true,  online: true,  avatar: "JT", phase: "Phase 0", handle: "@james-t",        source: "self"              },
+  { id: 3, name: "Amara Okonkwo",   role: "Employment Coach",           location: "Chicago, IL",  rating: 4.7, reviews: 203, skills: ["Resume", "Interviewing", "Networking"],verified: true,  online: false, avatar: "AO", phase: "Phase 1", handle: "@community-7f3a2b", source: "community-generated" },
+  { id: 4, name: "Priya Sharma",    role: "Legal Advocate",             location: "New York, NY", rating: 5.0, reviews: 61,  skills: ["Immigration", "Civil Rights", "T-Visa"],verified: true,  online: true,  avatar: "PS", phase: "Phase 0", handle: "@priya-s",        source: "self"              },
+  { id: 5, name: "DeShawn Williams",role: "Financial Counselor",        location: "Dallas, TX",   rating: 4.6, reviews: 144, skills: ["Budgeting", "Credit", "Benefits"],     verified: false, online: true,  avatar: "DW", phase: "Phase 1", handle: "@community-b2e9f1", source: "community-generated" },
+  { id: 6, name: "Lena Hoffmann",   role: "Tech Skills Trainer",        location: "Remote",       rating: 4.9, reviews: 312, skills: ["Coding", "UX Design", "Freelancing"],  verified: true,  online: true,  avatar: "LH", phase: "Phase 2", handle: "@lena-h",         source: "self"              },
 ];
 
 const FILTERS = ["All", "Therapists", "Housing", "Legal", "Employment", "Finance", "Tech"];
@@ -65,7 +69,11 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
                   <div style={{ fontSize: 24, fontWeight: 800, color: "#F9FAFB" }}>{p.name}</div>
                   {p.verified && <CheckCircle size={18} style={{ color: COLOR }} />}
+                  {p.source === "community-generated" && (
+                    <span style={{ fontSize: 11, background: "#A855F720", color: "#A855F7", border: "1px solid #A855F730", borderRadius: 8, padding: "2px 8px", fontWeight: 700 }}>Community generated</span>
+                  )}
                 </div>
+                <div style={{ fontSize: 12, color: "#4B5563", marginBottom: 4, fontFamily: "monospace" }}>{p.handle}</div>
                 <div style={{ fontSize: 15, color: "#9CA3AF", marginBottom: 8 }}>{p.role}</div>
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   <Badge style={{ background: "rgba(255,255,255,0.05)", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.08)", fontSize: 12 }}><MapPin size={11} style={{ marginRight: 4 }} />{p.location}</Badge>
@@ -235,7 +243,11 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
                           <div style={{ fontSize: 15, fontWeight: 700, color: "#F9FAFB", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{p.name}</div>
                           {p.verified && <CheckCircle size={14} style={{ color: COLOR, flexShrink: 0 }} />}
+                          {p.source === "community-generated" && (
+                            <span style={{ fontSize: 10, background: "#A855F720", color: "#A855F7", border: "1px solid #A855F730", borderRadius: 6, padding: "1px 6px", fontWeight: 700, flexShrink: 0 }}>Community</span>
+                          )}
                         </div>
+                        <div style={{ fontSize: 11, color: "#4B5563", marginBottom: 3, fontFamily: "monospace" }}>{p.handle}</div>
                         <div style={{ fontSize: 12, color: "#9CA3AF", marginBottom: 4 }}>{p.role}</div>
                         <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
                           <div style={{ width: 6, height: 6, borderRadius: "50%", background: p.online ? "#22C55E" : "#4B5563" }} />
