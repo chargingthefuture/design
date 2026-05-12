@@ -23,6 +23,7 @@ export const modules: ModuleMap = {
   "./components/mockups/survivor-hub/GDPEmpty.tsx": () => import("../components/mockups/survivor-hub/GDPEmpty.tsx"),
   "./components/mockups/survivor-hub/GDPLoading.tsx": () => import("../components/mockups/survivor-hub/GDPLoading.tsx"),
   "./components/mockups/survivor-hub/GDPPublic.tsx": () => import("../components/mockups/survivor-hub/GDPPublic.tsx"),
+  "./components/mockups/survivor-hub/GDPPublicAlt.tsx": () => import("../components/mockups/survivor-hub/GDPPublicAlt.tsx"),
   "./components/mockups/survivor-hub/GentlePulse.tsx": () => import("../components/mockups/survivor-hub/GentlePulse.tsx"),
   "./components/mockups/survivor-hub/GentlePulseEmpty.tsx": () => import("../components/mockups/survivor-hub/GentlePulseEmpty.tsx"),
   "./components/mockups/survivor-hub/GentlePulseLoading.tsx": () => import("../components/mockups/survivor-hub/GentlePulseLoading.tsx"),
