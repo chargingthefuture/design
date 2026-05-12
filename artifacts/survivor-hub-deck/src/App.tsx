@@ -413,7 +413,7 @@ export default function App() {
     const update = () => {
       const el = containerRef.current;
       const avW = el ? el.clientWidth : window.innerWidth;
-      const avH = el ? el.clientHeight : window.innerHeight - NAV_H - 8;
+      const avH = (el ? el.clientHeight : window.innerHeight - NAV_H) - 20;
       if (slide.type === "desktop") {
         setScale(Math.min(avW / DESKTOP_W, avH / DESKTOP_H));
       } else {
