@@ -46,7 +46,7 @@ export function MobileChyme() {
 
   if (activeRoom && showChat) {
     return (
-      <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", display: "flex", flexDirection: "column" }}>
+      <div style={{ width: 390, minHeight: "100%", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", display: "flex", flexDirection: "column" }}>
         <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", padding: "0 16px", justifyContent: "space-between", flexShrink: 0 }}>
           <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
           <div style={{ fontSize: 12, color: "#9CA3AF" }}>•••</div>
@@ -83,7 +83,7 @@ export function MobileChyme() {
 
   if (activeRoom) {
     return (
-      <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+      <div style={{ width: 390, minHeight: "100%", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
         {/* Status bar */}
         <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 16px", flexShrink: 0 }}>
           <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
@@ -189,7 +189,7 @@ export function MobileChyme() {
   }
 
   return (
-    <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: 390, minHeight: "100%", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
       {/* Status bar */}
       <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>

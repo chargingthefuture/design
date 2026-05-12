@@ -58,7 +58,7 @@ export function MobileHome() {
   };
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100%", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Status bar */}
       <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
