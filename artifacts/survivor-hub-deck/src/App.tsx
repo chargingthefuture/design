@@ -411,8 +411,9 @@ export default function App() {
   const [scale, setScale] = useState(1);
   useEffect(() => {
     const update = () => {
-      const avW = window.innerWidth;
-      const avH = window.innerHeight - NAV_H - 8;
+      const el = containerRef.current;
+      const avW = el ? el.clientWidth : window.innerWidth;
+      const avH = el ? el.clientHeight : window.innerHeight - NAV_H - 8;
       if (slide.type === "desktop") {
         setScale(Math.min(avW / DESKTOP_W, avH / DESKTOP_H));
       } else {
@@ -421,7 +422,12 @@ export default function App() {
     };
     update();
     window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    const ro = new ResizeObserver(update);
+    if (containerRef.current) ro.observe(containerRef.current);
+    return () => {
+      window.removeEventListener("resize", update);
+      ro.disconnect();
+    };
   }, [slide.type]);
 
   const sections = Array.from(new Set(SLIDES.map(s => s.row)));
