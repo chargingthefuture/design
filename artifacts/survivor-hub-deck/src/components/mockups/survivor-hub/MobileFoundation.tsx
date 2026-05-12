@@ -64,7 +64,7 @@ export function MobileFoundation() {
             </div>
             <div style={{ padding: "14px", borderRadius: 12, background: `${COLOR}08`, border: `1px solid ${COLOR}18` }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}><Shield size={12} style={{ color: COLOR }} /><span style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>Safety Guarantee</span></div>
-              <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Background-checked, insured, trauma-informed. All communications via GetStream encrypted channel.</div>
+              <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Background-checked, insured, trauma-informed. All communications are end-to-end encrypted.</div>
             </div>
           </div>
         </ScrollArea>

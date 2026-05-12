@@ -87,7 +87,7 @@ export function SocketRelayPublic() {
         <main style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
           <div style={{ padding: "16px 24px", borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ fontSize: 15, fontWeight: 700 }}>Live Relay Feed</div>
-            <div style={{ fontSize: 12, color: subtle }}>Public · Updates in real time via GetStream</div>
+            <div style={{ fontSize: 12, color: subtle }}>Public · Updates in real time</div>
             <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 20, background: surface, border: `1px solid ${border}` }}>
                 <ShieldCheck size={12} color={accentCyan} />

@@ -163,7 +163,6 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
             <div style={{ fontSize: 12, color: "#6B7280" }}>Nominate survivors · build the Directory · grow the economy</div>
           </div>
           <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E35", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>247 found this week</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
         </header>
 
         <ScrollArea style={{ flex: 1 }}>

@@ -77,7 +77,7 @@ export function Desktop() {
           <div style={{ fontSize: 40 }}>{app.emoji}</div>
           <div style={{ fontSize: 24, fontWeight: 800, color: "#F9FAFB" }}>{app.name}</div>
           <div style={{ fontSize: 15, color: "#6B7280" }}>{app.desc}</div>
-          <div style={{ padding: "10px 20px", borderRadius: 10, background: `${app.color}18`, border: `1px solid ${app.color}35`, color: app.color, fontSize: 13 }}>Coming soon — GetStream powered</div>
+          <div style={{ padding: "10px 20px", borderRadius: 10, background: `${app.color}18`, border: `1px solid ${app.color}35`, color: app.color, fontSize: 13 }}>Coming soon — real-time</div>
         </div>
       </div>
     );
@@ -162,7 +162,6 @@ export function Desktop() {
           </div>
           <div style={{ display: "flex", gap: 8 }}>
             <Badge style={{ background: "rgba(34,197,94,0.15)", color: "#22C55E", border: "1px solid rgba(34,197,94,0.25)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>✓ Safe Space</Badge>
-            <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
           </div>
         </header>
 
@@ -233,7 +232,7 @@ export function Desktop() {
                       <Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                     </button>
                   </div>
-                  <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Powered by GetStream · End-to-end encrypted · Safe space guaranteed</div>
+                  <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>End-to-end encrypted · Safe space guaranteed</div>
                 </div>
               </>
             ) : (

@@ -121,7 +121,6 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
             <div style={{ fontSize: 12, color: "#6B7280" }}>Earn · Spend · Trade · Across all 12 mini-apps · Phase 3</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>2,420 Credits</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
           <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
@@ -257,7 +256,7 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
                 <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Ask about earning, spending, or transferring credits…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
                 <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "#0F1117" : "#4B5563" }} /></button>
               </div>
-              <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Powered by Formance · GetStream real-time updates · End-to-end encrypted</div>
+              <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Powered by Formance · Real-time updates · End-to-end encrypted</div>
             </div>
           </div>
         )}

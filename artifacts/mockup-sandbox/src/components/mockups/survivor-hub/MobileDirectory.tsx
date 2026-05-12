@@ -67,7 +67,7 @@ export function MobileDirectory() {
             </div>
             <div style={{ padding: "16px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}18`, marginBottom: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}><Shield size={12} style={{ color: COLOR }} /><span style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>Privacy Guaranteed</span></div>
-              <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>All messages are encrypted via GetStream. Your identity is never exposed.</div>
+              <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>All messages are end-to-end encrypted. Your identity is never exposed.</div>
             </div>
             <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", marginBottom: 10 }}>Recent Reviews</div>
             {["Changed my life. Truly trauma-informed.", "Exceptional advocate and listener.", "Helped me find housing in 3 days."].map((r, i) => (
@@ -97,7 +97,7 @@ export function MobileDirectory() {
               <div style={{ fontSize: 11, color: COLOR }}>47,234 verified providers</div>
             </div>
           </div>
-          <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11 }}>GetStream</Badge>
+          <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11 }}>Encrypted</Badge>
         </div>
         <div style={{ position: "relative" }}>
           <Search size={14} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#4B5563" }} />

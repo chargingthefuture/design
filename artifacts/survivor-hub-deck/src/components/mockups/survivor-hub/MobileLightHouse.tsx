@@ -61,7 +61,7 @@ export function MobileLightHouse() {
             <button style={{ width: "100%", padding: "12px", borderRadius: 14, background: "rgba(255,255,255,0.04)", border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 600, cursor: "pointer", marginBottom: 16 }}>Message Host</button>
             <div style={{ padding: "12px 14px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}><Lock size={12} style={{ color: COLOR }} /><span style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>Privacy Protected</span></div>
-              <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your location is never shown until you confirm. All communications via GetStream encrypted channel.</div>
+              <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your location is never shown until you confirm. All communications are end-to-end encrypted.</div>
             </div>
           </div>
         </ScrollArea>

@@ -98,7 +98,7 @@ export function MobileSocketRelay() {
                 </button>
                 <div style={{ padding: "10px 12px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}><Shield size={11} style={{ color: COLOR }} /><span style={{ fontSize: 11, fontWeight: 700, color: COLOR }}>Privacy Minimized</span></div>
-                  <div style={{ fontSize: 11, color: "#6B7280" }}>Never includes identifying info. Encrypted via GetStream.</div>
+                  <div style={{ fontSize: 11, color: "#6B7280" }}>Never includes identifying info. End-to-end encrypted.</div>
                 </div>
               </div>
             </div>

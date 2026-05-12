@@ -91,7 +91,6 @@ export function SocketRelay() {
             <div style={{ fontSize: 12, color: "#6B7280" }}>Real-time needs ↔ offers · Privacy-minimized · Phase 2</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>847 fulfilled today</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
         </header>
 
         {tab === "feed" ? (
@@ -202,7 +201,7 @@ export function SocketRelay() {
             <Shield size={12} style={{ color: COLOR }} />
             <span style={{ fontSize: 12, fontWeight: 600, color: COLOR }}>Privacy Minimized</span>
           </div>
-          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Public projections never include identifying information. All connections via GetStream encrypted channel.</div>
+          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Public projections never include identifying information. All connections are end-to-end encrypted.</div>
         </div>
       </aside>
     </div>

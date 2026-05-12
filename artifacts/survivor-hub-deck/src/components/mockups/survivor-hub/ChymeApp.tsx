@@ -131,7 +131,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
           </div>
           <div>
             <div style={{ fontSize: 17, fontWeight: 800, color: "#F0FDF4" }}>Chyme 🎙️</div>
-            <div style={{ fontSize: 12, color: "#16A34A" }}>Social Audio · GetStream Powered</div>
+            <div style={{ fontSize: 12, color: "#16A34A" }}>Social Audio · End-to-End Encrypted</div>
           </div>
         </div>
         <div style={{ flex: 1 }} />
@@ -279,7 +279,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                     <div style={{ padding: "14px 16px", borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", gap: 8 }}>
                       <Hash size={14} style={{ color: PRIMARY }} />
                       <span style={{ fontSize: 14, fontWeight: 600, color: "#F0FDF4" }}>Room Chat</span>
-                      <Badge style={{ marginLeft: "auto", background: `${PRIMARY}15`, color: PRIMARY, border: `1px solid ${PRIMARY}25`, fontSize: 10 }}>GetStream</Badge>
+                      <Badge style={{ marginLeft: "auto", background: `${PRIMARY}15`, color: PRIMARY, border: `1px solid ${PRIMARY}25`, fontSize: 10 }}>Encrypted</Badge>
                     </div>
                     <ScrollArea style={{ flex: 1, padding: "12px 14px" }}>
                       {chatMsgs.map((m) => (
@@ -320,7 +320,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                 <div style={{ flex: 1 }} />
                 <div style={{ fontSize: 12, color: "#4B5563", display: "flex", alignItems: "center", gap: 6 }}>
                   <Volume2 size={14} />
-                  Audio via GetStream
+                  Audio — encrypted
                 </div>
                 <button onClick={() => setActiveRoom(null)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 18px", borderRadius: 12, background: "rgba(239,68,68,0.12)", border: "1px solid rgba(239,68,68,0.3)", color: "#F87171", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
                   <Phone size={16} /> Leave

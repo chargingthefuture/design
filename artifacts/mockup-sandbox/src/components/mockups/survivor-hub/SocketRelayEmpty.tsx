@@ -10,7 +10,7 @@ const text = "#F9FAFB";
 const CATEGORIES = ["Food", "Transport", "Legal", "Employment", "Childcare", "Housing", "Mental Health"];
 const STEPS = [
   { icon: Plus, label: "Post a need or offer", desc: "Anonymous or named — your choice" },
-  { icon: Zap, label: "GetStream matches instantly", desc: "Real-time relay to the community" },
+  { icon: Zap, label: "Matched instantly", desc: "Real-time relay to the community" },
   { icon: Heart, label: "Connect & help", desc: "Earn Service Credits for fulfilling needs" },
 ];
 

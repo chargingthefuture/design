@@ -39,7 +39,7 @@ const POSTS = [
   {
     id: 5, type: "community", author: "James T.", avatar: "JT", time: "6 hr ago",
     title: "Service Credits explainer: how to earn, spend, and trade",
-    body: "Many people ask how credits work. Here's my full breakdown: you earn credits through skills, spend them on services, and trade them peer-to-peer. GetStream handles all the real-time updates.",
+    body: "Many people ask how credits work. Here's my full breakdown: you earn credits through skills, spend them on services, and trade them peer-to-peer. Real-time updates stream instantly.",
     likes: 567, comments: 93, pinned: false, urgent: false, color: "#F59E0B",
   },
 ];
@@ -118,12 +118,11 @@ export function FeedAnnouncements({ initialEmpty = false }: { initialEmpty?: boo
           <Megaphone size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>📣 Feed + Announcements</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Community pulse · Real-time via GetStream</div>
+            <div style={{ fontSize: 12, color: "#6B7280" }}>Community pulse · Real-time</div>
           </div>
           <button style={{ padding: "7px 16px", borderRadius: 8, background: COLOR, border: "none", color: "#fff", fontSize: 13, fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
             <Plus size={14} /> New Post
           </button>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
           <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
@@ -135,7 +134,7 @@ export function FeedAnnouncements({ initialEmpty = false }: { initialEmpty?: boo
               </div>
               <div style={{ textAlign: "center", maxWidth: 380 }}>
                 <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No posts yet</div>
-                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>The community feed is quiet right now. Posts, announcements, and urgent alerts will stream here in real-time via GetStream as the community grows.</div>
+                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>The community feed is quiet right now. Posts, announcements, and urgent alerts will stream here in real-time as the community grows.</div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 520 }}>
                 {["Announcements from the Hub team", "Community stories from survivors", "Urgent housing and safety alerts", "Milestones and celebrations"].map((item) => (

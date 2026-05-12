@@ -56,7 +56,7 @@ export function MobileChyme() {
             <ChevronLeft size={18} /> Room
           </button>
           <div style={{ flex: 1, textAlign: "center", fontSize: 14, fontWeight: 700, color: "#F0FDF4" }}>Room Chat</div>
-          <Badge style={{ background: `${PRIMARY}15`, color: PRIMARY, border: `1px solid ${PRIMARY}30`, fontSize: 10, padding: "2px 8px" }}>GetStream</Badge>
+          <Badge style={{ background: `${PRIMARY}15`, color: PRIMARY, border: `1px solid ${PRIMARY}30`, fontSize: 10, padding: "2px 8px" }}>Encrypted</Badge>
         </div>
         <ScrollArea style={{ flex: 1, padding: "16px" }}>
           {chatMsgs.map((m) => (
@@ -205,7 +205,7 @@ export function MobileChyme() {
             </div>
             <div>
               <div style={{ fontSize: 18, fontWeight: 800, color: "#F0FDF4" }}>Chyme 🎙️</div>
-              <div style={{ fontSize: 11, color: PRIMARY }}>Social Audio · GetStream</div>
+              <div style={{ fontSize: 11, color: PRIMARY }}>Social Audio · Encrypted</div>
             </div>
           </div>
           <div style={{ display: "flex", gap: 8 }}>

@@ -57,7 +57,6 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
             ← Back
           </button>
           <div style={{ flex: 1, fontSize: 16, fontWeight: 700, color: "#F9FAFB" }}>📇 Provider Profile</div>
-          <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}40`, fontSize: 11 }}>GetStream ⚡</Badge>
         </div>
         <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
           <div style={{ flex: 1, padding: "32px 40px", overflow: "auto" }}>
@@ -117,7 +116,7 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                   ))}
                 </div>
                 <div style={{ padding: "20px", borderRadius: 16, background: `${COLOR}08`, border: `1px solid ${COLOR}20` }}>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 8 }}>GetStream Chat</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 8 }}>Encrypted Chat</div>
                   <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>All messages are end-to-end encrypted and trauma-informed by design.</div>
                 </div>
               </div>
@@ -192,7 +191,6 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
             <div style={{ fontSize: 12, color: "#6B7280" }}>47,234 verified providers · Trauma-informed · Safe</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>✓ Verified Network</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
           <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
@@ -310,7 +308,7 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                   <Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                 </button>
               </div>
-              <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Powered by GetStream · Privacy-first · Trauma-informed design</div>
+              <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Privacy-first · Trauma-informed design</div>
             </div>
           </div>
         )}
@@ -336,7 +334,7 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
             <Shield size={14} style={{ color: COLOR }} />
             <span style={{ fontSize: 12, fontWeight: 600, color: COLOR }}>Privacy Guarantee</span>
           </div>
-          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your identity is protected. All interactions use GetStream encrypted channels.</div>
+          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your identity is protected. All interactions are end-to-end encrypted.</div>
         </div>
         <div style={{ marginTop: 12, padding: "16px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Categories</div>

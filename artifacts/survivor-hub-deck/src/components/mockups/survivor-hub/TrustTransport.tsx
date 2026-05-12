@@ -108,7 +108,6 @@ export function TrustTransport() {
             <div style={{ fontSize: 12, color: "#6B7280" }}>Rides · packages · food · Safety-first · Phase 2</div>
           </div>
           <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E35", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>1,247 Drivers Online</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
         </header>
 
         {tab === "book" ? (
@@ -170,7 +169,7 @@ export function TrustTransport() {
                     <CheckCircle size={20} style={{ color: "#22C55E" }} />
                     <div style={{ fontSize: 16, fontWeight: 700, color: "#22C55E" }}>Booked! Driver en route.</div>
                   </div>
-                  <div style={{ fontSize: 13, color: "#9CA3AF", marginTop: 6 }}>Jose Martinez · ETA 8 min · Toyota Camry · All comms via GetStream</div>
+                  <div style={{ fontSize: 13, color: "#9CA3AF", marginTop: 6 }}>Jose Martinez · ETA 8 min · Toyota Camry · All comms encrypted</div>
                 </div>
               )}
             </div>
@@ -191,7 +190,7 @@ export function TrustTransport() {
                   <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E40", fontSize: 12, marginLeft: "auto" }}>🔴 Live</Badge>
                 </div>
                 <div style={{ padding: "80px 20px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", textAlign: "center", color: "#4B5563", fontSize: 13, marginBottom: 16 }}>
-                  [Live Map — GetStream location feed]
+                  [Live Map — encrypted location feed]
                 </div>
                 <div style={{ display: "flex", gap: 10 }}>
                   <button style={{ flex: 1, padding: "12px", borderRadius: 10, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}><Phone size={14} /> Call Driver</button>
@@ -230,7 +229,7 @@ export function TrustTransport() {
           { icon: Shield, l: "Background Checked", v: "All drivers", c: "#22C55E" },
           { icon: Phone, l: "Emergency SOS", v: "One-tap alert", c: "#EF4444" },
           { icon: CheckCircle, l: "Identity Verified", v: "Photo ID required", c: COLOR },
-          { icon: Zap, l: "Real-time Tracking", v: "GetStream powered", c: "#38BDF8" },
+          { icon: Zap, l: "Real-time Tracking", v: "End-to-end encrypted", c: "#38BDF8" },
         ].map(({ icon: Icon, l, v, c }) => (
           <div key={l} style={{ display: "flex", gap: 10, alignItems: "center", padding: "12px", borderRadius: 10, background: `${c}08`, border: `1px solid ${c}20`, marginBottom: 8 }}>
             <Icon size={16} style={{ color: c, flexShrink: 0 }} />

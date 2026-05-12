@@ -81,7 +81,7 @@ export function Mood() {
               <Lock size={12} style={{ color: COLOR }} />
               <span style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>100% Anonymous</span>
             </div>
-            <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your mood is never linked to your identity. Zero tracking. GetStream-protected.</div>
+            <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your mood is never linked to your identity. Zero tracking. End-to-end encrypted.</div>
           </div>
         </div>
         <ScrollArea style={{ flex: 1 }}>
@@ -110,7 +110,6 @@ export function Mood() {
             <div style={{ fontSize: 12, color: "#6B7280" }}>Zero tracking · Community wellness · Phase 2</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>🔒 Anonymous</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
         </header>
 
         {tab === "checkin" ? (
@@ -134,7 +133,7 @@ export function Mood() {
                     <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                       <textarea placeholder="(Optional) Anything you'd like to add? Completely anonymous…" rows={3} style={{ width: "100%", padding: "14px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", resize: "none", boxSizing: "border-box" }} />
                       <button onClick={() => setSubmitted(true)} style={{ padding: "14px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 16, fontWeight: 800, cursor: "pointer" }}>Submit Anonymously</button>
-                      <div style={{ textAlign: "center", fontSize: 12, color: "#4B5563" }}>Not linked to your account · Encrypted via GetStream · Instant deletion available</div>
+                      <div style={{ textAlign: "center", fontSize: 12, color: "#4B5563" }}>Not linked to your account · End-to-end encrypted · Instant deletion available</div>
                     </div>
                   )}
                 </>

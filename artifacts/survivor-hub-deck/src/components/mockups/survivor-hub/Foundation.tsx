@@ -473,7 +473,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                   style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}
                 >
                   All Foundation providers are background-checked, insured, and
-                  trauma-informed. GetStream is used for all communications.
+                  trauma-informed. All communications are end-to-end encrypted.
                 </div>
               </div>
             </div>
@@ -749,18 +749,6 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
             }}
           >
             ✓ Background Checked
-          </Badge>
-          <Badge
-            style={{
-              background: "rgba(14,165,233,0.12)",
-              color: "#38BDF8",
-              border: "1px solid rgba(14,165,233,0.2)",
-              fontSize: 11,
-              padding: "3px 10px",
-              borderRadius: 20,
-            }}
-          >
-            GetStream ⚡
           </Badge>
         </header>
 

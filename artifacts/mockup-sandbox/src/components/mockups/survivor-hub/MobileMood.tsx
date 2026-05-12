@@ -125,7 +125,7 @@ export function MobileMood() {
             <div style={{ textAlign: "center", padding: "32px 0" }}>
               <div style={{ fontSize: 64, marginBottom: 16 }}>{activeNav === "home" ? "😁" : "🔒"}</div>
               <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>{activeNav === "home" ? "Mood Check-in" : "Privacy First"}</div>
-              <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.7 }}>{activeNav === "home" ? "Check in daily to track your wellness journey" : "100% anonymous. Zero tracking. GetStream-protected. Your data is only yours."}</div>
+              <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.7 }}>{activeNav === "home" ? "Check in daily to track your wellness journey" : "100% anonymous. Zero tracking. End-to-end encrypted. Your data is only yours."}</div>
               {activeNav === "home" && <button onClick={() => setActiveNav("checkin")} style={{ marginTop: 20, padding: "12px 28px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Check In Now</button>}
             </div>
           )}

@@ -95,7 +95,6 @@ export function GDP() {
             <div style={{ fontSize: 12, color: "#6B7280" }}>Real-time · 127 countries · 4.9M survivors building $300B</div>
           </div>
           <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E35", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>↑ Live</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
         </header>
 
         {tab === "dashboard" ? (
@@ -180,7 +179,7 @@ export function GDP() {
           <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 12 }}>
             <Globe size={64} style={{ color: COLOR, opacity: 0.4 }} />
             <div style={{ fontSize: 18, fontWeight: 600, color: "#6B7280" }}>World Map — 127 Countries</div>
-            <div style={{ fontSize: 13, color: "#4B5563" }}>Live GDP distribution powered by GetStream feeds</div>
+            <div style={{ fontSize: 13, color: "#4B5563" }}>Live GDP distribution — real-time</div>
             <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
               {TOP_COUNTRIES.map((c) => <span key={c.country} style={{ fontSize: 24 }}>{c.flag}</span>)}
             </div>

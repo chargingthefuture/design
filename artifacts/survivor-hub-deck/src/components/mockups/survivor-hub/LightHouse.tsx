@@ -13,7 +13,7 @@ const COLOR = "#EAB308";
 const BG = "#1c1407";
 
 const LISTINGS = [
-  { id: 1, title: "Private Studio — Safe & Verified", location: "Midtown Houston, TX", price: 850, credits: true, beds: 1, baths: 1, rating: 4.9, reviews: 34, verified: true, available: "Now", features: ["Trauma-informed host", "GetStream verified", "Private entrance", "Female-only building"], img: "🏠" },
+  { id: 1, title: "Private Studio — Safe & Verified", location: "Midtown Houston, TX", price: 850, credits: true, beds: 1, baths: 1, rating: 4.9, reviews: 34, verified: true, available: "Now", features: ["Trauma-informed host", "Privacy verified", "Private entrance", "Female-only building"], img: "🏠" },
   { id: 2, title: "Furnished 1BR — Female-only Floor", location: "Buckhead, Atlanta, GA", price: 1100, credits: true, beds: 1, baths: 1, rating: 4.8, reviews: 28, verified: true, available: "Now", features: ["All utilities included", "Security concierge", "Service Credits OK"], img: "🏢" },
   { id: 3, title: "2BR Safe House — Group Housing", location: "Lincoln Park, Chicago, IL", price: 1400, credits: false, beds: 2, baths: 1, rating: 5.0, reviews: 19, verified: true, available: "Dec 1", features: ["Shared living", "Case worker on-site", "Emergency exits"], img: "🏘️" },
   { id: 4, title: "Micro-unit — Month-to-month", location: "Uptown Dallas, TX", price: 650, credits: true, beds: 0, baths: 1, rating: 4.7, reviews: 41, verified: true, available: "Now", features: ["No long-term lease", "Service Credits OK", "Safe area"], img: "🏠" },
@@ -47,7 +47,6 @@ export function LightHouse() {
         <div style={{ height: 56, borderBottom: `1px solid ${COLOR}25`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14" }}>
           <button onClick={() => setSelected(null)} style={{ color: COLOR, background: "none", border: "none", cursor: "pointer", fontSize: 14 }}>← Back</button>
           <div style={{ flex: 1, fontSize: 16, fontWeight: 700, color: "#F9FAFB" }}>🏠 Listing Detail</div>
-          <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}40`, fontSize: 11 }}>GetStream ⚡</Badge>
         </div>
         <div style={{ flex: 1, padding: "32px 40px", overflow: "auto" }}>
           <div style={{ fontSize: 48, marginBottom: 20, textAlign: "center", padding: "40px 0", background: "rgba(255,255,255,0.02)", borderRadius: 16, border: "1px solid rgba(255,255,255,0.06)" }}>{l.img}</div>
@@ -74,7 +73,7 @@ export function LightHouse() {
                   <Lock size={12} style={{ color: COLOR }} />
                   <span style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>Privacy Protected</span>
                 </div>
-                <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your exact location is never shown to hosts until you confirm a booking. All communications via GetStream encrypted channel.</div>
+                <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your exact location is never shown to hosts until you confirm a booking. All communications are end-to-end encrypted.</div>
               </div>
             </div>
             <div style={{ width: 280, flexShrink: 0 }}>
@@ -83,7 +82,7 @@ export function LightHouse() {
                 {l.credits && <div style={{ fontSize: 12, color: "#F59E0B", marginBottom: 16 }}>✓ Accepts Service Credits</div>}
                 <button style={{ width: "100%", padding: "12px", borderRadius: 10, background: COLOR, border: "none", color: "#0F1117", fontWeight: 800, fontSize: 15, cursor: "pointer", marginBottom: 10 }}>Apply Now</button>
                 <button style={{ width: "100%", padding: "12px", borderRadius: 10, background: "rgba(255,255,255,0.04)", border: `1px solid ${COLOR}35`, color: COLOR, fontWeight: 600, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}><MessageSquare size={14} /> Message Host</button>
-                <div style={{ marginTop: 12, fontSize: 12, color: "#4B5563", textAlign: "center", lineHeight: 1.6 }}>Secure booking via GetStream · No deposit until confirmed</div>
+                <div style={{ marginTop: 12, fontSize: 12, color: "#4B5563", textAlign: "center", lineHeight: 1.6 }}>Secure booking · No deposit until confirmed</div>
               </div>
             </div>
           </div>
@@ -143,7 +142,6 @@ export function LightHouse() {
             <div style={{ fontSize: 12, color: "#6B7280" }}>1,204 verified listings · Privacy-first · Phase 2</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>✓ Privacy Protected</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
         </header>
 
         {tab === "browse" ? (
@@ -235,7 +233,7 @@ export function LightHouse() {
             <Eye size={12} style={{ color: COLOR }} />
             <span style={{ fontSize: 12, fontWeight: 600, color: COLOR }}>Privacy by Design</span>
           </div>
-          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your location is never exposed to landlords without your consent. All matches via GetStream encrypted channel.</div>
+          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your location is never exposed to landlords without your consent. All matches are end-to-end encrypted.</div>
         </div>
       </aside>
     </div>

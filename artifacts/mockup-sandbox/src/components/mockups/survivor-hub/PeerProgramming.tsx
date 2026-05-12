@@ -102,7 +102,6 @@ export function PeerProgramming() {
             <div style={{ fontSize: 12, color: "#6B7280" }}>Weekly global masterminds · 12 per cohort · Always-open</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>48 Active Cohorts</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
         </header>
 
         {tab === "cohorts" ? (
@@ -160,7 +159,7 @@ export function PeerProgramming() {
             <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>Tech for Good Cohort — Week 4 · Facilitated by Lena Hoffmann</div>
             <div style={{ padding: "60px 0", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: `1px solid ${COLOR}30`, textAlign: "center", marginBottom: 20 }}>
               <Video size={48} style={{ color: COLOR, marginBottom: 12 }} />
-              <div style={{ fontSize: 16, color: "#6B7280" }}>Video session via GetStream</div>
+              <div style={{ fontSize: 16, color: "#6B7280" }}>Video session — encrypted</div>
               <button style={{ marginTop: 16, padding: "12px 32px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Join Session</button>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>

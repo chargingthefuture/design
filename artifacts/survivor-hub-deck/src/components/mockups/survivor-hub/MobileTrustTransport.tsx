@@ -93,7 +93,7 @@ export function MobileTrustTransport() {
                     <CheckCircle size={18} style={{ color: "#22C55E" }} />
                     <div style={{ fontSize: 14, fontWeight: 700, color: "#22C55E" }}>Booked! Driver en route.</div>
                   </div>
-                  <div style={{ fontSize: 12, color: "#9CA3AF", marginTop: 6 }}>Jose Martinez · ETA 8 min · All comms via GetStream</div>
+                  <div style={{ fontSize: 12, color: "#9CA3AF", marginTop: 6 }}>Jose Martinez · ETA 8 min · All comms encrypted</div>
                 </div>
               )}
             </>
@@ -107,7 +107,7 @@ export function MobileTrustTransport() {
                 </div>
                 <div style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 12 }}>ETA 8 min · Toyota Camry · 12 credits</div>
                 <div style={{ padding: "60px 20px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", textAlign: "center", color: "#4B5563", fontSize: 13, marginBottom: 12 }}>
-                  [Live Map — GetStream location feed]
+                  [Live Map — encrypted location feed]
                 </div>
                 <div style={{ display: "flex", gap: 8 }}>
                   <button style={{ flex: 1, padding: "10px", borderRadius: 10, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 12, fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}><Phone size={13} /> Call</button>
@@ -129,7 +129,7 @@ export function MobileTrustTransport() {
             <div style={{ textAlign: "center", padding: "40px 0" }}>
               <div style={{ fontSize: 48, marginBottom: 12 }}>{activeNav === "package" ? "📦" : "💬"}</div>
               <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>{activeNav === "package" ? "Package Delivery" : "Transport Chat"}</div>
-              <div style={{ fontSize: 13, color: "#6B7280" }}>GetStream-powered · Safety-first</div>
+              <div style={{ fontSize: 13, color: "#6B7280" }}>End-to-end encrypted · Safety-first</div>
             </div>
           )}
         </div>

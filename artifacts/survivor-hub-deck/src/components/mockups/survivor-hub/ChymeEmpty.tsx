@@ -64,7 +64,7 @@ export function ChymeEmpty() {
           </div>
           <div style={{ fontSize: 22, fontWeight: 800, color: text }}>No rooms are live yet</div>
           <div style={{ fontSize: 14, color: subtle, lineHeight: 1.7 }}>
-            Chyme is powered by GetStream — real-time audio rooms for survivors to share stories, learn, and connect. Rooms appear here the moment someone goes live.
+            Chyme features real-time audio rooms for survivors to share stories, learn, and connect. Rooms appear here the moment someone goes live.
           </div>
           <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
             <button style={{ padding: "10px 22px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontWeight: 700, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", gap: 7 }}>

@@ -99,7 +99,6 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
             <div style={{ fontSize: 12, color: "#6B7280" }}>Live skills distribution · 4.9M survivors · Phase 1</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>Phase 1</Badge>
-          <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.2)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>GetStream ⚡</Badge>
           <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
@@ -111,7 +110,7 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
               </div>
               <div style={{ textAlign: "center", maxWidth: 360 }}>
                 <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No workforce data yet</div>
-                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>Once survivors complete their profile and onboarding, workforce distribution and skill gap analysis will appear here. Live data is powered by GetStream.</div>
+                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>Once survivors complete their profile and onboarding, workforce distribution and skill gap analysis will appear here. Live data streams in real time.</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, width: "100%", maxWidth: 700 }}>
                 {[{ label: "Total Members", color: "#6366F1" }, { label: "Employed", color: "#22C55E" }, { label: "In Training", color: "#F59E0B" }, { label: "Skill Gaps", color: "#EF4444" }].map(({ label, color }) => (

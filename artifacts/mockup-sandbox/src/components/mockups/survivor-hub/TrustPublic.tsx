@@ -4,7 +4,7 @@ import { Shield, CheckCircle } from "lucide-react";
 const bg = "#0F1117", COLOR = "#0EA5E9";
 
 const SIGNALS = [
-  "GetStream identity verification",
+  "Identity verification",
   "Survivor-status attestation (non-coercive)",
   "Service Credit transaction history",
   "Community peer vouches",
