@@ -484,7 +484,7 @@ export default function App() {
         {menuOpen && (
           <div
             onClick={e => e.stopPropagation()}
-            style={{ position: "absolute", bottom: NAV_H + 8, left: 20, background: "#1A1D27", border: "1px solid #2A2D3A", borderRadius: 10, padding: 8, zIndex: 100, width: 340, boxShadow: "0 -8px 32px rgba(0,0,0,0.6)" }}
+            style={{ position: "absolute", bottom: NAV_H + 8, left: 20, background: "#1A1D27", border: "1px solid #2A2D3A", borderRadius: 10, padding: 8, zIndex: 100, width: 340, boxShadow: "0 -8px 32px rgba(0,0,0,0.6)", maxHeight: "calc(100vh - 120px)", overflowY: "auto" }}
           >
             <div style={{ color: "#64748B", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", padding: "4px 8px 8px", textTransform: "uppercase" }}>Jump to section</div>
             {sections.map(row => {
