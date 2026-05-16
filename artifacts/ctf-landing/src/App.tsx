@@ -236,10 +236,10 @@ function YouTubeFacade({ youtubeId, name, color }: { youtubeId: string; name: st
   }
 
   return (
-    <div
-      className="relative w-full aspect-video border-4 border-foreground overflow-hidden cursor-pointer group"
+    <button
+      type="button"
+      className="relative w-full aspect-video border-4 border-foreground overflow-hidden cursor-pointer group focus:outline-none focus-visible:ring-4 focus-visible:ring-white"
       onClick={() => setActive(true)}
-      role="button"
       aria-label={`Play ${name} demo`}
     >
       <img
@@ -251,14 +251,14 @@ function YouTubeFacade({ youtubeId, name, color }: { youtubeId: string; name: st
       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
         <div
-          className="w-16 h-16 border-4 border-black flex items-center justify-center brutal-shadow transition-transform group-hover:scale-110"
+          className="w-16 h-16 border-4 border-black flex items-center justify-center brutal-shadow transition-transform group-hover:scale-110 group-focus-visible:scale-110"
           style={{ background: color }}
         >
           <Play size={24} fill="black" className="text-black ml-1" />
         </div>
         <span className="font-bold text-xs uppercase tracking-widest text-white/80">{name} Demo</span>
       </div>
-    </div>
+    </button>
   );
 }
 
