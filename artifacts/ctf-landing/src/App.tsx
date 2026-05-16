@@ -294,6 +294,7 @@ function Footer() {
           <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
           <Link href="/demos" className="hover:text-foreground transition-colors">17 Demos</Link>
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
+          <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
           <a href={APP_URL} className="hover:text-primary transition-colors text-primary">Open App →</a>
         </div>
         <p className="text-muted-foreground uppercase font-bold tracking-widest text-xs">
@@ -345,7 +346,7 @@ function LandingPage() {
               Arsenal.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — rebuilt from the ground up with 17 features.
+              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 17 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
