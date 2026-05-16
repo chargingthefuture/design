@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Switch, Route, Router as WouterRouter, Link, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -18,22 +18,26 @@ const APP_URL = "https://app.chargingthefuture.com";
 const HERO_IMG = `${BASE}hero-walking-dead.png`;
 
 // Exact colors from the app (Desktop.tsx MINI_APPS)
-const FEATURES = [
-  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#38BDF8", bg: "#011c26", desc: "The main community: AI-powered chat, safe channels, 4.9M members. Your base camp." },
-  { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#052e16", desc: "Live social audio rooms. Record, broadcast, listen, and connect in real time." },
-  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#EAB308", bg: "#1c1407", desc: "Safe and verified housing listings. Community trust scores so you know your neighbors." },
-  { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#F97316", bg: "#1c0a03", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community." },
-  { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#3B82F6", bg: "#0c1a3d", desc: "Skills directory and professional listings. Find a survivor-run service for almost anything." },
-  { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#EF4444", bg: "#1c0505", desc: "Tools, repairs, and infrastructure support. Logs changes in your area so nothing happens in the dark." },
-  { id: "peerprog",      name: "Peer Programming", emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Tech mentorship and coding support. Weekly global masterminds — survivors teaching survivors." },
-  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011c26", desc: "Real-time $247B global survivor economic tracker. Your contributions counted, recorded, visible." },
+const FEATURES: {
+  id: string; name: string; emoji: string; icon: React.ElementType;
+  color: string; bg: string; desc: string;
+  youtubeId?: string; protonLink?: string;
+}[] = [
+  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#38BDF8", bg: "#011c26", desc: "The main community: AI-powered chat, safe channels, 4.9M members. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
+  { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#052e16", desc: "Live social audio rooms. Record, broadcast, listen, and connect in real time.", youtubeId: "oVESU60zbPg" },
+  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#EAB308", bg: "#1c1407", desc: "Safe and verified housing listings. Community trust scores so you know your neighbors.", youtubeId: "KfyZsemVU8A" },
+  { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#F97316", bg: "#1c0a03", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community.", youtubeId: "myHI3xB-fMQ" },
+  { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#3B82F6", bg: "#0c1a3d", desc: "Skills directory and professional listings. Find a survivor-run service for almost anything.", youtubeId: "W1cZm9F0D78" },
+  { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#EF4444", bg: "#1c0505", desc: "Tools, repairs, and infrastructure support. Logs changes in your area so nothing happens in the dark.", youtubeId: "n4Tkw01PmX8" },
+  { id: "peerprog",      name: "Peer Programming", emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Tech mentorship and coding support. Weekly global masterminds — survivors teaching survivors.", youtubeId: "ReJ-HjM4dvo" },
+  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011c26", desc: "Real-time $300B global survivor economic tracker. Your contributions counted, recorded, visible." },
   { id: "credits",       name: "Service Credits",  emoji: "⚙️", icon: Coins,      color: "#F59E0B", bg: "#1c1200", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed." },
-  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#6366F1", bg: "#0e0f30", desc: "Trafficking-informed job matching. Employers vetted for survivor-safe workplaces." },
+  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#6366F1", bg: "#0e0f30", desc: "Trafficking-informed job matching. Employers vetted for survivor-safe workplaces.", protonLink: "https://drive.proton.me/urls/2C3V6KQZDC#IPmuHxdRmzOh" },
   { id: "gentlepulse",   name: "GentlePulse",      emoji: "💚", icon: Heart,      color: "#14B8A6", bg: "#011c1a", desc: "Wellness check-ins and emotional support. Gentle, consistent, non-intrusive." },
   { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#EC4899", bg: "#1c0416", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control." },
-  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#F43F5E", bg: "#1c0409", desc: "Mutual aid network for urgent needs. Real-time resource sharing when it matters most." },
-  { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#8B5CF6", bg: "#150d2e", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games." },
-  { id: "skillshunt",    name: "Skills Hunt",      emoji: "🎓", icon: Award,      color: "#A855F7", bg: "#1a0d2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it." },
+  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#F43F5E", bg: "#1c0409", desc: "Mutual aid network for urgent needs. Real-time resource sharing when it matters most.", youtubeId: "WTXpioRV2Bw" },
+  { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#8B5CF6", bg: "#150d2e", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games.", youtubeId: "l4tE1eLco6k" },
+  { id: "skillshunt",    name: "Skills Hunt",      emoji: "🎓", icon: Award,      color: "#A855F7", bg: "#1a0d2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it.", youtubeId: "OfojmleoDEc" },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#22C55E", bg: "#052e16", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated." },
   { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0EA5E9", bg: "#011826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
 ];
@@ -196,7 +200,7 @@ function NavBar() {
 }
 
 function StatMarquee() {
-  const stats = ["4.9M Survivors", "$247B Economy", "127 Countries", "128 Live Rooms right now", "17 Apps, One Account", "Free to join", "End-to-End Encrypted"];
+  const stats = ["4.9M Survivors", "$300B Economy", "127 Countries", "128 Live Rooms right now", "17 Apps, One Account", "Free to join", "End-to-End Encrypted"];
   const doubled = [...stats, ...stats];
   return (
     <div className="border-y-4 border-foreground bg-secondary py-5 overflow-hidden flex whitespace-nowrap">
@@ -296,7 +300,7 @@ function LandingPage() {
               Arsenal.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-              Not a charity. Not a support group. An invite-only super app that turns survivors into active participants in a $247B economy — rebuilt from the ground up with 17 features.
+              Not a charity. Not a support group. An invite-only super app that turns survivors into active participants in a $300B economy — rebuilt from the ground up with 17 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -482,7 +486,32 @@ function DemosPage() {
                 <p className="text-muted-foreground text-base leading-relaxed">{feat.desc}</p>
               </div>
               <div className="px-6 pb-6">
-                <VideoPlaceholder name={feat.name} color={feat.color} />
+                {feat.youtubeId ? (
+                  <div className="relative w-full aspect-video border-4 border-foreground overflow-hidden">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${feat.youtubeId}?playsinline=1`}
+                      title={`${feat.name} Demo`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                ) : feat.protonLink ? (
+                  <div className="relative w-full aspect-video border-4 border-foreground bg-zinc-900 overflow-hidden flex items-center justify-center"
+                    style={{ background: `linear-gradient(135deg, ${feat.color}18 0%, #000 100%)` }}>
+                    <a
+                      href={feat.protonLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 border-4 border-foreground font-bold uppercase tracking-widest px-6 py-4 text-base transition-all hover:-translate-y-1"
+                      style={{ background: feat.color, color: "#000", boxShadow: `4px 4px 0px 0px #fff` }}
+                    >
+                      Watch Demo <ArrowRight size={18} strokeWidth={3} />
+                    </a>
+                  </div>
+                ) : (
+                  <VideoPlaceholder name={feat.name} color={feat.color} />
+                )}
               </div>
             </motion.div>
           ))}
