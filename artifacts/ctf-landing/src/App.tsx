@@ -6,70 +6,117 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, Play, Menu, X, Home, Tv, Wrench as FixIt,
-  Users, Radio, HomeIcon, Navigation, FileText, Code,
-  DollarSign, Wallet, Briefcase, HeartPulse, Smile,
-  AlertTriangle, Activity, GraduationCap, Target, UsersRound,
+  Users, Radio, HomeIcon, Navigation, BookOpen, Hammer,
+  Code, Globe, Coins, Briefcase, Heart, Smile, Share2,
+  Activity, Award, Target, UsersRound, DollarSign, HeartPulse,
 } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
-
 const BASE = import.meta.env.BASE_URL;
 const APP_URL = "https://app.chargingthefuture.com";
 const HERO_IMG = `${BASE}hero-walking-dead.png`;
 
+// Exact colors from the app (Desktop.tsx MINI_APPS)
 const FEATURES = [
-  { id: "hub",          name: "Hub",            desc: "The main community: AI-powered chat, safe channels, 4.9M members. Your base camp.",                                icon: Users,       color: "border-primary",   bg: "bg-primary/10",   shadow: "brutal-shadow-primary"   },
-  { id: "chyme",        name: "Chyme",          desc: "Live social audio rooms. Record, broadcast, listen, and connect in real time.",                                    icon: Radio,       color: "border-secondary", bg: "bg-secondary/10", shadow: "brutal-shadow-secondary" },
-  { id: "lighthouse",   name: "LightHouse",     desc: "Safe and verified housing listings. Community trust scores so you know your neighbors.",                           icon: HomeIcon,    color: "border-accent",    bg: "bg-accent/10",    shadow: "brutal-shadow-accent"    },
-  { id: "trusttransport","name": "TrustTransport","desc": "Vetted transportation for safe travel. Drivers screened by the community, for the community.",                 icon: Navigation,  color: "border-primary",   bg: "bg-primary/10",   shadow: "brutal-shadow-primary"   },
-  { id: "directory",    name: "Directory",      desc: "Skills directory and professional listings. Find a survivor-run service for almost anything.",                      icon: FileText,    color: "border-secondary", bg: "bg-secondary/10", shadow: "brutal-shadow-secondary" },
-  { id: "foundation",   name: "Foundation",     desc: "Tools, repairs, and infrastructure support. Logs changes in your area so nothing happens in the dark.",            icon: FixIt,       color: "border-accent",    bg: "bg-accent/10",    shadow: "brutal-shadow-accent"    },
-  { id: "peerprog",     name: "Peer Programming","desc": "Tech mentorship and coding support. Survivors teaching survivors to build.",                                    icon: Code,        color: "border-primary",   bg: "bg-primary/10",   shadow: "brutal-shadow-primary"   },
-  { id: "gdp",          name: "GDP",            desc: "Real-time $247B global survivor economic tracker. Your contributions counted, recorded, and made visible.",        icon: DollarSign,  color: "border-secondary", bg: "bg-secondary/10", shadow: "brutal-shadow-secondary" },
-  { id: "credits",      name: "Service Credits","desc": "Alternative economy and credits exchange. Trade value inside the network without depending on outside systems.", icon: Wallet,      color: "border-accent",    bg: "bg-accent/10",    shadow: "brutal-shadow-accent"    },
-  { id: "workforce",    name: "Workforce",      desc: "Trafficking-informed job matching. Employers vetted for survivor-safe workplaces.",                                 icon: Briefcase,   color: "border-primary",   bg: "bg-primary/10",   shadow: "brutal-shadow-primary"   },
-  { id: "gentlepulse",  name: "GentlePulse",    desc: "Wellness check-ins and emotional support. Gentle, consistent, non-intrusive.",                                    icon: HeartPulse,  color: "border-secondary", bg: "bg-secondary/10", shadow: "brutal-shadow-secondary" },
-  { id: "mood",         name: "Mood",           desc: "Mood tracking and pattern awareness. Know yourself. See patterns. Take back control.",                             icon: Smile,       color: "border-accent",    bg: "bg-accent/10",    shadow: "brutal-shadow-accent"    },
-  { id: "socketrelay",  name: "SocketRelay",    desc: "Mutual aid network for urgent needs. Real-time resource sharing when it matters most.",                           icon: AlertTriangle,color: "border-primary",  bg: "bg-primary/10",   shadow: "brutal-shadow-primary"   },
-  { id: "feed",         name: "Feed",           desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games.",                          icon: Activity,    color: "border-secondary", bg: "bg-secondary/10", shadow: "brutal-shadow-secondary" },
-  { id: "skillshunt",   name: "SkillsHunt",     desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it.",                                icon: GraduationCap,color:"border-accent",   bg: "bg-accent/10",    shadow: "brutal-shadow-accent"    },
-  { id: "levelup",      name: "LevelUp",        desc: "Goal tracking and progress milestones. Your journey, documented and celebrated.",                                  icon: Target,      color: "border-primary",   bg: "bg-primary/10",   shadow: "brutal-shadow-primary"   },
-  { id: "supportmatch", name: "SupportMatch",   desc: "Accountability partner matching. One person in your corner who gets it.",                                         icon: UsersRound,  color: "border-secondary", bg: "bg-secondary/10", shadow: "brutal-shadow-secondary" },
+  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#38BDF8", bg: "#011c26", desc: "The main community: AI-powered chat, safe channels, 4.9M members. Your base camp." },
+  { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#052e16", desc: "Live social audio rooms. Record, broadcast, listen, and connect in real time." },
+  { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#EAB308", bg: "#1c1407", desc: "Safe and verified housing listings. Community trust scores so you know your neighbors." },
+  { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#F97316", bg: "#1c0a03", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community." },
+  { id: "directory",     name: "Directory",        emoji: "📇", icon: BookOpen,   color: "#3B82F6", bg: "#0c1a3d", desc: "Skills directory and professional listings. Find a survivor-run service for almost anything." },
+  { id: "foundation",    name: "Foundation",       emoji: "🪛", icon: Hammer,     color: "#EF4444", bg: "#1c0505", desc: "Tools, repairs, and infrastructure support. Logs changes in your area so nothing happens in the dark." },
+  { id: "peerprog",      name: "Peer Programming", emoji: "🏘️", icon: Code,       color: "#8B5CF6", bg: "#150d2e", desc: "Tech mentorship and coding support. Weekly global masterminds — survivors teaching survivors." },
+  { id: "gdp",           name: "GDP",              emoji: "🗺️", icon: Globe,      color: "#06B6D4", bg: "#011c26", desc: "Real-time $247B global survivor economic tracker. Your contributions counted, recorded, visible." },
+  { id: "credits",       name: "Service Credits",  emoji: "⚙️", icon: Coins,      color: "#F59E0B", bg: "#1c1200", desc: "Alternative economy and credits exchange. Trade value inside the network — no outside systems needed." },
+  { id: "workforce",     name: "Workforce",        emoji: "💼", icon: Briefcase,  color: "#6366F1", bg: "#0e0f30", desc: "Trafficking-informed job matching. Employers vetted for survivor-safe workplaces." },
+  { id: "gentlepulse",   name: "GentlePulse",      emoji: "💚", icon: Heart,      color: "#14B8A6", bg: "#011c1a", desc: "Wellness check-ins and emotional support. Gentle, consistent, non-intrusive." },
+  { id: "mood",          name: "Mood",             emoji: "😁", icon: Smile,      color: "#EC4899", bg: "#1c0416", desc: "Anonymous mood tracking and pattern awareness. Know yourself. See patterns. Take back control." },
+  { id: "socketrelay",   name: "SocketRelay",      emoji: "🔂", icon: Share2,     color: "#F43F5E", bg: "#1c0409", desc: "Mutual aid network for urgent needs. Real-time resource sharing when it matters most." },
+  { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#8B5CF6", bg: "#150d2e", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games." },
+  { id: "skillshunt",    name: "Skills Hunt",      emoji: "🎓", icon: Award,      color: "#A855F7", bg: "#1a0d2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it." },
+  { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#22C55E", bg: "#052e16", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated." },
+  { id: "supportmatch",  name: "SupportMatch",     emoji: "🤝", icon: UsersRound, color: "#0EA5E9", bg: "#011826", desc: "Accountability partner matching. One person in your corner who gets it — matched by the community." },
 ];
 
-const LOOK_MA_ITEMS = [
-  {
-    q: "Do people constantly try to get close to you in public while pointing their cell phones at you?",
-    a: "Hub's Safe Space AI detects behavioral patterns and helps you document them — building a record you control.",
-    feature: "Hub",
-  },
-  {
-    q: "Do your coworkers suddenly act cold, lie about your performance, or try to push you out?",
-    a: "Workforce + Peer Programming give you a survivorship network that vouches for you, connects you to safe employers, and builds your skills outside their reach.",
-    feature: "Workforce & Peer Programming",
-  },
-  {
-    q: "Do strange cars sit parked outside your home for hours?",
-    a: "TrustTransport + SocketRelay let you report, document, and route around surveillance — shared anonymously with the community for pattern analysis.",
-    feature: "TrustTransport & SocketRelay",
-  },
-  {
-    q: "Do people block you in public, cut you in lines, or create obstacles wherever you go?",
-    a: "The GDP tracker proves your economic contribution is real and quantified. You are not invisible. This community of 4.9M has your back.",
-    feature: "GDP",
-  },
-  {
-    q: "Did your neighbors suddenly move and strangers who don't live there appear?",
-    a: "LightHouse verifies safe housing and tracks community trust scores. You'll know who's actually supposed to be there.",
-    feature: "LightHouse",
-  },
-  {
-    q: "Have new street lamps or cell antennas been installed near your home recently?",
-    a: "Foundation logs infrastructure changes in your area for the community to monitor — nothing gets installed in the dark while we're watching.",
-    feature: "Foundation",
-  },
+// All 50 problems from the original repo (chargingthefuture/landing-page)
+const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
+  { q: "Do idiots constantly try to get close to you physically, while aiming their cell phones at you and/or staring at their cell phones while invading your personal space?", solutions: ["GentlePulse", "Chyme"] },
+  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Workforce", "Directory"] },
+  { q: "Do idiots sit parked in their cars outside your home all the time?", solutions: ["LightHouse"] },
+  { q: "Do morons constantly get in your way and block you from where you are going out in public? / cut you in line? / hold up the line?", solutions: ["SocketRelay", "Directory", "Workforce"] },
+  { q: "Did all your neighbors suddenly move, have their houses quickly sold and construction work done on them, then quickly have 'new neighbors' (who don't seem to live there) move in?", solutions: ["LightHouse"] },
+  { q: "Have any new street lamps/antennas been installed around your home/work recently?", solutions: ["LightHouse"] },
+  { q: "Do drones hover around you/your home/work all the time?", solutions: ["LightHouse"] },
+  { q: "Do you experience tinnitus/ringing in ears?", solutions: ["GentlePulse", "Directory"] },
+  { q: "Do police officers follow/harass you for no good reason?", solutions: ["GentlePulse", "Directory", "Chyme"] },
+  { q: "Do your neighbors always seem to come outside when you are there, then go inside when you do?", solutions: ["LightHouse"] },
+  { q: "Do different people seem to be coming and going from neighbors houses around you all the time?", solutions: ["LightHouse"] },
+  { q: "Do several of your neighbors have strange colored lights coming out their windows at night?", solutions: ["LightHouse"] },
+  { q: "Do people you don't know stare at you strangely/treat you bad for no reason?", solutions: ["SupportMatch", "GentlePulse"] },
+  { q: "Are new people pushing hard for you to be their new friend/roommate/romantic partner?", solutions: ["SupportMatch", "GentlePulse", "Chyme"] },
+  { q: "Do people seem to know things about you that you have never told them before?", solutions: ["SupportMatch", "GentlePulse", "Chyme"] },
+  { q: "Do people you don't know constantly try to talk to you/befriend you while you are out in public?", solutions: ["SupportMatch", "GentlePulse", "Chyme"] },
+  { q: "Do strange things happen around you a lot? People fighting/arguing in the streets/causing scenes that are scripted/staged? With occasional onlookers smirking or re-enacting the scripted scenes?", solutions: ["LightHouse"] },
+  { q: "Do you get denied jobs/housing for no good reason?", solutions: ["Workforce", "Directory", "LightHouse"] },
+  { q: "Do you live close to a freemason lodge? Or know someone who is a freemason?", solutions: ["LightHouse"] },
+  { q: "Does trying to do simple things like fill out an online job application become an ordeal due to endless clicking that brings you nowhere? Or website conveniently won't load when you try to submit applications or important documents?", solutions: ["Workforce", "Directory"] },
+  { q: "Do doctors deny you proper care? / ghost you? / tell you you are fine when you know something is wrong? / not get back to you with test results, then claim to have never received them, or have 'no record' of them?", solutions: ["Workforce", "Directory"] },
+  { q: "Do you hear strange humming/buzzing noises/sound of a machine running around you a lot, but can't pinpoint exactly where it's coming from?", solutions: ["GentlePulse"] },
+  { q: "Does your mail get lost/tampered with a lot?", solutions: ["Workforce", "Directory"] },
+  { q: "Do you get tired more than you should?", solutions: ["GentlePulse", "LightHouse"] },
+  { q: "Do people try to bait you into doing drugs? Buying a gun? Buying self-defense gear? Drinking? Committing illegal acts?", solutions: ["SupportMatch", "GentlePulse", "Chyme"] },
+  { q: "If you are a woman, do perverted guys you don't know or just met straight up ask you for sex?", solutions: ["SupportMatch", "GentlePulse", "Chyme"] },
+  { q: "If you are sitting in your car minding your own business do idiots come and park right by/next to you and sit there too? Usually buried in their phone? Even if you are parked in an isolated area?", solutions: ["SupportMatch", "GentlePulse", "Chyme"] },
+  { q: "Do idiots constantly shine their bright headlights/flashlights/DEWs on you?", solutions: ["TrustTransport"] },
+  { q: "Do you often pull up to an empty store, and then it suddenly becomes busy after you go in? Even at non busy business hours?", solutions: ["SocketRelay", "Workforce", "Directory"] },
+  { q: "Do weirdos try to get you to say bad things about other people? Or force a conversation about sex, politics or celebrities as if they are recording you?", solutions: ["SupportMatch", "Chyme"] },
+  { q: "Have you been falsely accused of shoplifting, then still treated like a criminal after you have proven you did not steal anything?", solutions: ["SupportMatch", "Chyme"] },
+  { q: "Do you notice strange flashes of light wherever you go? Or at home/work?", solutions: ["SupportMatch", "Chyme", "LightHouse"] },
+  { q: "Does everyone around you seem to be keeping some sort of a secret?", solutions: ["SupportMatch", "Directory", "Chyme"] },
+  { q: "Do weirdos offer you rides/solicit you for prostitution when you are just trying to walk down the street? Even during the day?", solutions: ["TrustTransport", "SupportMatch", "Chyme"] },
+  { q: "Do you get strange phone calls/texts from numbers you don't know a lot?", solutions: ["SupportMatch", "Chyme"] },
+  { q: "Do your pets seem to sense that something is off/someone you don't know is near?", solutions: ["SupportMatch", "LightHouse", "Chyme"] },
+  { q: "Do people seem like they are only pretending to be your friend/partner?", solutions: ["SupportMatch", "Directory"] },
+  { q: "Do store/hotel clerks suddenly act strangely when you give your name/id?", solutions: ["SupportMatch"] },
+  { q: "If you go to Walmart/Target do the theft detectors beep once quickly when you walk in?", solutions: ["SupportMatch", "SocketRelay"] },
+  { q: "Do people like to waste your time, sending you on wild goose chases to accomplish simple tasks/appointments?", solutions: ["Workforce", "SocketRelay", "Directory"] },
+  { q: "Anytime you have to call a customer service you are put on hold forever only to be hung up on and start the cycle again and again?", solutions: ["Workforce", "Directory"] },
+  { q: "Do you have an unusually large amount of car problems?", solutions: ["Directory"] },
+  { q: "Do items disappear, then reappear weeks/months later?", solutions: ["SocketRelay", "LightHouse"] },
+  { q: "Do people you've never introduced yourself to somehow already know your name?", solutions: ["SupportMatch", "Chyme"] },
+  { q: "Do you experience unexplained bruising/cuts/pain/injuries?", solutions: ["GentlePulse", "Directory"] },
+  { q: "Do you notice Jehovah Witnesses following you and/or lurking in your neighborhood that were not there previously?", solutions: ["LightHouse"] },
+  { q: "Do motorcycles, fire trucks and police cars with sirens circle around you?", solutions: ["LightHouse", "GentlePulse"] },
+  { q: "Do idiots mirror your behavior and how you dress and follow you around in public?", solutions: ["LightHouse", "Directory", "Workforce"] },
+  { q: "Do idiot acquaintances/family you have not seen in decades, or family members you never met, try to force their way into your life?", solutions: ["LightHouse", "Directory", "Workforce", "GentlePulse"] },
+  { q: "Do weirdos issue attack or guard commands to have dogs bark or whimper at your presence?", solutions: ["LightHouse", "GentlePulse"] },
 ];
+
+// Map feature names to their colors for the solution badges
+const FEATURE_COLOR_MAP: Record<string, string> = {
+  "Hub":            "#38BDF8",
+  "Chyme":          "#22C55E",
+  "LightHouse":     "#EAB308",
+  "Lighthouse":     "#EAB308",
+  "TrustTransport": "#F97316",
+  "Directory":      "#3B82F6",
+  "Foundation":     "#EF4444",
+  "Peer Programming": "#8B5CF6",
+  "GDP":            "#06B6D4",
+  "Service Credits": "#F59E0B",
+  "Workforce":      "#6366F1",
+  "Workforce Recruiter": "#6366F1",
+  "GentlePulse":    "#14B8A6",
+  "GentlePusle":    "#14B8A6",
+  "Mood":           "#EC4899",
+  "SocketRelay":    "#F43F5E",
+  "Feed":           "#8B5CF6",
+  "Skills Hunt":    "#A855F7",
+  "SkillsHunt":     "#A855F7",
+  "LevelUp":        "#22C55E",
+  "SupportMatch":   "#0EA5E9",
+  "LostMail":       "#9CA3AF",
+};
 
 function NavBar() {
   const [open, setOpen] = useState(false);
@@ -87,9 +134,7 @@ function NavBar() {
         <Link href="/" className="text-2xl md:text-3xl font-display uppercase tracking-wider hover:opacity-80 transition-opacity">
           <span className="text-primary">Charging</span> The Future
         </Link>
-
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-1">
           {links.map(({ href, label }) => (
             <Link
               key={href}
@@ -110,14 +155,10 @@ function NavBar() {
             Open App <ArrowRight size={16} strokeWidth={3} />
           </a>
         </div>
-
-        {/* Mobile hamburger */}
         <button className="md:hidden p-2 brutal-border" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -133,9 +174,7 @@ function NavBar() {
                   href={href}
                   onClick={() => setOpen(false)}
                   className={`font-bold uppercase tracking-widest flex items-center gap-3 p-3 border-2 ${
-                    location === href
-                      ? "border-primary bg-primary text-black"
-                      : "border-foreground text-foreground"
+                    location === href ? "border-primary bg-primary text-black" : "border-foreground text-foreground"
                   }`}
                 >
                   <Icon size={18} /> {label}
@@ -156,13 +195,8 @@ function NavBar() {
 }
 
 function StatMarquee() {
-  const stats = [
-    "4.9M Survivors", "$247B Economy", "127 Countries",
-    "128 Live Rooms right now", "17 Apps, One Account",
-    "Free to join", "End-to-End Encrypted",
-  ];
+  const stats = ["4.9M Survivors", "$247B Economy", "127 Countries", "128 Live Rooms right now", "17 Apps, One Account", "Free to join", "End-to-End Encrypted"];
   const doubled = [...stats, ...stats];
-
   return (
     <div className="border-y-4 border-foreground bg-secondary py-5 overflow-hidden flex whitespace-nowrap">
       <motion.div
@@ -178,17 +212,20 @@ function StatMarquee() {
   );
 }
 
-function VideoPlaceholder({ name }: { name: string }) {
+function VideoPlaceholder({ name, color }: { name: string; color: string }) {
   return (
     <div className="relative w-full aspect-video border-4 border-foreground bg-zinc-900 overflow-hidden group cursor-pointer">
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10">
-        <div className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center brutal-shadow transition-transform group-hover:scale-110">
+        <div
+          className="w-16 h-16 border-4 border-black flex items-center justify-center brutal-shadow transition-transform group-hover:scale-110"
+          style={{ background: color }}
+        >
           <Play size={24} fill="black" className="text-black ml-1" />
         </div>
-        <span className="font-bold text-sm uppercase tracking-widest text-white/70">{name} Demo</span>
+        <span className="font-bold text-xs uppercase tracking-widest text-white/60">{name} Demo</span>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-black" />
-      <div className="absolute bottom-2 left-3 right-3 flex justify-between text-xs font-bold uppercase text-white/30">
+      <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${color}18 0%, #000 100%)` }} />
+      <div className="absolute bottom-2 left-3 right-3 flex justify-between text-xs font-bold uppercase text-white/25">
         <span>YouTube Demo</span>
         <span>Coming Soon</span>
       </div>
@@ -222,31 +259,26 @@ function LandingPage() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
       <NavBar />
 
-      {/* HERO — split screen: image left, copy right */}
+      {/* HERO — split screen */}
       <section className="pt-20 min-h-screen flex flex-col md:flex-row">
-        {/* Left: Walking Dead image */}
         <div className="relative w-full md:w-1/2 min-h-[50vh] md:min-h-screen overflow-hidden">
           <img
             src={HERO_IMG}
             alt="Chapter Two — Survivor community rising"
             className="absolute inset-0 w-full h-full object-cover object-top"
           />
-          {/* Comic book speech bubble */}
           <div className="absolute top-6 left-6 bg-white text-black border-4 border-black p-3 max-w-[200px] brutal-shadow">
             <p className="font-bold text-xs uppercase leading-tight">CHAPTER TWO:</p>
             <p className="text-xs leading-tight mt-1">The people around us changed. But we survived.</p>
           </div>
-          {/* Green overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background md:block hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background hidden md:block" />
         </div>
 
-        {/* Right: Headline */}
         <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 lg:px-16 py-16 bg-background relative">
-          <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/4 right-0 w-[40vw] h-[40vw] rounded-full bg-primary/15 blur-[100px]" />
             <div className="absolute bottom-0 left-0 w-[30vw] h-[30vw] rounded-full bg-secondary/15 blur-[80px]" />
           </div>
-
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -256,18 +288,15 @@ function LandingPage() {
             <div className="inline-block border-4 border-accent bg-accent/10 text-accent font-bold px-4 py-2 uppercase tracking-widest mb-8 brutal-shadow text-sm">
               World's First Psyop-Free TI Economy
             </div>
-
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-display leading-[0.88] uppercase text-white mb-8">
               The Next<br />
               <span className="text-primary">Weapon</span><br />
               In Your<br />
               Arsenal.
             </h1>
-
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
               Not a charity. Not a support group. An invite-only super app that turns survivors into active participants in a $247B economy — rebuilt from the ground up with 17 features.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
                 href={APP_URL}
@@ -282,8 +311,7 @@ function LandingPage() {
                 See All 17 Apps
               </Link>
             </div>
-
-            <div className="flex gap-6 text-sm font-bold uppercase tracking-widest text-muted-foreground">
+            <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> Invite Only</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG AAA</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> End-to-End Encrypted</span>
@@ -292,16 +320,15 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Stats Marquee */}
       <StatMarquee />
 
-      {/* Teaser: 17 Apps */}
+      {/* 17 Apps teaser */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10"
+          className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 mb-16"
         >
           <div className="max-w-2xl">
             <div className="inline-block border-4 border-primary bg-primary/10 text-primary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
@@ -322,32 +349,35 @@ function LandingPage() {
           </Link>
         </motion.div>
 
-        {/* Preview grid — first 6 features */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-4">
-          {FEATURES.slice(0, 6).map((feat, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {FEATURES.slice(0, 8).map((feat, i) => (
             <motion.div
               key={feat.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.07 }}
-              className={`brutal-border ${feat.bg} p-5 flex items-center gap-4 ${feat.shadow}`}
+              transition={{ delay: i * 0.06 }}
+              className="border-4 border-foreground p-4 flex items-center gap-3"
+              style={{ background: feat.bg, boxShadow: `4px 4px 0px 0px ${feat.color}` }}
             >
-              <div className={`w-10 h-10 border-2 border-foreground ${feat.bg} flex items-center justify-center flex-shrink-0`}>
-                <feat.icon size={20} className="text-foreground" />
+              <div
+                className="w-9 h-9 border-2 border-foreground flex items-center justify-center flex-shrink-0"
+                style={{ background: `${feat.color}25` }}
+              >
+                <feat.icon size={18} style={{ color: feat.color }} />
               </div>
-              <span className="font-display text-xl uppercase">{feat.name}</span>
+              <span className="font-display text-lg uppercase leading-tight">{feat.name}</span>
             </motion.div>
           ))}
         </div>
         <div className="mt-4 text-center">
           <Link href="/demos" className="text-muted-foreground hover:text-foreground font-bold uppercase tracking-widest text-sm underline decoration-2 underline-offset-4 inline-flex items-center gap-2">
-            + 11 more apps — see all demos <ArrowRight size={14} />
+            + 9 more apps — see all 17 demos <ArrowRight size={14} />
           </Link>
         </div>
       </section>
 
-      {/* Teaser: Look Ma */}
+      {/* Look Ma teaser */}
       <section className="py-24 px-6 md:px-12 lg:px-24 bg-card/40 border-y-4 border-foreground">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
           <div className="max-w-2xl">
@@ -357,8 +387,8 @@ function LandingPage() {
             <h2 className="text-5xl md:text-6xl font-display uppercase mb-6 leading-[0.9]">
               <span className="text-accent">Look Ma,</span><br />I Fixed It!
             </h2>
-            <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-              Strange cars outside. Coworkers suddenly cold. Neighbors you've never seen. New antennas on your block. You've noticed. We've built the answers — one feature at a time.
+            <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
+              50 real problems survivors experience — strange cars, workplace sabotage, new antennas on your block, dogs being commanded to bark at you. You've noticed. We've built the answer for every single one.
             </p>
             <p className="text-lg font-bold text-foreground/80">
               Click each problem. See exactly which feature of the app solves it.
@@ -368,7 +398,7 @@ function LandingPage() {
             href="/look-ma"
             className="flex-shrink-0 brutal-border brutal-shadow-accent brutal-shadow-hover bg-accent text-black font-bold py-5 px-10 text-xl uppercase tracking-widest flex items-center gap-3"
           >
-            See All 6 Fixes <ArrowRight strokeWidth={3} size={22} />
+            See All 50 Fixes <ArrowRight strokeWidth={3} size={22} />
           </Link>
         </div>
       </section>
@@ -403,11 +433,7 @@ function DemosPage() {
       <NavBar />
 
       <div className="pt-32 pb-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <div className="inline-block border-4 border-secondary bg-secondary/10 text-secondary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
             The Arsenal — All 17
           </div>
@@ -432,31 +458,36 @@ function DemosPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 3) * 0.08 }}
-              className={`brutal-border bg-card flex flex-col h-full ${feat.shadow} hover:-translate-y-1 hover:-translate-x-[2px] transition-all duration-200`}
+              className="border-4 border-foreground flex flex-col h-full hover:-translate-y-1 hover:-translate-x-[2px] transition-all duration-200"
+              style={{ background: feat.bg, boxShadow: `6px 6px 0px 0px ${feat.color}` }}
             >
               <div className="p-6 flex items-center gap-4 border-b-4 border-foreground">
-                <div className={`w-12 h-12 border-4 border-foreground ${feat.bg} flex items-center justify-center flex-shrink-0`}>
-                  <feat.icon size={24} className="text-foreground" />
+                <div
+                  className="w-12 h-12 border-4 border-foreground flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${feat.color}25` }}
+                >
+                  <feat.icon size={24} style={{ color: feat.color }} />
                 </div>
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">App {String(i + 1).padStart(2, "0")} of 17</div>
-                  <h3 className="text-2xl font-display uppercase leading-none">{feat.name}</h3>
+                  <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                    App {String(i + 1).padStart(2, "0")} of 17
+                  </div>
+                  <h3 className="text-2xl font-display uppercase leading-none" style={{ color: feat.color }}>
+                    {feat.emoji} {feat.name}
+                  </h3>
                 </div>
               </div>
-
               <div className="p-6 flex-grow">
                 <p className="text-muted-foreground text-base leading-relaxed">{feat.desc}</p>
               </div>
-
               <div className="px-6 pb-6">
-                <VideoPlaceholder name={feat.name} />
+                <VideoPlaceholder name={feat.name} color={feat.color} />
               </div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Bottom CTA */}
       <section className="py-20 px-6 md:px-12 bg-secondary border-t-4 border-foreground text-white text-center relative overflow-hidden">
         <div className="max-w-3xl mx-auto relative z-10">
           <h2 className="text-5xl md:text-7xl font-display uppercase mb-6 leading-[0.9]">
@@ -484,15 +515,10 @@ function LookMaPage() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
       <NavBar />
 
-      {/* Hero */}
       <section className="pt-32 pb-12 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[50vw] h-[50vw] rounded-full bg-accent/10 blur-[120px] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <div className="inline-block border-4 border-accent bg-accent/10 text-accent font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
               You're Not Imagining It
             </div>
@@ -500,35 +526,38 @@ function LookMaPage() {
               <span className="text-accent">Look Ma,</span><br />I Fixed It!
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
-              The things happening around you aren't random. Targeted individuals know the patterns. So do we. We built a feature in Survivor Hub for every single one. Click each scenario below — see exactly how the app fixes it.
+              50 problems. 50 answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Survivor Hub for every single one. Click any problem to see the fix.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Accordion items */}
-      <section className="px-6 md:px-12 lg:px-24 pb-16 max-w-7xl mx-auto">
-        <div className="flex flex-col gap-4">
+      <section className="px-6 md:px-12 lg:px-24 pb-20 max-w-7xl mx-auto">
+        <div className="flex flex-col gap-3">
           {LOOK_MA_ITEMS.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.07 }}
-              className={`brutal-border bg-card cursor-pointer transition-all duration-200 ${active === i ? "brutal-shadow-accent" : "brutal-shadow"}`}
+              transition={{ delay: Math.min(i * 0.03, 0.4) }}
+              className="border-4 border-foreground bg-card cursor-pointer transition-all duration-200"
+              style={active === i ? { boxShadow: `6px 6px 0px 0px hsl(var(--accent))` } : { boxShadow: `4px 4px 0px 0px hsl(var(--foreground))` }}
               onClick={() => setActive(active === i ? null : i)}
             >
-              <div className="p-6 md:p-8 flex justify-between items-center gap-4">
+              <div className="p-5 md:p-6 flex justify-between items-center gap-4">
                 <div className="flex items-start gap-4">
-                  <span className="font-display text-4xl text-accent flex-shrink-0 leading-none mt-1">
+                  <span className="font-display text-3xl text-accent flex-shrink-0 leading-none mt-1 min-w-[2rem]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-bold text-lg md:text-xl leading-snug group-hover:text-accent transition-colors">
+                  <h3 className="font-bold text-base md:text-lg leading-snug">
                     {item.q}
                   </h3>
                 </div>
-                <div className={`w-10 h-10 flex-shrink-0 flex items-center justify-center border-4 border-foreground text-xl font-bold transition-all duration-300 ${active === i ? "bg-accent text-black rotate-45" : "bg-transparent text-foreground"}`}>
+                <div
+                  className="w-9 h-9 flex-shrink-0 flex items-center justify-center border-4 border-foreground text-xl font-bold transition-all duration-300"
+                  style={active === i ? { background: "hsl(var(--accent))", color: "black", transform: "rotate(45deg)" } : {}}
+                >
                   +
                 </div>
               </div>
@@ -539,17 +568,24 @@ function LookMaPage() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ duration: 0.22 }}
                     className="overflow-hidden"
                   >
-                    <div className="border-t-4 border-foreground bg-accent/10 p-6 md:p-8">
-                      <div className="flex items-start gap-4 mb-4">
-                        <ArrowRight className="text-accent mt-1 flex-shrink-0" size={22} />
-                        <p className="text-lg md:text-xl font-bold leading-relaxed">{item.a}</p>
-                      </div>
-                      <div className="flex items-center gap-3 mt-4">
-                        <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Fixed by:</span>
-                        <span className="border-2 border-accent text-accent font-bold px-3 py-1 text-sm uppercase tracking-widest">{item.feature}</span>
+                    <div className="border-t-4 border-foreground bg-accent/10 p-5 md:p-6">
+                      <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-3">Fixed by:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.solutions.map((sol) => {
+                          const c = FEATURE_COLOR_MAP[sol] || "#9CA3AF";
+                          return (
+                            <span
+                              key={sol}
+                              className="font-bold px-3 py-1 text-sm uppercase tracking-widest border-2"
+                              style={{ borderColor: c, color: c, background: `${c}18` }}
+                            >
+                              {sol}
+                            </span>
+                          );
+                        })}
                       </div>
                     </div>
                   </motion.div>
@@ -560,7 +596,6 @@ function LookMaPage() {
         </div>
       </section>
 
-      {/* Bridge to demos */}
       <section className="py-20 px-6 md:px-12 lg:px-24 border-t-4 border-foreground bg-card/40">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
