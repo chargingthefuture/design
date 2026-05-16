@@ -339,13 +339,13 @@ function LandingPage() {
             <div className="inline-block border-4 border-accent bg-accent/10 text-accent font-bold px-4 py-2 uppercase tracking-widest mb-8 brutal-shadow text-sm">
               World's First Psyop-Free TI Economy
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display leading-[0.88] uppercase text-white mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display leading-[0.88] uppercase text-white mb-6 md:mb-8">
               The Next<br />
               <span className="text-primary">Weapon</span><br />
               In Your<br />
               Arsenal.
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
               Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 17 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -394,9 +394,9 @@ function LandingPage() {
           </div>
           <Link
             href="/demos"
-            className="flex-shrink-0 brutal-border brutal-shadow-secondary brutal-shadow-hover bg-secondary text-white font-bold py-5 px-10 text-xl uppercase tracking-widest flex items-center gap-3"
+            className="w-full lg:w-auto flex-shrink-0 brutal-border brutal-shadow-secondary brutal-shadow-hover bg-secondary text-white font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
           >
-            Watch All 17 Demos <ArrowRight strokeWidth={3} size={22} />
+            Watch All 17 Demos <ArrowRight strokeWidth={3} size={20} />
           </Link>
         </motion.div>
 
@@ -470,9 +470,9 @@ function LandingPage() {
           </div>
           <Link
             href="/look-ma"
-            className="flex-shrink-0 brutal-border brutal-shadow-accent brutal-shadow-hover bg-accent text-black font-bold py-5 px-10 text-xl uppercase tracking-widest flex items-center gap-3"
+            className="w-full lg:w-auto flex-shrink-0 brutal-border brutal-shadow-accent brutal-shadow-hover bg-accent text-black font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
           >
-            See All 50 Fixes <ArrowRight strokeWidth={3} size={22} />
+            See All 50 Fixes <ArrowRight strokeWidth={3} size={20} />
           </Link>
         </div>
       </section>
@@ -480,17 +480,17 @@ function LandingPage() {
       {/* Final CTA */}
       <section className="py-32 px-6 md:px-12 bg-primary border-t-4 border-foreground text-black text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
-          <h2 className="text-6xl md:text-8xl font-display uppercase mb-8 leading-[0.9]">
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-display uppercase mb-6 md:mb-8 leading-[0.9]">
             Stop Surviving.<br />Start Thriving.
           </h2>
-          <p className="text-2xl font-bold mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-2xl font-bold mb-8 md:mb-12 max-w-2xl mx-auto">
             The platform is live. The community is waiting. You've already fought the hard battles — now it's time to build.
           </p>
           <a
             href={APP_URL}
-            className="inline-flex items-center gap-4 border-4 border-black bg-white text-black font-bold py-6 px-12 text-2xl uppercase tracking-widest hover:bg-black hover:text-white transition-colors brutal-shadow"
+            className="inline-flex items-center gap-3 border-4 border-black bg-white text-black font-bold py-4 px-8 md:py-6 md:px-12 text-lg md:text-2xl uppercase tracking-widest hover:bg-black hover:text-white transition-colors brutal-shadow"
           >
-            Enter The App <ArrowRight strokeWidth={3} size={28} />
+            Enter The App <ArrowRight strokeWidth={3} size={22} />
           </a>
         </div>
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 2px, transparent 2px)", backgroundSize: "30px 30px" }} />
@@ -527,7 +527,7 @@ function DemosPage() {
           <div className="inline-block border-4 border-secondary bg-secondary/10 text-secondary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
             The Arsenal — All 17
           </div>
-          <h1 className="text-6xl md:text-8xl font-display uppercase mb-6 leading-[0.9]">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-display uppercase mb-6 leading-[0.9]">
             17 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mb-4 leading-relaxed">
@@ -598,12 +598,12 @@ function DemosPage() {
 
       <section className="py-20 px-6 md:px-12 bg-secondary border-t-4 border-foreground text-white text-center relative overflow-hidden">
         <div className="max-w-3xl mx-auto relative z-10">
-          <h2 className="text-5xl md:text-7xl font-display uppercase mb-6 leading-[0.9]">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display uppercase mb-6 leading-[0.9]">
             Seen enough?<br /><span className="text-primary">Join us.</span>
           </h2>
           <a
             href={APP_URL}
-            className="inline-flex items-center gap-4 brutal-border bg-primary text-black font-bold py-5 px-10 text-xl uppercase tracking-widest brutal-shadow hover:-translate-y-1 transition-transform"
+            className="inline-flex items-center gap-3 brutal-border bg-primary text-black font-bold py-4 px-8 md:py-5 md:px-10 text-lg md:text-xl uppercase tracking-widest brutal-shadow hover:-translate-y-1 transition-transform"
           >
             Claim Your Access <ArrowRight strokeWidth={3} size={22} />
           </a>
@@ -630,10 +630,10 @@ function LookMaPage() {
             <div className="inline-block border-4 border-accent bg-accent/10 text-accent font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
               You're Not Imagining It
             </div>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-display uppercase mb-8 leading-[0.88]">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display uppercase mb-6 md:mb-8 leading-[0.88]">
               <span className="text-accent">Look Ma,</span><br />I Fixed It!
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
+            <p className="text-base md:text-xl lg:text-2xl text-muted-foreground max-w-3xl leading-relaxed">
               50 problems. 50 answers. Everything you've experienced — the stalking, the workplace sabotage, the neighbors, the lights, the vehicles — we built a feature in Survivor Hub for every single one. Click any problem to see the fix.
             </p>
           </motion.div>
