@@ -23,7 +23,7 @@ const FEATURES: {
   color: string; bg: string; desc: string;
   youtubeId?: string; protonLink?: string;
 }[] = [
-  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#38BDF8", bg: "#011c26", desc: "The main community: AI-powered chat, safe channels, 4.9M members. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
+  { id: "hub",           name: "Hub",             emoji: "🏠", icon: Users,      color: "#38BDF8", bg: "#011c26", desc: "The main community: AI-powered chat, safe channels, 5M members. Your base camp.", youtubeId: "Z9Gw3Jz0ids" },
   { id: "chyme",         name: "Chyme",            emoji: "🎙️", icon: Radio,      color: "#22C55E", bg: "#052e16", desc: "Live social audio rooms. Record, broadcast, listen, and connect in real time.", youtubeId: "oVESU60zbPg" },
   { id: "lighthouse",    name: "LightHouse",       emoji: "🏠", icon: HomeIcon,   color: "#EAB308", bg: "#1c1407", desc: "Safe and verified housing listings. Community trust scores so you know your neighbors.", youtubeId: "KfyZsemVU8A" },
   { id: "trusttransport",name: "TrustTransport",   emoji: "📦", icon: Navigation, color: "#F97316", bg: "#1c0a03", desc: "Vetted transportation for safe travel. Drivers screened by the community, for the community.", youtubeId: "myHI3xB-fMQ" },
@@ -200,7 +200,7 @@ function NavBar() {
 }
 
 function StatMarquee() {
-  const stats = ["4.9M Survivors", "$300B Economy", "127 Countries", "128 Live Rooms right now", "17 Apps, One Account", "Free to join", "End-to-End Encrypted"];
+  const stats = ["5M Survivors", "$300B Economy", "127 Countries", "17 Apps, One Account", "Free to join", "Invite Only"];
   const doubled = [...stats, ...stats];
   return (
     <div className="border-y-4 border-foreground bg-secondary py-5 overflow-hidden flex whitespace-nowrap">
@@ -364,7 +364,7 @@ function LandingPage() {
             <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> Invite Only</span>
               <span className="flex items-center gap-2"><span className="text-primary">✓</span> WCAG AAA</span>
-              <span className="flex items-center gap-2"><span className="text-primary">✓</span> End-to-End Encrypted</span>
+              <span className="flex items-center gap-2"><span className="text-primary">✓</span> 5M Survivors</span>
             </div>
           </motion.div>
         </div>
