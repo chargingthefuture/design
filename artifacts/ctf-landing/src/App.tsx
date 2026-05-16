@@ -407,16 +407,39 @@ function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="border-4 border-foreground p-4 flex items-center gap-3"
-              style={{ background: feat.bg, boxShadow: `4px 4px 0px 0px ${feat.color}` }}
             >
-              <div
-                className="w-9 h-9 border-2 border-foreground flex items-center justify-center flex-shrink-0"
-                style={{ background: `${feat.color}25` }}
+              <Link
+                href={`/demos#${feat.id}`}
+                className="block border-4 border-foreground group hover:-translate-y-1 transition-transform duration-200"
+                style={{ background: feat.bg, boxShadow: `4px 4px 0px 0px ${feat.color}` }}
               >
-                <feat.icon size={18} style={{ color: feat.color }} />
-              </div>
-              <span className="font-display text-lg uppercase leading-tight">{feat.name}</span>
+                {feat.youtubeId && (
+                  <div className="relative w-full aspect-video overflow-hidden border-b-4 border-foreground">
+                    <img
+                      src={`https://img.youtube.com/vi/${feat.youtubeId}/mqdefault.jpg`}
+                      alt={`${feat.name} demo`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                      <div
+                        className="w-10 h-10 border-2 border-white flex items-center justify-center"
+                        style={{ background: feat.color }}
+                      >
+                        <Play size={16} fill="black" color="black" strokeWidth={0} />
+                      </div>
+                    </div>
+                  </div>
+                )}
+                <div className="p-3 flex items-center gap-3">
+                  <div
+                    className="w-8 h-8 border-2 border-foreground flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${feat.color}25` }}
+                  >
+                    <feat.icon size={16} style={{ color: feat.color }} />
+                  </div>
+                  <span className="font-display text-base uppercase leading-tight">{feat.name}</span>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -478,6 +501,22 @@ function LandingPage() {
 }
 
 function DemosPage() {
+  const [location] = useLocation();
+
+  React.useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const attempt = (tries: number) => {
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (tries > 0) {
+        requestAnimationFrame(() => attempt(tries - 1));
+      }
+    };
+    requestAnimationFrame(() => attempt(10));
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans">
       <NavBar />
@@ -504,6 +543,7 @@ function DemosPage() {
           {FEATURES.map((feat, i) => (
             <motion.div
               key={feat.id}
+              id={feat.id}
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
