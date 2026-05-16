@@ -8,7 +8,7 @@ import {
   ArrowRight, Play, Menu, X, Home, Tv, Wrench as FixIt,
   Users, Radio, HomeIcon, Navigation, BookOpen, Hammer,
   Code, Globe, Coins, Briefcase, Heart, Smile, Share2,
-  Activity, Award, Target, UsersRound, DollarSign, HeartPulse,
+  Activity, Award, Target, ShieldCheck, UsersRound,
 } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
@@ -35,7 +35,7 @@ const FEATURES = [
   { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#8B5CF6", bg: "#150d2e", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games." },
   { id: "skillshunt",    name: "Skills Hunt",      emoji: "🎓", icon: Award,      color: "#A855F7", bg: "#1a0d2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it." },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#22C55E", bg: "#052e16", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated." },
-  { id: "supportmatch",  name: "SupportMatch",     emoji: "🤝", icon: UsersRound, color: "#0EA5E9", bg: "#011826", desc: "Accountability partner matching. One person in your corner who gets it — matched by the community." },
+  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0EA5E9", bg: "#011826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
 ];
 
 // All 50 problems from the original repo (chargingthefuture/landing-page)
@@ -115,6 +115,7 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "SkillsHunt":     "#A855F7",
   "LevelUp":        "#22C55E",
   "SupportMatch":   "#0EA5E9",
+  "Trust":          "#0EA5E9",
   "LostMail":       "#9CA3AF",
 };
 
