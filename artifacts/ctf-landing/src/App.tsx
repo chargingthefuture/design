@@ -300,7 +300,7 @@ function LandingPage() {
               Arsenal.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-              Not a charity. Not a support group. An invite-only super app that turns survivors into active participants in a $300B economy — rebuilt from the ground up with 17 features.
+              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — rebuilt from the ground up with 17 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
