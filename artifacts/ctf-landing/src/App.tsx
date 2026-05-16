@@ -217,6 +217,51 @@ function StatMarquee() {
   );
 }
 
+function YouTubeFacade({ youtubeId, name, color }: { youtubeId: string; name: string; color: string }) {
+  const [active, setActive] = useState(false);
+  const thumb = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+
+  if (active) {
+    return (
+      <div className="relative w-full aspect-video border-4 border-foreground overflow-hidden">
+        <iframe
+          src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&playsinline=1`}
+          title={`${name} Demo`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="relative w-full aspect-video border-4 border-foreground overflow-hidden cursor-pointer group"
+      onClick={() => setActive(true)}
+      role="button"
+      aria-label={`Play ${name} demo`}
+    >
+      <img
+        src={thumb}
+        alt={`${name} demo thumbnail`}
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+        <div
+          className="w-16 h-16 border-4 border-black flex items-center justify-center brutal-shadow transition-transform group-hover:scale-110"
+          style={{ background: color }}
+        >
+          <Play size={24} fill="black" className="text-black ml-1" />
+        </div>
+        <span className="font-bold text-xs uppercase tracking-widest text-white/80">{name} Demo</span>
+      </div>
+    </div>
+  );
+}
+
 function VideoPlaceholder({ name, color }: { name: string; color: string }) {
   return (
     <div className="relative w-full aspect-video border-4 border-foreground bg-zinc-900 overflow-hidden group cursor-pointer">
@@ -487,15 +532,7 @@ function DemosPage() {
               </div>
               <div className="px-6 pb-6">
                 {feat.youtubeId ? (
-                  <div className="relative w-full aspect-video border-4 border-foreground overflow-hidden">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${feat.youtubeId}?playsinline=1`}
-                      title={`${feat.name} Demo`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                    />
-                  </div>
+                  <YouTubeFacade youtubeId={feat.youtubeId} name={feat.name} color={feat.color} />
                 ) : feat.protonLink ? (
                   <div className="relative w-full aspect-video border-4 border-foreground bg-zinc-900 overflow-hidden flex items-center justify-center"
                     style={{ background: `linear-gradient(135deg, ${feat.color}18 0%, #000 100%)` }}>
