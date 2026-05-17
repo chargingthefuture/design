@@ -5,7 +5,7 @@ const surface = "#161B27";
 const border = "#1E2A3A";
 const text = "#F9FAFB";
 const subtle = "#6B7280";
-const COLOR = "#F43F5E";
+const COLOR = "#FB923C";
 
 export function MobileSocketRelayEmpty() {
   return (

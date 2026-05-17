@@ -1,6 +1,6 @@
 import { Share2, Plus, Shield, Clock, Package, Users, Heart, Search, Zap } from "lucide-react";
 
-const COLOR = "#F43F5E";
+const COLOR = "#FB923C";
 const bg = "#0F1117";
 const surface = "#161B27";
 const border = "#1E2A3A";

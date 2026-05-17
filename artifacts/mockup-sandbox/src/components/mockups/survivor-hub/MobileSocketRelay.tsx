@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Share2, Plus, AlertCircle, Heart, MapPin, Shield, Home, MessageSquare } from "lucide-react";
 
-const COLOR = "#F43F5E";
+const COLOR = "#FB923C";
 
 const REQUESTS = [
   { id: 1, type: "need", title: "Need groceries — single mom, 3 kids", location: "N. Houston", urgency: true, category: "Food", credits: 15, time: "5 min", fulfilled: false },

@@ -8,7 +8,7 @@ const surface = "#161B27";
 const border = "#1E2A3A";
 const text = "#F9FAFB";
 const subtle = "#6B7280";
-const COLOR = "#F43F5E";
+const COLOR = "#FB923C";
 const accent = "#7C3AED";
 const accentCyan = "#0EA5E9";
 
@@ -102,13 +102,13 @@ export function SocketRelayPublic() {
 
           <div style={{ flex: 1, overflowY: "auto", padding: "16px 24px", display: "flex", flexDirection: "column", gap: 10 }}>
             {REQUESTS.map(({ id, type, title, by, location, urgency, category, credits, time, anon }) => (
-              <div key={id} style={{ borderRadius: 12, border: `1px solid ${type === "need" ? "#F43F5E30" : "#22C55E30"}`, background: type === "need" ? "#F43F5E06" : "#22C55E06", padding: "14px 16px" }}>
+              <div key={id} style={{ borderRadius: 12, border: `1px solid ${type === "need" ? "#FB923C30" : "#22C55E30"}`, background: type === "need" ? "#FB923C06" : "#22C55E06", padding: "14px 16px" }}>
                 <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 10, marginBottom: 8 }}>
                   <div>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-                      <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4, background: type === "need" ? "#F43F5E20" : "#22C55E20", color: type === "need" ? "#F43F5E" : "#22C55E" }}>{type === "need" ? "NEED" : "OFFER"}</span>
+                      <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4, background: type === "need" ? "#FB923C20" : "#22C55E20", color: type === "need" ? "#FB923C" : "#22C55E" }}>{type === "need" ? "NEED" : "OFFER"}</span>
                       <span style={{ fontSize: 10, background: surface, border: `1px solid ${border}`, color: subtle, borderRadius: 4, padding: "1px 6px" }}>{category}</span>
-                      {urgency === "urgent" && <span style={{ fontSize: 10, background: "#F43F5E20", border: "1px solid #F43F5E30", color: "#F43F5E", borderRadius: 4, padding: "1px 6px" }}>URGENT</span>}
+                      {urgency === "urgent" && <span style={{ fontSize: 10, background: "#FB923C20", border: "1px solid #FB923C30", color: "#FB923C", borderRadius: 4, padding: "1px 6px" }}>URGENT</span>}
                     </div>
                     <div style={{ fontSize: 14, fontWeight: 600, color: text, lineHeight: 1.4 }}>{title}</div>
                   </div>

@@ -5,7 +5,7 @@ const surface = "#161B27";
 const border = "#1E2A3A";
 const text = "#F9FAFB";
 const subtle = "#6B7280";
-const COLOR = "#6366F1";
+const COLOR = "#B45309";
 
 export function MobileWorkforceEmpty() {
   return (

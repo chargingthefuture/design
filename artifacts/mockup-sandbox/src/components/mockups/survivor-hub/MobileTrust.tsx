@@ -4,7 +4,7 @@ import {
   Activity, Zap, AlertCircle, Lock, Users, Star,
 } from "lucide-react";
 
-const BRAND = "#A855F7";
+const BRAND = "#0284C7";
 const bg = "#0F1117";
 const surface = "#161B27";
 const border = "#1E2A3A";
@@ -16,7 +16,7 @@ type VisibilityOption = "All Members" | "Verified Only" | "Only Me";
 const SIGNALS = [
   { label: "Profile verified", time: "3 days ago", icon: ShieldCheck, color: BRAND },
   { label: "First transaction made", time: "5 days ago", icon: Zap, color: "#22C55E" },
-  { label: "Joined SkillsHunt round", time: "1 week ago", icon: Star, color: "#A855F7" },
+  { label: "Joined SkillsHunt round", time: "1 week ago", icon: Star, color: "#0284C7" },
   { label: "Referred a survivor", time: "2 weeks ago", icon: Users, color: "#F59E0B" },
 ];
 

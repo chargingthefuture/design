@@ -8,7 +8,7 @@ import {
   Heart, Package, Users, ChevronRight, AlertCircle,
 } from "lucide-react";
 
-const COLOR = "#F43F5E";
+const COLOR = "#FB923C";
 const BG = "#1c0409";
 
 const REQUESTS = [

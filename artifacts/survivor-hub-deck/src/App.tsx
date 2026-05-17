@@ -186,11 +186,11 @@ const SECTION_COLORS: Record<string, string> = {
   "Chyme":            "#22C55E",
   "Directory":        "#3B82F6",
   "Feed":             "#84CC16",
-  "Workforce":        "#6366F1",
+  "Workforce":        "#B45309",
   "SkillsHunt":       "#D946EF",
   "Foundation":       "#EF4444",
   "LightHouse":       "#EAB308",
-  "SocketRelay":      "#F43F5E",
+  "SocketRelay":      "#FB923C",
   "TrustTransport":   "#F97316",
   "PeerProgramming":  "#8B5CF6",
   "Mood":             "#EC4899",
@@ -198,7 +198,7 @@ const SECTION_COLORS: Record<string, string> = {
   "GDP":              "#06B6D4",
   "ServiceCredits":   "#F59E0B",
   "LevelUp":          "#10B981",
-  "Trust":            "#A855F7",
+  "Trust":            "#0284C7",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
