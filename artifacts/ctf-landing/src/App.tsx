@@ -341,9 +341,9 @@ function LandingPage() {
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display leading-[0.88] uppercase text-white mb-6 md:mb-8">
               The Next<br />
-              <span className="text-primary">Weapon</span><br />
+              <span className="text-primary">Shield</span><br />
               In Your<br />
-              Arsenal.
+              Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
               Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 17 features.
@@ -389,7 +389,7 @@ function LandingPage() {
               17 Apps.<br /><span className="text-secondary">One</span> Account.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We don't need another forum. We need infrastructure. Every feature is a weapon against isolation, financial drain, and surveillance. We built all 17. Watch them in action.
+              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and surveillance. We built all 17. Watch them in action.
             </p>
           </div>
           <Link
