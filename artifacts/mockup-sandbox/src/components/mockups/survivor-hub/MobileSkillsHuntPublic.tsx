@@ -1,7 +1,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Search, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#A855F7";
+const bg = "#0F1117", COLOR = "#D946EF";
 
 export function MobileSkillsHuntPublic() {
   return (

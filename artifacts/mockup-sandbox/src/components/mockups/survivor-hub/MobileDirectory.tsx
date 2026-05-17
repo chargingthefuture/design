@@ -7,7 +7,7 @@ import { BookOpen, Search, Star, CheckCircle, MapPin, MessageSquare, Users, Chev
 const COLOR = "#3B82F6";
 
 // Spec §2.2 / §4.2: @handle routing; §4.1: source column
-const COMMUNITY_COLOR = "#A855F7";
+const COMMUNITY_COLOR = "#D946EF";
 const PROFILES = [
   { id: 1, name: "Maria Gonzalez",  role: "Trauma Therapist",    location: "Houston, TX",  rating: 4.9, online: true,  avatar: "MG", verified: true,  credits: true,  handle: "@maria-g",         source: "self"               },
   { id: 2, name: "James Thibodeau", role: "Housing Navigator",   location: "Atlanta, GA",  rating: 4.8, online: true,  avatar: "JT", verified: true,  credits: true,  handle: "@james-t",         source: "self"               },

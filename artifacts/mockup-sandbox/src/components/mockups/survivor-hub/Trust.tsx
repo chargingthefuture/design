@@ -1,6 +1,6 @@
 import { ShieldCheck, Eye, ChevronDown, CheckCircle2 } from "lucide-react";
 
-const BRAND = "#0EA5E9";
+const BRAND = "#A855F7";
 const BRAND_DIM = "rgba(14,165,233,0.15)";
 const BRAND_BORDER = "rgba(14,165,233,0.25)";
 const CARD_BG = "rgba(14,165,233,0.06)";

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BookOpen, Lock, Star, Search, X, ExternalLink, Send } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#3B82F6", HUNT_COLOR = "#A855F7";
+const bg = "#0F1117", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
 
 export function MobileDirectoryPublic() {
   const [showModal, setShowModal] = useState(false);

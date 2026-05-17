@@ -8,7 +8,7 @@ import {
   TrendingUp, Globe, ArrowUpRight, Settings, Filter,
 } from "lucide-react";
 
-const COLOR = "#8B5CF6";
+const COLOR = "#84CC16";
 const BG = "#150d2e";
 
 const POSTS = [

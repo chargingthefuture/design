@@ -8,7 +8,7 @@ import {
   Users, Send, ChevronDown,
 } from "lucide-react";
 
-const COLOR = "#A855F7";
+const COLOR = "#D946EF";
 
 // Spec §2.1: taxonomy-first skills, sourced from skills_taxonomy_skills
 const SKILL_TAXONOMY: Record<string, string[]> = {

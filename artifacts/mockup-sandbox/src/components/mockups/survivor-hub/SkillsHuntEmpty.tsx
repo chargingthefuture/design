@@ -1,7 +1,7 @@
 // STATE: Authenticated, zero submissions yet
 import { Search, Plus, Target } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#A855F7";
+const bg = "#0F1117", COLOR = "#D946EF";
 
 export function SkillsHuntEmpty() {
   return (

@@ -5,7 +5,7 @@ const surface = "#161B27";
 const border = "#1E2A3A";
 const text = "#F9FAFB";
 const subtle = "#6B7280";
-const COLOR = "#22C55E";
+const COLOR = "#10B981";
 
 const TRACKS = ["Tech & Coding", "Business", "Healthcare", "Trades", "Creative", "Legal Aid"];
 

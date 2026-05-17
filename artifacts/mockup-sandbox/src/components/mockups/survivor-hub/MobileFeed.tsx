@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Megaphone, Heart, MessageCircle, Share2, Bell, Bookmark, AlertCircle, Plus, Home, TrendingUp } from "lucide-react";
 
-const COLOR = "#8B5CF6";
+const COLOR = "#84CC16";
 
 const POSTS = [
   { id: 1, author: "Survivor Hub", avatar: "SH", time: "2 min", title: "🚀 Phase 2 Live: LightHouse, SocketRelay & TrustTransport!", body: "Three powerful new plugins are now live for all verified members.", likes: 842, comments: 127, urgent: false, color: "#A78BFA" },

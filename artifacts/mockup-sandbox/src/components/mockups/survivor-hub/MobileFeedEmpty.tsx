@@ -5,7 +5,7 @@ const surface = "#161B27";
 const border = "#1E2A3A";
 const text = "#F9FAFB";
 const subtle = "#6B7280";
-const COLOR = "#8B5CF6";
+const COLOR = "#84CC16";
 
 export function MobileFeedEmpty() {
   return (

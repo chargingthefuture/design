@@ -1,7 +1,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { BookOpen, Lock, CheckCircle } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#22C55E";
+const bg = "#0F1117", COLOR = "#10B981";
 
 export function MobileLevelUpPublic() {
   return (

@@ -4,7 +4,7 @@ import {
   Activity, Zap, AlertCircle, Lock, Users, Star,
 } from "lucide-react";
 
-const BRAND = "#0EA5E9";
+const BRAND = "#A855F7";
 const bg = "#0F1117";
 const surface = "#161B27";
 const border = "#1E2A3A";

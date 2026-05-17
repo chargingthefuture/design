@@ -1,7 +1,7 @@
 // STATE: Loading — data fetch in progress
 import { Shield } from "lucide-react";
 
-const bg = "#0F1117", surface = "#161B27", border = "#1E2A3A", COLOR = "#0EA5E9";
+const bg = "#0F1117", surface = "#161B27", border = "#1E2A3A", COLOR = "#A855F7";
 const Sk = ({ w = "100%", h = 14, r = 6 }: { w?: string | number; h?: number; r?: number }) => (
   <div style={{ width: w, height: h, borderRadius: r, background: "rgba(255,255,255,0.06)", flexShrink: 0 }} />
 );

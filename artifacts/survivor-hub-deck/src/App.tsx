@@ -182,23 +182,23 @@ type Slide = {
 };
 
 const SECTION_COLORS: Record<string, string> = {
-  "Hub":              "#7C3AED",
+  "Hub":              "#38BDF8",
   "Chyme":            "#22C55E",
   "Directory":        "#3B82F6",
-  "Feed":             "#8B5CF6",
+  "Feed":             "#84CC16",
   "Workforce":        "#6366F1",
-  "Skills Hunt":      "#A855F7",
+  "SkillsHunt":       "#D946EF",
   "Foundation":       "#EF4444",
   "LightHouse":       "#EAB308",
-  "Socket Relay":     "#F43F5E",
-  "Trust Transport":  "#F97316",
-  "Peer Programming": "#8B5CF6",
+  "SocketRelay":      "#F43F5E",
+  "TrustTransport":   "#F97316",
+  "PeerProgramming":  "#8B5CF6",
   "Mood":             "#EC4899",
-  "Gentle Pulse":     "#14B8A6",
+  "GentlePulse":      "#14B8A6",
   "GDP":              "#06B6D4",
-  "Service Credits":  "#F59E0B",
-  "LevelUp":          "#22C55E",
-  "Trust":            "#64748B",
+  "ServiceCredits":   "#F59E0B",
+  "LevelUp":          "#10B981",
+  "Trust":            "#A855F7",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({

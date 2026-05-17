@@ -1,7 +1,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Search, Lock, Users, Zap, TrendingUp } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#A855F7";
+const bg = "#0F1117", COLOR = "#D946EF";
 
 const SCOUTS = [
   { name: "Amara O.", found: 47, gem: true },

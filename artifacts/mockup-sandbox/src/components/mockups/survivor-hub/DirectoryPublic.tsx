@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { BookOpen, Users, Star, MapPin, Lock, Search, X, ExternalLink, Send } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#3B82F6", HUNT_COLOR = "#A855F7";
+const bg = "#0F1117", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
 
 const PREVIEW = [
   { name: "Maria G.",   role: "Trauma Therapist",   loc: "Houston, TX",  rating: 4.9, community: false },

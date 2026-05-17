@@ -1,7 +1,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { BookOpen, CheckCircle, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#22C55E";
+const bg = "#0F1117", COLOR = "#10B981";
 
 const COHORTS = [
   { title: "Web Development Fundamentals", track: "Tech", credits: 40, seats: 8, tags: ["HTML", "CSS", "React"] },

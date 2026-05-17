@@ -1,7 +1,7 @@
 // STATE: Loading — data fetch in progress
 import { Megaphone, MessageCircle, Zap, Globe } from "lucide-react";
 
-const bg = "#0F1117", border = "#1E2A3A", COLOR = "#8B5CF6";
+const bg = "#0F1117", border = "#1E2A3A", COLOR = "#84CC16";
 const Sk = ({ w = "100%", h = 14, r = 6 }: { w?: string | number; h?: number; r?: number }) => (
   <div style={{ width: w, height: h, borderRadius: r, background: "rgba(255,255,255,0.06)", flexShrink: 0 }} />
 );

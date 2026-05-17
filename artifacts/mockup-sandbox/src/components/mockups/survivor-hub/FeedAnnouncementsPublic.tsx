@@ -1,7 +1,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Megaphone, Bell, Pin, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#8B5CF6";
+const bg = "#0F1117", COLOR = "#84CC16";
 
 const PREVIEW = [
   { type: "ANNOUNCEMENT", title: "Platform Update: Trust Transport now live in 12 new cities", time: "2h ago", author: "Survivor Hub Team", pinned: true },

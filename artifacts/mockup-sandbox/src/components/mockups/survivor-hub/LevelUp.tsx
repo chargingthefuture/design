@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 export default function LevelUp({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
-  const green = "#22C55E";
+  const green = "#10B981";
   const bg = "#0F1117";
   const surface = "#161B27";
   const border = "#1E2A3A";
