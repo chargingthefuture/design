@@ -3,7 +3,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
-  BookOpen, Search, Filter, MapPin, Star, CheckCircle,
+  BookOpen, Search, Filter, MapPin, CheckCircle,
   MessageSquare, ChevronRight, Users, ArrowUpRight, Send,
   Plus, Briefcase, Globe, Shield, Bell, Settings,
 } from "lucide-react";
@@ -16,12 +16,12 @@ const BG = "#0c1a3d";
 // Unclaimed profiles: /apps/directory/@{directory_profiles.unclaimed_handle} (format: community-<6-char-hex>)
 // Spec §4.1: source column — 'admin' | 'self' | 'community-generated'
 const PROFILES = [
-  { id: 1, name: "Maria Gonzalez",  role: "Trauma-Informed Therapist", location: "Houston, TX",  rating: 4.9, reviews: 127, skills: ["CBT", "EMDR", "Group Therapy"],       verified: true,  online: true,  avatar: "MG", phase: "Phase 0", handle: "@maria-g",        source: "self"              },
-  { id: 2, name: "James Thibodeau", role: "Housing Navigator",          location: "Atlanta, GA",  rating: 4.8, reviews: 89,  skills: ["Case Mgmt", "HUD", "Legal Aid"],      verified: true,  online: true,  avatar: "JT", phase: "Phase 0", handle: "@james-t",        source: "self"              },
-  { id: 3, name: "Amara Okonkwo",   role: "Employment Coach",           location: "Chicago, IL",  rating: 4.7, reviews: 203, skills: ["Resume", "Interviewing", "Networking"],verified: true,  online: false, avatar: "AO", phase: "Phase 1", handle: "@community-7f3a2b", source: "community-generated" },
-  { id: 4, name: "Priya Sharma",    role: "Legal Advocate",             location: "New York, NY", rating: 5.0, reviews: 61,  skills: ["Immigration", "Civil Rights", "T-Visa"],verified: true,  online: true,  avatar: "PS", phase: "Phase 0", handle: "@priya-s",        source: "self"              },
-  { id: 5, name: "DeShawn Williams",role: "Financial Counselor",        location: "Dallas, TX",   rating: 4.6, reviews: 144, skills: ["Budgeting", "Credit", "Benefits"],     verified: false, online: true,  avatar: "DW", phase: "Phase 1", handle: "@community-b2e9f1", source: "community-generated" },
-  { id: 6, name: "Lena Hoffmann",   role: "Tech Skills Trainer",        location: "Remote",       rating: 4.9, reviews: 312, skills: ["Coding", "UX Design", "Freelancing"],  verified: true,  online: true,  avatar: "LH", phase: "Phase 2", handle: "@lena-h",         source: "self"              },
+  { id: 1, name: "Maria Gonzalez",  role: "Trauma-Informed Therapist", location: "Houston, TX",  skills: ["CBT", "EMDR", "Group Therapy"],       verified: true,  online: true,  avatar: "MG", phase: "Phase 0", handle: "@maria-g",        source: "self"              },
+  { id: 2, name: "James Thibodeau", role: "Housing Navigator",          location: "Atlanta, GA",  skills: ["Case Mgmt", "HUD", "Legal Aid"],      verified: true,  online: true,  avatar: "JT", phase: "Phase 0", handle: "@james-t",        source: "self"              },
+  { id: 3, name: "Amara Okonkwo",   role: "Employment Coach",           location: "Chicago, IL",  skills: ["Resume", "Interviewing", "Networking"],verified: true,  online: false, avatar: "AO", phase: "Phase 1", handle: "@community-7f3a2b", source: "community-generated" },
+  { id: 4, name: "Priya Sharma",    role: "Legal Advocate",             location: "New York, NY", skills: ["Immigration", "Civil Rights", "T-Visa"],verified: true,  online: true,  avatar: "PS", phase: "Phase 0", handle: "@priya-s",        source: "self"              },
+  { id: 5, name: "DeShawn Williams",role: "Financial Counselor",        location: "Dallas, TX",   skills: ["Budgeting", "Credit", "Benefits"],     verified: false, online: true,  avatar: "DW", phase: "Phase 1", handle: "@community-b2e9f1", source: "community-generated" },
+  { id: 6, name: "Lena Hoffmann",   role: "Tech Skills Trainer",        location: "Remote",       skills: ["Coding", "UX Design", "Freelancing"],  verified: true,  online: true,  avatar: "LH", phase: "Phase 2", handle: "@lena-h",         source: "self"              },
 ];
 
 const FILTERS = ["All", "Therapists", "Housing", "Legal", "Employment", "Finance", "Tech"];
@@ -76,7 +76,6 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                 <div style={{ fontSize: 15, color: "#9CA3AF", marginBottom: 8 }}>{p.role}</div>
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   <Badge style={{ background: "rgba(255,255,255,0.05)", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.08)", fontSize: 12 }}><MapPin size={11} style={{ marginRight: 4 }} />{p.location}</Badge>
-                  <Badge style={{ background: "rgba(250,204,21,0.1)", color: "#FBBF24", border: "1px solid rgba(250,204,21,0.2)", fontSize: 12 }}>⭐ {p.rating} ({p.reviews} reviews)</Badge>
                   <Badge style={{ background: `${COLOR}15`, color: COLOR, border: `1px solid ${COLOR}30`, fontSize: 12 }}>{p.phase}</Badge>
                 </div>
               </div>
@@ -93,15 +92,14 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                     <Badge key={s} style={{ background: `${COLOR}15`, color: COLOR, border: `1px solid ${COLOR}30`, fontSize: 13, padding: "5px 12px" }}>{s}</Badge>
                   ))}
                 </div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Reviews</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Endorsements</div>
                 {[
-                  { reviewer: "Anonymous Survivor", rating: 5, text: "Changed my life. Trauma-informed, patient, and truly understands.", ago: "2 weeks ago" },
-                  { reviewer: "Community Member", rating: 5, text: "Helped me navigate the court system. Exceptional advocate.", ago: "1 month ago" },
+                  { reviewer: "Anonymous Survivor", text: "Changed my life. Trauma-informed, patient, and truly understands.", ago: "2 weeks ago" },
+                  { reviewer: "Community Member", text: "Helped me navigate the court system. Exceptional advocate.", ago: "1 month ago" },
                 ].map((r, i) => (
                   <div key={i} style={{ padding: "16px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", marginBottom: 10 }}>
                     <div style={{ display: "flex", gap: 8, marginBottom: 8, alignItems: "center" }}>
                       <div style={{ fontSize: 13, fontWeight: 600, color: "#E8EAF0" }}>{r.reviewer}</div>
-                      <div style={{ fontSize: 12, color: "#FBBF24" }}>{"⭐".repeat(r.rating)}</div>
                       <div style={{ fontSize: 11, color: "#4B5563", marginLeft: "auto" }}>{r.ago}</div>
                     </div>
                     <div style={{ fontSize: 13, color: "#9CA3AF", lineHeight: 1.6 }}>{r.text}</div>
@@ -169,7 +167,7 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Stats</div>
-            {[{ l: "Verified Providers", v: "47,234" }, { l: "Active Now", v: "1,842" }, { l: "Avg. Rating", v: "4.8 ⭐" }].map(({ l, v }) => (
+            {[{ l: "Verified Providers", v: "47,234" }, { l: "Active Now", v: "1,842" }, { l: "Accept Credits", v: "68%" }].map(({ l, v }) => (
               <div key={l} style={{ padding: "8px 10px", fontSize: 13, color: "#9CA3AF" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
             ))}
           </div>
@@ -252,10 +250,6 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                           <span style={{ fontSize: 11, color: p.online ? "#22C55E" : "#4B5563" }}>{p.online ? "Online" : "Offline"}</span>
                           <span style={{ fontSize: 11, color: "#4B5563" }}>· {p.location}</span>
                         </div>
-                      </div>
-                      <div style={{ textAlign: "right", flexShrink: 0 }}>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#FBBF24" }}>⭐ {p.rating}</div>
-                        <div style={{ fontSize: 11, color: "#4B5563" }}>{p.reviews} reviews</div>
                       </div>
                     </div>
                     <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>

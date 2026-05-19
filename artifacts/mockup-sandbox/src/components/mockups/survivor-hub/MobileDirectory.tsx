@@ -2,18 +2,18 @@ import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { BookOpen, Search, Star, CheckCircle, MapPin, MessageSquare, Users, ChevronRight, ArrowLeft, Shield } from "lucide-react";
+import { BookOpen, Search, CheckCircle, MapPin, MessageSquare, Users, ChevronRight, ArrowLeft, Shield } from "lucide-react";
 
 const COLOR = "#3B82F6";
 
 // Spec §2.2 / §4.2: @handle routing; §4.1: source column
 const COMMUNITY_COLOR = "#D946EF";
 const PROFILES = [
-  { id: 1, name: "Maria Gonzalez",  role: "Trauma Therapist",    location: "Houston, TX",  rating: 4.9, online: true,  avatar: "MG", verified: true,  credits: true,  handle: "@maria-g",         source: "self"               },
-  { id: 2, name: "James Thibodeau", role: "Housing Navigator",   location: "Atlanta, GA",  rating: 4.8, online: true,  avatar: "JT", verified: true,  credits: true,  handle: "@james-t",         source: "self"               },
-  { id: 3, name: "Amara Okonkwo",   role: "Employment Coach",    location: "Chicago, IL",  rating: 4.7, online: false, avatar: "AO", verified: true,  credits: false, handle: "@community-7f3a2b", source: "community-generated" },
-  { id: 4, name: "Priya Sharma",    role: "Legal Advocate",      location: "New York, NY", rating: 5.0, online: true,  avatar: "PS", verified: true,  credits: true,  handle: "@priya-s",         source: "self"               },
-  { id: 5, name: "Lena Hoffmann",   role: "Tech Skills Trainer", location: "Remote",       rating: 4.9, online: true,  avatar: "LH", verified: true,  credits: false, handle: "@community-b2e9f1", source: "community-generated" },
+  { id: 1, name: "Maria Gonzalez",  role: "Trauma Therapist",    location: "Houston, TX",  online: true,  avatar: "MG", verified: true,  credits: true,  handle: "@maria-g",         source: "self"               },
+  { id: 2, name: "James Thibodeau", role: "Housing Navigator",   location: "Atlanta, GA",  online: true,  avatar: "JT", verified: true,  credits: true,  handle: "@james-t",         source: "self"               },
+  { id: 3, name: "Amara Okonkwo",   role: "Employment Coach",    location: "Chicago, IL",  online: false, avatar: "AO", verified: true,  credits: false, handle: "@community-7f3a2b", source: "community-generated" },
+  { id: 4, name: "Priya Sharma",    role: "Legal Advocate",      location: "New York, NY", online: true,  avatar: "PS", verified: true,  credits: true,  handle: "@priya-s",         source: "self"               },
+  { id: 5, name: "Lena Hoffmann",   role: "Tech Skills Trainer", location: "Remote",       online: true,  avatar: "LH", verified: true,  credits: false, handle: "@community-b2e9f1", source: "community-generated" },
 ];
 
 const NAV = [
@@ -56,7 +56,6 @@ export function MobileDirectory() {
               <div style={{ fontSize: 11, color: "#374151", fontFamily: "monospace", marginBottom: 4 }}>{p.handle}</div>
               <div style={{ fontSize: 14, color: "#9CA3AF", marginBottom: 8 }}>{p.role}</div>
               <div style={{ display: "flex", gap: 6, justifyContent: "center", flexWrap: "wrap" }}>
-                <Badge style={{ background: "rgba(250,204,21,0.1)", color: "#FBBF24", border: "1px solid rgba(250,204,21,0.2)", fontSize: 11 }}>⭐ {p.rating}</Badge>
                 <Badge style={{ background: p.online ? "#22C55E20" : "rgba(255,255,255,0.05)", color: p.online ? "#22C55E" : "#6B7280", border: `1px solid ${p.online ? "#22C55E40" : "rgba(255,255,255,0.08)"}`, fontSize: 11 }}>{p.online ? "● Online" : "Offline"}</Badge>
                 {p.credits && <Badge style={{ background: "#F59E0B10", color: "#F59E0B", border: "1px solid #F59E0B25", fontSize: 11 }}>Credits ✓</Badge>}
               </div>
@@ -69,10 +68,9 @@ export function MobileDirectory() {
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}><Shield size={12} style={{ color: COLOR }} /><span style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>Privacy Guaranteed</span></div>
               <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>All messages are end-to-end encrypted. Your identity is never exposed.</div>
             </div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", marginBottom: 10 }}>Recent Reviews</div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", marginBottom: 10 }}>Endorsements</div>
             {["Changed my life. Truly trauma-informed.", "Exceptional advocate and listener.", "Helped me find housing in 3 days."].map((r, i) => (
               <div key={i} style={{ padding: "12px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", marginBottom: 8 }}>
-                <div style={{ fontSize: 12, color: "#FBBF24", marginBottom: 4 }}>⭐⭐⭐⭐⭐</div>
                 <div style={{ fontSize: 13, color: "#9CA3AF" }}>{r}</div>
               </div>
             ))}
@@ -129,7 +127,6 @@ export function MobileDirectory() {
                 <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: p.online ? "#22C55E" : "#4B5563" }} />
                   <span style={{ fontSize: 11, color: p.online ? "#22C55E" : "#4B5563" }}>{p.online ? "Online" : "Away"}</span>
-                  <span style={{ fontSize: 11, color: "#4B5563" }}>⭐ {p.rating}</span>
                   {p.credits && <span style={{ fontSize: 10, color: "#F59E0B" }}>Credits ✓</span>}
                 </div>
               </div>

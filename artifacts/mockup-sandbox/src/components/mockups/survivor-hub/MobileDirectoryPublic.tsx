@@ -1,7 +1,7 @@
 // STATE: Unauthenticated — visitor with no session
 // Spec §2.4: Skills Hunt reward card + "Submit a community profile" CTA on Directory public page
 import { useState } from "react";
-import { BookOpen, Lock, Star, Search, X, ExternalLink, Send } from "lucide-react";
+import { BookOpen, Lock, Search, X, ExternalLink, Send } from "lucide-react";
 
 const bg = "#0F1117", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
 
@@ -73,10 +73,6 @@ export function MobileDirectoryPublic() {
                   {p.community && <span style={{ fontSize: 10, background: `${HUNT_COLOR}20`, color: HUNT_COLOR, borderRadius: 5, padding: "1px 5px", fontWeight: 700 }}>Community</span>}
                 </div>
                 <div style={{ fontSize: 12, color: "#9CA3AF" }}>{p.role}</div>
-                <div style={{ display: "flex", gap: 4, marginTop: 3, alignItems: "center" }}>
-                  <Star size={10} fill="#F59E0B" color="#F59E0B" />
-                  <span style={{ fontSize: 11 }}>{p.r}</span>
-                </div>
               </div>
             </div>
           ))}

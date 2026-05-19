@@ -2,17 +2,17 @@
 // Spec §2.4: primary Skills Hunt entry point is the Directory public page,
 // via a "Submit a community profile" CTA on the pinned reward card.
 import { useState } from "react";
-import { BookOpen, Users, Star, MapPin, Lock, Search, X, ExternalLink, Send } from "lucide-react";
+import { BookOpen, Users, MapPin, Lock, Search, X, ExternalLink, Send } from "lucide-react";
 
 const bg = "#0F1117", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
 
 const PREVIEW = [
-  { name: "Maria G.",   role: "Trauma Therapist",   loc: "Houston, TX",  rating: 4.9, community: false },
-  { name: "James T.",   role: "Housing Navigator",   loc: "Atlanta, GA",  rating: 4.8, community: false },
-  { name: "Amara O.",   role: "Employment Coach",    loc: "Chicago, IL",  rating: 4.7, community: true  },
-  { name: "Priya S.",   role: "Legal Advocate",      loc: "New York, NY", rating: 5.0, community: false },
-  { name: "Lena H.",    role: "Tech Skills Trainer", loc: "Remote",       rating: 4.9, community: true  },
-  { name: "DeShawn W.", role: "Financial Counselor", loc: "Dallas, TX",   rating: 4.6, community: false },
+  { name: "Maria G.",   role: "Trauma Therapist",   loc: "Houston, TX",  community: false },
+  { name: "James T.",   role: "Housing Navigator",   loc: "Atlanta, GA",  community: false },
+  { name: "Amara O.",   role: "Employment Coach",    loc: "Chicago, IL",  community: true  },
+  { name: "Priya S.",   role: "Legal Advocate",      loc: "New York, NY", community: false },
+  { name: "Lena H.",    role: "Tech Skills Trainer", loc: "Remote",       community: true  },
+  { name: "DeShawn W.", role: "Financial Counselor", loc: "Dallas, TX",   community: false },
 ];
 
 // Inline submission modal state (shown over the page when CTA is clicked)
@@ -103,8 +103,6 @@ export function DirectoryPublic() {
                 </div>
                 <div style={{ fontSize: 12, color: "#9CA3AF", marginTop: 2 }}>{p.role}</div>
                 <div style={{ display: "flex", gap: 8, marginTop: 6, alignItems: "center" }}>
-                  <Star size={11} color="#F59E0B" fill="#F59E0B" />
-                  <span style={{ fontSize: 12 }}>{p.rating}</span>
                   <MapPin size={11} color="#6B7280" />
                   <span style={{ fontSize: 12, color: "#6B7280" }}>{p.loc}</span>
                 </div>
@@ -119,7 +117,7 @@ export function DirectoryPublic() {
           </div>
           <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", textAlign: "center" }}>Sign in to browse 47,000 profiles</div>
           <div style={{ fontSize: 13, color: "#6B7280", textAlign: "center", maxWidth: 320 }}>
-            Filter by specialty, location, rating, and Service Credit acceptance.
+            Filter by specialty, location, and Service Credit acceptance.
           </div>
           <button style={{ padding: "12px 32px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
             Sign in to connect
