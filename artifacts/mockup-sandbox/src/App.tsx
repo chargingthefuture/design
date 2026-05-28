@@ -153,6 +153,62 @@ function Gallery() {
     } catch {}
   }
 
+  // Keyboard navigation: Left/Right arrows, Home, End
+  useEffect(() => {
+    if (componentPaths.length === 0) return;
+
+    function onKey(e: KeyboardEvent) {
+      const target = e.target as HTMLElement | null;
+      if (target) {
+        const tag = target.tagName;
+        if (
+          tag === "INPUT" ||
+          tag === "TEXTAREA" ||
+          tag === "SELECT" ||
+          target.isContentEditable
+        ) {
+          return; // don't hijack typing
+        }
+      }
+
+      if (e.key === "ArrowLeft") {
+        setIndex((cur) => {
+          const next = Math.max(0, cur - 1);
+          try {
+            window.history.replaceState({}, "", getBasePath() + "/preview/" + componentPaths[next]);
+          } catch {}
+          return next;
+        });
+      } else if (e.key === "ArrowRight") {
+        setIndex((cur) => {
+          const next = Math.min(componentPaths.length - 1, cur + 1);
+          try {
+            window.history.replaceState({}, "", getBasePath() + "/preview/" + componentPaths[next]);
+          } catch {}
+          return next;
+        });
+      } else if (e.key === "Home") {
+        setIndex(() => {
+          try {
+            window.history.replaceState({}, "", getBasePath() + "/preview/" + componentPaths[0]);
+          } catch {}
+          return 0;
+        });
+      } else if (e.key === "End") {
+        setIndex(() => {
+          const last = componentPaths.length - 1;
+          try {
+            window.history.replaceState({}, "", getBasePath() + "/preview/" + componentPaths[last]);
+          } catch {}
+          return last;
+        });
+      }
+    }
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [componentPaths]);
+
   return (
     <div className="h-screen bg-gray-50 flex overflow-hidden">
       {/* Left navigation: list of slides */}
