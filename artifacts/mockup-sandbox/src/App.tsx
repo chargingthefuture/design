@@ -37,7 +37,18 @@ function PreviewRenderer({
 
     async function loadComponent(): Promise<void> {
       const key = `./components/mockups/${componentPath}.tsx`;
-      const loader = modules[key];
+      let loader = modules[key];
+
+      // Fallback: try to find a module whose path ends with the component path.
+      if (!loader) {
+        const candidates = Object.keys(modules).filter((k) =>
+          k.endsWith(`/${componentPath}.tsx`) || k.endsWith(`${componentPath}.tsx`),
+        );
+        if (candidates.length > 0) {
+          loader = modules[candidates[0]];
+        }
+      }
+
       if (!loader) {
         setError(`No component found at ${componentPath}.tsx`);
         return;
@@ -97,21 +108,54 @@ function getPreviewExamplePath(): string {
 }
 
 function Gallery() {
+  const moduleKeys = Object.keys(discoveredModules).filter((k) =>
+    k.startsWith("./components/mockups/"),
+  );
+
+  const componentPaths = moduleKeys.map((k) =>
+    k.replace("./components/mockups/", "").replace(/\.tsx$/, ""),
+  );
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (componentPaths.length === 0) return;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % componentPaths.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [componentPaths.length]);
+
+  if (componentPaths.length === 0) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
+        <div className="text-center max-w-md">
+          <h1 className="text-2xl font-semibold text-gray-900 mb-3">
+            No mockups available
+          </h1>
+          <p className="text-gray-500">Add mockup `.tsx` files under `src/components/mockups`.</p>
+        </div>
+      </div>
+    );
+  }
+
+  const current = componentPaths[index];
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
-      <div className="text-center max-w-md">
-        <h1 className="text-2xl font-semibold text-gray-900 mb-3">
-          Component Preview Server
-        </h1>
-        <p className="text-gray-500 mb-4">
-          This server renders individual components for the workspace canvas.
-        </p>
-        <p className="text-sm text-gray-400">
-          Access component previews at{" "}
-          <code className="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600">
-            {getPreviewExamplePath()}
-          </code>
-        </p>
+      <div className="w-full max-w-5xl">
+        <div className="mb-4 text-center">
+          <h2 className="text-xl font-semibold text-gray-900">Mockup Preview</h2>
+          <p className="text-sm text-gray-500">{current}</p>
+        </div>
+
+        <div className="bg-white rounded shadow p-6">
+          <PreviewRenderer componentPath={current} modules={discoveredModules} />
+        </div>
+
+        <div className="mt-3 text-center text-sm text-gray-500">
+          Showing {index + 1} of {componentPaths.length}
+        </div>
       </div>
     </div>
   );
