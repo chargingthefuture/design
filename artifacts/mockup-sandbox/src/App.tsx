@@ -118,13 +118,16 @@ function Gallery() {
 
   const [index, setIndex] = useState(0);
 
+  // Start at 0; navigation is manual (no autoplay)
   useEffect(() => {
-    if (componentPaths.length === 0) return;
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % componentPaths.length);
-    }, 3000);
-    return () => clearInterval(id);
-  }, [componentPaths.length]);
+    // If URL contains a preview path, navigate to it
+    const preview = getPreviewPath();
+    if (preview) {
+      const idx = componentPaths.indexOf(preview);
+      if (idx >= 0) setIndex(idx);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (componentPaths.length === 0) {
     return (
@@ -141,22 +144,82 @@ function Gallery() {
 
   const current = componentPaths[index];
 
+  function goTo(i: number) {
+    const clamped = Math.max(0, Math.min(i, componentPaths.length - 1));
+    setIndex(clamped);
+    const path = getBasePath() + "/preview/" + componentPaths[clamped];
+    try {
+      window.history.replaceState({}, "", path);
+    } catch {}
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
-      <div className="w-full max-w-5xl">
-        <div className="mb-4 text-center">
-          <h2 className="text-xl font-semibold text-gray-900">Mockup Preview</h2>
-          <p className="text-sm text-gray-500">{current}</p>
+    <div className="h-screen bg-gray-50 flex overflow-hidden">
+      {/* Left navigation: list of slides */}
+      <aside className="w-64 bg-white border-r overflow-y-auto">
+        <div className="p-4 border-b">
+          <h3 className="text-sm font-semibold text-gray-700">Slides</h3>
+          <p className="text-xs text-gray-500">Click a slide to open it</p>
+        </div>
+        <ul className="divide-y">
+          {componentPaths.map((p, i) => (
+            <li
+              key={p}
+              className={`p-3 cursor-pointer hover:bg-gray-50 flex items-center space-x-3 ${
+                i === index ? "bg-gray-100" : ""
+              }`}
+              onClick={() => goTo(i)}
+              title={p}
+            >
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-medium text-gray-900 truncate">{p.split("/").pop()}</div>
+                <div className="text-xs text-gray-500 truncate">{p}</div>
+              </div>
+              <div className="text-xs text-gray-400">{i + 1}</div>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      {/* Right: slide viewer */}
+      <main className="flex-1 flex flex-col">
+        <header className="p-4 border-b bg-white">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-semibold text-gray-900">Mockup Preview</h2>
+              <p className="text-sm text-gray-500">{current}</p>
+            </div>
+            <div className="flex items-center space-x-2">
+              <button
+                className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200 text-sm"
+                onClick={() => goTo(index - 1)}
+                aria-label="Previous slide"
+              >
+                ← Prev
+              </button>
+              <button
+                className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200 text-sm"
+                onClick={() => goTo(index + 1)}
+                aria-label="Next slide"
+              >
+                Next →
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <div className="flex-1 overflow-auto p-6 bg-white">
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="w-full max-w-5xl h-full overflow-auto bg-white rounded shadow p-6">
+              <PreviewRenderer componentPath={current} modules={discoveredModules} />
+            </div>
+          </div>
         </div>
 
-        <div className="bg-white rounded shadow p-6">
-          <PreviewRenderer componentPath={current} modules={discoveredModules} />
-        </div>
-
-        <div className="mt-3 text-center text-sm text-gray-500">
+        <footer className="p-3 border-t bg-white text-sm text-gray-600">
           Showing {index + 1} of {componentPaths.length}
-        </div>
-      </div>
+        </footer>
+      </main>
     </div>
   );
 }
