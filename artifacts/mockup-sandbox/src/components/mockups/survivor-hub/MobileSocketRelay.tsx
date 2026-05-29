@@ -8,7 +8,7 @@ import { Share2, Plus, AlertCircle, Heart, MapPin, Shield, Home, MessageSquare }
 const COLOR = "#FB923C";
 
 const REQUESTS = [
-  { id: 1, type: "need", title: "Need groceries — single mom, 3 kids", location: "N. Houston", urgency: true, category: "Food", credits: 15, time: "5 min", fulfilled: false },
+  { id: 1, type: "need", title: "Need grocery help for my household", location: "N. Houston", urgency: true, category: "Food", credits: 15, time: "5 min", fulfilled: false },
   { id: 2, type: "offer", title: "I can give rides to medical appointments", location: "Buckhead, ATL", urgency: false, category: "Transport", credits: 0, time: "12 min", fulfilled: false },
   { id: 3, type: "need", title: "Spanish interpreter needed for court", location: "Chicago Loop", urgency: true, category: "Legal", credits: 30, time: "24 min", fulfilled: false },
   { id: 4, type: "offer", title: "Offering resume writing help — 10yr HR", location: "Remote", urgency: false, category: "Employment", credits: 20, time: "1 hr", fulfilled: false },

@@ -60,7 +60,7 @@ export function SkillsHuntPublic() {
             {[
               { step: "1", icon: "👤", title: "Someone you believe may be a survivor", desc: "You don't need to be 100% certain — your best judgment is enough." },
               { step: "2", icon: "🔗", title: "Enter their info", desc: "First name, bio, Quora profile for social proof, skills, and claimed professions." },
-              { step: "3", icon: "⚡", title: "They join our economy", desc: "Their skills become tradeable in the network. We stop needing traffickers." },
+              { step: "3", icon: "⚡", title: "They join our economy", desc: "Their skills become tradeable in the network. We build self-sufficient pathways." },
               { step: "4", icon: "🏆", title: "You earn points", desc: "Climb the leaderboard. Earn badges. Find hidden gems." },
             ].map(item => (
               <div key={item.step} style={{ display: "flex", gap: 12, marginBottom: 14, alignItems: "flex-start" }}>

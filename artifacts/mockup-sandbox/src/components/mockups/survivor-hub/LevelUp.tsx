@@ -138,7 +138,7 @@ export default function LevelUp({ initialEmpty = false }: { initialEmpty?: boole
     { label: "Open Cohorts", value: "18", Icon: BookOpen, color: green },
     { label: "Enrolled Learners", value: "342", Icon: Users, color: "#3B82F6" },
     { label: "Milestones Validated", value: "1,204", Icon: CheckCircle, color: "#F59E0B" },
-    { label: "Credits Released", value: "8,910 SC", Icon: Coins, color: "#A855F7" },
+    { label: "Credits Released", value: "8,910 ServiceCredits", Icon: Coins, color: "#A855F7" },
   ];
 
   const pendingValidations = [

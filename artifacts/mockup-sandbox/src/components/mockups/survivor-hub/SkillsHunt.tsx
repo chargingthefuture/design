@@ -254,7 +254,7 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                             style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }}
                           />
                         </div>
-                        <div style={{ fontSize: 11, color: "#4B5563", marginTop: 4 }}>Quora activity helps verify this is a real person — reduces risk of trafficker infiltration.</div>
+                        <div style={{ fontSize: 11, color: "#4B5563", marginTop: 4 }}>Quora activity provides social proof of identity.</div>
                       </div>
 
                       {/* Skills — spec §2.1: taxonomy multi-select + optional free-text for unmatched */}
@@ -362,7 +362,7 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                       <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 12 }}>Why this works</div>
                       {[
                         { icon: "🧩", text: "You nominate someone you believe may be a survivor — certainty not required" },
-                        { icon: "🔗", text: "Quora profile = social proof, reducing trafficker infiltration risk" },
+                        { icon: "🔗", text: "Quora profile = social proof of identity" },
                         { icon: "⚡", text: "Skills from the taxonomy populate the Directory so we can trade and build our own economy" },
                         { icon: "🏆", text: "Points are granted on admin acceptance — taxonomy skills earn more" },
                       ].map((item, i) => (

@@ -83,7 +83,7 @@ export function MobileMood() {
             <div style={{ textAlign: "center", padding: "24px 0" }}>
               <div style={{ fontSize: 80, marginBottom: 16 }}>💚</div>
               <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>Thank you for checking in.</div>
-              <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 24 }}>You're part of 4.9M survivors supporting each other.</div>
+              <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 24 }}>You're part of a community supporting each other.</div>
               {RESOURCES.map((r) => (
                 <div key={r.title} style={{ padding: "12px 14px", borderRadius: 12, background: `${r.color}10`, border: `1px solid ${r.color}25`, display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 8 }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: r.color, flexShrink: 0 }} />
@@ -113,7 +113,7 @@ export function MobileMood() {
                 </div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-                {[{ l: "Daily Check-ins", v: "12,847", c: COLOR }, { l: "Avg Score", v: "4.1/5", c: "#22C55E" }, { l: "7-day Trend", v: "+0.3 ↑", c: "#22C55E" }, { l: "Crisis Handled", v: "23", c: "#EF4444" }].map(({ l, v, c }) => (
+                {[{ l: "Daily Check-ins", v: "12,847", c: COLOR }, { l: "Avg Score", v: "4.1/5", c: "#22C55E" }, { l: "7-day Trend", v: "+0.3 ↑", c: "#22C55E" }, { l: "Crisis Support Provided", v: "23", c: "#EF4444" }].map(({ l, v, c }) => (
                   <div key={l} style={{ padding: "14px", borderRadius: 12, background: `${c}08`, border: `1px solid ${c}20` }}>
                     <div style={{ fontSize: 20, fontWeight: 800, color: c, marginBottom: 2 }}>{v}</div>
                     <div style={{ fontSize: 11, color: "#6B7280" }}>{l}</div>

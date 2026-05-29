@@ -13,21 +13,21 @@ import {
 import { ChymeApp } from "./Chyme";
 
 const MINI_APPS = [
-  { id: "chyme", name: "Chyme", emoji: "🎙️", icon: Radio, desc: "Social audio rooms", color: "#22C55E", bg: "#052e16", tag: "Phase 0" },
-  { id: "lighthouse", name: "LightHouse", emoji: "🏠", icon: Home, desc: "Safe housing marketplace", color: "#EAB308", bg: "#1c1407", tag: "Phase 2" },
-  { id: "trusttransport", name: "TrustTransport", emoji: "📦", icon: Car, desc: "People & package delivery", color: "#F97316", bg: "#1c0a03", tag: "Phase 1" },
-  { id: "directory", name: "Directory", emoji: "📇", icon: BookOpen, desc: "People & skills directory", color: "#3B82F6", bg: "#0c1a3d", tag: "Phase 0" },
-  { id: "foundation", name: "Foundation", emoji: "🪛", icon: Hammer, desc: "Find skilled tradespeople", color: "#EF4444", bg: "#1c0505", tag: "Phase 1" },
-  { id: "peer-programming", name: "Peer Programming", emoji: "🏘️", icon: Users, desc: "Weekly global masterminds", color: "#8B5CF6", bg: "#150d2e", tag: "Phase 1" },
-  { id: "gdp", name: "Gross Domestic Product", emoji: "🗺️", icon: Globe, desc: "TI Skills Economy tracker", color: "#06B6D4", bg: "#011c26", tag: "Phase 2" },
-  { id: "service-credits", name: "Service Credits", emoji: "⚙️", icon: Coins, desc: "Utility token ecosystem", color: "#F59E0B", bg: "#1c1200", tag: "Phase 1" },
-  { id: "workforce", name: "Workforce", emoji: "💼", icon: BarChart2, desc: "Skills distribution & gaps", color: "#6366F1", bg: "#0e0f30", tag: "Phase 1" },
-  { id: "gentlepulse", name: "GentlePulse", emoji: "💚", icon: Heart, desc: "Guided meditation", color: "#14B8A6", bg: "#011c1a", tag: "Phase 2" },
-  { id: "mood", name: "Mood", emoji: "😁", icon: Smile, desc: "Anonymous mood check-ins", color: "#EC4899", bg: "#1c0416", tag: "Phase 0" },
-  { id: "socketrelay", name: "SocketRelay", emoji: "🔂", icon: Share2, desc: "Mutual aid network", color: "#F43F5E", bg: "#1c0409", tag: "Phase 0" },
-  { id: "feed", name: "Feed", emoji: "📣", icon: Megaphone, desc: "Community pulse & alerts", color: "#8B5CF6", bg: "#150d2e", tag: "Phase 0" },
-  { id: "skillshunt", name: "Skills Hunt", emoji: "🎓", icon: Award, desc: "Cohort learning & badges", color: "#A855F7", bg: "#1a0d2e", tag: "Phase 1" },
-  { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, desc: "Training cohort marketplace", color: "#22C55E", bg: "#052e16", tag: "Phase 1" },
+  { id: "chyme", name: "Chyme", emoji: "🎙️", icon: Radio, desc: "Social audio rooms", color: "#22C55E", bg: "#052e16" },
+  { id: "lighthouse", name: "LightHouse", emoji: "🏠", icon: Home, desc: "Safe housing marketplace", color: "#EAB308", bg: "#1c1407" },
+  { id: "trusttransport", name: "TrustTransport", emoji: "📦", icon: Car, desc: "People & package delivery", color: "#F97316", bg: "#1c0a03" },
+  { id: "directory", name: "Directory", emoji: "📇", icon: BookOpen, desc: "People & skills directory", color: "#3B82F6", bg: "#0c1a3d" },
+  { id: "foundation", name: "Foundation", emoji: "🪛", icon: Hammer, desc: "Find skilled tradespeople", color: "#EF4444", bg: "#1c0505" },
+  { id: "peer-programming", name: "Peer Programming", emoji: "🏘️", icon: Users, desc: "Weekly global masterminds", color: "#8B5CF6", bg: "#150d2e" },
+  { id: "gdp", name: "Gross Domestic Product", emoji: "🗺️", icon: Globe, desc: "TI Skills Economy tracker", color: "#06B6D4", bg: "#011c26" },
+  { id: "service-credits", name: "Service Credits", emoji: "⚙️", icon: Coins, desc: "Utility token ecosystem", color: "#F59E0B", bg: "#1c1200" },
+  { id: "workforce", name: "Workforce", emoji: "💼", icon: BarChart2, desc: "Skills distribution & gaps", color: "#6366F1", bg: "#0e0f30" },
+  { id: "gentlepulse", name: "GentlePulse", emoji: "💚", icon: Heart, desc: "Guided meditation", color: "#14B8A6", bg: "#011c1a" },
+  { id: "mood", name: "Mood", emoji: "😁", icon: Smile, desc: "Anonymous mood check-ins", color: "#EC4899", bg: "#1c0416" },
+  { id: "socketrelay", name: "SocketRelay", emoji: "🔂", icon: Share2, desc: "Mutual aid network", color: "#F43F5E", bg: "#1c0409" },
+  { id: "feed", name: "Feed", emoji: "📣", icon: Megaphone, desc: "Community pulse & alerts", color: "#8B5CF6", bg: "#150d2e" },
+  { id: "skillshunt", name: "Skills Hunt", emoji: "🎓", icon: Award, desc: "Cohort learning & badges", color: "#A855F7", bg: "#1a0d2e" },
+  { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, desc: "Training cohort marketplace", color: "#22C55E", bg: "#052e16" },
 ];
 
 const CHAT_MESSAGES = [
@@ -254,7 +254,6 @@ export function Desktop() {
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
                               <Badge style={{ background: `${app.color}15`, color: app.color, border: `1px solid ${app.color}30`, fontSize: 10, padding: "2px 8px", borderRadius: 20 }}>Live</Badge>
-                              <span style={{ fontSize: 10, color: "#4B5563" }}>{app.tag}</span>
                             </div>
                           </div>
                           <div style={{ fontSize: 15, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>{app.emoji} {app.name}</div>
@@ -338,7 +337,7 @@ export function Desktop() {
 
               <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.15)", marginBottom: 16 }}>
                 <div style={{ fontSize: 13, color: "#C4B5FD", lineHeight: 1.6, fontStyle: "italic", marginBottom: 8 }}>"You are not what happened to you. You are what you choose to become."</div>
-                <div style={{ fontSize: 11, color: "#6B7280" }}>— Carl Jung</div>
+                <div style={{ fontSize: 11, color: "#6B7280" }}>— Unattributed</div>
               </div>
               <div style={{ marginBottom: 16 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Active Apps</div>

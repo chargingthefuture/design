@@ -1,0 +1,1 @@
+- [CTF mockup-sandbox conventions](ctf-mockup-conventions.md) — design-only repo; punch-list rules for phase labels, fiat parity, naming, brand voice, and standard loader format.

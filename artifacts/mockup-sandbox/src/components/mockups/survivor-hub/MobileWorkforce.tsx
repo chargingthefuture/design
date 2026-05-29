@@ -38,7 +38,7 @@ export function MobileWorkforce() {
             <div style={{ fontSize: 11, color: COLOR }}>4.9M survivors · Live skills data</div>
           </div>
         </div>
-        <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11 }}>Phase 1</Badge>
+        
       </div>
       <ScrollArea style={{ flex: 1 }}>
         <div style={{ padding: "16px" }}>

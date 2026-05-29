@@ -106,7 +106,7 @@ export function TrustTransport() {
           <Car size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>📦 TrustTransport</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Rides · packages · food · Safety-first · Phase 2</div>
+            <div style={{ fontSize: 12, color: "#6B7280" }}>Rides · packages · food · Safety-first </div>
           </div>
           <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E35", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>1,247 Drivers Online</Badge>
         </header>

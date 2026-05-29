@@ -42,7 +42,7 @@ export function MobileLevelUpPublic() {
                 <div style={{ fontSize: 11, color: "#9CA3AF", marginTop: 2 }}>{c.track}</div>
               </div>
               <div style={{ textAlign: "right" }}>
-                <div style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>+{c.credits} cr</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>+{c.credits} ServiceCredits</div>
                 <div style={{ fontSize: 11, color: c.seats === 0 ? "#EF4444" : "#9CA3AF" }}>{c.seats === 0 ? "Full" : `${c.seats} left`}</div>
               </div>
             </div>

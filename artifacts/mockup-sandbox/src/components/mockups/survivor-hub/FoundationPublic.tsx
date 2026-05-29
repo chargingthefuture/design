@@ -1,6 +1,6 @@
 // design-sync
 // STATE: Unauthenticated — visitor with no session
-import { Hammer, Star, MapPin, Lock, DollarSign } from "lucide-react";
+import { Hammer, Star, MapPin, Lock } from "lucide-react";
 
 const bg = "#0F1117", COLOR = "#EF4444";
 

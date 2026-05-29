@@ -1,3 +1,4 @@
+// design-sync
 import React from "react";
 
 export function LandingHeroPublic() {
@@ -28,8 +29,8 @@ export function LandingHeroPublic() {
 
         <div className="grid grid-cols-3 gap-4 pt-12 text-center">
           <div>
-            <div className="text-3xl font-bold text-cyan-400">17</div>
-            <div className="text-sm text-slate-400">Mini Apps</div>
+            <div className="text-3xl font-bold text-cyan-400">18</div>
+            <div className="text-sm text-slate-400">Plugins</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-green-400">5M+</div>

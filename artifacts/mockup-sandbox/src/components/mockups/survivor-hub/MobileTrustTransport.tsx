@@ -48,7 +48,7 @@ export function MobileTrustTransport() {
             <>
               <div style={{ padding: "16px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}18`, marginBottom: 16 }}>
                 <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Book a Safe Ride</div>
-                <div style={{ fontSize: 12, color: "#6B7280" }}>Background-checked drivers · Trauma-informed · Credits OK</div>
+                <div style={{ fontSize: 12, color: "#6B7280" }}>Background-checked drivers · Trauma-informed · ServiceCredits OK</div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 }}>
                 <div style={{ position: "relative" }}>
@@ -71,7 +71,7 @@ export function MobileTrustTransport() {
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
                           <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>{d.name}</div>
-                          {d.credits && <Badge style={{ background: "#F59E0B10", color: "#F59E0B", border: "1px solid #F59E0B25", fontSize: 10 }}>Credits</Badge>}
+                          {d.credits && <Badge style={{ background: "#F59E0B10", color: "#F59E0B", border: "1px solid #F59E0B25", fontSize: 10 }}>ServiceCredits</Badge>}
                         </div>
                         <div style={{ fontSize: 12, color: "#6B7280" }}>{d.vehicle} · ⭐ {d.rating}</div>
                       </div>
@@ -106,7 +106,7 @@ export function MobileTrustTransport() {
                   <div style={{ fontSize: 15, fontWeight: 700, color: "#F9FAFB" }}>Jose Martinez · En Route</div>
                   <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E40", fontSize: 11 }}>🔴 Live</Badge>
                 </div>
-                <div style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 12 }}>ETA 8 min · Toyota Camry · 12 credits</div>
+                <div style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 12 }}>ETA 8 min · Toyota Camry · 12 ServiceCredits</div>
                 <div style={{ padding: "60px 20px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", textAlign: "center", color: "#4B5563", fontSize: 13, marginBottom: 12 }}>
                   [Live Map — encrypted location feed]
                 </div>

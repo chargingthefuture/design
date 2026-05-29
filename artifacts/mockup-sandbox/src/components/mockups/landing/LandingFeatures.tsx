@@ -1,9 +1,10 @@
+// design-sync
 import React from "react";
 import { Users, Radio, HomeIcon, Navigation, BookOpen, Hammer, Code, Globe, Coins, Briefcase, Heart, Smile, Share2, Activity, Award, Target, ShieldCheck } from "lucide-react";
 
 export function LandingFeaturesPublic() {
   const features = [
-    { name: "Hub", emoji: "🏠", icon: Users, color: "#38BDF8", desc: "AI-powered chat & safe channels" },
+    { name: "Hub", emoji: "🏘️", icon: Users, color: "#38BDF8", desc: "AI-powered chat & safe channels" },
     { name: "Chyme", emoji: "🎙️", icon: Radio, color: "#22C55E", desc: "Live social audio rooms" },
     { name: "LightHouse", emoji: "🏠", icon: HomeIcon, color: "#EAB308", desc: "Safe housing listings" },
     { name: "TrustTransport", emoji: "📦", icon: Navigation, color: "#F97316", desc: "Vetted transportation" },

@@ -89,7 +89,7 @@ export function SocketRelay() {
           <Share2 size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>🔂 SocketRelay — Mutual Aid</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Real-time needs ↔ offers · Privacy-minimized · Phase 2</div>
+            <div style={{ fontSize: 12, color: "#6B7280" }}>Real-time needs ↔ offers · Privacy-minimized </div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>847 fulfilled today</Badge>
         </header>
@@ -123,7 +123,7 @@ export function SocketRelay() {
                         </div>
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-end", flexShrink: 0 }}>
-                        {r.credits > 0 && <div style={{ fontSize: 13, fontWeight: 700, color: "#F59E0B" }}>{r.credits} credits</div>}
+                        {r.credits > 0 && <div style={{ fontSize: 13, fontWeight: 700, color: "#F59E0B" }}>{r.credits} ServiceCredits</div>}
                         <button
                           onClick={() => setFulfilled((f) => f.includes(r.id) ? f.filter((x) => x !== r.id) : [...f, r.id])}
                           disabled={r.fulfilled}

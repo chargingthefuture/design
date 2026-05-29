@@ -98,9 +98,9 @@ export function MobileTrustEmpty() {
           {STEPS.map(({ icon, label }) => (
             <div key={label} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 0", borderBottom: `1px solid ${border}` }}>
               <div style={{ width: 18, height: 18, borderRadius: "50%", border: `1.5px solid rgba(255,255,255,0.12)`, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontSize: 10 }}></span>
+                <span style={{ fontSize: 10 }}>{icon}</span>
               </div>
-              <span style={{ fontSize: 13, color: subtle, flex: 1 }}>{icon} {label}</span>
+              <span style={{ fontSize: 13, color: subtle, flex: 1 }}>{label}</span>
               <ArrowRight size={13} color="#374151" />
             </div>
           ))}

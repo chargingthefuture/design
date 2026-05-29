@@ -131,7 +131,7 @@ export function HubEmpty() {
         <div style={{ padding: "16px", borderRadius: 14, background: "rgba(255,255,255,0.03)", border: `1px solid ${border}`, marginBottom: 16, textAlign: "center" }}>
           <div style={{ width: 48, height: 48, borderRadius: "50%", background: `linear-gradient(135deg,${accent},${accentCyan})`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 10px", fontSize: 18, fontWeight: 800, color: "#fff" }}>S</div>
           <div style={{ fontSize: 15, fontWeight: 700, color: text, marginBottom: 4 }}>Welcome, Survivor</div>
-          <div style={{ fontSize: 12, color: subtle, marginBottom: 10 }}>Member since 2024</div>
+          <div style={{ fontSize: 12, color: subtle, marginBottom: 10 }}>Member since 2026</div>
           <div style={{ display: "inline-block", padding: "4px 12px", borderRadius: 20, background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.25)", fontSize: 11, color: "#A78BFA", fontWeight: 600 }}>Safe Space ✓</div>
         </div>
 

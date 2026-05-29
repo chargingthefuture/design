@@ -14,12 +14,12 @@ export function MobileServiceCreditsPublic() {
       <div style={{ flex: 1, padding: "24px 20px 32px", display: "flex", flexDirection: "column", gap: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <Zap size={20} color={COLOR} />
-          <span style={{ fontSize: 20, fontWeight: 800 }}>Service Credits</span>
+          <span style={{ fontSize: 20, fontWeight: 800 }}>ServiceCredits</span>
         </div>
         <h2 style={{ margin: 0, fontSize: 22, fontWeight: 800, lineHeight: 1.2 }}>
           Earn credits by participating.<br /><span style={{ color: COLOR }}>Spend them on real services.</span>
         </h2>
-        <p style={{ margin: 0, fontSize: 14, color: "#9CA3AF", lineHeight: 1.5 }}>Your participation in the Hub has real monetary value. Earn credits through learning, mentoring, and community activities.</p>
+        <p style={{ margin: 0, fontSize: 14, color: "#9CA3AF", lineHeight: 1.5 }}>Earn ServiceCredits through learning, mentoring, and community activities. Use them across housing, transport, trades, and more.</p>
 
         {/* Earn examples */}
         <div style={{ borderRadius: 14, border: "1px solid rgba(255,255,255,0.08)", padding: "16px", background: "rgba(255,255,255,0.02)" }}>

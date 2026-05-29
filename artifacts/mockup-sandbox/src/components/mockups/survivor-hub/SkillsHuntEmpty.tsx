@@ -27,7 +27,7 @@ export function SkillsHuntEmpty() {
           <div>
             <div style={{ fontSize: 26, fontWeight: 800, color: "#F9FAFB", marginBottom: 10 }}>No scouts yet — the hunt starts with you</div>
             <div style={{ fontSize: 15, color: "#6B7280", lineHeight: 1.8, maxWidth: 480 }}>
-              Think of someone you believe may be a survivor. Their Quora profile provides social proof, and their skills and professions help build our economy — so we stop depending on traffickers for basic needs.
+              Think of someone you believe may be a survivor. Their Quora profile provides social proof, and their skills and professions help build our economy — to build self-sufficient pathways.
             </div>
           </div>
 

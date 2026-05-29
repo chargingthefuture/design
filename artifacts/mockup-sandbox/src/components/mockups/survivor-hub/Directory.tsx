@@ -17,12 +17,12 @@ const BG = "#0c1a3d";
 // Unclaimed profiles: /apps/directory/@{directory_profiles.unclaimed_handle} (format: community-<6-char-hex>)
 // Spec §4.1: source column — 'admin' | 'self' | 'community-generated'
 const PROFILES = [
-  { id: 1, name: "Maria Gonzalez",  role: "Trauma-Informed Therapist", location: "Houston, TX",  skills: ["CBT", "EMDR", "Group Therapy"],       verified: true,  online: true,  avatar: "MG", phase: "Phase 0", handle: "@maria-g",        source: "self"              },
-  { id: 2, name: "James Thibodeau", role: "Housing Navigator",          location: "Atlanta, GA",  skills: ["Case Mgmt", "HUD", "Legal Aid"],      verified: true,  online: true,  avatar: "JT", phase: "Phase 0", handle: "@james-t",        source: "self"              },
-  { id: 3, name: "Amara Okonkwo",   role: "Employment Coach",           location: "Chicago, IL",  skills: ["Resume", "Interviewing", "Networking"],verified: true,  online: false, avatar: "AO", phase: "Phase 1", handle: "@community-7f3a2b", source: "community-generated" },
-  { id: 4, name: "Priya Sharma",    role: "Legal Advocate",             location: "New York, NY", skills: ["Immigration", "Civil Rights", "T-Visa"],verified: true,  online: true,  avatar: "PS", phase: "Phase 0", handle: "@priya-s",        source: "self"              },
-  { id: 5, name: "DeShawn Williams",role: "Financial Counselor",        location: "Dallas, TX",   skills: ["Budgeting", "Credit", "Benefits"],     verified: false, online: true,  avatar: "DW", phase: "Phase 1", handle: "@community-b2e9f1", source: "community-generated" },
-  { id: 6, name: "Lena Hoffmann",   role: "Tech Skills Trainer",        location: "Remote",       skills: ["Coding", "UX Design", "Freelancing"],  verified: true,  online: true,  avatar: "LH", phase: "Phase 2", handle: "@lena-h",         source: "self"              },
+  { id: 1, name: "Maria Gonzalez",  role: "Trauma-Informed Therapist", location: "Houston, TX",  skills: ["CBT", "EMDR", "Group Therapy"],       verified: true,  online: true,  avatar: "MG", handle: "@maria-g",        source: "self"              },
+  { id: 2, name: "James Thibodeau", role: "Housing Navigator",          location: "Atlanta, GA",  skills: ["Case Mgmt", "HUD", "Legal Aid"],      verified: true,  online: true,  avatar: "JT", handle: "@james-t",        source: "self"              },
+  { id: 3, name: "Amara Okonkwo",   role: "Employment Coach",           location: "Chicago, IL",  skills: ["Resume", "Interviewing", "Networking"],verified: true,  online: false, avatar: "AO", handle: "@community-7f3a2b", source: "community-generated" },
+  { id: 4, name: "Priya Sharma",    role: "Legal Advocate",             location: "New York, NY", skills: ["Immigration", "Civil Rights", "T-Visa"],verified: true,  online: true,  avatar: "PS", handle: "@priya-s",        source: "self"              },
+  { id: 5, name: "DeShawn Williams",role: "Financial Counselor",        location: "Dallas, TX",   skills: ["Budgeting", "Credit", "Benefits"],     verified: false, online: true,  avatar: "DW", handle: "@community-b2e9f1", source: "community-generated" },
+  { id: 6, name: "Lena Hoffmann",   role: "Tech Skills Trainer",        location: "Remote",       skills: ["Coding", "UX Design", "Freelancing"],  verified: true,  online: true,  avatar: "LH", handle: "@lena-h",         source: "self"              },
 ];
 
 const FILTERS = ["All", "Therapists", "Housing", "Legal", "Employment", "Finance", "Tech"];
@@ -77,7 +77,6 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                 <div style={{ fontSize: 15, color: "#9CA3AF", marginBottom: 8 }}>{p.role}</div>
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   <Badge style={{ background: "rgba(255,255,255,0.05)", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.08)", fontSize: 12 }}><MapPin size={11} style={{ marginRight: 4 }} />{p.location}</Badge>
-                  <Badge style={{ background: `${COLOR}15`, color: COLOR, border: `1px solid ${COLOR}30`, fontSize: 12 }}>{p.phase}</Badge>
                 </div>
               </div>
               <div style={{ display: "flex", gap: 10 }}>

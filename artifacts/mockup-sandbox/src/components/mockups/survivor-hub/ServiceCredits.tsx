@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Coins, Send, Plus, Search, Bell, Settings, MessageSquare,
   ArrowUpRight, TrendingUp, CheckCircle, ChevronRight,
-  Zap, Shield, ArrowDown, ArrowUp, RefreshCw, DollarSign,
+  Zap, Shield, ArrowDown, ArrowUp, RefreshCw,
 } from "lucide-react";
 
 const COLOR = "#F59E0B";
@@ -37,7 +37,7 @@ const SPEND_OPTIONS = [
 ];
 
 const CHAT = [
-  { id: 1, from: "hub", text: "Service Credits are your utility tokens for the entire Survivor Hub economy. Earn, spend, trade — across all 12 mini-apps. What would you like to do?" },
+  { id: 1, from: "hub", text: "ServiceCredits are your utility tokens for the entire Survivor Hub economy. Earn, spend, trade — usable across all 18 plugins. What would you like to do?" },
   { id: 2, from: "user", text: "How can I earn more credits?" },
   { id: 3, from: "hub", text: "5 ways to earn right now: Skills Hunt round (+200), Facilitating a cohort (+500), Profile verification (+50), Referrals (+100 each), or 30-day GentlePulse streak (+150). Fastest is profile verification — takes 5 minutes.", action: "Verify Profile Now" },
 ];
@@ -118,8 +118,8 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
         <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
           <Coins size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>⚙️ Service Credits — Utility Tokens</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Earn · Spend · Trade · Across all 12 mini-apps · Phase 3</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>⚙️ ServiceCredits — Utility Tokens</div>
+            <div style={{ fontSize: 12, color: "#6B7280" }}>Earn · Spend · Trade · Usable across all 18 plugins · Phase 3</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>2,420 Credits</Badge>
           <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
@@ -131,11 +131,11 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
               <div style={{ padding: "28px 40px", borderRadius: 20, background: "rgba(245,158,11,0.06)", border: "1px dashed rgba(245,158,11,0.2)", textAlign: "center", width: "100%", maxWidth: 420 }}>
                 <div style={{ fontSize: 12, fontWeight: 700, color: "#F59E0B", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 12 }}>Your Balance</div>
                 <div style={{ fontSize: 56, fontWeight: 900, color: "#4B5563", lineHeight: 1, marginBottom: 8 }}>0 <span style={{ fontSize: 20, color: "#6B7280", fontWeight: 700 }}>credits</span></div>
-                <div style={{ fontSize: 14, color: "#4B5563" }}>No purchasing power yet</div>
+                <div style={{ fontSize: 14, color: "#4B5563" }}>No ServiceCredits to spend yet</div>
               </div>
               <div style={{ textAlign: "center", maxWidth: 380 }}>
                 <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>Your wallet is empty</div>
-                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7 }}>Earn your first Service Credits by completing a Skills Hunt round, verifying your profile, or receiving a peer transfer. Every transaction is recorded on the Formance ledger.</div>
+                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7 }}>Earn your first ServiceCredits by completing a Skills Hunt round, verifying your profile, or receiving a peer transfer. Every transaction is recorded on the Formance ledger.</div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 440 }}>
                 {[
@@ -165,7 +165,7 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
               <div style={{ marginBottom: 24, padding: "28px 32px", borderRadius: 20, background: `linear-gradient(135deg,${COLOR}25 0%,rgba(245,158,11,0.05) 100%)`, border: `1px solid ${COLOR}30` }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>Your Balance</div>
                 <div style={{ fontSize: 56, fontWeight: 900, color: "#F9FAFB", lineHeight: 1, marginBottom: 4 }}>2,420 <span style={{ fontSize: 20, color: COLOR, fontWeight: 700 }}>credits</span></div>
-                <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>≈ $242 USD purchasing power across all mini-apps</div>
+                <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>usable across all 18 plugins</div>
                 <div style={{ display: "flex", gap: 12 }}>
                   <button style={{ flex: 1, padding: "12px", borderRadius: 12, background: COLOR, border: "none", color: "#0F1117", fontSize: 14, fontWeight: 800, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}><ArrowUp size={16} /> Send</button>
                   <button style={{ flex: 1, padding: "12px", borderRadius: 12, background: "rgba(255,255,255,0.06)", border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}><ArrowDown size={16} /> Request</button>

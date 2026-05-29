@@ -37,7 +37,7 @@ export function MobilePeerProgramming() {
             <div style={{ fontSize: 11, color: COLOR }}>48 cohorts · 576 members placed</div>
           </div>
         </div>
-        <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11 }}>Phase 2</Badge>
+        
       </div>
       <ScrollArea style={{ flex: 1 }}>
         <div style={{ padding: "12px 16px" }}>

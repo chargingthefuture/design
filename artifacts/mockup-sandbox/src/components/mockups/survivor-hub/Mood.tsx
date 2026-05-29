@@ -108,7 +108,7 @@ export function Mood() {
           <Smile size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>😁 Mood — Anonymous Check-ins</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Zero tracking · Community wellness · Phase 2</div>
+            <div style={{ fontSize: 12, color: "#6B7280" }}>Zero tracking · Community wellness </div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>🔒 Anonymous</Badge>
         </header>

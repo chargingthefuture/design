@@ -61,7 +61,7 @@ export function MobileServiceCredits() {
               <div style={{ padding: "20px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}25 0%,rgba(245,158,11,0.05) 100%)`, border: `1px solid ${COLOR}30`, marginBottom: 16, textAlign: "center" }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 6 }}>YOUR BALANCE</div>
                 <div style={{ fontSize: 48, fontWeight: 900, color: "#F9FAFB", lineHeight: 1, marginBottom: 4 }}>2,420</div>
-                <div style={{ fontSize: 13, color: COLOR, marginBottom: 16 }}>credits ≈ $242 USD</div>
+                <div style={{ fontSize: 13, color: COLOR, marginBottom: 16 }}>ServiceCredits</div>
                 <div style={{ display: "flex", gap: 8 }}>
                   <button style={{ flex: 1, padding: "10px", borderRadius: 10, background: COLOR, border: "none", color: "#0F1117", fontSize: 13, fontWeight: 800, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}><ArrowUp size={14} /> Send</button>
                   <button style={{ flex: 1, padding: "10px", borderRadius: 10, background: "rgba(255,255,255,0.06)", border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}><ArrowDown size={14} /> Request</button>

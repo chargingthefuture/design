@@ -115,7 +115,7 @@ export function SocketRelayPublic() {
                   </div>
                   {credits > 0 && <div style={{ display: "flex", alignItems: "center", gap: 4, flexShrink: 0, background: "#F59E0B15", border: "1px solid #F59E0B30", borderRadius: 8, padding: "4px 10px" }}>
                     <Zap size={12} color="#F59E0B" />
-                    <span style={{ fontSize: 12, fontWeight: 700, color: "#F59E0B" }}>{credits} SC</span>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: "#F59E0B" }}>{credits} ServiceCredits</span>
                   </div>}
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 12 }}>

@@ -77,7 +77,7 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
         </div>
         <ScrollArea style={{ flex: 1 }}>
           <div style={{ padding: "0 8px 16px" }}>
-            {["Overview", "Skill Gaps", "By Region", "By Phase", "Recruited", "My Profile"].map((f, i) => (
+            {["Overview", "Skill Gaps", "By Region", "Recruited", "My Profile"].map((f, i) => (
               <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: i === 0 ? `${COLOR}18` : "transparent", borderLeft: i === 0 ? `2px solid ${COLOR}` : "2px solid transparent", marginLeft: 2, marginBottom: 2 }}>
                 <span style={{ fontSize: 13, color: i === 0 ? "#E8EAF0" : "#9CA3AF", flex: 1 }}>{f}</span>
                 {f === "Skill Gaps" && <span style={{ background: "#EF4444", borderRadius: 10, fontSize: 11, fontWeight: 700, color: "#fff", padding: "1px 6px" }}>6</span>}
@@ -97,9 +97,9 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
           <BarChart2 size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>💼 Workforce Dashboard</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Live skills distribution · 4.9M survivors · Phase 1</div>
+            <div style={{ fontSize: 12, color: "#6B7280" }}>Live skills distribution · 4.9M survivors </div>
           </div>
-          <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>Phase 1</Badge>
+          
           <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
@@ -240,7 +240,7 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
             <AvatarFallback style={{ background: `${COLOR}30`, color: COLOR, fontSize: 20, fontWeight: 800 }}>S</AvatarFallback>
           </Avatar>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>Survivor</div>
-          <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 10 }}>Skills: 7 verified · Phase 1</div>
+          <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 10 }}>Skills: 7 verified </div>
           <div style={{ height: 6, background: "rgba(255,255,255,0.05)", borderRadius: 3, overflow: "hidden", marginBottom: 6 }}>
             <div style={{ height: "100%", background: COLOR, borderRadius: 3, width: "64%" }} />
           </div>

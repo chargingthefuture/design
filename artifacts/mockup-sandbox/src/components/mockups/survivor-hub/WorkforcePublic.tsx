@@ -34,14 +34,14 @@ export function WorkforcePublic() {
       <div style={{ padding: "48px 64px 32px", display: "flex", gap: 80 }}>
         <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 14 }}>
           <span style={{ padding: "4px 14px", borderRadius: 20, background: COLOR + "20", border: `1px solid ${COLOR}40`, fontSize: 12, color: COLOR, fontWeight: 600, display: "inline-block", width: "fit-content" }}>
-            4.9M survivors tracked
+            5M survivor goal
           </span>
           <h1 style={{ margin: 0, fontSize: 34, fontWeight: 800, lineHeight: 1.1 }}>
             Real-time workforce data<br />
             <span style={{ color: COLOR }}>for every survivor</span>
           </h1>
           <p style={{ margin: 0, fontSize: 15, color: "#9CA3AF", maxWidth: 460 }}>
-            Live skills distribution, employment gaps, and personalized pathways across 4.9 million survivors. Your workforce coach lives here.
+            Live skills distribution, employment gaps, and personalized pathways across our growing network. Your workforce coach lives here.
           </p>
           <button style={{ marginTop: 8, padding: "14px 32px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer", width: "fit-content" }}>
             Join the Hub — Free

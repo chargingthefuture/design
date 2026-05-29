@@ -19,7 +19,6 @@ import {
   ArrowUpRight,
   ChevronRight,
   Phone,
-  DollarSign,
   Wrench,
   FileText,
   AlertCircle,
@@ -736,7 +735,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
               🪛 Foundation
             </div>
             <div style={{ fontSize: 12, color: "#6B7280" }}>
-              8,400 vetted tradespeople · Quote lifecycle · Phase 1
+              8,400 vetted tradespeople · Quote lifecycle 
             </div>
           </div>
           <Badge

@@ -28,7 +28,6 @@ export function MoodEmpty() {
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <Smile size={16} color={COLOR} />
             <span style={{ fontSize: 15, fontWeight: 700 }}>Mood</span>
-            <span style={{ marginLeft: "auto", fontSize: 11, background: `${COLOR}18`, color: COLOR, border: `1px solid ${COLOR}30`, borderRadius: 4, padding: "2px 7px" }}>Phase 0</span>
           </div>
         </div>
 

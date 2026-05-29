@@ -168,7 +168,7 @@ export function Unlock({ initialStatus = "pending" }: { initialStatus?: Status }
         <div style={{ padding: "14px", borderRadius: 12, background: `${BRAND}06`, border: `1px solid ${BRAND}18`, marginBottom: 16 }}>
           {[
             { icon: "🔗", t: "Real-person proof", d: "Quora activity proves you're a real person, not a bot." },
-            { icon: "🛡", t: "Reduces infiltration risk", d: "Traffickers are less likely to have Quora history." },
+            { icon: "🛡", t: "Reduces infiltration risk", d: "Helps distinguish genuine community members." },
             { icon: "🌐", t: "Publicly verifiable", d: "Admins can check your profile without contacting you directly." },
           ].map(({ icon, t, d }) => (
             <div key={t} style={{ display: "flex", gap: 10, marginBottom: 12 }}>

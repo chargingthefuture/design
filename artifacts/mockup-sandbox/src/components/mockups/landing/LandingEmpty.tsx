@@ -1,3 +1,4 @@
+// design-sync
 import React from "react";
 
 export function LandingEmpty() {

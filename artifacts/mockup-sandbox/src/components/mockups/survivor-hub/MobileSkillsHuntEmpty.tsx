@@ -28,7 +28,7 @@ export function MobileSkillsHuntEmpty() {
         <div>
           <div style={{ fontSize: 20, fontWeight: 800, marginBottom: 10 }}>The hunt starts with you</div>
           <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7 }}>
-            Think of someone you believe may be a survivor — no certainty required. Their Quora profile, skills, and professions help build our economy so we stop needing traffickers.
+            Think of someone you believe may be a survivor — no certainty required. Their Quora profile, skills, and professions help build our economy to build our own economy.
           </div>
         </div>
 
@@ -36,7 +36,7 @@ export function MobileSkillsHuntEmpty() {
         <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%" }}>
           {[
             { emoji: "👤", text: "Someone you believe may be a survivor — no certainty needed" },
-            { emoji: "🔗", text: "Their Quora profile = social proof, reduces infiltration" },
+            { emoji: "🔗", text: "Their Quora profile = social proof, adds social proof" },
             { emoji: "⚡", text: "Skills + professions power our self-sustaining economy" },
           ].map(item => (
             <div key={item.text} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 14px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", textAlign: "left" }}>

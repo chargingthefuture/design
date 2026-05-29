@@ -8,10 +8,10 @@ import { Megaphone, Heart, MessageCircle, Share2, Bell, Bookmark, AlertCircle, P
 const COLOR = "#84CC16";
 
 const POSTS = [
-  { id: 1, author: "Survivor Hub", avatar: "SH", time: "2 min", title: "🚀 Phase 2 Live: LightHouse, SocketRelay & TrustTransport!", body: "Three powerful new plugins are now live for all verified members.", likes: 842, comments: 127, urgent: false, color: "#A78BFA" },
+  { id: 1, author: "Survivor Hub", avatar: "SH", time: "2 min", title: "LightHouse, SocketRelay & TrustTransport now live", body: "Three powerful new plugins are now live for all verified members.", likes: 842, comments: 127, urgent: false, color: "#A78BFA" },
   { id: 2, author: "Amara O.", avatar: "AO", time: "18 min", title: "My 6-month journey from survivor to employed", body: "I want to share what helped me. The Workforce dashboard showed my gaps. Skills Hunt leveled me up.", likes: 1203, comments: 89, urgent: false, color: COLOR },
   { id: 3, author: "Safety Team", avatar: "ST", time: "1 hr", title: "⚠️ 47 Emergency Housing Slots — Houston TX", body: "Urgent: 47 emergency safe housing slots opened in Houston. 12 accept Service Credits.", likes: 310, comments: 44, urgent: true, color: "#F97316" },
-  { id: 4, author: "Community Bot", avatar: "CB", time: "3 hr", title: "🎉 5 Million Members Worldwide!", body: "We just crossed 5M survivors in 127 countries. $247B economy. This is YOUR economy.", likes: 9841, comments: 1432, urgent: false, color: "#22C55E" },
+  { id: 4, author: "Community Bot", avatar: "CB", time: "3 hr", title: "🎯 Goal: 5 Million Survivors Strong", body: "Together we are building toward 5M survivors across 127 countries. Every skill verified, every credit earned.", likes: 9841, comments: 1432, urgent: false, color: "#22C55E" },
 ];
 
 const NAV = [

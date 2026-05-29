@@ -1,6 +1,6 @@
 // design-sync
 import {
-  Globe, TrendingUp, BarChart2, DollarSign, Users, Zap,
+  Globe, TrendingUp, BarChart2, Users, Zap,
   MapPin, LogIn, UserPlus, ShieldCheck, Lock, Plus, Eye,
 } from "lucide-react";
 

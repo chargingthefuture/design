@@ -15,7 +15,7 @@ const BG = "#150d2e";
 const POSTS = [
   {
     id: 1, type: "announcement", author: "Survivor Hub Team", avatar: "SH", time: "2 min ago",
-    title: "🚀 Phase 2 Launch: LightHouse, SocketRelay & TrustTransport now live!",
+    title: "LightHouse, SocketRelay & TrustTransport now live",
     body: "Three powerful new plugins are now available to all verified members. LightHouse helps you find safe housing, SocketRelay connects mutual aid, and TrustTransport enables safe deliveries.",
     likes: 842, comments: 127, pinned: true, urgent: false, color: "#A78BFA",
   },
@@ -28,7 +28,7 @@ const POSTS = [
   {
     id: 3, type: "alert", author: "Safety Team", avatar: "ST", time: "1 hr ago",
     title: "⚠️ New Safe Housing Listings: 47 verified units added in Houston",
-    body: "Urgent: 47 emergency safe housing slots just opened in Houston, TX. 12 accept Service Credits. Contact LightHouse to apply immediately.",
+    body: "47 emergency safe housing slots are now open in Houston, TX. 12 accept ServiceCredits. Contact LightHouse to apply.",
     likes: 310, comments: 44, pinned: true, urgent: true, color: "#F97316",
   },
   {
@@ -104,7 +104,7 @@ export function FeedAnnouncements({ initialEmpty = false }: { initialEmpty?: boo
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Trending</div>
-            {["#ServiceCredits", "#LightHouseHousing", "#SurvivorStories", "#Phase2Launch"].map((tag) => (
+            {["#ServiceCredits", "#LightHouseHousing", "#SurvivorStories", "#HubLaunch"].map((tag) => (
               <div key={tag} style={{ padding: "7px 10px", fontSize: 13, color: "#6B7280", cursor: "pointer" }}>
                 <span style={{ color: COLOR }}>{tag}</span>
               </div>
@@ -250,7 +250,7 @@ export function FeedAnnouncements({ initialEmpty = false }: { initialEmpty?: boo
             <TrendingUp size={14} style={{ color: COLOR }} />
             <span style={{ fontSize: 12, fontWeight: 600, color: COLOR }}>Trending Now</span>
           </div>
-          {["Phase 2 launch 🚀", "Houston housing alert", "5M member milestone", "Service Credits guide"].map((t, i) => (
+          {["Hub launch 🚀", "Houston housing alert", "5M member milestone", "Service Credits guide"].map((t, i) => (
             <div key={t} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0", borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.04)" : "none" }}>
               <span style={{ fontSize: 11, color: "#4B5563", fontWeight: 700, width: 16 }}>{i + 1}</span>
               <span style={{ fontSize: 12, color: "#9CA3AF" }}>{t}</span>
