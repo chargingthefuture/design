@@ -209,7 +209,7 @@ const SECTION_COLORS: Record<string, string> = {
   "ServiceCredits":   "#F59E0B",
   "LevelUp":          "#10B981",
   "Trust":            "#0284C7",
-  "ClickLog":         "#F43F5E",
+  "ClickLog":         "#E91E8C",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({

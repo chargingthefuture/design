@@ -40,7 +40,7 @@ const FEATURES: {
   { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#D946EF", bg: "#2a0a2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it.", youtubeId: "OfojmleoDEc" },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#012e1a", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated." },
   { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,    color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
-  { id: "clicklog",      name: "ClickLog",         emoji: "🚨", icon: AlertTriangle,  color: "#F43F5E", bg: "#1c0510", desc: "One-tap personal incident logger. Privately track, timestamp, and encrypt safety incidents — your record, invisible to everyone else." },
+  { id: "clicklog",      name: "ClickLog",         emoji: "🚨", icon: AlertTriangle,  color: "#E91E8C", bg: "#1a0515", desc: "One-tap personal incident logger. Privately track, timestamp, and encrypt safety incidents — your record, invisible to everyone else." },
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
@@ -116,7 +116,7 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "SkillsHunt":     "#D946EF",
   "LevelUp":        "#10B981",
   "Trust":          "#0284C7",
-  "ClickLog":       "#F43F5E",
+  "ClickLog":       "#E91E8C",
 };
 
 function NavBar() {

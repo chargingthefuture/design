@@ -1,7 +1,7 @@
 // STATE: Authenticated, no incidents logged yet
 import { AlertTriangle, ShieldCheck, Plus } from "lucide-react";
 
-const BRAND = "#F43F5E";
+const BRAND = "#E91E8C";
 const bg = "#0F1117";
 const surface = "#161B27";
 const border = "#1E2A3A";
@@ -52,7 +52,7 @@ export function ClickLogEmpty() {
             ))}
           </div>
 
-          <div style={{ padding: "12px 16px", borderRadius: 12, background: "rgba(244,63,94,0.05)", border: "1px solid rgba(244,63,94,0.15)", display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{ padding: "12px 16px", borderRadius: 12, background: "rgba(233,30,140,0.05)", border: "1px solid rgba(233,30,140,0.15)", display: "flex", alignItems: "center", gap: 10 }}>
             <ShieldCheck size={16} color={BRAND} />
             <span style={{ fontSize: 12, color: subtle }}>In an emergency, always contact local emergency services first.</span>
           </div>

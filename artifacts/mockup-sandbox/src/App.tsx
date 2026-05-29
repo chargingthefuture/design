@@ -107,173 +107,26 @@ function getPreviewExamplePath(): string {
   return `${basePath}/preview/ComponentName`;
 }
 
-function Gallery() {
-  const moduleKeys = Object.keys(discoveredModules).filter((k) =>
-    k.startsWith("./components/mockups/"),
-  );
-
-  const componentPaths = moduleKeys.map((k) =>
-    k.replace("./components/mockups/", "").replace(/\.tsx$/, ""),
-  );
-
-  const [index, setIndex] = useState(0);
-
-  // Start at 0; navigation is manual (no autoplay)
-  useEffect(() => {
-    // If URL contains a preview path, navigate to it
-    const preview = getPreviewPath();
-    if (preview) {
-      const idx = componentPaths.indexOf(preview);
-      if (idx >= 0) setIndex(idx);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (componentPaths.length === 0) {
-    return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center p-8">
-        <div className="text-center max-w-md">
-          <h1 className="text-2xl font-semibold text-gray-100 mb-3">
-            No mockups available
-          </h1>
-          <p className="text-gray-400">Add mockup `.tsx` files under `src/components/mockups`.</p>
-        </div>
-      </div>
-    );
-  }
-
-  const current = componentPaths[index];
-
-  function goTo(i: number) {
-    const clamped = Math.max(0, Math.min(i, componentPaths.length - 1));
-    setIndex(clamped);
-    const path = getBasePath() + "/preview/" + componentPaths[clamped];
-    try {
-      window.history.replaceState({}, "", path);
-    } catch {}
-  }
-
-  // Keyboard navigation: Left/Right arrows, Home, End
-  useEffect(() => {
-    if (componentPaths.length === 0) return;
-
-    function onKey(e: KeyboardEvent) {
-      const target = e.target as HTMLElement | null;
-      if (target) {
-        const tag = target.tagName;
-        if (
-          tag === "INPUT" ||
-          tag === "TEXTAREA" ||
-          tag === "SELECT" ||
-          target.isContentEditable
-        ) {
-          return; // don't hijack typing
-        }
-      }
-
-      if (e.key === "ArrowLeft") {
-        setIndex((cur) => {
-          const next = Math.max(0, cur - 1);
-          try {
-            window.history.replaceState({}, "", getBasePath() + "/preview/" + componentPaths[next]);
-          } catch {}
-          return next;
-        });
-      } else if (e.key === "ArrowRight") {
-        setIndex((cur) => {
-          const next = Math.min(componentPaths.length - 1, cur + 1);
-          try {
-            window.history.replaceState({}, "", getBasePath() + "/preview/" + componentPaths[next]);
-          } catch {}
-          return next;
-        });
-      } else if (e.key === "Home") {
-        setIndex(() => {
-          try {
-            window.history.replaceState({}, "", getBasePath() + "/preview/" + componentPaths[0]);
-          } catch {}
-          return 0;
-        });
-      } else if (e.key === "End") {
-        setIndex(() => {
-          const last = componentPaths.length - 1;
-          try {
-            window.history.replaceState({}, "", getBasePath() + "/preview/" + componentPaths[last]);
-          } catch {}
-          return last;
-        });
-      }
-    }
-
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [componentPaths]);
-
+function Index() {
   return (
-    <div className="h-screen bg-gray-900 flex overflow-hidden">
-      {/* Left navigation: list of slides */}
-      <aside className="w-64 bg-gray-800 border-r border-gray-700 overflow-y-auto">
-        <div className="p-4 border-b border-gray-700">
-          <h3 className="text-sm font-semibold text-gray-100">Slides</h3>
-          <p className="text-xs text-gray-400">Click a slide to open it</p>
+    <div style={{ minHeight: "100vh", background: "#0F1117", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "system-ui, sans-serif", color: "#F9FAFB" }}>
+      <div style={{ textAlign: "center", maxWidth: 480, padding: "0 24px" }}>
+        <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>
+          Charging The Future
         </div>
-        <ul className="divide-y divide-gray-700">
-          {componentPaths.map((p, i) => (
-            <li
-              key={p}
-              className={`p-3 cursor-pointer hover:bg-gray-700 flex items-center space-x-3 ${
-                i === index ? "bg-gray-700" : ""
-              }`}
-              onClick={() => goTo(i)}
-              title={p}
-            >
-              <div className="flex-1 min-w-0">
-                <div className="text-sm font-medium text-gray-100 truncate">{p.split("/").pop()}</div>
-                <div className="text-xs text-gray-400 truncate">{p}</div>
-              </div>
-              <div className="text-xs text-gray-500">{i + 1}</div>
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      {/* Right: slide viewer */}
-      <main className="flex-1 flex flex-col">
-        <header className="p-4 border-b border-gray-700 bg-gray-800">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-lg font-semibold text-gray-100">Mockup Preview</h2>
-              <p className="text-sm text-gray-400">{current}</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <button
-                className="px-3 py-1 rounded bg-gray-700 hover:bg-gray-600 text-sm text-gray-100"
-                onClick={() => goTo(index - 1)}
-                aria-label="Previous slide"
-              >
-                ← Prev
-              </button>
-              <button
-                className="px-3 py-1 rounded bg-gray-700 hover:bg-gray-600 text-sm text-gray-100"
-                onClick={() => goTo(index + 1)}
-                aria-label="Next slide"
-              >
-                Next →
-              </button>
-            </div>
-          </div>
-        </header>
-
-        <div className="flex-1 overflow-auto bg-gray-900 flex items-center justify-center">
-          <div className="w-full h-full max-w-6xl flex items-center justify-center">
-            <PreviewRenderer componentPath={current} modules={discoveredModules} />
-          </div>
-        </div>
-
-        <footer className="p-3 border-t border-gray-700 bg-gray-800 text-sm text-gray-400">
-          Showing {index + 1} of {componentPaths.length}
-        </footer>
-      </main>
+        <h1 style={{ fontSize: 28, fontWeight: 800, color: "#F9FAFB", margin: "0 0 10px" }}>
+          Component Preview Sandbox
+        </h1>
+        <p style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.6, margin: "0 0 28px" }}>
+          Use <code style={{ background: "#1E2A3A", padding: "2px 6px", borderRadius: 4, fontSize: 12 }}>/preview/ComponentName</code> to render any mockup component.
+        </p>
+        <a
+          href="/preview/survivor-hub/Desktop"
+          style={{ display: "inline-block", padding: "10px 24px", borderRadius: 8, background: "#1E2A3A", border: "1px solid #2A3A4A", color: "#CBD5E1", fontSize: 13, textDecoration: "none", fontWeight: 600 }}
+        >
+          Preview Example →
+        </a>
+      </div>
     </div>
   );
 }
@@ -301,7 +154,7 @@ function App() {
     );
   }
 
-  return <Gallery />;
+  return <Index />;
 }
 
 export default App;
