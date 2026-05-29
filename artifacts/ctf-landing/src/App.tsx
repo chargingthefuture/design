@@ -8,7 +8,7 @@ import {
   ArrowRight, Play, Menu, X, Home, Tv, Wrench as FixIt,
   Users, Radio, HomeIcon, Navigation, BookOpen, Hammer,
   Code, Globe, Coins, Briefcase, Heart, Smile, Share2,
-  Activity, Award, Target, ShieldCheck, UsersRound,
+  Activity, Award, Target, ShieldCheck, UsersRound, AlertTriangle,
 } from "lucide-react";
 import NotFound from "@/pages/not-found";
 
@@ -39,60 +39,61 @@ const FEATURES: {
   { id: "feed",          name: "Feed",             emoji: "📣", icon: Activity,   color: "#84CC16", bg: "#0f1f00", desc: "Community announcements and opportunities. Signal only — no noise, no algorithm games.", youtubeId: "l4tE1eLco6k" },
   { id: "skillshunt",    name: "SkillsHunt",       emoji: "🎓", icon: Award,      color: "#D946EF", bg: "#2a0a2e", desc: "Skill discovery, credentialing, and education. Learn, prove it, get paid for it.", youtubeId: "OfojmleoDEc" },
   { id: "levelup",       name: "LevelUp",          emoji: "🎯", icon: Target,     color: "#10B981", bg: "#012e1a", desc: "Goal tracking and progress milestones. Your journey, documented and celebrated." },
-  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
+  { id: "trust",         name: "Trust",            emoji: "🛡️", icon: ShieldCheck,    color: "#0284C7", bg: "#001826", desc: "Community reputation and verification. Trust signals built through real participation — your credibility, visible and portable." },
+  { id: "clicklog",      name: "ClickLog",         emoji: "🚨", icon: AlertTriangle,  color: "#F43F5E", bg: "#1c0510", desc: "One-tap personal incident logger. Privately track, timestamp, and encrypt safety incidents — your record, invisible to everyone else." },
 ];
 
 const LOOK_MA_ITEMS: { q: string; solutions: string[] }[] = [
-  { q: "Do idiots constantly try to get close to you physically, while aiming their cell phones at you and/or staring at their cell phones while invading your personal space?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do idiots sit parked in their cars outside your home all the time?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do morons constantly get in your way and block you from where you are going out in public? / cut you in line? / hold up the line?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Did all your neighbors suddenly move, have their houses quickly sold and construction work done on them, then quickly have 'new neighbors' (who don't seem to live there) move in?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Have any new street lamps/antennas been installed around your home/work recently?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do drones hover around you/your home/work all the time?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you experience tinnitus/ringing in ears?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do police officers follow/harass you for no good reason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do your neighbors always seem to come outside when you are there, then go inside when you do?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do different people seem to be coming and going from neighbors houses around you all the time?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do several of your neighbors have strange colored lights coming out their windows at night?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do people you don't know stare at you strangely/treat you bad for no reason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Are new people pushing hard for you to be their new friend/roommate/romantic partner?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do people seem to know things about you that you have never told them before?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do people you don't know constantly try to talk to you/befriend you while you are out in public?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do strange things happen around you a lot? People fighting/arguing in the streets/causing scenes that are scripted/staged? With occasional onlookers smirking or re-enacting the scripted scenes?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you get denied jobs/housing for no good reason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you live close to a freemason lodge? Or know someone who is a freemason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Does trying to do simple things like fill out an online job application become an ordeal due to endless clicking that brings you nowhere? Or website conveniently won't load when you try to submit applications or important documents?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do doctors deny you proper care? / ghost you? / tell you you are fine when you know something is wrong? / not get back to you with test results, then claim to have never received them, or have 'no record' of them?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you hear strange humming/buzzing noises/sound of a machine running around you a lot, but can't pinpoint exactly where it's coming from?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Does your mail get lost/tampered with a lot?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you get tired more than you should?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do people try to bait you into doing drugs? Buying a gun? Buying self-defense gear? Drinking? Committing illegal acts?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "If you are a woman, do perverted guys you don't know or just met straight up ask you for sex?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "If you are sitting in your car minding your own business do idiots come and park right by/next to you and sit there too? Usually buried in their phone? Even if you are parked in an isolated area?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do idiots constantly shine their bright headlights/flashlights/DEWs on you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you often pull up to an empty store, and then it suddenly becomes busy after you go in? Even at non busy business hours?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do weirdos try to get you to say bad things about other people? Or force a conversation about sex, politics or celebrities as if they are recording you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Have you been falsely accused of shoplifting, then still treated like a criminal after you have proven you did not steal anything?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you notice strange flashes of light wherever you go? Or at home/work?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Does everyone around you seem to be keeping some sort of a secret?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do weirdos offer you rides/solicit you for prostitution when you are just trying to walk down the street? Even during the day?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you get strange phone calls/texts from numbers you don't know a lot?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do your pets seem to sense that something is off/someone you don't know is near?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do people seem like they are only pretending to be your friend/partner?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do store/hotel clerks suddenly act strangely when you give your name/id?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "If you go to Walmart/Target do the theft detectors beep once quickly when you walk in?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do people like to waste your time, sending you on wild goose chases to accomplish simple tasks/appointments?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Anytime you have to call a customer service you are put on hold forever only to be hung up on and start the cycle again and again?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you have an unusually large amount of car problems?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do items disappear, then reappear weeks/months later?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do people you've never introduced yourself to somehow already know your name?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you experience unexplained bruising/cuts/pain/injuries?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do you notice Jehovah Witnesses following you and/or lurking in your neighborhood that were not there previously?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do motorcycles, fire trucks and police cars with sirens circle around you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do idiots mirror your behavior and how you dress and follow you around in public?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do idiot acquaintances/family you have not seen in decades, or family members you never met, try to force their way into your life?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
-  { q: "Do weirdos issue attack or guard commands to have dogs bark or whimper at your presence?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust"] },
+  { q: "Do idiots constantly try to get close to you physically, while aiming their cell phones at you and/or staring at their cell phones while invading your personal space?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do your co-workers that you have always been friendly with, suddenly start acting strange towards you and distancing themselves from you? Or they begin to lie about your work performance, try to get you to quit or begin bumping shoulders with you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do idiots sit parked in their cars outside your home all the time?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do morons constantly get in your way and block you from where you are going out in public? / cut you in line? / hold up the line?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Did all your neighbors suddenly move, have their houses quickly sold and construction work done on them, then quickly have 'new neighbors' (who don't seem to live there) move in?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Have any new street lamps/antennas been installed around your home/work recently?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do drones hover around you/your home/work all the time?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you experience tinnitus/ringing in ears?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do police officers follow/harass you for no good reason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do your neighbors always seem to come outside when you are there, then go inside when you do?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do different people seem to be coming and going from neighbors houses around you all the time?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do several of your neighbors have strange colored lights coming out their windows at night?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do people you don't know stare at you strangely/treat you bad for no reason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Are new people pushing hard for you to be their new friend/roommate/romantic partner?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do people seem to know things about you that you have never told them before?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do people you don't know constantly try to talk to you/befriend you while you are out in public?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do strange things happen around you a lot? People fighting/arguing in the streets/causing scenes that are scripted/staged? With occasional onlookers smirking or re-enacting the scripted scenes?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you get denied jobs/housing for no good reason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you live close to a freemason lodge? Or know someone who is a freemason?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Does trying to do simple things like fill out an online job application become an ordeal due to endless clicking that brings you nowhere? Or website conveniently won't load when you try to submit applications or important documents?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do doctors deny you proper care? / ghost you? / tell you you are fine when you know something is wrong? / not get back to you with test results, then claim to have never received them, or have 'no record' of them?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you hear strange humming/buzzing noises/sound of a machine running around you a lot, but can't pinpoint exactly where it's coming from?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Does your mail get lost/tampered with a lot?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you get tired more than you should?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do people try to bait you into doing drugs? Buying a gun? Buying self-defense gear? Drinking? Committing illegal acts?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "If you are a woman, do perverted guys you don't know or just met straight up ask you for sex?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "If you are sitting in your car minding your own business do idiots come and park right by/next to you and sit there too? Usually buried in their phone? Even if you are parked in an isolated area?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do idiots constantly shine their bright headlights/flashlights/DEWs on you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you often pull up to an empty store, and then it suddenly becomes busy after you go in? Even at non busy business hours?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do weirdos try to get you to say bad things about other people? Or force a conversation about sex, politics or celebrities as if they are recording you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Have you been falsely accused of shoplifting, then still treated like a criminal after you have proven you did not steal anything?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you notice strange flashes of light wherever you go? Or at home/work?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Does everyone around you seem to be keeping some sort of a secret?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do weirdos offer you rides/solicit you for prostitution when you are just trying to walk down the street? Even during the day?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you get strange phone calls/texts from numbers you don't know a lot?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do your pets seem to sense that something is off/someone you don't know is near?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do people seem like they are only pretending to be your friend/partner?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do store/hotel clerks suddenly act strangely when you give your name/id?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "If you go to Walmart/Target do the theft detectors beep once quickly when you walk in?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do people like to waste your time, sending you on wild goose chases to accomplish simple tasks/appointments?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Anytime you have to call a customer service you are put on hold forever only to be hung up on and start the cycle again and again?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you have an unusually large amount of car problems?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do items disappear, then reappear weeks/months later?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do people you've never introduced yourself to somehow already know your name?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you experience unexplained bruising/cuts/pain/injuries?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do you notice Jehovah Witnesses following you and/or lurking in your neighborhood that were not there previously?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do motorcycles, fire trucks and police cars with sirens circle around you?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do idiots mirror your behavior and how you dress and follow you around in public?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do idiot acquaintances/family you have not seen in decades, or family members you never met, try to force their way into your life?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
+  { q: "Do weirdos issue attack or guard commands to have dogs bark or whimper at your presence?", solutions: ["Hub", "Chyme", "LightHouse", "TrustTransport", "Directory", "Foundation", "PeerProgramming", "GDP", "ServiceCredits", "Workforce", "GentlePulse", "Mood", "SocketRelay", "Feed", "SkillsHunt", "LevelUp", "Trust", "ClickLog"] },
 ];
 
 // Map feature names to their colors for the solution badges
@@ -115,6 +116,7 @@ const FEATURE_COLOR_MAP: Record<string, string> = {
   "SkillsHunt":     "#D946EF",
   "LevelUp":        "#10B981",
   "Trust":          "#0284C7",
+  "ClickLog":       "#F43F5E",
 };
 
 function NavBar() {
@@ -124,7 +126,7 @@ function NavBar() {
   const links = [
     { href: "/", label: "Home", icon: Home },
     { href: "/look-ma", label: "Look Ma, I Fixed It", icon: FixIt },
-    { href: "/demos", label: "17 Demos", icon: Tv },
+    { href: "/demos", label: "18 Demos", icon: Tv },
   ];
 
   return (
@@ -194,7 +196,7 @@ function NavBar() {
 }
 
 function StatMarquee() {
-  const stats = ["5M Survivors", "$300B Economy", "127 Countries", "17 Apps, One Account", "Free to join", "Invite Only"];
+  const stats = ["5M Survivors", "$300B Economy", "127 Countries", "18 Apps, One Account", "Free to join", "Invite Only"];
   const doubled = [...stats, ...stats];
   return (
     <div className="border-y-4 border-foreground bg-secondary py-5 overflow-hidden flex whitespace-nowrap">
@@ -286,7 +288,7 @@ function Footer() {
         </div>
         <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-          <Link href="/demos" className="hover:text-foreground transition-colors">17 Demos</Link>
+          <Link href="/demos" className="hover:text-foreground transition-colors">18 Demos</Link>
           <Link href="/look-ma" className="hover:text-foreground transition-colors">Look Ma, I Fixed It</Link>
           <a href="https://github.com/chargingthefuture/chargingthefuture" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">GitHub ↗</a>
           <a href={APP_URL} className="hover:text-primary transition-colors text-primary">Open App →</a>
@@ -340,7 +342,7 @@ function LandingPage() {
               Corner.
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mb-8 md:mb-10 leading-relaxed">
-              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 17 features.
+              Not a charity. Not a support group. An invite-only circular economy that turns survivors into active participants in a $300B opportunity — built from the ground up with 18 features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <a
@@ -353,7 +355,7 @@ function LandingPage() {
                 href="/demos"
                 className="brutal-border brutal-shadow brutal-shadow-hover bg-transparent text-foreground font-bold py-4 px-8 text-lg uppercase tracking-widest text-center flex items-center justify-center gap-3"
               >
-                See All 17 Apps
+                See All 18 Apps
               </Link>
             </div>
             <div className="flex flex-wrap gap-4 text-sm font-bold uppercase tracking-widest text-muted-foreground">
@@ -367,7 +369,7 @@ function LandingPage() {
 
       <StatMarquee />
 
-      {/* 17 Apps teaser */}
+      {/* 18 Apps teaser */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -380,17 +382,17 @@ function LandingPage() {
               The Arsenal
             </div>
             <h2 className="text-5xl md:text-6xl font-display uppercase mb-6 leading-[0.9]">
-              17 Apps.<br /><span className="text-secondary">One</span> Account.
+              18 Apps.<br /><span className="text-secondary">One</span> Account.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and surveillance. We built all 17. Watch them in action.
+              We don't need another forum. We need infrastructure. Every feature is a shield against isolation, financial drain, and surveillance. We built all 18. Watch them in action.
             </p>
           </div>
           <Link
             href="/demos"
             className="w-full lg:w-auto flex-shrink-0 brutal-border brutal-shadow-secondary brutal-shadow-hover bg-secondary text-white font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
           >
-            Watch All 17 Demos <ArrowRight strokeWidth={3} size={20} />
+            Watch All 18 Demos <ArrowRight strokeWidth={3} size={20} />
           </Link>
         </motion.div>
 
@@ -440,7 +442,7 @@ function LandingPage() {
         </div>
         <div className="mt-4 text-center">
           <Link href="/demos" className="text-muted-foreground hover:text-foreground font-bold uppercase tracking-widest text-sm underline decoration-2 underline-offset-4 inline-flex items-center gap-2">
-            + 9 more apps — see all 17 demos <ArrowRight size={14} />
+            + 10 more apps — see all 18 demos <ArrowRight size={14} />
           </Link>
         </div>
       </section>
@@ -519,10 +521,10 @@ function DemosPage() {
       <div className="pt-32 pb-8 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <div className="inline-block border-4 border-secondary bg-secondary/10 text-secondary font-bold px-4 py-2 uppercase tracking-widest mb-6 brutal-shadow text-sm">
-            The Arsenal — All 17
+            The Arsenal — All 18
           </div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-display uppercase mb-6 leading-[0.9]">
-            17 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
+            18 Apps.<br /><span className="text-secondary">One</span> Account.<br />All Demos.
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mb-4 leading-relaxed">
             Every feature of Survivor Hub has its own walkthrough demo. Watch how each tool works — built by survivors, for survivors.
@@ -555,7 +557,7 @@ function DemosPage() {
                 </div>
                 <div>
                   <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
-                    App {String(i + 1).padStart(2, "0")} of 17
+                    App {String(i + 1).padStart(2, "0")} of 18
                   </div>
                   <h3 className="text-2xl font-display uppercase leading-none" style={{ color: feat.color }}>
                     {feat.emoji} {feat.name}
@@ -702,7 +704,7 @@ function LookMaPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-display uppercase mb-4 leading-[0.9]">
-              Want to see<br /><span className="text-primary">all 17 apps</span> in action?
+              Want to see<br /><span className="text-primary">all 18 apps</span> in action?
             </h2>
             <p className="text-lg text-muted-foreground max-w-lg">
               Every feature above has a full walkthrough demo. Watch how it works before you join.
@@ -713,7 +715,7 @@ function LookMaPage() {
               href="/demos"
               className="brutal-border brutal-shadow-primary brutal-shadow-hover bg-primary text-black font-bold py-4 px-8 text-lg uppercase tracking-widest flex items-center justify-center gap-3"
             >
-              Watch All 17 Demos <ArrowRight strokeWidth={3} />
+              Watch All 18 Demos <ArrowRight strokeWidth={3} />
             </Link>
             <a
               href={APP_URL}

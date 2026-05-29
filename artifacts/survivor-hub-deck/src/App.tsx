@@ -123,6 +123,14 @@ import { SocketRelayEmpty } from "@/components/mockups/survivor-hub/SocketRelayE
 import { SocketRelayLoading } from "@/components/mockups/survivor-hub/SocketRelayLoading";
 import { SocketRelayPublic } from "@/components/mockups/survivor-hub/SocketRelayPublic";
 import { SocketRelay } from "@/components/mockups/survivor-hub/SocketRelay";
+import { ClickLog } from "@/components/mockups/survivor-hub/ClickLog";
+import { ClickLogEmpty } from "@/components/mockups/survivor-hub/ClickLogEmpty";
+import { ClickLogLoading } from "@/components/mockups/survivor-hub/ClickLogLoading";
+import { ClickLogPublic } from "@/components/mockups/survivor-hub/ClickLogPublic";
+import { MobileClickLog } from "@/components/mockups/survivor-hub/MobileClickLog";
+import { MobileClickLogEmpty } from "@/components/mockups/survivor-hub/MobileClickLogEmpty";
+import { MobileClickLogLoading } from "@/components/mockups/survivor-hub/MobileClickLogLoading";
+import { MobileClickLogPublic } from "@/components/mockups/survivor-hub/MobileClickLogPublic";
 import { TrustLoading } from "@/components/mockups/survivor-hub/TrustLoading";
 import { TrustPublic } from "@/components/mockups/survivor-hub/TrustPublic";
 import { Trust } from "@/components/mockups/survivor-hub/Trust";
@@ -136,6 +144,8 @@ import { WorkforcePublic } from "@/components/mockups/survivor-hub/WorkforcePubl
 import { Workforce } from "@/components/mockups/survivor-hub/Workforce";
 
 const COMPONENTS: Record<string, ComponentType> = {
+  ClickLog, ClickLogEmpty, ClickLogLoading, ClickLogPublic,
+  MobileClickLog, MobileClickLogEmpty, MobileClickLogLoading, MobileClickLogPublic,
   ChymeApp, ChymeEmpty, ChymeLoading, ChymePublic, Chyme,
   Desktop,
   DirectoryEmpty, DirectoryLoading, DirectoryPublic, Directory,
@@ -199,6 +209,7 @@ const SECTION_COLORS: Record<string, string> = {
   "ServiceCredits":   "#F59E0B",
   "LevelUp":          "#10B981",
   "Trust":            "#0284C7",
+  "ClickLog":         "#F43F5E",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -374,6 +385,16 @@ const SLIDES: Slide[] = [
   mob("MobileTrustPublic","Mobile · Not Signed In","Trust"),
   mob("MobileTrust",      "Mobile · Signed In",    "Trust"),
   mob("MobileTrustLoading","Mobile · Loading",     "Trust"),
+
+  // ── CLICKLOG ──────────────────────────────────────────────────────────
+  web("ClickLogPublic",       "Web · Not Signed In",  "ClickLog"),
+  web("ClickLog",             "Web · Signed In",       "ClickLog"),
+  web("ClickLogEmpty",        "Web · Empty State",     "ClickLog"),
+  web("ClickLogLoading",      "Web · Loading",         "ClickLog"),
+  mob("MobileClickLogPublic", "Mobile · Not Signed In","ClickLog"),
+  mob("MobileClickLog",       "Mobile · Signed In",    "ClickLog"),
+  mob("MobileClickLogEmpty",  "Mobile · Empty State",  "ClickLog"),
+  mob("MobileClickLogLoading","Mobile · Loading",      "ClickLog"),
 ];
 
 const DESKTOP_W = 1440;

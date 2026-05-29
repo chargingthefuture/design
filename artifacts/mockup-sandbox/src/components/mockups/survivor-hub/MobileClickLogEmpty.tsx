@@ -1,7 +1,7 @@
 // STATE: Authenticated, no incidents logged yet
 import { AlertTriangle, Clock, FileText, ShieldCheck } from "lucide-react";
 
-const BRAND = "#EF4444";
+const BRAND = "#F43F5E";
 const bg = "#0F1117";
 const surface = "#161B27";
 const border = "#1E2A3A";
@@ -56,7 +56,7 @@ export function MobileClickLogEmpty() {
           ))}
         </div>
 
-        <div style={{ padding: "10px 14px", borderRadius: 10, background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)", display: "flex", alignItems: "center", gap: 8, width: "100%", boxSizing: "border-box" }}>
+        <div style={{ padding: "10px 14px", borderRadius: 10, background: "rgba(244,63,94,0.05)", border: "1px solid rgba(244,63,94,0.15)", display: "flex", alignItems: "center", gap: 8, width: "100%", boxSizing: "border-box" }}>
           <ShieldCheck size={14} color={BRAND} style={{ flexShrink: 0 }} />
           <span style={{ fontSize: 11, color: subtle, textAlign: "left" }}>In an emergency, contact local emergency services first.</span>
         </div>
