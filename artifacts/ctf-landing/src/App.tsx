@@ -292,30 +292,30 @@ function ServiceCreditsBounty() {
         className="flex flex-col items-center justify-center px-5 py-4 border-r-4 border-foreground flex-shrink-0 group-hover:brightness-110 transition-all"
         style={{ background: "#F59E0B", minWidth: 80 }}
       >
-        <span className="font-display text-4xl leading-none text-black select-none">100</span>
+        <span className="font-display text-5xl leading-none text-black select-none">100</span>
         <div className="flex items-center gap-1 mt-1">
-          <Coins size={11} strokeWidth={2.5} className="text-black/60" />
-          <span className="font-black text-[10px] uppercase tracking-widest text-black/60">SC</span>
+          <Coins size={13} strokeWidth={2.5} className="text-black/60" />
+          <span className="font-black text-xs uppercase tracking-widest text-black/60">SC</span>
         </div>
       </div>
 
       {/* Copy — right */}
       <div className="flex-1 px-5 py-4" style={{ background: "#1c1200" }}>
         <div className="flex items-center gap-2 mb-1.5">
-          <span className="font-black text-[10px] uppercase tracking-widest" style={{ color: "#F59E0B" }}>
+          <span className="font-black text-xs uppercase tracking-widest" style={{ color: "#F59E0B" }}>
             Sign-Up Reward
           </span>
           <span
-            className="font-bold text-[9px] px-1.5 py-0.5 uppercase tracking-wider border"
+            className="font-bold text-[10px] px-1.5 py-0.5 uppercase tracking-wider border"
             style={{ color: "#F59E0B", borderColor: "rgba(245,158,11,0.35)" }}
           >
             Free
           </span>
         </div>
-        <p className="font-display text-sm uppercase text-foreground leading-tight mb-1.5">
+        <p className="font-display text-base uppercase text-foreground leading-tight mb-1.5">
           100 ServiceCredits — Yours On Day One
         </p>
-        <p className="text-xs leading-snug" style={{ color: "rgba(245,158,11,0.6)" }}>
+        <p className="text-sm leading-snug" style={{ color: "rgba(245,158,11,0.6)" }}>
           The psyop-free utility token. Spend on housing, rides, repairs, or skills inside the network. No bank. No exchange.
         </p>
       </div>
