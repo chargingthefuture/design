@@ -1,3 +1,4 @@
+// design-sync
 import { ShieldCheck, Eye, ChevronDown, CheckCircle2 } from "lucide-react";
 
 const BRAND = "#0284C7";

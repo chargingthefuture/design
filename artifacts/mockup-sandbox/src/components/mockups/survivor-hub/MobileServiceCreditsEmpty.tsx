@@ -1,3 +1,4 @@
+// design-sync
 import { Coins, ArrowDownLeft, ArrowUpRight, Zap } from "lucide-react";
 
 const bg = "#0F1117";

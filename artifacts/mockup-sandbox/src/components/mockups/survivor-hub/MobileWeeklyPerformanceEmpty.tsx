@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, no metrics data yet
 import { BarChart2, Clock, Calendar, TrendingUp } from "lucide-react";
 

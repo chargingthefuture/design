@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated + Populated
 import { useState } from "react";
 import { BookOpen, Search, ChevronDown, Plus, Bell } from "lucide-react";

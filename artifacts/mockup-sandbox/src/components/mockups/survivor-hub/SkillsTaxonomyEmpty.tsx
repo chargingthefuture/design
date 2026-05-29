@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, taxonomy has no entries yet
 import { BookOpen, Plus, Upload, Clock } from "lucide-react";
 

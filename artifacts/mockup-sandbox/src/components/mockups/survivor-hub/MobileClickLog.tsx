@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated + Populated
 import { useState } from "react";
 import { AlertTriangle, Clock, FileText, Bell, MapPin, Trash2 } from "lucide-react";

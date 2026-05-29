@@ -1,3 +1,4 @@
+// design-sync
 import { Users, Globe, Calendar, CheckCircle2, Plus, Bell, Zap } from "lucide-react";
 
 const COLOR = "#8B5CF6";

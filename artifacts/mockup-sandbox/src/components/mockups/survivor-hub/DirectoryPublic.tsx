@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 // Spec §2.4: primary Skills Hunt entry point is the Directory public page,
 // via a "Submit a community profile" CTA on the pinned reward card.

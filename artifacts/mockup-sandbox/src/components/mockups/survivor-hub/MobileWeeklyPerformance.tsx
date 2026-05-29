@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated + Populated
 import { useState } from "react";
 import { BarChart2, TrendingUp, Users, Calendar, Download, Bell, Lock } from "lucide-react";

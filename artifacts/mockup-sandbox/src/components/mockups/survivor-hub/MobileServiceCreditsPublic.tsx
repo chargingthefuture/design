@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Zap, Lock } from "lucide-react";
 

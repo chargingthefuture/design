@@ -1,3 +1,4 @@
+// design-sync
 import { Smile, Shield } from "lucide-react";
 
 const bg = "#0F1117";

@@ -1,3 +1,4 @@
+// design-sync
 import { Heart, Play, Wind, Sun, Moon, Star, Clock, Plus, Sparkles } from "lucide-react";
 
 const COLOR = "#14B8A6";

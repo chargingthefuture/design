@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import {
   ShieldCheck, CheckCircle2, Circle, Eye, EyeOff, ChevronDown,

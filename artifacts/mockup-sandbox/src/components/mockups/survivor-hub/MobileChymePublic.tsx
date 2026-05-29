@@ -1,3 +1,4 @@
+// design-sync
 import {
   Radio, Mic, Users, Lock, LogIn, UserPlus,
   Clock, Hash, Heart, Bell, ShieldCheck, Search,

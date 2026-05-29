@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { AlertTriangle, Lock, ShieldCheck, Clock, FileText, UserPlus } from "lucide-react";
 

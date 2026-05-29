@@ -1,3 +1,4 @@
+// design-sync
 import { Smile, Shield, Lock, TrendingUp, Plus, BarChart2 } from "lucide-react";
 
 const COLOR = "#EC4899";

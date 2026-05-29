@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { BookOpen, CheckCircle, Lock } from "lucide-react";
 

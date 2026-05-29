@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, no trust signals yet
 import {
   ShieldCheck, Bell, Settings, Activity, Circle,

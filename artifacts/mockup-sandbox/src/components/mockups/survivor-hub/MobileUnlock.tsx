@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated + Populated — mobile verification status view
 import { useState } from "react";
 import { Unlock as UnlockIcon, CheckCircle, Clock, XCircle, ExternalLink, RefreshCw, ChevronRight } from "lucide-react";

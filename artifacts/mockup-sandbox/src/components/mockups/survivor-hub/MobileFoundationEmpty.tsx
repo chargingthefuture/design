@@ -1,3 +1,4 @@
+// design-sync
 import { Hammer, Search, Bell } from "lucide-react";
 
 const bg = "#0F1117";

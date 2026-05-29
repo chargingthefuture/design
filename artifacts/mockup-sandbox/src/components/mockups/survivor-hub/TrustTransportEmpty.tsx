@@ -1,3 +1,4 @@
+// design-sync
 import { Car, Package, Utensils, MapPin, Shield, Clock, Plus, Star, Bell } from "lucide-react";
 
 const COLOR = "#F97316";

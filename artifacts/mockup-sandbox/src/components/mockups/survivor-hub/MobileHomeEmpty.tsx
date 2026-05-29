@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, no community content yet (fresh install)
 import {
   MessageSquare, Zap, Radio, Bell, Settings,

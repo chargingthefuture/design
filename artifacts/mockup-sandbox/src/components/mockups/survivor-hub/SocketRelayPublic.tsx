@@ -1,3 +1,4 @@
+// design-sync
 import {
   Share2, Search, Shield, Clock, MapPin, Zap, Heart,
   Package, Users, LogIn, UserPlus, ShieldCheck, Lock, Plus,

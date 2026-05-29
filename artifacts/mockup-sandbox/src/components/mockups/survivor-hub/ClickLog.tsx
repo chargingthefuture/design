@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated + Populated — Incident Counter
 import { useState } from "react";
 import {

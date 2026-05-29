@@ -1,3 +1,4 @@
+// design-sync
 import { Car, MapPin, Package, Utensils } from "lucide-react";
 
 const bg = "#0F1117";

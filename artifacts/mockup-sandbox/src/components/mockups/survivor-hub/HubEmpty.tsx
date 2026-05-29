@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, no community content yet (fresh install / empty hub)
 import {
   MessageSquare, Zap, Hash, Bell, Settings, Globe,

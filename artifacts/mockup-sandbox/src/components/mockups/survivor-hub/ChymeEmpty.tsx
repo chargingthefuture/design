@@ -1,3 +1,4 @@
+// design-sync
 import { Mic, Radio, Clock, Bell, Plus, Lock, Globe, Users } from "lucide-react";
 
 const COLOR = "#22C55E";

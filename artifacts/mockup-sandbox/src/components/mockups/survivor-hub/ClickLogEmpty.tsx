@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, no incidents logged yet
 import { AlertTriangle, ShieldCheck, Plus } from "lucide-react";
 

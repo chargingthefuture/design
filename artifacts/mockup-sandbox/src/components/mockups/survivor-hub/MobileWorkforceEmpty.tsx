@@ -1,3 +1,4 @@
+// design-sync
 import { BarChart2, Plus, TrendingUp } from "lucide-react";
 
 const bg = "#0F1117";

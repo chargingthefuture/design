@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import {
   Home, BookOpen, TrendingUp, Users, Trophy, Coins,

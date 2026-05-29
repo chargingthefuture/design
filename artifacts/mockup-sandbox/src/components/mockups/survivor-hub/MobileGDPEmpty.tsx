@@ -1,3 +1,4 @@
+// design-sync
 import { Globe, Plus, TrendingUp } from "lucide-react";
 
 const bg = "#0F1117";

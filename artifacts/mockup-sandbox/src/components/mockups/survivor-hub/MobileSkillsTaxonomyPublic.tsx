@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { BookOpen, Lock, UserPlus, ChevronRight } from "lucide-react";
 

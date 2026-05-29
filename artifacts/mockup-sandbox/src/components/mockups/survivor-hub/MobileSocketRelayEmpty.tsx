@@ -1,3 +1,4 @@
+// design-sync
 import { Share2, Plus, Heart, Shield } from "lucide-react";
 
 const bg = "#0F1117";

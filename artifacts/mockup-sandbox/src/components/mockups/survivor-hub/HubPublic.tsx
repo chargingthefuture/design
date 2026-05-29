@@ -1,3 +1,4 @@
+// design-sync
 import {
   MessageSquare, Zap, Hash, Radio, Bell, ChevronRight,
   Globe, Users, DollarSign, Lock, LogIn, UserPlus, ShieldCheck,

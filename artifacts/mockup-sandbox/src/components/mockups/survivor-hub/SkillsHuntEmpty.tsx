@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, zero submissions yet
 import { Search, Plus, Target } from "lucide-react";
 

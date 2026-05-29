@@ -1,3 +1,4 @@
+// design-sync
 import {
   Globe, TrendingUp, BarChart2, DollarSign, Users, Zap,
   MapPin, LogIn, UserPlus, ShieldCheck, Lock, Plus, Eye,

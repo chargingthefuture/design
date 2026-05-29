@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Unlock as UnlockIcon, UserPlus, CheckCircle, Shield, ChevronRight } from "lucide-react";
 

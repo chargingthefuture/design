@@ -1,3 +1,4 @@
+// design-sync
 import { Heart, Play, Wind, Moon } from "lucide-react";
 
 const bg = "#0F1117";

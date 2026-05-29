@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Users, Globe, Lock } from "lucide-react";
 

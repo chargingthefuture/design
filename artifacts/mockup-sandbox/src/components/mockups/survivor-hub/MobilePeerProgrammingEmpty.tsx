@@ -1,3 +1,4 @@
+// design-sync
 import { Code2, Users, Target, Search } from "lucide-react";
 
 const bg = "#0F1117";

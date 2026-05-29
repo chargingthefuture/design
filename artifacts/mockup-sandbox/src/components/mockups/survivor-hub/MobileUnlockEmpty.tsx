@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, has NOT submitted Quora URL yet — mobile submission form
 import { useState } from "react";
 import { Unlock as UnlockIcon, ExternalLink, Shield, CheckCircle, Send } from "lucide-react";

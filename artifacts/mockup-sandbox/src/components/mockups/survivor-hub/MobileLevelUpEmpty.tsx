@@ -1,3 +1,4 @@
+// design-sync
 import { Target, Search, BookOpen } from "lucide-react";
 
 const bg = "#0F1117";

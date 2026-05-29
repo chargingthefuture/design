@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Megaphone, Bell, Pin, Lock } from "lucide-react";
 

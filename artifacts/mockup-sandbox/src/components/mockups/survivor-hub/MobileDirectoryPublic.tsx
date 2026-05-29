@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 // Spec §2.4: Skills Hunt reward card + "Submit a community profile" CTA on Directory public page
 import { useState } from "react";

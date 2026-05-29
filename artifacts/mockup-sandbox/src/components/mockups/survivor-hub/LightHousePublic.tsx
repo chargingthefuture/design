@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Home, MapPin, Bed, Bath, Lock, Star } from "lucide-react";
 

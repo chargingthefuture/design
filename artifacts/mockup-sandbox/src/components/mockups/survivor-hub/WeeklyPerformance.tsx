@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated + Populated — Weekly Performance Dashboard
 import { useState } from "react";
 import {

@@ -1,3 +1,4 @@
+// design-sync
 import { Share2, Plus, Shield, Clock, Package, Users, Heart, Search, Zap } from "lucide-react";
 
 const COLOR = "#FB923C";

@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Authenticated, no incidents logged yet
 import { AlertTriangle, Clock, FileText, ShieldCheck } from "lucide-react";
 

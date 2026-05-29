@@ -1,3 +1,4 @@
+// design-sync
 import { Globe, TrendingUp, BarChart2, Plus, ArrowUpRight, Users, DollarSign, MapPin } from "lucide-react";
 
 const COLOR = "#06B6D4";

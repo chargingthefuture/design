@@ -1,3 +1,4 @@
+// design-sync
 import { Radio, Plus, Calendar, Mic } from "lucide-react";
 
 const bg = "#0F1117";

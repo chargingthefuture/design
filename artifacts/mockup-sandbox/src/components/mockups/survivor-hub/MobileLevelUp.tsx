@@ -1,3 +1,4 @@
+// design-sync
 import {
   Home, Target, MessageSquare, Coins, User,
   TrendingUp, CheckCircle, Clock, Trophy, Search, Battery, Wifi, Signal,

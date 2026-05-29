@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Hammer, Star, MapPin, Lock, DollarSign } from "lucide-react";
 

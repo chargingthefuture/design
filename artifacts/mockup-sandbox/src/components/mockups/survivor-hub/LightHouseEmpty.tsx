@@ -1,3 +1,4 @@
+// design-sync
 import { Home, MapPin, Search, Bell, Filter, Heart, Shield, AlertCircle } from "lucide-react";
 
 const COLOR = "#EAB308";
