@@ -312,7 +312,7 @@ function ServiceCreditsBounty() {
             Free
           </span>
         </div>
-        <p className="font-display text-base uppercase text-foreground leading-tight mb-1.5">
+        <p className="font-display text-base uppercase text-foreground leading-tight mb-1.5 tracking-wider">
           100 ServiceCredits — Yours On Day One
         </p>
         <p className="text-sm leading-snug" style={{ color: "rgba(245,158,11,0.6)" }}>
