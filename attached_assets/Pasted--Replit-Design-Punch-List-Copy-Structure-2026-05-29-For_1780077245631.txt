@@ -1,0 +1,126 @@
+# Replit Design Punch-List — Copy & Structure (2026-05-29)
+
+**For:** the Replit design agent, applied in the **design repo** (`design/artifacts/mockup-sandbox/src/components/mockups/`).
+**Scope:** **copy, naming, brand-voice, markers, and missing states only.** Every item here is
+**independent** of the multi-currency field work (app issue #120) and can be done now.
+**Out of scope / DO NOT TOUCH (deferred to #120 + a later design pass):** GDP `$` figures, Foundation
+`$/hr` rates, LightHouse `$/mo` rents, Weekly Performance "GDP Delta" `$` — these are legitimate real
+prices/metrics and will be re-designed when the currency-field model lands. Leave them as-is.
+
+**Rules:** edit only files under `…/mockups/`; keep the `// design-sync` line-1 marker; one-way
+(design→app); add new files to `sync-manifest.json`.
+
+---
+
+## 1. ServiceCredits ↔ fiat parity (MUST-FIX — legal line)
+
+ServiceCredits is a utility token and must **never** be shown at a fiat equivalent or as "monetary
+value." Reword to ServiceCredits utility (e.g. "usable across the 18 plugins"), no `$`/USD.
+
+- `ServiceCredits.tsx:168` — "≈ $242 USD purchasing power across all mini-apps" → remove the USD equivalence.
+- `ServiceCredits.tsx:134` — "No purchasing power yet" → "No ServiceCredits to spend yet".
+- `ServiceCreditsPublic.tsx:41` — "Your participation has real monetary value" → utility framing, no money.
+- `MobileServiceCredits.tsx:64` — "credits ≈ $242 USD" → show only the ServiceCredits balance.
+- `MobileServiceCreditsPublic.tsx:22` — "real monetary value" → utility framing.
+
+## 2. Banned "Phase" words (MUST-FIX — project-wide rule)
+
+Remove every phase label; replace with availability/status words ("Live", "Coming soon", "Beta") or drop.
+
+- `Desktop.tsx:16` — `MINI_APPS` `tag: "Phase 0/1/2"` (lines 16–30)
+- `GDP.tsx:73` — "By Phase" filter → "By Status"/"By Timeline"
+- `GDPEmpty.tsx:30` — `Phase 2` badge
+- `Foundation.tsx:739` — "Phase 1" subtitle
+- `LightHouse.tsx:143` — "Phase 2" subtitle · `LightHouseEmpty.tsx:42` — `Phase 2` badge
+- `Workforce.tsx:80` ("By Phase" filter), `:100`, `:102`, `:243` · `MobileWorkforce.tsx:41`
+- `MobilePeerProgramming.tsx:40` (`Phase 2`) · `PeerProgrammingEmpty.tsx:36` (`Phase 1`)
+- `ServiceCredits.tsx:122` — "Across all 12 mini-apps · Phase 3" → drop "· Phase 3" (and see naming/count notes)
+- `FeedAnnouncements.tsx:18` ("Phase 2 Launch"), `:107` ("#Phase2Launch"), `:253` ("Phase 2 launch") · `MobileFeed.tsx:11` ("Phase 2 Live") → "Now live"
+- `ChymeEmpty.tsx:27` (`Phase 0`) · `SocketRelay.tsx:92` ("· Phase 2") · `SocketRelayEmpty.tsx:28` (`Phase 0`)
+- `Mood.tsx:111` ("· Phase 2") · `MoodEmpty.tsx:31` (`Phase 0`) · `GentlePulseEmpty.tsx:30` (`Phase 2`)
+- `TrustTransport.tsx:109` ("· Phase 2") · `TrustTransportEmpty.tsx:27` (`Phase 1`)
+- `Directory.tsx:20` — remove the `phase` field in `PROFILES` (lines 20–25) · `:80` — remove the rendered `{p.phase}` badge
+
+## 3. Naming (MUST-FIX — canonical)
+
+- The token is **`ServiceCredits`** (one word, PascalCase) in all user-facing copy. Replace every
+  "Service Credits" (two words), "SC", "cr", and lowercase "credits" with **ServiceCredits**.
+  Affected (non-exhaustive): `ServiceCredits*`, `MobileServiceCredits*`, `SocketRelay.tsx:126`,
+  `SocketRelayPublic.tsx:118`, `MobileTrustTransport.tsx:51,74,109`, `LevelUp.tsx:141`,
+  `MobileLevelUpPublic.tsx:45`, `ServiceCreditsPublic.tsx:18`.
+- User-facing two-word app names are **joined PascalCase** (ServiceCredits, LightHouse, SkillsHunt,
+  ClickLog). Internal names keep separate words (e.g. "Weekly Performance"). Make user-facing labels consistent.
+
+## 4. Counts are placeholders (MUST-FIX — use canonical)
+
+Mockup counts are dummy. Canonical: **18 plugins** (internal term "plugin"); **62 users today**;
+**goal 5 million** (label aspirational numbers as a goal, never as current reality).
+
+- `LandingHero.tsx:31` — "17 Mini Apps" → 18 plugins (or clearly illustrative)
+- `ServiceCredits.tsx:122` / `:40` — "12 mini-apps" → 18
+- `MobileFeed.tsx:14` — "🎉 5 Million Members Worldwide!" → frame as goal, not current
+- `WorkforcePublic.tsx:37,44`, `MobileWorkforce.tsx:38`, `MobileMood.tsx:86` — "4.9M survivors" → reconcile to canonical/goal framing
+
+## 5. `// design-sync` marker (MUST-FIX — manifest contract)
+
+Add `// design-sync` as the exact line 1 (pushing `import …` to line 2):
+`landing/LandingEmpty.tsx`, `landing/LandingFeatures.tsx`, `landing/LandingHero.tsx`, `landing/LandingLoading.tsx`.
+
+## 6. Loading states (normalize — content stays)
+
+The slogan stays. Requirement: **calm, no flashing, ADA-compliant, trauma-informed.** Action:
+**normalize all loading screens to one consistent rendering** of "EXIT THEIR ECONOMY" / "EXIT THE
+PSYOP" (two stacked lines; no literal slash). 40 loaders currently vary only in transcription —
+make them identical in markup/spacing. `landing/LandingLoading.tsx` currently uses a different
+message ("Preparing your community experience…") — owner has not asked to change the slogan, so
+align it to the standard loader unless intentionally kept calmer for the public landing surface
+(flag for owner if unsure).
+
+## 7. Brand-voice / trauma-informed (SHOULD-FIX)
+
+Reframe toward survivor agency/safety; avoid fear amplification, hype, stereotypes.
+
+- SkillsHunt "stop needing/depending on traffickers" / "infiltration": `SkillsHunt.tsx:30,39,63,113,257,365`, `SkillsHuntEmpty.tsx:30`, `SkillsHuntPublic.tsx:63`, `MobileSkillsHuntEmpty.tsx:31,39`, `MobileSkillsHuntPublic.tsx:30` → self-sufficiency framing.
+- `MobileSkillsHuntPublic.tsx:24` — "Gamified talent scouting" → dignity-preserving phrasing.
+- `WorkforcePublic.tsx:37,44` — "survivors tracked" → "supported" / "in the network" (surveillance-adjacent).
+- `Mood.tsx:42` — lead with resources after a disclosure (clinical review). · `MobileMood.tsx:116` — "Crisis Handled" → "Crisis Support Provided".
+- `MobileFeed.tsx:14` — growth-hype ("This is YOUR economy") → calmer community tone. · `FeedAnnouncements.tsx:31` — collapse stacked urgency (⚠️ + "URGENT" + "Urgent:" + "immediately") to one signal.
+- `MobileGentlePulse.tsx:115` — all-caps "DO" → sentence case. · `MobileSocketRelay.tsx:11` — stereotyped sample ("single mom, 3 kids") → dignity-preserving example.
+- `Unlock.tsx:172` — "Traffickers are less likely to have Quora history" → verify / soften.
+
+> **KEEP (owner-confirmed, do NOT change):** the "no certainty needed" nomination copy in
+> `MobileSkillsHuntPublic.tsx:30` / `MobileDirectoryPublic.tsx:109` is intentional — it reassures
+> people they're not in trouble for nominating. Leave as-is.
+
+## 8. Misc copy / structural (SHOULD-FIX / confirm)
+
+- `Desktop.tsx:340` — Carl Jung quote is widely misattributed → correct attribution or use unattributed copy.
+- `HubEmpty.tsx:134` — "Member since 2024" (today is 2026) → confirm sample vs stale.
+- `Chyme.tsx` vs `ChymeApp.tsx` — byte-identical full copies → have `Chyme` re-export from `ChymeApp` to avoid drift.
+- `ChymePublic.tsx:124` "Safe Space ✓" vs `Chyme.tsx` "Safe Space Room" → one canonical name.
+- `MobileTrust.tsx:5` `#0284C7` vs `MobileTrustEmpty.tsx:5` `#0EA5E9` → one canonical Trust brand color.
+- `MobileTrustEmpty.tsx:101` — empty `<span>` placeholder; icon concatenated into label on :103 → render properly.
+- `LandingFeatures.tsx:6` — Hub and LightHouse both use 🏠 → distinct emoji. · `LandingHero.tsx:9` — leads with "Survivor Hub" not the brand → confirm intended.
+- `GentlePulse.tsx:105` — "48 sessions" contradicts the 6-item SESSIONS array; "Zero triggers" overpromises → reconcile count; soften to "designed to minimize triggers".
+- Unused imports (`DollarSign`, etc.) across `GDPPublic.tsx:3`, `GDPPublicAlt.tsx:3`, `Foundation.tsx:23`, `FoundationPublic.tsx:3`, `ServiceCredits.tsx:9`, `MobileHome.tsx:5`, `MobileGentlePulse.tsx:3` → remove.
+
+## 9. Missing 4-state variants (new design work)
+
+Add the missing states (Public / Empty / Loading / Populated). Some entries are sub-components
+(`Desktop`, `ChymeApp`, `GDPPublicAlt`, `LandingFeatures`, `LandingHero`) where not all four states
+apply — confirm which are full screens before building variants.
+
+| Platform | Component | Missing |
+|---|---|---|
+| Web | Hub | populated |
+| Web | Landing | populated, public |
+| Mobile | Home | public |
+| Mobile | Hub | populated, empty, loading |
+| Mobile | TrustTransport | loading, public |
+| Mobile | WeeklyPerformance | populated, empty |
+
+(Sub-component gaps: ChymeApp, Desktop, GDPPublicAlt, LandingFeatures, LandingHero — verify scope first.)
+
+---
+
+*Full raw findings and the currency reclassification rationale: `https://github.com/chargingthefuture/chargingthefuture/ctf/docs/developer/design-audit-2026-05-29.md`.*
