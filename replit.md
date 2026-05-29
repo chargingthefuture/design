@@ -1,5 +1,14 @@
 # Workspace
 
+## User preferences
+
+Agent communication rules — fetch latest each session:
+https://raw.githubusercontent.com/chargingthefuture/chargingthefuture/main/.github/instructions/098-agent-communication-rules.mdc
+
+Local reference copy: `.github/instructions/098-agent-communication-rules.mdc`
+
+Rules are updated weekly; the remote URL is authoritative. Summary: robot/system tone, no pleasantries, structured formats, lead with facts, no preamble.
+
 ## Overview
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
