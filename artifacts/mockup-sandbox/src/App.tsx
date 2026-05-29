@@ -87,7 +87,7 @@ function PreviewRenderer({
 
   if (error) {
     return (
-      <pre style={{ color: "red", padding: "2rem", fontFamily: "system-ui" }}>
+      <pre style={{ color: "#f87171", padding: "2rem", fontFamily: "system-ui", backgroundColor: "#1f2937", borderRadius: "0.5rem", border: "1px solid #4b5563" }}>
         {error}
       </pre>
     );
@@ -131,12 +131,12 @@ function Gallery() {
 
   if (componentPaths.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center p-8">
         <div className="text-center max-w-md">
-          <h1 className="text-2xl font-semibold text-gray-900 mb-3">
+          <h1 className="text-2xl font-semibold text-gray-100 mb-3">
             No mockups available
           </h1>
-          <p className="text-gray-500">Add mockup `.tsx` files under `src/components/mockups`.</p>
+          <p className="text-gray-400">Add mockup `.tsx` files under `src/components/mockups`.</p>
         </div>
       </div>
     );
@@ -210,28 +210,28 @@ function Gallery() {
   }, [componentPaths]);
 
   return (
-    <div className="h-screen bg-gray-50 flex overflow-hidden">
+    <div className="h-screen bg-gray-900 flex overflow-hidden">
       {/* Left navigation: list of slides */}
-      <aside className="w-64 bg-white border-r overflow-y-auto">
-        <div className="p-4 border-b">
-          <h3 className="text-sm font-semibold text-gray-700">Slides</h3>
-          <p className="text-xs text-gray-500">Click a slide to open it</p>
+      <aside className="w-64 bg-gray-800 border-r border-gray-700 overflow-y-auto">
+        <div className="p-4 border-b border-gray-700">
+          <h3 className="text-sm font-semibold text-gray-100">Slides</h3>
+          <p className="text-xs text-gray-400">Click a slide to open it</p>
         </div>
-        <ul className="divide-y">
+        <ul className="divide-y divide-gray-700">
           {componentPaths.map((p, i) => (
             <li
               key={p}
-              className={`p-3 cursor-pointer hover:bg-gray-50 flex items-center space-x-3 ${
-                i === index ? "bg-gray-100" : ""
+              className={`p-3 cursor-pointer hover:bg-gray-700 flex items-center space-x-3 ${
+                i === index ? "bg-gray-700" : ""
               }`}
               onClick={() => goTo(i)}
               title={p}
             >
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-medium text-gray-900 truncate">{p.split("/").pop()}</div>
-                <div className="text-xs text-gray-500 truncate">{p}</div>
+                <div className="text-sm font-medium text-gray-100 truncate">{p.split("/").pop()}</div>
+                <div className="text-xs text-gray-400 truncate">{p}</div>
               </div>
-              <div className="text-xs text-gray-400">{i + 1}</div>
+              <div className="text-xs text-gray-500">{i + 1}</div>
             </li>
           ))}
         </ul>
@@ -239,22 +239,22 @@ function Gallery() {
 
       {/* Right: slide viewer */}
       <main className="flex-1 flex flex-col">
-        <header className="p-4 border-b bg-white">
+        <header className="p-4 border-b border-gray-700 bg-gray-800">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">Mockup Preview</h2>
-              <p className="text-sm text-gray-500">{current}</p>
+              <h2 className="text-lg font-semibold text-gray-100">Mockup Preview</h2>
+              <p className="text-sm text-gray-400">{current}</p>
             </div>
             <div className="flex items-center space-x-2">
               <button
-                className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200 text-sm"
+                className="px-3 py-1 rounded bg-gray-700 hover:bg-gray-600 text-sm text-gray-100"
                 onClick={() => goTo(index - 1)}
                 aria-label="Previous slide"
               >
                 ← Prev
               </button>
               <button
-                className="px-3 py-1 rounded bg-gray-100 hover:bg-gray-200 text-sm"
+                className="px-3 py-1 rounded bg-gray-700 hover:bg-gray-600 text-sm text-gray-100"
                 onClick={() => goTo(index + 1)}
                 aria-label="Next slide"
               >
@@ -264,15 +264,13 @@ function Gallery() {
           </div>
         </header>
 
-        <div className="flex-1 overflow-auto p-6 bg-white">
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="w-full max-w-5xl h-full overflow-auto bg-white rounded shadow p-6">
-              <PreviewRenderer componentPath={current} modules={discoveredModules} />
-            </div>
+        <div className="flex-1 overflow-auto bg-gray-900 flex items-center justify-center">
+          <div className="w-full h-full max-w-6xl flex items-center justify-center">
+            <PreviewRenderer componentPath={current} modules={discoveredModules} />
           </div>
         </div>
 
-        <footer className="p-3 border-t bg-white text-sm text-gray-600">
+        <footer className="p-3 border-t border-gray-700 bg-gray-800 text-sm text-gray-400">
           Showing {index + 1} of {componentPaths.length}
         </footer>
       </main>

@@ -45,10 +45,49 @@ export function mockupPreviewPlugin(): Plugin {
       ignore: ["**/_*/**", "**/_*.tsx"],
     });
 
-    return files.map((f) => ({
-      globKey: "./" + f.slice("src/".length),
-      importPath: path.posix.relative("src/.generated", f),
-    }));
+    // Custom sort order: group by base name, then order as: Public, Authed, Empty, Loading
+    // Mobile versions come after desktop versions for each group
+    const sortOrder = (filePath: string): string => {
+      const fileName = path.basename(filePath);
+      const isMobile = fileName.startsWith("Mobile");
+      
+      // Extract the base name (remove suffixes)
+      let baseName = fileName
+        .replace(/^Mobile/, "")
+        .replace(/Public\.tsx$/, "")
+        .replace(/Empty\.tsx$/, "")
+        .replace(/Loading\.tsx$/, "")
+        .replace(/App\.tsx$/, "")
+        .replace(/\.tsx$/, "");
+
+      // Determine priority based on suffix
+      let priority: string;
+      if (fileName.endsWith("Public.tsx")) {
+        priority = "1_Public";
+      } else if (fileName.endsWith("App.tsx") || (!fileName.includes("Empty") && !fileName.includes("Loading") && !fileName.includes("Public") && fileName.endsWith(".tsx"))) {
+        priority = "2_Authed";
+      } else if (fileName.endsWith("Empty.tsx")) {
+        priority = "3_Empty";
+      } else if (fileName.endsWith("Loading.tsx")) {
+        priority = "4_Loading";
+      } else {
+        priority = "2_Authed";
+      }
+
+      // Sort key: directory > mobile flag > base name > priority
+      const dir = path.dirname(filePath).split(path.sep).pop() || "";
+      const mobilePrefix = isMobile ? "2_" : "1_";
+      return `${dir}_${mobilePrefix}${baseName}_${priority}`;
+    };
+
+    return files
+      .map((f) => ({
+        filePath: f,
+        globKey: "./" + f.slice("src/".length),
+        importPath: path.posix.relative("src/.generated", f),
+      }))
+      .sort((a, b) => sortOrder(a.filePath).localeCompare(sortOrder(b.filePath)))
+      .map(({ globKey, importPath }) => ({ globKey, importPath }));
   }
 
   function generateSource(components: Array<DiscoveredComponent>): string {
