@@ -201,7 +201,7 @@ export function SocketRelay() {
             <Shield size={12} style={{ color: COLOR }} />
             <span style={{ fontSize: 12, fontWeight: 600, color: COLOR }}>Privacy Minimized</span>
           </div>
-          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Public projections never include identifying information. All connections are end-to-end encrypted.</div>
+          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Public projections never include identifying information. All connections are encrypted.</div>
         </div>
       </aside>
     </div>

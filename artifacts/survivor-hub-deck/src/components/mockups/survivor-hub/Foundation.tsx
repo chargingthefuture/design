@@ -473,7 +473,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                   style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}
                 >
                   All Foundation providers are background-checked, insured, and
-                  trauma-informed. All communications are end-to-end encrypted.
+                  trauma-informed. All communications are encrypted.
                 </div>
               </div>
             </div>

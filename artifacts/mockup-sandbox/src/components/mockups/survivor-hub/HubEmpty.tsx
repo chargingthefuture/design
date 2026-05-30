@@ -154,7 +154,7 @@ export function HubEmpty() {
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Why Survivor Hub?</div>
         {[
           "P2P marketplace — 17 apps",
-          "End-to-end encrypted",
+          "Encrypted",
           "Service Credits economy",
           "No data sold — ever",
         ].map(pt => (

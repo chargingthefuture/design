@@ -232,7 +232,7 @@ export function Desktop() {
                       <Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                     </button>
                   </div>
-                  <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>End-to-end encrypted · Safe space guaranteed</div>
+                  <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Encrypted · Safe space guaranteed</div>
                 </div>
               </>
             ) : (

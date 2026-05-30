@@ -35,7 +35,7 @@ export function MobileChymeEmpty() {
       <div style={{ padding: "16px", borderTop: `1px solid ${border}`, background: surface }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6, background: `${COLOR}10`, border: `1px solid ${COLOR}20`, borderRadius: 8, padding: "10px 12px" }}>
           <Mic size={13} color={COLOR} />
-          <span style={{ fontSize: 12, color: subtle }}>Rooms are end-to-end encrypted and Safe Space verified</span>
+          <span style={{ fontSize: 12, color: subtle }}>Rooms are encrypted and Safe Space verified</span>
         </div>
       </div>
     </div>

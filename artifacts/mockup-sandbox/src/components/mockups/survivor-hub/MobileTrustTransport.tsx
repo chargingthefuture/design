@@ -130,7 +130,7 @@ export function MobileTrustTransport() {
             <div style={{ textAlign: "center", padding: "40px 0" }}>
               <div style={{ fontSize: 48, marginBottom: 12 }}>{activeNav === "package" ? "📦" : "💬"}</div>
               <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>{activeNav === "package" ? "Package Delivery" : "Transport Chat"}</div>
-              <div style={{ fontSize: 13, color: "#6B7280" }}>End-to-end encrypted · Safety-first</div>
+              <div style={{ fontSize: 13, color: "#6B7280" }}>Encrypted · Safety-first</div>
             </div>
           )}
         </div>

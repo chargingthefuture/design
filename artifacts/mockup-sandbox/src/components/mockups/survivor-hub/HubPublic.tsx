@@ -55,7 +55,7 @@ export function HubPublic() {
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <ShieldCheck size={16} color="#fff" />
           <span style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>Survivor Hub · 4.9M members · $247B economy · 127 countries</span>
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.7)" }}>Free to join · End-to-end encrypted</span>
+          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.7)" }}>Free to join · Encrypted</span>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button style={{ padding: "6px 16px", borderRadius: 7, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", fontWeight: 600, fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
@@ -184,7 +184,7 @@ export function HubPublic() {
             <div style={{ fontSize: 12, fontWeight: 600, color: text, marginBottom: 8 }}>Why join?</div>
             {[
               "P2P marketplace — 17 apps",
-              "End-to-end encrypted",
+              "Encrypted",
               "Service Credits economy",
               "No data sold — ever",
             ].map(pt => (

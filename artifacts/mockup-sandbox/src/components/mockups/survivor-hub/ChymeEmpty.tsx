@@ -81,7 +81,7 @@ export function ChymeEmpty() {
           {[
             { icon: Radio, label: "Go live instantly", desc: "One tap starts a room" },
             { icon: Users, label: "Up to 1,000 listeners", desc: "Global survivor community" },
-            { icon: Lock, label: "Safe Space protected", desc: "End-to-end encrypted" },
+            { icon: Lock, label: "Safe Space protected", desc: "Encrypted" },
           ].map(({ icon: Icon, label, desc }) => (
             <div key={label} style={{ textAlign: "center", width: 160 }}>
               <Icon size={18} color={COLOR} style={{ marginBottom: 6 }} />

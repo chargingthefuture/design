@@ -257,7 +257,7 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
                 <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Ask about earning, spending, or transferring credits…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
                 <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "#0F1117" : "#4B5563" }} /></button>
               </div>
-              <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Powered by Formance · Real-time updates · End-to-end encrypted</div>
+              <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Powered by Formance · Real-time updates · Encrypted</div>
             </div>
           </div>
         )}
