@@ -79,7 +79,7 @@ export function ClickLog() {
           </div>
         </div>
         <div style={{ padding: 12, borderTop: `1px solid ${border}` }}>
-          <div style={{ fontSize: 11, color: "#4B5563", lineHeight: 1.5 }}>🔒 All data is end-to-end encrypted. Only you can see your incidents.</div>
+          <div style={{ fontSize: 11, color: "#4B5563", lineHeight: 1.5 }}>🔒 All data is encrypted. Only you can see your incidents.</div>
         </div>
       </aside>
 

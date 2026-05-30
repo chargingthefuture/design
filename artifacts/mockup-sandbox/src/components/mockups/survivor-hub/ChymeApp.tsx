@@ -132,7 +132,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
           </div>
           <div>
             <div style={{ fontSize: 17, fontWeight: 800, color: "#F0FDF4" }}>Chyme 🎙️</div>
-            <div style={{ fontSize: 12, color: "#16A34A" }}>Social Audio · End-to-End Encrypted</div>
+            <div style={{ fontSize: 12, color: "#16A34A" }}>Social Audio · Encrypted</div>
           </div>
         </div>
         <div style={{ flex: 1 }} />

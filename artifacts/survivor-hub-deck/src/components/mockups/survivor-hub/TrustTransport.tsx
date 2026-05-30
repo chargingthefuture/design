@@ -229,7 +229,7 @@ export function TrustTransport() {
           { icon: Shield, l: "Background Checked", v: "All drivers", c: "#22C55E" },
           { icon: Phone, l: "Emergency SOS", v: "One-tap alert", c: "#EF4444" },
           { icon: CheckCircle, l: "Identity Verified", v: "Photo ID required", c: COLOR },
-          { icon: Zap, l: "Real-time Tracking", v: "End-to-end encrypted", c: "#38BDF8" },
+          { icon: Zap, l: "Real-time Tracking", v: "Encrypted", c: "#38BDF8" },
         ].map(({ icon: Icon, l, v, c }) => (
           <div key={l} style={{ display: "flex", gap: 10, alignItems: "center", padding: "12px", borderRadius: 10, background: `${c}08`, border: `1px solid ${c}20`, marginBottom: 8 }}>
             <Icon size={16} style={{ color: c, flexShrink: 0 }} />

@@ -67,7 +67,7 @@ export function ClickLogPublic() {
           <div style={{ display: "flex", gap: 12, width: "100%" }}>
             {[
               { icon: Eye, label: "Private by default", desc: "No one else can see your logs — ever." },
-              { icon: ShieldCheck, label: "End-to-end encrypted", desc: "Your data is protected at rest and in transit." },
+              { icon: ShieldCheck, label: "Encrypted", desc: "Your data is protected at rest and in transit." },
               { icon: EyeOff, label: "Discreet logging", desc: "One tap — no visible confirmation needed." },
             ].map(({ icon: Icon, label, desc }) => (
               <div key={label} style={{ flex: 1, padding: "14px", borderRadius: 12, background: surface, border: `1px solid ${border}`, textAlign: "center" }}>

@@ -117,7 +117,7 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
                 </div>
                 <div style={{ padding: "20px", borderRadius: 16, background: `${COLOR}08`, border: `1px solid ${COLOR}20` }}>
                   <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 8 }}>Encrypted Chat</div>
-                  <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>All messages are end-to-end encrypted and trauma-informed by design.</div>
+                  <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>All messages are encrypted and trauma-informed by design.</div>
                 </div>
               </div>
             </div>
@@ -334,7 +334,7 @@ export function Directory({ initialEmpty = false }: { initialEmpty?: boolean } =
             <Shield size={14} style={{ color: COLOR }} />
             <span style={{ fontSize: 12, fontWeight: 600, color: COLOR }}>Privacy Guarantee</span>
           </div>
-          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your identity is protected. All interactions are end-to-end encrypted.</div>
+          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your identity is protected. All interactions are encrypted.</div>
         </div>
         <div style={{ marginTop: 12, padding: "16px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Categories</div>
