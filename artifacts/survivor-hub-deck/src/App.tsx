@@ -131,9 +131,35 @@ import { MobileClickLog } from "@/components/mockups/survivor-hub/MobileClickLog
 import { MobileClickLogEmpty } from "@/components/mockups/survivor-hub/MobileClickLogEmpty";
 import { MobileClickLogLoading } from "@/components/mockups/survivor-hub/MobileClickLogLoading";
 import { MobileClickLogPublic } from "@/components/mockups/survivor-hub/MobileClickLogPublic";
+import { TrustEmpty } from "@/components/mockups/survivor-hub/TrustEmpty";
 import { TrustLoading } from "@/components/mockups/survivor-hub/TrustLoading";
 import { TrustPublic } from "@/components/mockups/survivor-hub/TrustPublic";
 import { Trust } from "@/components/mockups/survivor-hub/Trust";
+import { MobileTrustEmpty } from "@/components/mockups/survivor-hub/MobileTrustEmpty";
+import { WeeklyPerformance } from "@/components/mockups/survivor-hub/WeeklyPerformance";
+import { WeeklyPerformanceEmpty } from "@/components/mockups/survivor-hub/WeeklyPerformanceEmpty";
+import { WeeklyPerformanceLoading } from "@/components/mockups/survivor-hub/WeeklyPerformanceLoading";
+import { WeeklyPerformancePublic } from "@/components/mockups/survivor-hub/WeeklyPerformancePublic";
+import { MobileWeeklyPerformance } from "@/components/mockups/survivor-hub/MobileWeeklyPerformance";
+import { MobileWeeklyPerformanceEmpty } from "@/components/mockups/survivor-hub/MobileWeeklyPerformanceEmpty";
+import { MobileWeeklyPerformanceLoading } from "@/components/mockups/survivor-hub/MobileWeeklyPerformanceLoading";
+import { MobileWeeklyPerformancePublic } from "@/components/mockups/survivor-hub/MobileWeeklyPerformancePublic";
+import { SkillsTaxonomy } from "@/components/mockups/survivor-hub/SkillsTaxonomy";
+import { SkillsTaxonomyEmpty } from "@/components/mockups/survivor-hub/SkillsTaxonomyEmpty";
+import { SkillsTaxonomyLoading } from "@/components/mockups/survivor-hub/SkillsTaxonomyLoading";
+import { SkillsTaxonomyPublic } from "@/components/mockups/survivor-hub/SkillsTaxonomyPublic";
+import { MobileSkillsTaxonomy } from "@/components/mockups/survivor-hub/MobileSkillsTaxonomy";
+import { MobileSkillsTaxonomyEmpty } from "@/components/mockups/survivor-hub/MobileSkillsTaxonomyEmpty";
+import { MobileSkillsTaxonomyLoading } from "@/components/mockups/survivor-hub/MobileSkillsTaxonomyLoading";
+import { MobileSkillsTaxonomyPublic } from "@/components/mockups/survivor-hub/MobileSkillsTaxonomyPublic";
+import { Unlock } from "@/components/mockups/survivor-hub/Unlock";
+import { UnlockEmpty } from "@/components/mockups/survivor-hub/UnlockEmpty";
+import { UnlockLoading } from "@/components/mockups/survivor-hub/UnlockLoading";
+import { UnlockPublic } from "@/components/mockups/survivor-hub/UnlockPublic";
+import { MobileUnlock } from "@/components/mockups/survivor-hub/MobileUnlock";
+import { MobileUnlockEmpty } from "@/components/mockups/survivor-hub/MobileUnlockEmpty";
+import { MobileUnlockLoading } from "@/components/mockups/survivor-hub/MobileUnlockLoading";
+import { MobileUnlockPublic } from "@/components/mockups/survivor-hub/MobileUnlockPublic";
 import { TrustTransportEmpty } from "@/components/mockups/survivor-hub/TrustTransportEmpty";
 import { TrustTransportLoading } from "@/components/mockups/survivor-hub/TrustTransportLoading";
 import { TrustTransportPublic } from "@/components/mockups/survivor-hub/TrustTransportPublic";
@@ -142,6 +168,13 @@ import { WorkforceEmpty } from "@/components/mockups/survivor-hub/WorkforceEmpty
 import { WorkforceLoading } from "@/components/mockups/survivor-hub/WorkforceLoading";
 import { WorkforcePublic } from "@/components/mockups/survivor-hub/WorkforcePublic";
 import { Workforce } from "@/components/mockups/survivor-hub/Workforce";
+
+// Admin wrappers — force isAdmin=true so deck shows admin views
+const WeeklyPerformanceAdmin       = () => <WeeklyPerformance isAdmin={true} />;
+const MobileWeeklyPerformanceAdmin = () => <MobileWeeklyPerformance isAdmin={true} />;
+const SkillsTaxonomyAdmin          = () => <SkillsTaxonomy isAdmin={true} />;
+const SkillsTaxonomyEmptyAdmin     = () => <SkillsTaxonomyEmpty isAdmin={true} />;
+const MobileSkillsTaxonomyEmptyAdmin = () => <MobileSkillsTaxonomyEmpty isAdmin={true} />;
 
 const COMPONENTS: Record<string, ComponentType> = {
   ClickLog, ClickLogEmpty, ClickLogLoading, ClickLogPublic,
@@ -178,9 +211,16 @@ const COMPONENTS: Record<string, ComponentType> = {
   ServiceCreditsEmpty, ServiceCreditsLoading, ServiceCreditsPublic, ServiceCredits,
   SkillsHuntEmpty, SkillsHuntLoading, SkillsHuntPublic, SkillsHunt,
   SocketRelayEmpty, SocketRelayLoading, SocketRelayPublic, SocketRelay,
-  TrustLoading, TrustPublic, Trust,
+  TrustEmpty, TrustLoading, TrustPublic, Trust,
+  MobileTrustEmpty,
   TrustTransportEmpty, TrustTransportLoading, TrustTransportPublic, TrustTransport,
   WorkforceEmpty, WorkforceLoading, WorkforcePublic, Workforce,
+  WeeklyPerformanceAdmin, WeeklyPerformanceEmpty, WeeklyPerformanceLoading, WeeklyPerformancePublic,
+  MobileWeeklyPerformanceAdmin, MobileWeeklyPerformanceEmpty, MobileWeeklyPerformanceLoading, MobileWeeklyPerformancePublic,
+  SkillsTaxonomyAdmin, SkillsTaxonomyEmptyAdmin, SkillsTaxonomyLoading, SkillsTaxonomyPublic,
+  MobileSkillsTaxonomy, MobileSkillsTaxonomyEmptyAdmin, MobileSkillsTaxonomyLoading, MobileSkillsTaxonomyPublic,
+  Unlock, UnlockEmpty, UnlockLoading, UnlockPublic,
+  MobileUnlock, MobileUnlockEmpty, MobileUnlockLoading, MobileUnlockPublic,
 };
 
 type Slide = {
@@ -210,6 +250,9 @@ const SECTION_COLORS: Record<string, string> = {
   "LevelUp":          "#10B981",
   "Trust":            "#0284C7",
   "ClickLog":         "#E91E8C",
+  "WeeklyPerformance": "#6366F1",
+  "SkillsTaxonomy":   "#7C3AED",
+  "Unlock":           "#F43F5E",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -381,9 +424,11 @@ const SLIDES: Slide[] = [
   // ── TRUST ─────────────────────────────────────────────────────────────
   web("TrustPublic",      "Web · Not Signed In",  "Trust"),
   web("Trust",            "Web · Signed In",       "Trust"),
+  web("TrustEmpty",       "Web · Empty State",     "Trust"),
   web("TrustLoading",     "Web · Loading",         "Trust"),
   mob("MobileTrustPublic","Mobile · Not Signed In","Trust"),
   mob("MobileTrust",      "Mobile · Signed In",    "Trust"),
+  mob("MobileTrustEmpty", "Mobile · Empty State",  "Trust"),
   mob("MobileTrustLoading","Mobile · Loading",     "Trust"),
 
   // ── CLICKLOG ──────────────────────────────────────────────────────────
@@ -395,6 +440,36 @@ const SLIDES: Slide[] = [
   mob("MobileClickLog",       "Mobile · Signed In",    "ClickLog"),
   mob("MobileClickLogEmpty",  "Mobile · Empty State",  "ClickLog"),
   mob("MobileClickLogLoading","Mobile · Loading",      "ClickLog"),
+
+  // ── WEEKLY PERFORMANCE (Admin) ────────────────────────────────────────
+  web("WeeklyPerformancePublic",       "Web · Not Signed In",     "WeeklyPerformance"),
+  web("WeeklyPerformanceAdmin",        "Web · Admin View",         "WeeklyPerformance"),
+  web("WeeklyPerformanceEmpty",        "Web · Empty State",        "WeeklyPerformance"),
+  web("WeeklyPerformanceLoading",      "Web · Loading",            "WeeklyPerformance"),
+  mob("MobileWeeklyPerformancePublic", "Mobile · Not Signed In",   "WeeklyPerformance"),
+  mob("MobileWeeklyPerformanceAdmin",  "Mobile · Admin View",      "WeeklyPerformance"),
+  mob("MobileWeeklyPerformanceEmpty",  "Mobile · Empty State",     "WeeklyPerformance"),
+  mob("MobileWeeklyPerformanceLoading","Mobile · Loading",         "WeeklyPerformance"),
+
+  // ── SKILLS TAXONOMY (Admin) ───────────────────────────────────────────
+  web("SkillsTaxonomyPublic",          "Web · Not Signed In",     "SkillsTaxonomy"),
+  web("SkillsTaxonomyAdmin",           "Web · Admin View",         "SkillsTaxonomy"),
+  web("SkillsTaxonomyEmptyAdmin",      "Web · Empty (Admin)",      "SkillsTaxonomy"),
+  web("SkillsTaxonomyLoading",         "Web · Loading",            "SkillsTaxonomy"),
+  mob("MobileSkillsTaxonomyPublic",    "Mobile · Not Signed In",   "SkillsTaxonomy"),
+  mob("MobileSkillsTaxonomy",          "Mobile · Admin View",      "SkillsTaxonomy"),
+  mob("MobileSkillsTaxonomyEmptyAdmin","Mobile · Empty (Admin)",   "SkillsTaxonomy"),
+  mob("MobileSkillsTaxonomyLoading",   "Mobile · Loading",         "SkillsTaxonomy"),
+
+  // ── UNLOCK ────────────────────────────────────────────────────────────
+  web("UnlockPublic",       "Web · Not Signed In",  "Unlock"),
+  web("Unlock",             "Web · Signed In",       "Unlock"),
+  web("UnlockEmpty",        "Web · Empty State",     "Unlock"),
+  web("UnlockLoading",      "Web · Loading",         "Unlock"),
+  mob("MobileUnlockPublic", "Mobile · Not Signed In","Unlock"),
+  mob("MobileUnlock",       "Mobile · Signed In",    "Unlock"),
+  mob("MobileUnlockEmpty",  "Mobile · Empty State",  "Unlock"),
+  mob("MobileUnlockLoading","Mobile · Loading",      "Unlock"),
 ];
 
 const DESKTOP_W = 1440;
