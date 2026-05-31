@@ -235,7 +235,6 @@ const SECTION_COLORS: Record<string, string> = {
   "Hub":              "#38BDF8",
   "Chyme":            "#22C55E",
   "Directory":        "#3B82F6",
-  "Community":        "#7C3AED",
   "Workforce":        "#B45309",
   "SkillsHunt":       "#D946EF",
   "Foundation":       "#EF4444",
@@ -264,12 +263,20 @@ const mob = (component: string, name: string, row: string): Slide => ({
 
 const SLIDES: Slide[] = [
   // ── HUB ──────────────────────────────────────────────────────────────
-  web("HubPublic",       "Web · Not Signed In",  "Hub"),
-  web("Desktop",         "Web · Signed In",       "Hub"),
-  web("HubLoading",      "Web · Loading",         "Hub"),
-  mob("MobileHubPublic", "Mobile · Not Signed In","Hub"),
-  mob("MobileHome",      "Mobile · Signed In",    "Hub"),
-  mob("MobileHomeLoading","Mobile · Loading",     "Hub"),
+  web("HubPublic",              "Web · Not Signed In",           "Hub"),
+  web("Desktop",                "Web · Signed In",               "Hub"),
+  web("HubLoading",             "Web · Loading",                 "Hub"),
+  web("FeedAnnouncementsPublic","Web · #community · Not Signed In","Hub"),
+  web("FeedAnnouncements",      "Web · #community · Signed In",  "Hub"),
+  web("FeedAnnouncementsEmpty", "Web · #community · Empty",      "Hub"),
+  web("FeedAnnouncementsLoading","Web · #community · Loading",   "Hub"),
+  mob("MobileHubPublic",        "Mobile · Not Signed In",        "Hub"),
+  mob("MobileHome",             "Mobile · Signed In",            "Hub"),
+  mob("MobileHomeLoading",      "Mobile · Loading",              "Hub"),
+  mob("MobileFeedPublic",       "Mobile · #community · Not Signed In","Hub"),
+  mob("MobileFeed",             "Mobile · #community · Signed In","Hub"),
+  mob("MobileFeedEmpty",        "Mobile · #community · Empty",   "Hub"),
+  mob("MobileFeedLoading",      "Mobile · #community · Loading", "Hub"),
 
   // ── CHYME ─────────────────────────────────────────────────────────────
   web("ChymePublic",      "Web · Not Signed In",  "Chyme"),
@@ -291,15 +298,6 @@ const SLIDES: Slide[] = [
   mob("MobileDirectoryEmpty", "Mobile · Empty State",  "Directory"),
   mob("MobileDirectoryLoading","Mobile · Loading",     "Directory"),
 
-  // ── COMMUNITY CHANNEL ─────────────────────────────────────────────────
-  web("FeedAnnouncementsPublic",  "Web · Not Signed In",  "Community"),
-  web("FeedAnnouncements",        "Web · Signed In",       "Community"),
-  web("FeedAnnouncementsEmpty",   "Web · Empty State",     "Community"),
-  web("FeedAnnouncementsLoading", "Web · Loading",         "Community"),
-  mob("MobileFeedPublic",         "Mobile · Not Signed In","Community"),
-  mob("MobileFeed",               "Mobile · Signed In",    "Community"),
-  mob("MobileFeedEmpty",          "Mobile · Empty State",  "Community"),
-  mob("MobileFeedLoading",        "Mobile · Loading",      "Community"),
 
   // ── WORKFORCE ─────────────────────────────────────────────────────────
   web("WorkforcePublic",      "Web · Not Signed In",  "Workforce"),
