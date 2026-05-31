@@ -22,39 +22,13 @@
       "notes": "Public-facing Hub view. #community channel is publicly readable. No blur/lock. Locked composer at bottom."
     },
     {
-      "id": "feed-announcements",
-      "name": "FeedAnnouncements",
-      "file": "src/components/mockups/survivor-hub/FeedAnnouncements.tsx",
+      "id": "hub-empty",
+      "name": "HubEmpty",
+      "file": "src/components/mockups/survivor-hub/HubEmpty.tsx",
       "kind": "screen",
-      "states": ["default", "empty"],
-      "platform": "desktop",
-      "notes": "Hub #community channel — blended stream of Official Announcements + AI Q&A + Peer posts. Empty state via initialEmpty prop."
-    },
-    {
-      "id": "feed-announcements-public",
-      "name": "FeedAnnouncementsPublic",
-      "file": "src/components/mockups/survivor-hub/FeedAnnouncementsPublic.tsx",
-      "kind": "screen",
-      "states": ["unauthenticated"],
-      "platform": "desktop",
-      "notes": "Public #community channel view. Blended stream visible without login. Locked composer: sign in to post or ask assistant."
-    },
-    {
-      "id": "feed-announcements-loading",
-      "name": "FeedAnnouncementsLoading",
-      "file": "src/components/mockups/survivor-hub/FeedAnnouncementsLoading.tsx",
-      "kind": "screen",
-      "states": ["loading"],
-      "platform": "desktop"
-    },
-    {
-      "id": "feed-announcements-empty",
-      "name": "FeedAnnouncementsEmpty",
-      "file": "src/components/mockups/survivor-hub/FeedAnnouncementsEmpty.tsx",
-      "kind": "wrapper",
       "states": ["empty"],
       "platform": "desktop",
-      "notes": "Thin wrapper: renders FeedAnnouncements with initialEmpty=true."
+      "notes": "Hub #community empty state. Invite-only, survivor-verified messaging."
     },
     {
       "id": "mobile-home",
@@ -63,40 +37,23 @@
       "kind": "screen",
       "states": ["default"],
       "platform": "mobile",
-      "notes": "Hub mobile home. AI chat + apps grid. 18 apps (Feed/Announcements absorbed into Hub homepage)."
+      "notes": "Hub mobile home. #community blended stream + apps tab. 17 apps (Feed/Announcements absorbed into Hub #community)."
     },
     {
-      "id": "mobile-feed",
-      "name": "MobileFeed",
-      "file": "src/components/mockups/survivor-hub/MobileFeed.tsx",
-      "kind": "screen",
-      "states": ["default"],
-      "platform": "mobile",
-      "notes": "Mobile #community channel — blended stream. No separate nav tabs (collapsed into one channel)."
-    },
-    {
-      "id": "mobile-feed-public",
-      "name": "MobileFeedPublic",
-      "file": "src/components/mockups/survivor-hub/MobileFeedPublic.tsx",
+      "id": "mobile-hub-public",
+      "name": "MobileHubPublic",
+      "file": "src/components/mockups/survivor-hub/MobileHubPublic.tsx",
       "kind": "screen",
       "states": ["unauthenticated"],
       "platform": "mobile",
-      "notes": "Public mobile channel view. No blur. Locked composer + join CTA."
+      "notes": "Public mobile Hub #community view. Blended stream, no blur. Locked composer + join CTA."
     },
     {
-      "id": "mobile-feed-empty",
-      "name": "MobileFeedEmpty",
-      "file": "src/components/mockups/survivor-hub/MobileFeedEmpty.tsx",
+      "id": "mobile-home-empty",
+      "name": "MobileHomeEmpty",
+      "file": "src/components/mockups/survivor-hub/MobileHomeEmpty.tsx",
       "kind": "screen",
       "states": ["empty"],
-      "platform": "mobile"
-    },
-    {
-      "id": "mobile-feed-loading",
-      "name": "MobileFeedLoading",
-      "file": "src/components/mockups/survivor-hub/MobileFeedLoading.tsx",
-      "kind": "screen",
-      "states": ["loading"],
       "platform": "mobile"
     },
     {
@@ -166,8 +123,8 @@
     "notes": "Single blended stream. No multi-channel sidebar. No separate Feed/Announcements app tile."
   },
   "app_count": {
-    "user_facing_label": "18 apps",
-    "operator_label": "18 plugins",
+    "user_facing_label": "17 apps",
+    "operator_label": "17 plugins",
     "note": "Feed/Announcements absorbed into Hub homepage (#community channel). Not a separate app tile."
   }
 }

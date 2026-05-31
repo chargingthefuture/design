@@ -11,10 +11,6 @@ import { DirectoryEmpty } from "@/components/mockups/survivor-hub/DirectoryEmpty
 import { DirectoryLoading } from "@/components/mockups/survivor-hub/DirectoryLoading";
 import { DirectoryPublic } from "@/components/mockups/survivor-hub/DirectoryPublic";
 import { Directory } from "@/components/mockups/survivor-hub/Directory";
-import { FeedAnnouncementsEmpty } from "@/components/mockups/survivor-hub/FeedAnnouncementsEmpty";
-import { FeedAnnouncementsLoading } from "@/components/mockups/survivor-hub/FeedAnnouncementsLoading";
-import { FeedAnnouncementsPublic } from "@/components/mockups/survivor-hub/FeedAnnouncementsPublic";
-import { FeedAnnouncements } from "@/components/mockups/survivor-hub/FeedAnnouncements";
 import { FoundationEmpty } from "@/components/mockups/survivor-hub/FoundationEmpty";
 import { FoundationLoading } from "@/components/mockups/survivor-hub/FoundationLoading";
 import { FoundationPublic } from "@/components/mockups/survivor-hub/FoundationPublic";
@@ -27,6 +23,7 @@ import { GentlePulseEmpty } from "@/components/mockups/survivor-hub/GentlePulseE
 import { GentlePulseLoading } from "@/components/mockups/survivor-hub/GentlePulseLoading";
 import { GentlePulsePublic } from "@/components/mockups/survivor-hub/GentlePulsePublic";
 import { GentlePulse } from "@/components/mockups/survivor-hub/GentlePulse";
+import { HubEmpty } from "@/components/mockups/survivor-hub/HubEmpty";
 import { HubLoading } from "@/components/mockups/survivor-hub/HubLoading";
 import { HubPublic } from "@/components/mockups/survivor-hub/HubPublic";
 import LevelUpDefault from "@/components/mockups/survivor-hub/LevelUp";
@@ -45,10 +42,6 @@ import { MobileDirectoryEmpty } from "@/components/mockups/survivor-hub/MobileDi
 import { MobileDirectoryLoading } from "@/components/mockups/survivor-hub/MobileDirectoryLoading";
 import { MobileDirectoryPublic } from "@/components/mockups/survivor-hub/MobileDirectoryPublic";
 import { MobileDirectory } from "@/components/mockups/survivor-hub/MobileDirectory";
-import { MobileFeedEmpty } from "@/components/mockups/survivor-hub/MobileFeedEmpty";
-import { MobileFeedLoading } from "@/components/mockups/survivor-hub/MobileFeedLoading";
-import { MobileFeedPublic } from "@/components/mockups/survivor-hub/MobileFeedPublic";
-import { MobileFeed } from "@/components/mockups/survivor-hub/MobileFeed";
 import { MobileFoundationEmpty } from "@/components/mockups/survivor-hub/MobileFoundationEmpty";
 import { MobileFoundationLoading } from "@/components/mockups/survivor-hub/MobileFoundationLoading";
 import { MobileFoundationPublic } from "@/components/mockups/survivor-hub/MobileFoundationPublic";
@@ -61,6 +54,7 @@ import { MobileGentlePulseEmpty } from "@/components/mockups/survivor-hub/Mobile
 import { MobileGentlePulseLoading } from "@/components/mockups/survivor-hub/MobileGentlePulseLoading";
 import { MobileGentlePulsePublic } from "@/components/mockups/survivor-hub/MobileGentlePulsePublic";
 import { MobileGentlePulse } from "@/components/mockups/survivor-hub/MobileGentlePulse";
+import { MobileHomeEmpty } from "@/components/mockups/survivor-hub/MobileHomeEmpty";
 import { MobileHomeLoading } from "@/components/mockups/survivor-hub/MobileHomeLoading";
 import { MobileHome } from "@/components/mockups/survivor-hub/MobileHome";
 import { MobileHubPublic } from "@/components/mockups/survivor-hub/MobileHubPublic";
@@ -182,20 +176,18 @@ const COMPONENTS: Record<string, ComponentType> = {
   ChymeApp, ChymeEmpty, ChymeLoading, ChymePublic, Chyme,
   Desktop,
   DirectoryEmpty, DirectoryLoading, DirectoryPublic, Directory,
-  FeedAnnouncementsEmpty, FeedAnnouncementsLoading, FeedAnnouncementsPublic, FeedAnnouncements,
   FoundationEmpty, FoundationLoading, FoundationPublic, Foundation,
   GDPEmpty, GDPLoading, GDPPublic, GDP,
   GentlePulseEmpty, GentlePulseLoading, GentlePulsePublic, GentlePulse,
-  HubLoading, HubPublic,
+  HubEmpty, HubLoading, HubPublic,
   LevelUp: LevelUpDefault, LevelUpEmpty, LevelUpLoading, LevelUpPublic,
   LightHouseEmpty, LightHouseLoading, LightHousePublic, LightHouse,
   MobileChymeEmpty, MobileChymeLoading, MobileChymePublic, MobileChyme,
   MobileDirectoryEmpty, MobileDirectoryLoading, MobileDirectoryPublic, MobileDirectory,
-  MobileFeedEmpty, MobileFeedLoading, MobileFeedPublic, MobileFeed,
   MobileFoundationEmpty, MobileFoundationLoading, MobileFoundationPublic, MobileFoundation,
   MobileGDPEmpty, MobileGDPLoading, MobileGDPPublic, MobileGDP,
   MobileGentlePulseEmpty, MobileGentlePulseLoading, MobileGentlePulsePublic, MobileGentlePulse,
-  MobileHomeLoading, MobileHome, MobileHubPublic,
+  MobileHomeEmpty, MobileHomeLoading, MobileHome, MobileHubPublic,
   MobileLevelUp: MobileLevelUpDefault, MobileLevelUpEmpty, MobileLevelUpLoading, MobileLevelUpPublic,
   MobileLightHouseEmpty, MobileLightHouseLoading, MobileLightHousePublic, MobileLightHouse,
   MobileMoodEmpty, MobileMoodLoading, MobileMoodPublic, MobileMood,
@@ -265,18 +257,12 @@ const SLIDES: Slide[] = [
   // ── HUB ──────────────────────────────────────────────────────────────
   web("HubPublic",              "Web · Not Signed In",           "Hub"),
   web("Desktop",                "Web · Signed In",               "Hub"),
+  web("HubEmpty",               "Web · Empty",                   "Hub"),
   web("HubLoading",             "Web · Loading",                 "Hub"),
-  web("FeedAnnouncementsPublic","Web · #community · Not Signed In","Hub"),
-  web("FeedAnnouncements",      "Web · #community · Signed In",  "Hub"),
-  web("FeedAnnouncementsEmpty", "Web · #community · Empty",      "Hub"),
-  web("FeedAnnouncementsLoading","Web · #community · Loading",   "Hub"),
   mob("MobileHubPublic",        "Mobile · Not Signed In",        "Hub"),
   mob("MobileHome",             "Mobile · Signed In",            "Hub"),
+  mob("MobileHomeEmpty",        "Mobile · Empty",                "Hub"),
   mob("MobileHomeLoading",      "Mobile · Loading",              "Hub"),
-  mob("MobileFeedPublic",       "Mobile · #community · Not Signed In","Hub"),
-  mob("MobileFeed",             "Mobile · #community · Signed In","Hub"),
-  mob("MobileFeedEmpty",        "Mobile · #community · Empty",   "Hub"),
-  mob("MobileFeedLoading",      "Mobile · #community · Loading", "Hub"),
 
   // ── CHYME ─────────────────────────────────────────────────────────────
   web("ChymePublic",      "Web · Not Signed In",  "Chyme"),

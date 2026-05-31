@@ -8,7 +8,7 @@ import {
   BarChart2, Heart, Smile, Share2, Search, Send, Plus,
   ChevronRight, Sparkles, Radio, Bell, Settings, MessageSquare,
   Hash, Zap, ArrowUpRight, X, ShieldCheck, Eye, ChevronDown,
-  Award, Target,
+  Award, Target, MessageCircle, Bookmark, Pin, AlertCircle,
 } from "lucide-react";
 import { ChymeApp } from "./Chyme";
 
@@ -29,31 +29,74 @@ const MINI_APPS = [
   { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, desc: "Training cohort marketplace", color: "#22C55E", bg: "#052e16" },
 ];
 
-const CHAT_MESSAGES = [
-  { id: 1, from: "hub", text: "Welcome back, Survivor. You have 3 new opportunities in your network today.", time: "9:01 AM" },
-  { id: 2, from: "user", text: "Show me housing options near me", time: "9:03 AM" },
-  { id: 3, from: "hub", text: "I found 12 verified safe housing listings through LightHouse. Two are accepting Service Credits. Want me to open LightHouse?", time: "9:03 AM", action: { label: "Open LightHouse →", app: "lighthouse" } },
-  { id: 4, from: "user", text: "What's the GDP tracker showing this week?", time: "9:05 AM" },
-  { id: 5, from: "hub", text: "The TI Skills Economy is at $247B of its $300B opportunity. Your skills are contributing to Workforce. 4.9M active members globally.", time: "9:05 AM", stat: { label: "$247B", sub: "of $300B opportunity" } },
-];
-
-const SUGGESTED = ["Find a tradesperson", "Join a Chyme room", "Check my Service Credits", "Open meditation", "View skills directory"];
 const CHANNELS = [
   { name: "community", unread: 0 },
+];
+
+type StreamAnnouncement = {
+  id: number; type: "announcement";
+  author: string; avatar: string; time: string;
+  pinned: boolean; urgent: boolean; body: string; link: string;
+};
+type StreamQA = {
+  id: number; type: "ai_qa";
+  question: string; askedBy: string; time: string; answer: string;
+};
+type StreamPost = {
+  id: number; type: "community";
+  author: string; avatar: string; authorColor: string; time: string;
+  body: string; replies: number; hearts: number;
+};
+type StreamItem = StreamAnnouncement | StreamQA | StreamPost;
+
+const STREAM: StreamItem[] = [
+  {
+    id: 1, type: "announcement",
+    author: "Survivor Hub", avatar: "SH", time: "just now", pinned: true, urgent: false,
+    body: "12 survivors housed in Houston this week via LightHouse — 4 slots still available for ServiceCredits holders. Apply before Friday.",
+    link: "Open LightHouse →",
+  },
+  {
+    id: 2, type: "community",
+    author: "Amara O.", avatar: "AO", authorColor: "#22C55E", time: "18 min ago",
+    body: "My 6-month journey from survivor to employed: Workforce showed my skill gaps, SkillsHunt helped me level up, Foundation got me my first verified gig. It's real. 🙌",
+    replies: 14, hearts: 89,
+  },
+  {
+    id: 3, type: "ai_qa",
+    question: "How do I earn my first ServiceCredits?",
+    askedBy: "Maria G.", time: "34 min ago",
+    answer: "Fastest paths: complete a Foundation gig (15–45 credits), finish a SkillsHunt badge (10–30 credits), or fulfill a SocketRelay request (5–20 credits). Credits appear in your wallet instantly after verification.",
+  },
+  {
+    id: 4, type: "announcement",
+    author: "Survivor Hub", avatar: "SH", time: "1 hr ago", pinned: false, urgent: true,
+    body: "⚠️ Safety notice: 47 emergency housing slots verified in Houston, TX. 12 accept ServiceCredits. Contact LightHouse directly — do not use third-party referrals.",
+    link: "View Listings →",
+  },
+  {
+    id: 5, type: "community",
+    author: "James T.", avatar: "JT", authorColor: "#3B82F6", time: "2 hr ago",
+    body: "ServiceCredits 101: earn through verified work (Foundation, SkillsHunt, SocketRelay), spend on housing (LightHouse) or transport (TrustTransport), trade peer-to-peer. Utility token, no fiat conversion.",
+    replies: 9, hearts: 63,
+  },
+  {
+    id: 6, type: "ai_qa",
+    question: "Can I browse housing listings without an account?",
+    askedBy: "David K.", time: "3 hr ago",
+    answer: "Yes — LightHouse listings are publicly browsable. You need an account to contact hosts or pay with ServiceCredits.",
+  },
 ];
 
 export function Desktop() {
   const [activeApp, setActiveApp] = useState<string | null>(null);
   const [openApp, setOpenApp] = useState<string | null>(null);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState(CHAT_MESSAGES);
   const [section, setSection] = useState<"chat" | "apps">("chat");
+  const [liked, setLiked] = useState<number[]>([]);
+  const [postMode, setPostMode] = useState<"post" | "ask">("post");
 
-  const handleSend = () => {
-    if (!input.trim()) return;
-    setMessages((m) => [...m, { id: Date.now(), from: "user", text: input, time: "Now" }]);
-    setInput("");
-  };
+  const toggleLike = (id: number) => setLiked((l) => l.includes(id) ? l.filter((x) => x !== id) : [...l, id]);
 
   if (openApp === "chyme") {
     return <ChymeApp onClose={() => setOpenApp(null)} />;
@@ -186,46 +229,111 @@ export function Desktop() {
                 </div>
 
                 <ScrollArea style={{ flex: 1, padding: "16px 24px" }}>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                    {messages.map((msg) => (
-                      <div key={msg.id} style={{ display: "flex", flexDirection: msg.from === "user" ? "row-reverse" : "row", gap: 10, alignItems: "flex-end" }}>
-                        {msg.from === "hub" && (
-                          <div style={{ width: 32, height: 32, borderRadius: 10, background: "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: "#fff", flexShrink: 0 }}>SH</div>
-                        )}
-                        <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: 6 }}>
-                          <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? "linear-gradient(135deg,#7C3AED 0%,#6D28D9 100%)" : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "#E8EAF0" }}>{msg.text}</div>
-                          {(msg as any).action && (
-                            <button onClick={() => { setActiveApp("chyme"); setSection("apps"); }} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.25)", color: "#38BDF8", fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>
-                              {(msg as any).action.label}<ArrowUpRight size={13} />
-                            </button>
-                          )}
-                          {(msg as any).stat && (
-                            <div style={{ padding: "10px 14px", borderRadius: 10, background: "rgba(6,182,212,0.08)", border: "1px solid rgba(6,182,212,0.15)", display: "flex", gap: 10, alignItems: "center" }}>
-                              <Globe size={16} style={{ color: "#06B6D4" }} />
-                              <div>
-                                <div style={{ fontSize: 18, fontWeight: 800, color: "#22D3EE" }}>{(msg as any).stat.label}</div>
-                                <div style={{ fontSize: 11, color: "#6B7280" }}>{(msg as any).stat.sub}</div>
-                              </div>
+                  {STREAM.map((item) => {
+                    if (item.type === "announcement") {
+                      const ann = item as StreamAnnouncement;
+                      return (
+                        <div key={ann.id} style={{ marginBottom: 16, padding: "20px", borderRadius: 16, background: ann.urgent ? "rgba(239,68,68,0.04)" : "rgba(124,58,237,0.05)", border: `1px solid ${ann.urgent ? "rgba(239,68,68,0.25)" : "rgba(124,58,237,0.22)"}`, position: "relative" }}>
+                          {ann.pinned && (
+                            <div style={{ position: "absolute", top: 16, right: 16, display: "flex", alignItems: "center", gap: 4 }}>
+                              <Pin size={12} style={{ color: "#A78BFA" }} />
+                              <span style={{ fontSize: 11, color: "#A78BFA", fontWeight: 600 }}>Pinned</span>
                             </div>
                           )}
-                          <div style={{ fontSize: 11, color: "#4B5563", textAlign: msg.from === "user" ? "right" : "left" }}>{msg.time}</div>
+                          {ann.urgent && (
+                            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10, padding: "5px 10px", borderRadius: 6, background: "#EF444415", border: "1px solid #EF444330", width: "fit-content" }}>
+                              <AlertCircle size={11} style={{ color: "#EF4444" }} />
+                              <span style={{ fontSize: 11, fontWeight: 700, color: "#EF4444" }}>URGENT</span>
+                            </div>
+                          )}
+                          <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
+                            <div style={{ width: 40, height: 40, borderRadius: 12, background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: "#fff", flexShrink: 0 }}>SH</div>
+                            <div>
+                              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                                <span style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>Survivor Hub</span>
+                                <Badge style={{ background: "rgba(124,58,237,0.18)", color: "#A78BFA", border: "1px solid rgba(124,58,237,0.32)", fontSize: 10, padding: "2px 7px", borderRadius: 4 }}>📣 Official</Badge>
+                              </div>
+                              <div style={{ fontSize: 12, color: "#4B5563" }}>{ann.time}</div>
+                            </div>
+                          </div>
+                          <div style={{ fontSize: 14, color: "#D1D5DB", lineHeight: 1.7, marginBottom: 14 }}>{ann.body}</div>
+                          {ann.link && (
+                            <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.3)", color: "#A78BFA", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+                              {ann.link} <ArrowUpRight size={13} />
+                            </button>
+                          )}
+                        </div>
+                      );
+                    }
+                    if (item.type === "ai_qa") {
+                      const qa = item as StreamQA;
+                      return (
+                        <div key={qa.id} style={{ marginBottom: 16, padding: "20px", borderRadius: 16, background: "rgba(14,165,233,0.04)", border: "1px solid rgba(14,165,233,0.18)" }}>
+                          <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
+                            <div style={{ width: 40, height: 40, borderRadius: 12, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.25)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                              <Sparkles size={18} style={{ color: "#38BDF8" }} />
+                            </div>
+                            <div>
+                              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                                <span style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>AI Assistant</span>
+                                <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.28)", fontSize: 10, padding: "2px 7px", borderRadius: 4 }}>🤖 AI Q&A</Badge>
+                              </div>
+                              <div style={{ fontSize: 12, color: "#4B5563" }}>Asked by {qa.askedBy} · {qa.time}</div>
+                            </div>
+                          </div>
+                          <div style={{ marginBottom: 10, padding: "10px 14px", borderRadius: 10, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                            <span style={{ fontSize: 12, color: "#38BDF8", fontWeight: 600 }}>Q: </span>
+                            <span style={{ fontSize: 14, color: "#9CA3AF" }}>{qa.question}</span>
+                          </div>
+                          <div style={{ fontSize: 14, color: "#D1D5DB", lineHeight: 1.7 }}>
+                            <span style={{ fontSize: 12, color: "#38BDF8", fontWeight: 600 }}>A: </span>
+                            {qa.answer}
+                          </div>
+                        </div>
+                      );
+                    }
+                    const post = item as StreamPost;
+                    return (
+                      <div key={post.id} style={{ marginBottom: 16, padding: "20px", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                        <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
+                          <div style={{ width: 40, height: 40, borderRadius: 12, background: `${post.authorColor}22`, border: `1px solid ${post.authorColor}38`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: post.authorColor, flexShrink: 0 }}>{post.avatar}</div>
+                          <div>
+                            <span style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>{post.author}</span>
+                            <div style={{ fontSize: 12, color: "#4B5563" }}>{post.time}</div>
+                          </div>
+                        </div>
+                        <div style={{ fontSize: 14, color: "#D1D5DB", lineHeight: 1.7, marginBottom: 14 }}>{post.body}</div>
+                        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+                          <button onClick={() => toggleLike(post.id)} style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: liked.includes(post.id) ? "#EC4899" : "#6B7280", fontSize: 13 }}>
+                            <Heart size={15} fill={liked.includes(post.id) ? "#EC4899" : "none"} /> {post.hearts + (liked.includes(post.id) ? 1 : 0)}
+                          </button>
+                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "#6B7280", fontSize: 13 }}>
+                            <MessageCircle size={15} /> {post.replies}
+                          </button>
+                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "#6B7280", fontSize: 13 }}>
+                            <Share2 size={15} /> Share
+                          </button>
+                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "#6B7280", fontSize: 13, marginLeft: "auto" }}>
+                            <Bookmark size={15} />
+                          </button>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </ScrollArea>
 
-                <div style={{ padding: "0 24px 8px", display: "flex", gap: 8, flexWrap: "wrap" }}>
-                  {SUGGESTED.map((s) => (
-                    <button key={s} onClick={() => setInput(s)} style={{ padding: "6px 14px", borderRadius: 20, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", fontSize: 13, color: "#9CA3AF", cursor: "pointer" }}>{s}</button>
-                  ))}
-                </div>
-
                 <div style={{ padding: "8px 24px 20px" }}>
+                  <div style={{ display: "flex", gap: 6, marginBottom: 8 }}>
+                    {(["post", "ask"] as const).map((mode) => (
+                      <button key={mode} onClick={() => setPostMode(mode)} style={{ padding: "5px 14px", borderRadius: 20, background: postMode === mode ? "rgba(124,58,237,0.2)" : "rgba(255,255,255,0.04)", border: postMode === mode ? "1px solid rgba(124,58,237,0.4)" : "1px solid rgba(255,255,255,0.08)", color: postMode === mode ? "#A78BFA" : "#6B7280", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>
+                        {mode === "post" ? "Post to community" : "Ask the assistant"}
+                      </button>
+                    ))}
+                  </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                     <Plus size={18} style={{ color: "#4B5563", cursor: "pointer", flexShrink: 0 }} />
-                    <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSend()} placeholder="Ask Survivor Hub anything, or search resources…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
-                    <button onClick={handleSend} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)" : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
+                    <input value={input} onChange={(e) => setInput(e.target.value)} placeholder={postMode === "post" ? "Share something with the community…" : "Ask the AI assistant anything…"} style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                    <button style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)" : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
                       <Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                     </button>
                   </div>
