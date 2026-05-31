@@ -8,7 +8,7 @@ import {
   BarChart2, Heart, Smile, Share2, Search, Send, Plus,
   ChevronRight, Sparkles, Radio, Bell, Settings, MessageSquare,
   Hash, Zap, ArrowUpRight, X, ShieldCheck, Eye, ChevronDown,
-  Megaphone, Award, Target,
+  Award, Target,
 } from "lucide-react";
 import { ChymeApp } from "./Chyme";
 
@@ -25,7 +25,6 @@ const MINI_APPS = [
   { id: "gentlepulse", name: "GentlePulse", emoji: "💚", icon: Heart, desc: "Guided meditation", color: "#14B8A6", bg: "#011c1a" },
   { id: "mood", name: "Mood", emoji: "😁", icon: Smile, desc: "Anonymous mood check-ins", color: "#EC4899", bg: "#1c0416" },
   { id: "socketrelay", name: "SocketRelay", emoji: "🔂", icon: Share2, desc: "Mutual aid network", color: "#F43F5E", bg: "#1c0409" },
-  { id: "feed", name: "Feed", emoji: "📣", icon: Megaphone, desc: "Community pulse & alerts", color: "#8B5CF6", bg: "#150d2e" },
   { id: "skillshunt", name: "Skills Hunt", emoji: "🎓", icon: Award, desc: "Cohort learning & badges", color: "#A855F7", bg: "#1a0d2e" },
   { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, desc: "Training cohort marketplace", color: "#22C55E", bg: "#052e16" },
 ];
@@ -40,10 +39,7 @@ const CHAT_MESSAGES = [
 
 const SUGGESTED = ["Find a tradesperson", "Join a Chyme room", "Check my Service Credits", "Open meditation", "View skills directory"];
 const CHANNELS = [
-  { name: "general", unread: 3 },
-  { name: "housing-help", unread: 1 },
-  { name: "skills-trade", unread: 0 },
-  { name: "mutual-aid", unread: 7 },
+  { name: "community", unread: 0 },
 ];
 
 export function Desktop() {
@@ -117,9 +113,9 @@ export function Desktop() {
           {section === "chat" ? (
             <div style={{ padding: "0 8px 16px" }}>
               {CHANNELS.map((ch) => (
-                <div key={ch.name} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: ch.name === "general" ? "rgba(124,58,237,0.12)" : "transparent" }}>
+                <div key={ch.name} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: ch.name === "community" ? "rgba(124,58,237,0.12)" : "transparent" }}>
                   <Hash size={15} style={{ color: ch.unread > 0 ? "#9CA3AF" : "#4B5563", flexShrink: 0 }} />
-                  <span style={{ fontSize: 14, color: ch.unread > 0 || ch.name === "general" ? "#E8EAF0" : "#6B7280", flex: 1 }}>{ch.name}</span>
+                  <span style={{ fontSize: 14, color: ch.unread > 0 || ch.name === "community" ? "#E8EAF0" : "#6B7280", flex: 1 }}>{ch.name}</span>
                   {ch.unread > 0 && <span style={{ background: "#7C3AED", borderRadius: 10, fontSize: 11, fontWeight: 700, color: "#fff", padding: "1px 6px" }}>{ch.unread}</span>}
                 </div>
               ))}
@@ -158,7 +154,7 @@ export function Desktop() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
         <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>{section === "chat" ? "# general" : activeApp ? MINI_APPS.find((a) => a.id === activeApp)?.name : "All Mini-Apps"}</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>{section === "chat" ? "# community" : activeApp ? MINI_APPS.find((a) => a.id === activeApp)?.name : "All Mini-Apps"}</div>
             <div style={{ fontSize: 12, color: "#6B7280" }}>{section === "chat" ? "Community · 4,912 online" : "Your peer-to-peer marketplace"}</div>
           </div>
           <div style={{ display: "flex", gap: 8 }}>
@@ -233,7 +229,7 @@ export function Desktop() {
                       <Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                     </button>
                   </div>
-                  <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>End-to-end encrypted · Safe space guaranteed</div>
+                  <div style={{ textAlign: "center", fontSize: 11, color: "#374151", marginTop: 8 }}>Safe space guaranteed · Survivor Hub</div>
                 </div>
               </>
             ) : (
@@ -311,7 +307,7 @@ export function Desktop() {
 
                   {/* Steps to earn trust — all unchecked */}
                   <div style={{ display: "flex", flexDirection: "column", gap: 6, marginBottom: 12 }}>
-                    {["Complete your profile", "Make your first transaction", "Use at least one plugin"].map((label) => (
+                    {["Complete your profile", "Make your first transaction", "Use at least one app"].map((label) => (
                       <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 9px", background: "rgba(255,255,255,0.02)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)" }}>
                         <div style={{ width: 16, height: 16, borderRadius: "50%", border: "1.5px solid rgba(255,255,255,0.12)", flexShrink: 0 }} />
                         <span style={{ fontSize: 11, color: "#6B7280" }}>{label}</span>

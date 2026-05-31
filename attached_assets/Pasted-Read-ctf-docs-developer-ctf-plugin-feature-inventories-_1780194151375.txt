@@ -1,0 +1,82 @@
+Read ctf/docs/developer/ctf-plugin-feature-inventories/ctf-survivor-hub-chat-feature-inventory.md
+(esp. the "Consolidation Decision" section) and reconcile the survivor-hub mockups in
+design/artifacts/mockup-sandbox/.../survivor-hub/ to it: one blended, publicly-viewable
+channel interleaving admin announcements + AI Q&A + peer posts; no standalone Feed/Announcements
+app or multi-channel sidebar. Update sync-manifest.json; keep desktop+mobile and all four states.
+
+
+CONTEXT — what changed in the app (reconcile the mockups to this)
+
+We consolidated two surfaces into ONE. The "feed-announcements" plugin has been
+absorbed into the Survivor Hub, which is now the single app HOMEPAGE. There is no
+longer a standalone "Feed + Announcements" app — it has been retired/aliased into
+the Hub.
+
+The Hub homepage now presents ONE blended, publicly-viewable channel (named
+"community") that interleaves three content types in a single chronological stream:
+
+  1. Announcements — authored ONLY by an admin (the owner). No other user can post
+     announcements.
+  2. AI Q&A — the Hub's AI chat assistant. Users ask questions; the assistant answers
+     inline in the same stream.
+  3. Peer-to-peer community posts — the ONLY user-authored social surface in the whole
+     product. Publicly viewable (even unauthenticated) on purpose: visibility keeps
+     behavior good and shows real people benefiting from the economy.
+
+Product stance to reflect everywhere: this is deliberately NOT social media. Keep
+user-authored free content minimal and economy-scoped. No separate "Questions" app,
+no separate "Announcements" app, no multi-channel sidebar for now — it is a SINGLE
+blended channel.
+
+Final implemented facts for this handover:
+  - Consolidated plugin slug / route
+    announcements)
+
+YOUR TASK — modify the existing wireframes/mockups
+
+Work in design/artifacts/mockup-sandbox/src/components/mockups/survivor-hub/. Update
+the existing components rather than creating a parallel set:
+
+  - FeedAnnouncements.tsx (+ Loading / Empty / Public variants): make this the single
+    blended stream. Each item must be visually typed as one of {Announcement (admin),
+    AI answer, Community post}, but they share ONE timeline — do not split into tabs or
+    separate columns. Announcements are clearly marked as official/admin and pinned-
+    capable. AI answers render as assistant replies inline. Community posts show author
+    + reply affordance.
+  - HubPublic.tsx / Desktop.tsx / MobileHome.tsx (+ Loading/Empty/Public): make the Hub
+    the homepage. The blended channel above is the primary content. Remove any UI that
+    implies a separate Feed/Announcements app or a Questions app. Keep the AI chat
+    assistant entry point ("ask the assistant") wired into the same stream, not a
+    separate screen.
+  - Show the public (unauthenticated) state clearly — the channel is readable without
+    login; posting/asking requires auth.
+
+Specifically REMOVE / RECONCILE:
+  - Any standalone Feed or Announcements navigation entry, icon-rail item, or mini-app
+    tile. The Hub IS the home; it should not also appear as a separate app.
+  - Any multi-channel sidebar that implies several channels today — show the single
+    "community" channel
+
+KEEP / PRESERVE:
+  - Desktop AND mobile parity (every screen exists in both).
+  - All four states per surface: default (authenticated), loading, empty, public.
+  - The design-sync conventions: keep the "// design-sync" header, and register/update
+    entries in design/sync-manifest.json for any added or renamed files.
+  - Existing visual system (Discord-style icon rail + main channel + right rail on
+    desktop; chat-first home on mobile), community-stats right rail, Safe Space
+    verification badge.
+
+COPY / VOICE:
+  - Follow the brand voice (warm, dignity-first, "From Survivor to Thriver"). No phased
+    language anywhere ("Phase 1/2", "later phase"). Use realistic economy-scoped examples (e.g. "12 survivors housed,
+    4 slots open — see LightHouse"), not generic social-media filler.
+
+DELIVERABLE:
+  - Updated mockup components + updated sync-manifest.json, with the unified blended
+    channel shown across desktop + mobile and all four states. Flag in your summary any
+    place where the old separate-Feed concept still lingers so we can confirm it's gone.
+
+General things to note about copy:
+- Nothing in the app is end-to-end encrypted
+- Never use "Phases," the entire code base is intended to not have any stubs, fake features, etc. The coding agent is fixing that. Design should not show that anything isn't live or in beta.
+- "Plugins" is the language I use as the operator of the app. User facing it should stick to "apps" like the landing page for consistency and is a recongized concept for general population of users.

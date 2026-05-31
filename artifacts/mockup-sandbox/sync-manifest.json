@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "updated": "2026-05-31",
+  "note": "design-sync: all components marked with // design-sync header. Single source of truth for the Survivor Hub mockup deck.",
+  "components": [
+    {
+      "id": "hub-desktop",
+      "name": "Desktop",
+      "file": "src/components/mockups/survivor-hub/Desktop.tsx",
+      "kind": "screen",
+      "states": ["default"],
+      "platform": "desktop",
+      "notes": "Hub home — icon rail + #community channel + right rail. AI chat as primary interaction."
+    },
+    {
+      "id": "hub-public",
+      "name": "HubPublic",
+      "file": "src/components/mockups/survivor-hub/HubPublic.tsx",
+      "kind": "screen",
+      "states": ["unauthenticated"],
+      "platform": "desktop",
+      "notes": "Public-facing Hub view. #community channel is publicly readable. No blur/lock. Locked composer at bottom."
+    },
+    {
+      "id": "feed-announcements",
+      "name": "FeedAnnouncements",
+      "file": "src/components/mockups/survivor-hub/FeedAnnouncements.tsx",
+      "kind": "screen",
+      "states": ["default", "empty"],
+      "platform": "desktop",
+      "notes": "Hub #community channel — blended stream of Official Announcements + AI Q&A + Peer posts. Empty state via initialEmpty prop."
+    },
+    {
+      "id": "feed-announcements-public",
+      "name": "FeedAnnouncementsPublic",
+      "file": "src/components/mockups/survivor-hub/FeedAnnouncementsPublic.tsx",
+      "kind": "screen",
+      "states": ["unauthenticated"],
+      "platform": "desktop",
+      "notes": "Public #community channel view. Blended stream visible without login. Locked composer: sign in to post or ask assistant."
+    },
+    {
+      "id": "feed-announcements-loading",
+      "name": "FeedAnnouncementsLoading",
+      "file": "src/components/mockups/survivor-hub/FeedAnnouncementsLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "desktop"
+    },
+    {
+      "id": "feed-announcements-empty",
+      "name": "FeedAnnouncementsEmpty",
+      "file": "src/components/mockups/survivor-hub/FeedAnnouncementsEmpty.tsx",
+      "kind": "wrapper",
+      "states": ["empty"],
+      "platform": "desktop",
+      "notes": "Thin wrapper: renders FeedAnnouncements with initialEmpty=true."
+    },
+    {
+      "id": "mobile-home",
+      "name": "MobileHome",
+      "file": "src/components/mockups/survivor-hub/MobileHome.tsx",
+      "kind": "screen",
+      "states": ["default"],
+      "platform": "mobile",
+      "notes": "Hub mobile home. AI chat + apps grid. 18 apps (Feed/Announcements absorbed into Hub homepage)."
+    },
+    {
+      "id": "mobile-feed",
+      "name": "MobileFeed",
+      "file": "src/components/mockups/survivor-hub/MobileFeed.tsx",
+      "kind": "screen",
+      "states": ["default"],
+      "platform": "mobile",
+      "notes": "Mobile #community channel — blended stream. No separate nav tabs (collapsed into one channel)."
+    },
+    {
+      "id": "mobile-feed-public",
+      "name": "MobileFeedPublic",
+      "file": "src/components/mockups/survivor-hub/MobileFeedPublic.tsx",
+      "kind": "screen",
+      "states": ["unauthenticated"],
+      "platform": "mobile",
+      "notes": "Public mobile channel view. No blur. Locked composer + join CTA."
+    },
+    {
+      "id": "mobile-feed-empty",
+      "name": "MobileFeedEmpty",
+      "file": "src/components/mockups/survivor-hub/MobileFeedEmpty.tsx",
+      "kind": "screen",
+      "states": ["empty"],
+      "platform": "mobile"
+    },
+    {
+      "id": "mobile-feed-loading",
+      "name": "MobileFeedLoading",
+      "file": "src/components/mockups/survivor-hub/MobileFeedLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "mobile"
+    },
+    {
+      "id": "chyme",
+      "name": "ChymeApp",
+      "file": "src/components/mockups/survivor-hub/Chyme.tsx",
+      "kind": "screen",
+      "states": ["default"],
+      "platform": "desktop"
+    },
+    {
+      "id": "hub-loading",
+      "name": "HubLoading",
+      "file": "src/components/mockups/survivor-hub/HubLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "desktop"
+    },
+    {
+      "id": "mobile-hub-loading",
+      "name": "MobileHubLoading",
+      "file": "src/components/mockups/survivor-hub/MobileHubLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "mobile"
+    },
+    {
+      "id": "trust",
+      "name": "Trust",
+      "file": "src/components/mockups/survivor-hub/Trust.tsx",
+      "kind": "widget",
+      "states": ["verified"],
+      "platform": "desktop"
+    },
+    {
+      "id": "trust-empty",
+      "name": "TrustEmpty",
+      "file": "src/components/mockups/survivor-hub/TrustEmpty.tsx",
+      "kind": "widget",
+      "states": ["empty"],
+      "platform": "desktop"
+    },
+    {
+      "id": "mobile-trust",
+      "name": "MobileTrust",
+      "file": "src/components/mockups/survivor-hub/MobileTrust.tsx",
+      "kind": "widget",
+      "states": ["verified"],
+      "platform": "mobile"
+    },
+    {
+      "id": "mobile-trust-empty",
+      "name": "MobileTrustEmpty",
+      "file": "src/components/mockups/survivor-hub/MobileTrustEmpty.tsx",
+      "kind": "widget",
+      "states": ["empty"],
+      "platform": "mobile"
+    }
+  ],
+  "channel_model": {
+    "name": "community",
+    "post_types": [
+      { "type": "announcement", "badge": "📣 Official", "authors": "admin-only", "colors": "#7C3AED / #A78BFA", "pinnable": true },
+      { "type": "ai_qa", "badge": "🤖 AI Q&A", "authors": "AI assistant", "colors": "#0EA5E9 / #38BDF8", "pinnable": false },
+      { "type": "community", "badge": null, "authors": "any verified member", "colors": "user-colored avatar", "pinnable": false }
+    ],
+    "notes": "Single blended stream. No multi-channel sidebar. No separate Feed/Announcements app tile."
+  },
+  "app_count": {
+    "user_facing_label": "18 apps",
+    "operator_label": "18 plugins",
+    "note": "Feed/Announcements absorbed into Hub homepage (#community channel). Not a separate app tile."
+  }
+}

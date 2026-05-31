@@ -30,7 +30,7 @@ const STATS = [
   { label: "Live Rooms", value: "128", icon: Radio, color: "#F97316" },
 ];
 
-const CHANNELS = ["general", "housing-help", "skills-trade", "mutual-aid"];
+const CHANNELS = ["community"];
 
 const APPS_PREVIEW = [
   { name: "Chyme", icon: Radio, color: "#22C55E" },
@@ -55,7 +55,7 @@ export function HubPublic() {
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <ShieldCheck size={16} color="#fff" />
           <span style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>Survivor Hub · 4.9M members · $247B economy · 127 countries</span>
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.7)" }}>Free to join · End-to-end encrypted</span>
+          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.7)" }}>Free to join · Safe Space guaranteed</span>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button style={{ padding: "6px 16px", borderRadius: 7, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", fontWeight: 600, fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
@@ -88,11 +88,11 @@ export function HubPublic() {
         {/* Second sidebar */}
         <aside style={{ width: 240, background: "#0D0F14", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
           <div style={{ padding: "16px 12px 10px" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: subtle, textTransform: "uppercase", marginBottom: 10 }}>Public Channels</div>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: subtle, textTransform: "uppercase", marginBottom: 10 }}>Public Channel</div>
             {CHANNELS.map((ch, i) => (
-              <div key={ch} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, background: ch === "general" ? `rgba(124,58,237,0.12)` : "transparent", cursor: "pointer", borderLeft: ch === "general" ? `2px solid ${accent}` : `2px solid transparent`, marginLeft: 2 }}>
-                <Hash size={14} style={{ color: ch === "general" ? "#A78BFA" : subtle }} />
-                <span style={{ fontSize: 14, color: ch === "general" ? text : subtle }}>{ch}</span>
+              <div key={ch} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, background: ch === "community" ? `rgba(124,58,237,0.12)` : "transparent", cursor: "pointer", borderLeft: ch === "community" ? `2px solid ${accent}` : `2px solid transparent`, marginLeft: 2 }}>
+                <Hash size={14} style={{ color: ch === "community" ? "#A78BFA" : subtle }} />
+                <span style={{ fontSize: 14, color: ch === "community" ? text : subtle }}>{ch}</span>
                 {i === 0 && <span style={{ marginLeft: "auto", fontSize: 10, background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E30", borderRadius: 4, padding: "1px 6px" }}>LIVE</span>}
               </div>
             ))}
@@ -100,7 +100,7 @@ export function HubPublic() {
 
           {/* Apps preview */}
           <div style={{ padding: "12px 12px 6px", borderTop: `1px solid ${border}`, marginTop: 8 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: subtle, textTransform: "uppercase", marginBottom: 10 }}>17 Apps · Sign in to access</div>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: subtle, textTransform: "uppercase", marginBottom: 10 }}>18 apps · Sign in to access</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
               {APPS_PREVIEW.map(({ name, icon: Icon, color }) => (
                 <div key={name} style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 8px", borderRadius: 6, background: surface, border: `1px solid ${border}`, opacity: 0.6, cursor: "not-allowed" }}>
@@ -121,8 +121,8 @@ export function HubPublic() {
           <div style={{ padding: "14px 24px", borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", gap: 10 }}>
             <Hash size={16} color={subtle} />
             <div>
-              <div style={{ fontSize: 15, fontWeight: 700 }}>general</div>
-              <div style={{ fontSize: 12, color: subtle }}>Community · 4,912 online now</div>
+              <div style={{ fontSize: 15, fontWeight: 700 }}>community</div>
+              <div style={{ fontSize: 12, color: subtle }}>4,912 online now</div>
             </div>
             <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 5, background: "#22C55E15", border: "1px solid #22C55E30", borderRadius: 20, padding: "4px 12px" }}>
@@ -139,7 +139,7 @@ export function HubPublic() {
           {/* Messages feed */}
           <div style={{ flex: 1, overflowY: "auto", padding: "16px 24px", display: "flex", flexDirection: "column", gap: 12 }}>
             <div style={{ textAlign: "center", padding: "8px 16px", borderRadius: 8, background: `${accent}12`, border: `1px solid ${accent}20`, fontSize: 12, color: "#A78BFA", marginBottom: 8 }}>
-              Viewing the public #general channel — sign in to participate and access all 17 apps
+              Viewing the public #community channel — sign in to post or ask the assistant
             </div>
             {PUBLIC_MESSAGES.map(({ id, user, avatar, color, time, msg }) => (
               <div key={id} style={{ display: "flex", gap: 12 }}>
@@ -183,10 +183,10 @@ export function HubPublic() {
           <div style={{ borderRadius: 10, border: `1px solid ${border}`, background: surface, padding: "14px 12px" }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: text, marginBottom: 8 }}>Why join?</div>
             {[
-              "P2P marketplace — 17 apps",
-              "End-to-end encrypted",
-              "Service Credits economy",
+              "18 apps — everything peer-to-peer",
+              "ServiceCredits utility economy",
               "No data sold — ever",
+              "✓ Safe Space guarantee",
             ].map(pt => (
               <div key={pt} style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 5, fontSize: 12, color: subtle }}>
                 <ChevronRight size={12} color={accentCyan} /> {pt}
