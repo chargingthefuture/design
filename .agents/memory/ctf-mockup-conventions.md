@@ -64,5 +64,10 @@ The survivor-hub-deck renders every mockup inside a FIXED 1440×900 (mobile 390�
 
 **Why:** HubPublic worked because it already used `height:100vh`+overflow:hidden; Desktop signed-in was cut off because it used `min-h-screen`.
 
+## No platform-wide direct messaging
+There is NO standalone/persistent direct-messaging feature on Survivor Hub. DMs exist ONLY transiently inside an app's transaction scope (e.g. requesting a ride in TrustTransport opens a chat between the two parties; when the ride/transaction completes the chat closes). Do not add a "Direct Messages" list, DM tab, or persistent inbox to the Hub sidebar or any global navigation. The mobile "Chat" nav refers to the #community channel, not DMs — that is fine.
+
+**Why:** Owner correction — platform model is community channels + app-scoped ephemeral chat, not a Slack/Discord-style persistent DM system.
+
 ## pnpm version
 Use pnpm@10.26.1 (matches nix store). Do not upgrade to 10.32+ without checking nix store version first.

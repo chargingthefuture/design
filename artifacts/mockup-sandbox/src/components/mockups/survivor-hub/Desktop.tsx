@@ -162,13 +162,6 @@ export function Desktop() {
                   {ch.unread > 0 && <span style={{ background: "#7C3AED", borderRadius: 10, fontSize: 11, fontWeight: 700, color: "#fff", padding: "1px 6px" }}>{ch.unread}</span>}
                 </div>
               ))}
-              <div style={{ margin: "20px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Direct Messages</div>
-              {["Maria G.", "James T.", "Amara O."].map((name) => (
-                <div key={name} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, cursor: "pointer" }}>
-                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#22C55E", flexShrink: 0 }} />
-                  <span style={{ fontSize: 14, color: "#9CA3AF" }}>{name}</span>
-                </div>
-              ))}
             </div>
           ) : (
             <div style={{ padding: "0 8px 16px" }}>
