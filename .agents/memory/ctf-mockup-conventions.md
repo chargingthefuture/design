@@ -57,5 +57,12 @@ All mockup files (including landing/) must start with `// design-sync` on line 1
 ## Widely-misattributed Jung quote
 "You are not what happened to you. You are what you choose to become." — NOT from Carl Jung. Rendered as "— Unattributed" in Desktop.tsx.
 
+## Deck frame fit — mockup root height
+The survivor-hub-deck renders every mockup inside a FIXED 1440×900 (mobile 390×844) div with `overflow:hidden`, then scales the whole frame to fit. It is NOT an iframe and the height is NOT auto-fit to content. Mockup roots must therefore be bounded to the frame, or tall content gets clipped at the bottom (e.g. a chat composer disappearing).
+
+**Rule:** mockup root must use `height:"100vh"` + `maxHeight:"100%"` + `overflow:"hidden"` — never Tailwind `min-h-screen` (min-height allows unbounded growth, so inner flex `ScrollArea`s never constrain and content overflows the frame). `maxHeight:"100%"` caps to the 900px deck frame when window>900 (deck context) while being ignored in the bare-rendered mockup-sandbox (no definite-height parent) so it stays full-viewport there. Long inner panes (feeds, sidebars) get their own `flex:1; overflowY:auto; minHeight:0` so they scroll internally instead of pushing the frame.
+
+**Why:** HubPublic worked because it already used `height:100vh`+overflow:hidden; Desktop signed-in was cut off because it used `min-h-screen`.
+
 ## pnpm version
 Use pnpm@10.26.1 (matches nix store). Do not upgrade to 10.32+ without checking nix store version first.

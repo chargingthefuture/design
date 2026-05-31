@@ -105,7 +105,7 @@ export function Desktop() {
   const app = MINI_APPS.find((a) => a.id === openApp);
   if (openApp && app) {
     return (
-      <div className="min-h-screen w-full flex flex-col" style={{ background: app.bg, fontFamily: "'Inter', system-ui, sans-serif" }}>
+      <div className="w-full flex flex-col" style={{ height: "100vh", maxHeight: "100%", overflow: "hidden", background: app.bg, fontFamily: "'Inter', system-ui, sans-serif" }}>
         <div style={{ height: 56, borderBottom: `1px solid ${app.color}25`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "rgba(0,0,0,0.3)" }}>
           <button onClick={() => setOpenApp(null)} style={{ color: app.color, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6, fontSize: 14 }}>
             <X size={16} /> Back
@@ -124,7 +124,7 @@ export function Desktop() {
   }
 
   return (
-    <div className="min-h-screen w-full flex" style={{ background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0" }}>
+    <div className="w-full flex" style={{ height: "100vh", maxHeight: "100%", overflow: "hidden", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0" }}>
       {/* Icon rail */}
       <aside style={{ width: 72, background: "#090B0F", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: "#fff", marginBottom: 12, flexShrink: 0 }}>SH</div>
@@ -376,7 +376,7 @@ export function Desktop() {
 
           {/* Right panel */}
           <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "#0D0F14", display: "flex", flexDirection: "column", flexShrink: 0 }}>
-            <div style={{ padding: "20px 16px" }}>
+            <div style={{ padding: "20px 16px", flex: 1, overflowY: "auto", minHeight: 0 }}>
               <div style={{ padding: "16px", borderRadius: 14, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", marginBottom: 16, textAlign: "center" }}>
                 <Avatar style={{ width: 56, height: 56, margin: "0 auto 10px" }}>
                   <AvatarFallback style={{ background: "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)", color: "#fff", fontSize: 22, fontWeight: 800 }}>S</AvatarFallback>
