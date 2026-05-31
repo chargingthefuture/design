@@ -9,6 +9,7 @@ import {
   Bell, Settings, MessageSquare, Zap, ChevronRight, Sparkles,
   Hash, ArrowUpRight, Plus, Award, Target,
   MessageCircle, Pin, AlertCircle,
+  ThumbsUp, ThumbsDown, Flag, AtSign, ShieldCheck,
 } from "lucide-react";
 
 const MINI_APPS = [
@@ -41,12 +42,16 @@ type StreamQA = {
   id: number; type: "ai_qa";
   question: string; askedBy: string; time: string; answer: string;
 };
+type StreamPending = {
+  id: number; type: "ai_pending";
+  question: string; askedBy: string; time: string;
+};
 type StreamPost = {
   id: number; type: "community";
   author: string; avatar: string; authorColor: string; time: string;
   body: string; replies: number; hearts: number;
 };
-type StreamItem = StreamAnnouncement | StreamQA | StreamPost;
+type StreamItem = StreamAnnouncement | StreamQA | StreamPending | StreamPost;
 
 const STREAM: StreamItem[] = [
   {
@@ -54,6 +59,11 @@ const STREAM: StreamItem[] = [
     time: "just now", pinned: true, urgent: false,
     body: "12 survivors housed in Houston this week via LightHouse — 4 slots still open for ServiceCredits holders.",
     link: "Open LightHouse →",
+  },
+  {
+    id: 7, type: "ai_pending",
+    question: "Is it safe to share my exact address with a host before I arrive?",
+    askedBy: "You", time: "just now",
   },
   {
     id: 2, type: "community",
@@ -93,9 +103,10 @@ export function MobileHome() {
   const [activeNav, setActiveNav] = useState("chat");
   const [input, setInput] = useState("");
   const [liked, setLiked] = useState<number[]>([]);
-  const [postMode, setPostMode] = useState<"post" | "ask">("post");
+  const [rating, setRating] = useState<Record<number, "up" | "down" | "flag" | "none">>({});
 
   const toggleLike = (id: number) => setLiked((l) => l.includes(id) ? l.filter((x) => x !== id) : [...l, id]);
+  const rate = (id: number, v: "up" | "down" | "flag") => setRating((r) => ({ ...r, [id]: r[id] === v ? "none" : v }));
 
   return (
     <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
@@ -225,6 +236,35 @@ export function MobileHome() {
                         <div style={{ fontSize: 13, color: "#D1D5DB", lineHeight: 1.6 }}>
                           <span style={{ color: "#38BDF8", fontWeight: 600, fontSize: 12 }}>A: </span>{qa.answer}
                         </div>
+                        <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 10, paddingTop: 10, borderTop: "1px solid rgba(14,165,233,0.12)" }}>
+                          <button onClick={() => rate(qa.id, "up")} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 6, background: rating[qa.id] === "up" ? "rgba(34,197,94,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "up" ? "rgba(34,197,94,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "up" ? "#4ADE80" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>
+                            <ThumbsUp size={12} /> Helpful
+                          </button>
+                          <button onClick={() => rate(qa.id, "down")} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 6, background: rating[qa.id] === "down" ? "rgba(148,163,184,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "down" ? "rgba(148,163,184,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "down" ? "#CBD5E1" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>
+                            <ThumbsDown size={12} /> Not helpful
+                          </button>
+                          <button onClick={() => rate(qa.id, "flag")} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 6, background: rating[qa.id] === "flag" ? "rgba(239,68,68,0.12)" : "transparent", border: `1px solid ${rating[qa.id] === "flag" ? "rgba(239,68,68,0.35)" : "transparent"}`, color: rating[qa.id] === "flag" ? "#F87171" : "#4B5563", fontSize: 11, fontWeight: 600, cursor: "pointer", marginLeft: "auto" }}>
+                            <Flag size={11} />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  }
+                  if (item.type === "ai_pending") {
+                    const pq = item as StreamPending;
+                    return (
+                      <div key={pq.id} style={{ padding: "14px", borderRadius: 14, background: "rgba(14,165,233,0.03)", border: "1px dashed rgba(14,165,233,0.3)" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                          <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                            <Sparkles size={14} style={{ color: "#38BDF8" }} />
+                          </div>
+                          <span style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>AI Assistant</span>
+                          <span style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 10, padding: "1px 5px", borderRadius: 3, background: "rgba(14,165,233,0.1)", color: "#7DD3FC", fontWeight: 600 }}><ShieldCheck size={9} /> Reviewing</span>
+                        </div>
+                        <div style={{ padding: "8px 10px", borderRadius: 8, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", marginBottom: 8, fontSize: 12, color: "#9CA3AF" }}>
+                          <span style={{ color: "#38BDF8", fontWeight: 600 }}>Q: </span>{pq.question}
+                        </div>
+                        <div style={{ fontSize: 12, color: "#7DD3FC", lineHeight: 1.6 }}>AI Assistant is preparing an answer — a teammate is reviewing it for safety before it's posted.</div>
                       </div>
                     );
                   }
@@ -254,18 +294,17 @@ export function MobileHome() {
               </div>
             </ScrollArea>
 
-            {/* Composer — post or ask */}
+            {/* Composer — community + @comic */}
             <div style={{ padding: "8px 16px 12px", flexShrink: 0 }}>
-              <div style={{ display: "flex", gap: 6, marginBottom: 8 }}>
-                {(["post", "ask"] as const).map((mode) => (
-                  <button key={mode} onClick={() => setPostMode(mode)} style={{ padding: "4px 12px", borderRadius: 20, background: postMode === mode ? "rgba(124,58,237,0.2)" : "rgba(255,255,255,0.04)", border: postMode === mode ? "1px solid rgba(124,58,237,0.4)" : "1px solid rgba(255,255,255,0.08)", color: postMode === mode ? "#A78BFA" : "#6B7280", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>
-                    {mode === "post" ? "Post" : "Ask AI"}
-                  </button>
-                ))}
+              <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 3, padding: "2px 7px", borderRadius: 6, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.3)", color: "#38BDF8", fontSize: 11, fontWeight: 700 }}>
+                  <AtSign size={11} /> comic
+                </span>
+                <span style={{ fontSize: 11, color: "#6B7280" }}>Type <span style={{ color: "#38BDF8", fontWeight: 600 }}>@comic</span> to ask the AI Assistant</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                 <Plus size={16} style={{ color: "#4B5563", flexShrink: 0 }} />
-                <input value={input} onChange={(e) => setInput(e.target.value)} placeholder={postMode === "post" ? "Share with the community…" : "Ask the assistant…"} style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Share, or type @comic to ask…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
                 <button style={{ width: 30, height: 30, borderRadius: 8, background: input.trim() ? "linear-gradient(135deg,#7C3AED,#0EA5E9)" : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
                   <Send size={13} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                 </button>

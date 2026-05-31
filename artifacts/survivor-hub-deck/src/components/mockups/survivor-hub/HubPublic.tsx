@@ -134,7 +134,7 @@ export function HubPublic() {
           {/* Blended stream — publicly readable */}
           <div style={{ flex: 1, overflowY: "auto", padding: "16px 24px", display: "flex", flexDirection: "column", gap: 12 }}>
             <div style={{ textAlign: "center", padding: "8px 16px", borderRadius: 8, background: `${accent}10`, border: `1px solid ${accent}20`, fontSize: 12, color: "#A78BFA", marginBottom: 4 }}>
-              You are reading the public #community channel — <span style={{ color: "#F9FAFB", fontWeight: 600 }}>sign in to post or ask the assistant</span>
+              You are reading the public #community channel — <span style={{ color: "#F9FAFB", fontWeight: 600 }}>sign in to post or ask the AI Assistant with @comic</span>
             </div>
             {PUBLIC_STREAM.map((item) => {
               if (item.type === "announcement") {
@@ -208,7 +208,7 @@ export function HubPublic() {
           <div style={{ padding: "16px 24px", borderTop: `1px solid ${border}` }}>
             <div style={{ borderRadius: 12, border: `1px solid ${border}`, background: surface, padding: "14px 16px", display: "flex", alignItems: "center", gap: 12 }}>
               <Lock size={16} color={subtle} />
-              <span style={{ fontSize: 14, color: subtle, flex: 1 }}>Sign in to post or ask the assistant…</span>
+              <span style={{ fontSize: 14, color: subtle, flex: 1 }}>Sign in to post — or type @comic to ask the AI Assistant…</span>
               <button style={{ padding: "8px 18px", borderRadius: 8, background: `linear-gradient(90deg,${accent},${accentCyan})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer", whiteSpace: "nowrap" }}>
                 Join Free →
               </button>

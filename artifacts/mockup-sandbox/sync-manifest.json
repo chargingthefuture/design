@@ -111,6 +111,93 @@
       "kind": "widget",
       "states": ["empty"],
       "platform": "mobile"
+    },
+    {
+      "id": "ai-consent",
+      "name": "AIConsent",
+      "file": "src/components/mockups/survivor-hub/AIConsent.tsx",
+      "kind": "screen",
+      "states": ["first-use"],
+      "platform": "desktop",
+      "notes": "First-use AI Assistant consent prompt over the composer. Self-hosted AI, no third parties. Confirm / Not now."
+    },
+    {
+      "id": "mobile-ai-consent",
+      "name": "MobileAIConsent",
+      "file": "src/components/mockups/survivor-hub/MobileAIConsent.tsx",
+      "kind": "screen",
+      "states": ["first-use"],
+      "platform": "mobile",
+      "notes": "Mobile first-use AI Assistant consent bottom sheet. Self-hosted AI, no third parties. Confirm / Not now."
+    },
+    {
+      "id": "ai-review-console",
+      "name": "AIReviewConsole",
+      "file": "src/components/mockups/survivor-hub/AIReviewConsole.tsx",
+      "kind": "screen",
+      "states": ["default"],
+      "platform": "desktop",
+      "notes": "Owner Review & Correction Console. Queue of AI drafts w/ question, draft, sources, confidence. Approve / Edit&approve / Reject."
+    },
+    {
+      "id": "ai-review-console-detail",
+      "name": "AIReviewConsoleDetail",
+      "file": "src/components/mockups/survivor-hub/AIReviewConsoleDetail.tsx",
+      "kind": "screen",
+      "states": ["detail"],
+      "platform": "desktop",
+      "notes": "Single AI draft review w/ editable corrected-text field."
+    },
+    {
+      "id": "ai-review-console-empty",
+      "name": "AIReviewConsoleEmpty",
+      "file": "src/components/mockups/survivor-hub/AIReviewConsoleEmpty.tsx",
+      "kind": "screen",
+      "states": ["empty"],
+      "platform": "desktop",
+      "notes": "Review queue clear / nothing pending."
+    },
+    {
+      "id": "ai-review-console-loading",
+      "name": "AIReviewConsoleLoading",
+      "file": "src/components/mockups/survivor-hub/AIReviewConsoleLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "desktop"
+    },
+    {
+      "id": "mobile-ai-review-console",
+      "name": "MobileAIReviewConsole",
+      "file": "src/components/mockups/survivor-hub/MobileAIReviewConsole.tsx",
+      "kind": "screen",
+      "states": ["default"],
+      "platform": "mobile",
+      "notes": "Mobile Owner Review & Correction Console. Queue of AI drafts. Approve / Edit&approve / Reject."
+    },
+    {
+      "id": "mobile-ai-review-console-detail",
+      "name": "MobileAIReviewConsoleDetail",
+      "file": "src/components/mockups/survivor-hub/MobileAIReviewConsoleDetail.tsx",
+      "kind": "screen",
+      "states": ["detail"],
+      "platform": "mobile",
+      "notes": "Mobile single AI draft review w/ editable corrected-text field."
+    },
+    {
+      "id": "mobile-ai-review-console-empty",
+      "name": "MobileAIReviewConsoleEmpty",
+      "file": "src/components/mockups/survivor-hub/MobileAIReviewConsoleEmpty.tsx",
+      "kind": "screen",
+      "states": ["empty"],
+      "platform": "mobile"
+    },
+    {
+      "id": "mobile-ai-review-console-loading",
+      "name": "MobileAIReviewConsoleLoading",
+      "file": "src/components/mockups/survivor-hub/MobileAIReviewConsoleLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "mobile"
     }
   ],
   "channel_model": {

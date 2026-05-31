@@ -1,2 +1,3 @@
 - [CTF mockup-sandbox conventions](ctf-mockup-conventions.md) — design-only repo; punch-list rules for phase labels, fiat parity, naming, brand voice, and standard loader format.
 - [CTF Feed consolidation](ctf-feed-consolidation.md) — FeedAnnouncements absorbed into Hub #community channel; no standalone Feed app tile anywhere.
+- [CTF AI Assistant surfaces](ctf-ai-assistant.md) — "AI Assistant" is the only user-facing label; "@comic" is the typed trigger only; single composer, rating row, pending "Reviewing for safety", consent, owner review console.

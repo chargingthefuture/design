@@ -97,7 +97,7 @@ export function MobileHubPublic() {
 
       {/* Public notice */}
       <div style={{ margin: "10px 12px 0", padding: "8px 12px", borderRadius: 8, background: `${accent}12`, border: `1px solid ${accent}20`, fontSize: 11, color: "#A78BFA", flexShrink: 0, textAlign: "center" }}>
-        Viewing public #community · Sign in to post, ask the assistant &amp; access all 17 apps
+        Viewing public #community · Sign in to post, ask the AI Assistant with @comic &amp; access all 17 apps
       </div>
 
       {/* Blended public stream — no blur */}
@@ -169,7 +169,7 @@ export function MobileHubPublic() {
       <div style={{ padding: "10px 12px", borderTop: `1px solid ${border}`, background: surface, flexShrink: 0 }}>
         <div style={{ borderRadius: 24, border: `1px solid ${border}`, background: "rgba(255,255,255,0.04)", padding: "10px 14px", display: "flex", alignItems: "center", gap: 8 }}>
           <Lock size={14} color={subtle} />
-          <span style={{ fontSize: 13, color: subtle, flex: 1 }}>Sign in to post or ask…</span>
+          <span style={{ fontSize: 13, color: subtle, flex: 1 }}>Sign in — or @comic to ask the AI Assistant…</span>
           <button style={{ padding: "6px 14px", borderRadius: 16, background: `linear-gradient(90deg,${accent},${accentCyan})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 11, whiteSpace: "nowrap" }}>
             Join Free
           </button>

@@ -1,6 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import type { ComponentType } from "react";
 
+import { AIConsent } from "@/components/mockups/survivor-hub/AIConsent";
+import { AIReviewConsole } from "@/components/mockups/survivor-hub/AIReviewConsole";
+import { AIReviewConsoleDetail } from "@/components/mockups/survivor-hub/AIReviewConsoleDetail";
+import { AIReviewConsoleEmpty } from "@/components/mockups/survivor-hub/AIReviewConsoleEmpty";
+import { AIReviewConsoleLoading } from "@/components/mockups/survivor-hub/AIReviewConsoleLoading";
 import { ChymeApp } from "@/components/mockups/survivor-hub/ChymeApp";
 import { ChymeEmpty } from "@/components/mockups/survivor-hub/ChymeEmpty";
 import { ChymeLoading } from "@/components/mockups/survivor-hub/ChymeLoading";
@@ -34,6 +39,11 @@ import { LightHouseEmpty } from "@/components/mockups/survivor-hub/LightHouseEmp
 import { LightHouseLoading } from "@/components/mockups/survivor-hub/LightHouseLoading";
 import { LightHousePublic } from "@/components/mockups/survivor-hub/LightHousePublic";
 import { LightHouse } from "@/components/mockups/survivor-hub/LightHouse";
+import { MobileAIConsent } from "@/components/mockups/survivor-hub/MobileAIConsent";
+import { MobileAIReviewConsole } from "@/components/mockups/survivor-hub/MobileAIReviewConsole";
+import { MobileAIReviewConsoleDetail } from "@/components/mockups/survivor-hub/MobileAIReviewConsoleDetail";
+import { MobileAIReviewConsoleEmpty } from "@/components/mockups/survivor-hub/MobileAIReviewConsoleEmpty";
+import { MobileAIReviewConsoleLoading } from "@/components/mockups/survivor-hub/MobileAIReviewConsoleLoading";
 import { MobileChymeEmpty } from "@/components/mockups/survivor-hub/MobileChymeEmpty";
 import { MobileChymeLoading } from "@/components/mockups/survivor-hub/MobileChymeLoading";
 import { MobileChymePublic } from "@/components/mockups/survivor-hub/MobileChymePublic";
@@ -171,6 +181,9 @@ const SkillsTaxonomyEmptyAdmin     = () => <SkillsTaxonomyEmpty isAdmin={true} /
 const MobileSkillsTaxonomyEmptyAdmin = () => <MobileSkillsTaxonomyEmpty isAdmin={true} />;
 
 const COMPONENTS: Record<string, ComponentType> = {
+  AIConsent, MobileAIConsent,
+  AIReviewConsole, AIReviewConsoleEmpty, AIReviewConsoleLoading, AIReviewConsoleDetail,
+  MobileAIReviewConsole, MobileAIReviewConsoleEmpty, MobileAIReviewConsoleLoading, MobileAIReviewConsoleDetail,
   ClickLog, ClickLogEmpty, ClickLogLoading, ClickLogPublic,
   MobileClickLog, MobileClickLogEmpty, MobileClickLogLoading, MobileClickLogPublic,
   ChymeApp, ChymeEmpty, ChymeLoading, ChymePublic, Chyme,
@@ -224,6 +237,7 @@ type Slide = {
 };
 
 const SECTION_COLORS: Record<string, string> = {
+  "AI Assistant":     "#0EA5E9",
   "Hub":              "#38BDF8",
   "Chyme":            "#22C55E",
   "Directory":        "#3B82F6",
@@ -454,6 +468,18 @@ const SLIDES: Slide[] = [
   mob("MobileUnlock",       "Mobile · Signed In",    "Unlock"),
   mob("MobileUnlockEmpty",  "Mobile · Empty State",  "Unlock"),
   mob("MobileUnlockLoading","Mobile · Loading",      "Unlock"),
+
+  // ── AI ASSISTANT ──────────────────────────────────────────────────────
+  web("AIConsent",                   "Web · First-Use Consent",   "AI Assistant"),
+  web("AIReviewConsole",             "Web · Review Console",       "AI Assistant"),
+  web("AIReviewConsoleDetail",       "Web · Edit & Correct",       "AI Assistant"),
+  web("AIReviewConsoleEmpty",        "Web · Queue Clear",          "AI Assistant"),
+  web("AIReviewConsoleLoading",      "Web · Loading",              "AI Assistant"),
+  mob("MobileAIConsent",             "Mobile · First-Use Consent", "AI Assistant"),
+  mob("MobileAIReviewConsole",       "Mobile · Review Console",    "AI Assistant"),
+  mob("MobileAIReviewConsoleDetail", "Mobile · Edit & Correct",    "AI Assistant"),
+  mob("MobileAIReviewConsoleEmpty",  "Mobile · Queue Clear",       "AI Assistant"),
+  mob("MobileAIReviewConsoleLoading","Mobile · Loading",           "AI Assistant"),
 ];
 
 const DESKTOP_W = 1440;
