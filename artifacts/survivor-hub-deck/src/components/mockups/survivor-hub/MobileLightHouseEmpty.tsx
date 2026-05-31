@@ -1,3 +1,4 @@
+// design-sync
 import { Home, Search, Bell, ShieldCheck } from "lucide-react";
 
 const bg = "#0F1117";
@@ -29,7 +30,7 @@ export function MobileLightHouseEmpty() {
           <Home size={30} color={`${COLOR}50`} />
         </div>
         <div style={{ fontSize: 18, fontWeight: 800, marginBottom: 10 }}>No listings match</div>
-        <div style={{ fontSize: 14, color: subtle, lineHeight: 1.6, marginBottom: 8 }}>Try adjusting your filters or get alerted when Safe Space verified housing is available near you.</div>
+        <div style={{ fontSize: 14, color: subtle, lineHeight: 1.6, marginBottom: 8 }}>Try adjusting your filters or get alerted when survivor-verified housing is available near you.</div>
         <div style={{ display: "flex", alignItems: "center", gap: 5, background: `${COLOR}10`, border: `1px solid ${COLOR}20`, borderRadius: 8, padding: "8px 12px", marginBottom: 24 }}>
           <ShieldCheck size={13} color={COLOR} />
           <span style={{ fontSize: 12, color: subtle }}>Location is never stored</span>

@@ -1,3 +1,4 @@
+// design-sync
 import {
   Radio, Mic, Users, Lock, LogIn, UserPlus, ShieldCheck,
   Globe, Clock, Hash, Heart, Bell, Search, Star,
@@ -120,7 +121,7 @@ export function ChymePublic() {
                 <Globe size={11} color={subtle} /><span style={{ fontSize: 11, color: subtle }}>Public</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "3px 10px", borderRadius: 20, background: surface, border: `1px solid ${border}` }}>
-                <ShieldCheck size={11} color={accentCyan} /><span style={{ fontSize: 11, color: accentCyan }}>Safe Space ✓</span>
+                <ShieldCheck size={11} color={accentCyan} /><span style={{ fontSize: 11, color: accentCyan }}>Survivor Verified</span>
               </div>
             </div>
             <div style={{ fontSize: 20, fontWeight: 800, color: text, lineHeight: 1.3 }}>{selectedRoom.title}</div>

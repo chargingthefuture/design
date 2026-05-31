@@ -86,7 +86,7 @@ export function MobileFeed() {
             <Hash size={14} style={{ color: "#A78BFA" }} />
             <span style={{ fontSize: 15, fontWeight: 800, color: "#F9FAFB" }}>community</span>
           </div>
-          <div style={{ fontSize: 11, color: "#22C55E" }}>✓ Safe Space · 4,912 online</div>
+          <div style={{ fontSize: 11, color: "#22C55E" }}>Exit Their Economy · 4,912 online</div>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button style={{ width: 34, height: 34, borderRadius: 9, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>

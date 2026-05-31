@@ -1,3 +1,4 @@
+// design-sync
 import { Mic, Radio, Clock, Bell, Plus, Lock, Globe, Users } from "lucide-react";
 
 const COLOR = "#22C55E";
@@ -23,7 +24,6 @@ export function ChymeEmpty() {
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
             <Radio size={16} color={COLOR} />
             <span style={{ fontSize: 15, fontWeight: 700, color: text }}>Chyme</span>
-            <span style={{ marginLeft: "auto", fontSize: 11, background: `${COLOR}18`, color: COLOR, border: `1px solid ${COLOR}30`, borderRadius: 4, padding: "2px 7px" }}>Phase 0</span>
           </div>
           <div style={{ position: "relative" }}>
             <input placeholder="Search rooms…" style={{ width: "100%", padding: "8px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${border}`, borderRadius: 8, fontSize: 13, color: subtle, outline: "none", boxSizing: "border-box" }} readOnly />
@@ -81,7 +81,7 @@ export function ChymeEmpty() {
           {[
             { icon: Radio, label: "Go live instantly", desc: "One tap starts a room" },
             { icon: Users, label: "Up to 1,000 listeners", desc: "Global survivor community" },
-            { icon: Lock, label: "Safe Space protected", desc: "End-to-end encrypted" },
+            { icon: Lock, label: "Survivor Verified", desc: "Members confirmed real" },
           ].map(({ icon: Icon, label, desc }) => (
             <div key={label} style={{ textAlign: "center", width: 160 }}>
               <Icon size={18} color={COLOR} style={{ marginBottom: 6 }} />

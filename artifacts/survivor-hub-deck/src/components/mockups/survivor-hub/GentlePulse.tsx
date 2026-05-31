@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -100,8 +101,8 @@ export function GentlePulse() {
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               <div style={{ marginBottom: 20, padding: "20px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(20,184,166,0.03) 100%)`, border: `1px solid ${COLOR}20` }}>
-                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Your Safe Space to Breathe</div>
-                <div style={{ fontSize: 14, color: "#6B7280" }}>48 sessions · Trauma-informed therapists · Zero triggers · Always free</div>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Room to Breathe</div>
+                <div style={{ fontSize: 14, color: "#6B7280" }}>6 sessions · Trauma-informed therapists · Designed to minimize triggers · Always free</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
                 {filtered.map((s) => (

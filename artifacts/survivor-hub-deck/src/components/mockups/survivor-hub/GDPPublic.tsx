@@ -1,5 +1,6 @@
+// design-sync
 import {
-  Globe, TrendingUp, BarChart2, DollarSign, Users, Zap,
+  Globe, TrendingUp, BarChart2, Users, Zap,
   MapPin, LogIn, UserPlus, ShieldCheck, Lock, Plus,
 } from "lucide-react";
 
@@ -102,7 +103,7 @@ export function GDPPublic() {
             <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 20, background: surface, border: `1px solid ${border}` }}>
                 <ShieldCheck size={12} color={accentCyan} />
-                <span style={{ fontSize: 12, color: accentCyan }}>Safe Space ✓</span>
+                <span style={{ fontSize: 12, color: accentCyan }}>Survivor Verified</span>
               </div>
               <button style={{ padding: "8px 18px", borderRadius: 8, background: `rgba(255,255,255,0.05)`, border: `1px solid ${border}`, color: subtle, fontSize: 13, cursor: "not-allowed", display: "flex", alignItems: "center", gap: 6 }}>
                 <Lock size={12} /> <Plus size={12} /> Add Skills

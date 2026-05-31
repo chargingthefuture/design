@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
@@ -46,7 +47,7 @@ export function MobileChyme() {
 
   if (activeRoom && showChat) {
     return (
-      <div style={{ width: 390, minHeight: "100%", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", display: "flex", flexDirection: "column" }}>
+      <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", display: "flex", flexDirection: "column" }}>
         <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", padding: "0 16px", justifyContent: "space-between", flexShrink: 0 }}>
           <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
           <div style={{ fontSize: 12, color: "#9CA3AF" }}>•••</div>
@@ -83,7 +84,7 @@ export function MobileChyme() {
 
   if (activeRoom) {
     return (
-      <div style={{ width: 390, minHeight: "100%", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+      <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
         {/* Status bar */}
         <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 16px", flexShrink: 0 }}>
           <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
@@ -100,7 +101,7 @@ export function MobileChyme() {
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <div style={{ width: 7, height: 7, borderRadius: "50%", background: PRIMARY, boxShadow: `0 0 6px ${PRIMARY}` }} />
                 <Badge style={{ background: `${PRIMARY}15`, color: PRIMARY, border: `1px solid ${PRIMARY}30`, fontSize: 10, padding: "1px 8px" }}>Live</Badge>
-                <span style={{ fontSize: 11, color: "#4B5563" }}>Safe Space 🔒</span>
+                <span style={{ fontSize: 11, color: "#4B5563" }}>Verified 🔒</span>
               </div>
             </div>
             <button onClick={() => setShowChat(true)} style={{ width: 34, height: 34, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
@@ -189,7 +190,7 @@ export function MobileChyme() {
   }
 
   return (
-    <div style={{ width: 390, minHeight: "100%", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
       {/* Status bar */}
       <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>

@@ -60,7 +60,7 @@ export function HubEmpty() {
         </div>
         <div style={{ padding: 12, borderTop: `1px solid ${border}` }}>
           <div style={{ padding: "10px 12px", borderRadius: 10, background: `linear-gradient(135deg,rgba(124,58,237,0.15) 0%,rgba(14,165,233,0.15) 100%)`, border: `1px solid rgba(124,58,237,0.25)` }}>
-            <div style={{ fontSize: 12, fontWeight: 600, color: "#A78BFA", marginBottom: 2 }}>Safe Space · Invite Only</div>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "#A78BFA", marginBottom: 2 }}>Exit Their Economy · Invite Only</div>
             <div style={{ fontSize: 11, color: subtle }}>4.9M survivors worldwide</div>
           </div>
         </div>
@@ -73,7 +73,7 @@ export function HubEmpty() {
             <div style={{ fontSize: 15, fontWeight: 600, color: text }}>Survivor Hub</div>
             <div style={{ fontSize: 12, color: subtle }}>Your peer-to-peer community</div>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 5, background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.25)", borderRadius: 20, padding: "3px 10px", fontSize: 11, color: "#22C55E", fontWeight: 600 }}>✓ Safe Space</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 5, background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.25)", borderRadius: 20, padding: "3px 10px", fontSize: 11, color: "#22C55E", fontWeight: 600 }}>Our Economy</div>
         </header>
 
         <div style={{ flex: 1, overflowY: "auto", padding: "48px 64px" }}>
@@ -132,7 +132,7 @@ export function HubEmpty() {
           <div style={{ width: 48, height: 48, borderRadius: "50%", background: `linear-gradient(135deg,${accent},${accentCyan})`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 10px", fontSize: 18, fontWeight: 800, color: "#fff" }}>S</div>
           <div style={{ fontSize: 15, fontWeight: 700, color: text, marginBottom: 4 }}>Welcome, Survivor</div>
           <div style={{ fontSize: 12, color: subtle, marginBottom: 10 }}>Member since 2026</div>
-          <div style={{ display: "inline-block", padding: "4px 12px", borderRadius: 20, background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.25)", fontSize: 11, color: "#A78BFA", fontWeight: 600 }}>Safe Space ✓</div>
+          <div style={{ display: "inline-block", padding: "4px 12px", borderRadius: 20, background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.25)", fontSize: 11, color: "#A78BFA", fontWeight: 600 }}>Survivor Verified</div>
         </div>
 
         <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(6,182,212,0.06)", border: "1px solid rgba(6,182,212,0.12)", marginBottom: 16 }}>

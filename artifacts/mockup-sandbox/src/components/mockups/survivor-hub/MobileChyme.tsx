@@ -101,7 +101,7 @@ export function MobileChyme() {
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <div style={{ width: 7, height: 7, borderRadius: "50%", background: PRIMARY, boxShadow: `0 0 6px ${PRIMARY}` }} />
                 <Badge style={{ background: `${PRIMARY}15`, color: PRIMARY, border: `1px solid ${PRIMARY}30`, fontSize: 10, padding: "1px 8px" }}>Live</Badge>
-                <span style={{ fontSize: 11, color: "#4B5563" }}>Safe Space 🔒</span>
+                <span style={{ fontSize: 11, color: "#4B5563" }}>Verified 🔒</span>
               </div>
             </div>
             <button onClick={() => setShowChat(true)} style={{ width: 34, height: 34, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>

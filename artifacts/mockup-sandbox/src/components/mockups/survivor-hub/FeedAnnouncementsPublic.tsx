@@ -139,7 +139,7 @@ export function FeedAnnouncementsPublic() {
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 20, background: surface, border: `1px solid ${border}` }}>
                 <ShieldCheck size={12} color={accentCyan} />
-                <span style={{ fontSize: 11, color: accentCyan, fontWeight: 600 }}>Safe Space ✓</span>
+                <span style={{ fontSize: 11, color: accentCyan, fontWeight: 600 }}>Survivor Verified</span>
               </div>
             </div>
           </div>
@@ -243,7 +243,7 @@ export function FeedAnnouncementsPublic() {
           ))}
           <div style={{ borderRadius: 10, border: `1px solid ${border}`, background: surface, padding: "14px 12px" }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: "#F9FAFB", marginBottom: 8 }}>Why join?</div>
-            {["18 apps — everything peer-to-peer", "ServiceCredits utility economy", "No data sold — ever", "✓ Safe Space guarantee"].map((pt) => (
+            {["18 apps — everything peer-to-peer", "ServiceCredits utility economy", "No data sold — ever", "✓ Invite-only, survivor-verified"].map((pt) => (
               <div key={pt} style={{ fontSize: 12, color: subtle, marginBottom: 5, lineHeight: 1.5 }}>→ {pt}</div>
             ))}
             <button style={{ width: "100%", marginTop: 10, padding: "9px", borderRadius: 8, background: `linear-gradient(90deg,${accent},${accentCyan})`, border: "none", color: "#fff", fontWeight: 700, fontSize: 12, cursor: "pointer" }}>

@@ -48,7 +48,7 @@ export function MobileHomeEmpty() {
             <div style={{ width: 36, height: 36, borderRadius: 10, background: `linear-gradient(135deg,${accent},${accentCyan})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: "#fff" }}>SH</div>
             <div>
               <div style={{ fontSize: 16, fontWeight: 800, color: text }}>Survivor Hub</div>
-              <div style={{ fontSize: 11, color: "#22C55E" }}>✓ Safe Space · 4.9M members</div>
+              <div style={{ fontSize: 11, color: "#22C55E" }}>Exit Their Economy · 4.9M members</div>
             </div>
           </div>
           <div style={{ display: "flex", gap: 8 }}>

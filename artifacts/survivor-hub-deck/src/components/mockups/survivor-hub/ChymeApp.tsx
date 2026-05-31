@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -211,7 +212,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                       <Badge style={{ background: `${PRIMARY}15`, color: PRIMARY, border: `1px solid ${PRIMARY}30`, fontSize: 11, padding: "2px 10px", borderRadius: 20 }}>
                         {activeRoom.live ? "🔴 Live" : "📅 Upcoming"}
                       </Badge>
-                      <span style={{ fontSize: 12, color: "#4B5563" }}>Safe Space Room</span>
+                      <span style={{ fontSize: 12, color: "#4B5563" }}>Survivor Room</span>
                       <Lock size={12} style={{ color: "#4B5563" }} />
                     </div>
                     <div style={{ fontSize: 20, fontWeight: 800, color: "#F0FDF4", lineHeight: 1.3, marginBottom: 4 }}>{activeRoom.title}</div>
@@ -335,7 +336,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
               </div>
               <div style={{ fontSize: 24, fontWeight: 800, color: "#F0FDF4" }}>Join a Room</div>
               <div style={{ fontSize: 15, color: "#4B5563", textAlign: "center", maxWidth: 400, lineHeight: 1.6 }}>
-                Select a live room to listen, speak, and connect with survivors worldwide. All rooms are safe spaces.
+                Select a live room to listen, speak, and connect with survivors worldwide. All rooms are survivor-verified.
               </div>
               <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
                 <Badge style={{ background: `${PRIMARY}15`, color: PRIMARY, border: `1px solid ${PRIMARY}30`, fontSize: 12, padding: "6px 14px", borderRadius: 20 }}>

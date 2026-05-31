@@ -1,3 +1,4 @@
+// design-sync
 import {
   MessageSquare, Hash, Radio, Globe, Users, DollarSign,
   Lock, LogIn, UserPlus, ShieldCheck, ChevronRight, Sparkles,
@@ -13,7 +14,7 @@ const accentCyan = "#0EA5E9";
 
 const PUBLIC_MESSAGES = [
   { id: 1, init: "AO", color: "#22C55E", user: "Amara O.", time: "9:01", msg: "Just got my first Service Credits from a Foundation job! 45 credits. This is real. 🙌" },
-  { id: 2, init: "JT", color: "#3B82F6", user: "James T.", time: "9:14", msg: "LightHouse found me a Safe Space studio in Houston. Moving in Friday. 🏠" },
+  { id: 2, init: "JT", color: "#3B82F6", user: "James T.", time: "9:14", msg: "LightHouse found me a verified studio in Houston. Moving in Friday. 🏠" },
   { id: 3, init: "MG", color: "#EC4899", user: "Maria G.", time: "9:28", msg: "My Peer Programming cohort helped me land a dev role. Week 8. From nothing to employed. 💻" },
   { id: 4, init: "DK", color: "#F97316", user: "David K.", time: "9:45", msg: "Chicago: open request for Spanish interpretation at court tomorrow. Check SocketRelay." },
 ];

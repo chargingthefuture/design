@@ -54,7 +54,7 @@ export function MobileUnlockPublic() {
           <span style={{ color: BRAND }}>the verification process</span>
         </h1>
         <p style={{ margin: "0 0 22px", fontSize: 13, color: "#9CA3AF", lineHeight: 1.7 }}>
-          Survivor Hub uses Quora profile verification to confirm members are real people. This protects the community and ensures a safe space for all survivors.
+          Survivor Hub uses Quora profile verification to confirm members are real people. This protects the community and protects the integrity of this economy.
         </p>
 
         {/* Primary CTA */}

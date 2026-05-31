@@ -18,6 +18,7 @@ There is no standalone "Feed & Announcements" app. The Hub homepage **is** the c
 - Public views (FeedAnnouncementsPublic, MobileFeedPublic, HubPublic): channel is **publicly readable** — no blur/lock overlay on content. Only the composer is locked. CTA: "Sign in to post or ask the assistant."
 - Remove "End-to-end encrypted" everywhere (not accurate per product)
 - "Use at least one plugin" in Trust widget → "Use at least one app"
+- **No "Safe Space" anywhere.** Replace with: big callouts → `Exit Their Economy · Invite Only`; banner sub-copy → `Exit Their Economy`; small trust badge → `Survivor Verified`; header badge → `Our Economy`; profile card → `Verified Member`; footer tagline → `a work of optimism · Survivor Hub`; status lines → `Exit Their Economy · 4,912 online` / `Exit Their Economy · 4.9M members`; why join → `✓ Invite-only, survivor-verified`; prose → `survivor-verified`; Chyme room label → `Survivor Room`; Chyme feature row → `Survivor Verified, Members confirmed real`; Unlock prose → `protects the integrity of this economy`
 
 ## File map (as of consolidation)
 - FeedAnnouncements.tsx — desktop blended channel (logged-in)

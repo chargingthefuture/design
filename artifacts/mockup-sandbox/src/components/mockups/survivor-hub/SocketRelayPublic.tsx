@@ -92,7 +92,7 @@ export function SocketRelayPublic() {
             <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 20, background: surface, border: `1px solid ${border}` }}>
                 <ShieldCheck size={12} color={accentCyan} />
-                <span style={{ fontSize: 11, color: accentCyan }}>Safe Space ✓</span>
+                <span style={{ fontSize: 11, color: accentCyan }}>Survivor Verified</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 20, background: surface, border: `1px solid ${border}` }}>
                 <Shield size={12} color={subtle} />

@@ -128,7 +128,7 @@ export function FeedAnnouncements({ initialEmpty = false }: { initialEmpty?: boo
         </ScrollArea>
         <div style={{ padding: 12, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <div style={{ padding: "10px 12px", borderRadius: 10, background: "linear-gradient(135deg,rgba(124,58,237,0.15) 0%,rgba(14,165,233,0.15) 100%)", border: "1px solid rgba(124,58,237,0.25)" }}>
-            <div style={{ fontSize: 12, fontWeight: 600, color: "#A78BFA", marginBottom: 2 }}>✓ Safe Space · Invite Only</div>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "#A78BFA", marginBottom: 2 }}>Exit Their Economy · Invite Only</div>
             <div style={{ fontSize: 11, color: "#6B7280" }}>4.9M survivors worldwide</div>
           </div>
         </div>
@@ -140,9 +140,9 @@ export function FeedAnnouncements({ initialEmpty = false }: { initialEmpty?: boo
           <Hash size={18} style={{ color: "#A78BFA" }} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>community</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>4,912 online · Safe Space ✓</div>
+            <div style={{ fontSize: 12, color: "#6B7280" }}>4,912 online · Survivor Verified</div>
           </div>
-          <Badge style={{ background: "rgba(34,197,94,0.15)", color: "#22C55E", border: "1px solid rgba(34,197,94,0.25)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>✓ Safe Space</Badge>
+          <Badge style={{ background: "rgba(34,197,94,0.15)", color: "#22C55E", border: "1px solid rgba(34,197,94,0.25)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>Our Economy</Badge>
           <button style={{ padding: "7px 16px", borderRadius: 8, background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", border: "none", color: "#fff", fontSize: 13, fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
             <Plus size={14} /> Post
           </button>

@@ -109,7 +109,7 @@ export function MobileGentlePulse() {
           {(activeNav === "home" || activeNav === "favorites") && (
             <div style={{ textAlign: "center", padding: "32px 0" }}>
               <div style={{ fontSize: 64, marginBottom: 16 }}>💚</div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>Your Safe Space</div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>Room to Exhale</div>
               <div style={{ fontSize: 13, color: "#4B5563", lineHeight: 1.7, marginBottom: 16 }}>6 trauma-informed sessions · Expert-designed · Always free</div>
               <div style={{ padding: "14px 16px", borderRadius: 12, background: `${COLOR}08`, border: `1px solid ${COLOR}15`, fontStyle: "italic" }}>
                 <div style={{ fontSize: 13, color: "#9CA3AF", lineHeight: 1.7 }}>"You did not choose what happened to you. You do choose what happens next."</div>

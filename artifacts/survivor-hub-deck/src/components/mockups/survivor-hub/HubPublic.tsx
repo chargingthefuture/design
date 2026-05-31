@@ -16,7 +16,7 @@ const accentCyan = "#0EA5E9";
 
 const PUBLIC_MESSAGES = [
   { id: 1, user: "Amara O.", avatar: "AO", color: "#22C55E", time: "9:01 AM", msg: "Just got my first Service Credits from a Foundation job! 45 credits for helping wire a kitchen. This is real. 🙌" },
-  { id: 2, user: "James T.", avatar: "JT", color: "#3B82F6", time: "9:14 AM", msg: "LightHouse found me a private studio in Houston that accepts credits. Moving in Friday. Safe Space verified host." },
+  { id: 2, user: "James T.", avatar: "JT", color: "#3B82F6", time: "9:14 AM", msg: "LightHouse found me a private studio in Houston that accepts credits. Moving in Friday. Survivor-verified host." },
   { id: 3, user: "Maria G.", avatar: "MG", color: "#EC4899", time: "9:28 AM", msg: "My Peer Programming cohort just helped me land a remote dev role. Week 8 done. From nothing to employed. 💻" },
   { id: 4, user: "David K.", avatar: "DK", color: "#F97316", time: "9:45 AM", msg: "Anyone in the Chicago area? SocketRelay has an open request for Spanish interpretation at a court hearing tomorrow. Urgently needed." },
   { id: 5, user: "Priya S.", avatar: "PS", color: "#A855F7", time: "10:03 AM", msg: "GDP dashboard just hit $247B. 4.9M of us building this economy. Every skill verified, every credit earned. This is ours." },
@@ -55,7 +55,7 @@ export function HubPublic() {
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <ShieldCheck size={16} color="#fff" />
           <span style={{ fontSize: 13, fontWeight: 600, color: "#fff" }}>Survivor Hub · 4.9M members · $247B economy · 127 countries</span>
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.7)" }}>Free to join · Safe Space guaranteed</span>
+          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.7)" }}>Free to join · Exit Their Economy</span>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button style={{ padding: "6px 16px", borderRadius: 7, background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", fontWeight: 600, fontSize: 13, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
@@ -131,7 +131,7 @@ export function HubPublic() {
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 20, background: surface, border: `1px solid ${border}` }}>
                 <ShieldCheck size={12} color={accentCyan} />
-                <span style={{ fontSize: 11, color: accentCyan, fontWeight: 600 }}>Safe Space ✓</span>
+                <span style={{ fontSize: 11, color: accentCyan, fontWeight: 600 }}>Survivor Verified</span>
               </div>
             </div>
           </div>
@@ -186,7 +186,7 @@ export function HubPublic() {
               "18 apps — everything peer-to-peer",
               "ServiceCredits utility economy",
               "No data sold — ever",
-              "✓ Safe Space guarantee",
+              "✓ Invite-only, survivor-verified",
             ].map(pt => (
               <div key={pt} style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 5, fontSize: 12, color: subtle }}>
                 <ChevronRight size={12} color={accentCyan} /> {pt}
