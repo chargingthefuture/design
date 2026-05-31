@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -6,7 +7,7 @@ import {
   Mic, Home, Car, BookOpen, Hammer, Users, Globe, Coins,
   BarChart2, Heart, Smile, Share2, Search, Send, Radio,
   Bell, Settings, MessageSquare, Zap, ChevronRight, Sparkles,
-  Hash, ArrowUpRight, Plus, Megaphone, Award, Target,
+  Hash, ArrowUpRight, Plus, Award, Target,
 } from "lucide-react";
 
 const MINI_APPS = [
@@ -22,7 +23,6 @@ const MINI_APPS = [
   { id: "gentlepulse", name: "GentlePulse", emoji: "💚", icon: Heart, color: "#14B8A6" },
   { id: "mood", name: "Mood", emoji: "😁", icon: Smile, color: "#EC4899" },
   { id: "socketrelay", name: "SocketRelay", emoji: "🔂", icon: Share2, color: "#F43F5E" },
-  { id: "feed", name: "Feed", emoji: "📣", icon: Megaphone, color: "#8B5CF6" },
   { id: "skillshunt", name: "Skills Hunt", emoji: "🎓", icon: Award, color: "#A855F7" },
   { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, color: "#22C55E" },
 ];
@@ -58,7 +58,7 @@ export function MobileHome() {
   };
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100%", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Status bar */}
       <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
