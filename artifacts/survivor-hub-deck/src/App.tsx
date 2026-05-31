@@ -235,7 +235,7 @@ const SECTION_COLORS: Record<string, string> = {
   "Hub":              "#38BDF8",
   "Chyme":            "#22C55E",
   "Directory":        "#3B82F6",
-  "Feed":             "#84CC16",
+  "Community":        "#7C3AED",
   "Workforce":        "#B45309",
   "SkillsHunt":       "#D946EF",
   "Foundation":       "#EF4444",
@@ -291,15 +291,15 @@ const SLIDES: Slide[] = [
   mob("MobileDirectoryEmpty", "Mobile · Empty State",  "Directory"),
   mob("MobileDirectoryLoading","Mobile · Loading",     "Directory"),
 
-  // ── FEED ──────────────────────────────────────────────────────────────
-  web("FeedAnnouncementsPublic",  "Web · Not Signed In",  "Feed"),
-  web("FeedAnnouncements",        "Web · Signed In",       "Feed"),
-  web("FeedAnnouncementsEmpty",   "Web · Empty State",     "Feed"),
-  web("FeedAnnouncementsLoading", "Web · Loading",         "Feed"),
-  mob("MobileFeedPublic",         "Mobile · Not Signed In","Feed"),
-  mob("MobileFeed",               "Mobile · Signed In",    "Feed"),
-  mob("MobileFeedEmpty",          "Mobile · Empty State",  "Feed"),
-  mob("MobileFeedLoading",        "Mobile · Loading",      "Feed"),
+  // ── COMMUNITY CHANNEL ─────────────────────────────────────────────────
+  web("FeedAnnouncementsPublic",  "Web · Not Signed In",  "Community"),
+  web("FeedAnnouncements",        "Web · Signed In",       "Community"),
+  web("FeedAnnouncementsEmpty",   "Web · Empty State",     "Community"),
+  web("FeedAnnouncementsLoading", "Web · Loading",         "Community"),
+  mob("MobileFeedPublic",         "Mobile · Not Signed In","Community"),
+  mob("MobileFeed",               "Mobile · Signed In",    "Community"),
+  mob("MobileFeedEmpty",          "Mobile · Empty State",  "Community"),
+  mob("MobileFeedLoading",        "Mobile · Loading",      "Community"),
 
   // ── WORKFORCE ─────────────────────────────────────────────────────────
   web("WorkforcePublic",      "Web · Not Signed In",  "Workforce"),
