@@ -1,13 +1,16 @@
 // design-sync
-// STATE: Authenticated curator, mobile, list empty — "start the list" with add-item form
+// STATE: Add-item / suggest form (mobile) — used by both admins and members. The product list is empty; add the first item.
+// Members can only pick a pre-existing problem; new problems are created by admins. Same page reused if per-survivor published lists ship later.
 import { useState } from "react";
-import { ListChecks, ExternalLink, Send, CheckCircle, Tag, Plus, ShieldCheck } from "lucide-react";
+import { ListChecks, ExternalLink, Send, CheckCircle, Tag, Plus, ShieldCheck, ChevronDown } from "lucide-react";
 
 const BRAND = "#84CC16";
 const bg = "#0F1117";
 const border = "#1E2A3A";
 const text = "#F9FAFB";
 const subtle = "#6B7280";
+
+const EXISTING_PROBLEMS = ["Noise & Verbal Harassment", "Sleep Disruption", "Vehicle Tampering"];
 
 const inputStyle: React.CSSProperties = {
   flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#F9FAFB", fontFamily: "inherit",
@@ -34,7 +37,7 @@ export function MobileWhatWorksEmpty() {
         <ListChecks size={17} color={BRAND} />
         <div>
           <div style={{ fontSize: 15, fontWeight: 700 }}>What Works</div>
-          <div style={{ fontSize: 11.5, color: subtle }}>Start the shared list</div>
+          <div style={{ fontSize: 11.5, color: subtle }}>Add a tool to the shared list</div>
         </div>
       </div>
 
@@ -57,7 +60,7 @@ export function MobileWhatWorksEmpty() {
             </div>
             <div style={{ fontSize: 21, fontWeight: 800, marginBottom: 8, lineHeight: 1.2 }}>The list is empty — add what worked first.</div>
             <div style={{ fontSize: 13, color: subtle, lineHeight: 1.65, marginBottom: 20 }}>
-              Name a problem survivors face, then add a specific product that solved it — with a direct link. Example: <span style={{ color: "#C4CAD3" }}>“Noise &amp; Verbal Harassment”</span> → noise-cancelling headphones.
+              Pick the problem your product solves, then add a specific item that worked — with a direct link. Example: <span style={{ color: "#C4CAD3" }}>“Noise &amp; Verbal Harassment”</span> → noise-cancelling headphones.
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -65,8 +68,15 @@ export function MobileWhatWorksEmpty() {
                 <label style={{ fontSize: 12.5, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 7 }}>Problem it solves <span style={{ color: BRAND }}>*</span></label>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 13px", background: "rgba(255,255,255,0.04)", border: `1px solid ${problem ? BRAND + "50" : border}`, borderRadius: 11 }}>
                   <Tag size={14} color={subtle} style={{ flexShrink: 0 }} />
-                  <input value={problem} onChange={(e) => setProblem(e.target.value)} placeholder="e.g. Noise & Verbal Harassment" style={inputStyle} />
+                  <select value={problem} onChange={(e) => setProblem(e.target.value)} style={{ ...inputStyle, cursor: "pointer", appearance: "none", color: problem ? "#F9FAFB" : subtle }}>
+                    <option value="" disabled>Choose an existing problem…</option>
+                    {EXISTING_PROBLEMS.map((p) => (
+                      <option key={p} value={p} style={{ background: "#11141B", color: "#F9FAFB" }}>{p}</option>
+                    ))}
+                  </select>
+                  <ChevronDown size={15} color={subtle} style={{ flexShrink: 0 }} />
                 </div>
+                <div style={{ fontSize: 10.5, color: subtle, marginTop: 6, lineHeight: 1.5 }}>Pick an existing problem. New problems are added by admins.</div>
               </div>
               <div>
                 <label style={{ fontSize: 12.5, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 7 }}>Product name <span style={{ color: BRAND }}>*</span></label>
@@ -87,7 +97,7 @@ export function MobileWhatWorksEmpty() {
 
               <div style={{ display: "flex", alignItems: "center", gap: 7, padding: "11px 13px", borderRadius: 11, background: `${BRAND}06`, border: `1px solid ${BRAND}20` }}>
                 <ShieldCheck size={14} color={BRAND} style={{ flexShrink: 0 }} />
-                <span style={{ fontSize: 11.5, color: subtle, lineHeight: 1.5 }}>One shared list for everyone, for now. Per-survivor lists may come later.</span>
+                <span style={{ fontSize: 11.5, color: subtle, lineHeight: 1.5 }}>Choose the problem your product solves. Admins curate the problem list to avoid duplicates.</span>
               </div>
             </div>
           </>

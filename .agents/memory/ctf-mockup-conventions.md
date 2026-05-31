@@ -75,9 +75,13 @@ The numeric app/plugin count in copy and in `app_count` of both sync-manifest fi
 **Why:** Counts span brand copy, fiat-parity copy ("usable across N plugins"), and manifest metadata; a blind bump risks contradicting copy elsewhere. Owner intent on the canonical number is unconfirmed.
 
 ## "What Works" app (18th user-facing app)
-One SHARED, survivor-verified curated list of tools/products organized by problem (benable.com list format meets the "Look Ma, I Fixed It" problems page). Brand color `#84CC16` (lime, BRAND const in each file). 8 mockup files (web+mobile × default/Public/Empty/Loading). Grid tile id `"what-works"`, icon `ListChecks`. Empty state = curator "start the list" add-item form (problem/product/link/why). Public state is publicly readable with a sign-in gate to suggest. No ads, no affiliates — that framing is core to the concept.
+One SHARED, survivor-verified curated list of tools/products organized by problem (benable.com list format meets the "Look Ma, I Fixed It" problems page). Brand color `#84CC16` (lime, BRAND const in each file). 8 mockup files (web+mobile × default/Public/Empty/Loading). Grid tile id `"what-works"`, icon `ListChecks`. Public state is publicly readable with a sign-in gate to suggest. No ads, no affiliates — that framing is core to the concept (icon: `Ban`, not `Heart`).
 
 **Why:** Owner wanted a single trusted, survivor-verified shopping list keyed by the real problems survivors face, distinct from per-user lists (which may come later).
+
+**No prices:** Product cards/data carry NO price field. Owner decision — monitoring prices of programmatically-shared links is too tedious/expensive/fragile. Don't reintroduce a `price` on the Product type or card JSX.
+
+**Add-item / "Empty" form (WhatWorksEmpty + MobileWhatWorksEmpty):** used by BOTH admins and members (NOT admin-only — that gating was tried and reverted). Deck slide label "Web/Mobile · Add Item". The "Problem it solves" field is a `<select>` over `EXISTING_PROBLEMS` — members can only pick a pre-existing problem; only admins create new problems (prevents the same need being listed twice under different names). Keep this page even if per-survivor published lists ship later — it's reused there.
 
 ## pnpm version
 Use pnpm@10.26.1 (matches nix store). Do not upgrade to 10.32+ without checking nix store version first.

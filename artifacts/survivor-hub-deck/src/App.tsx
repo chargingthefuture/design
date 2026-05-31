@@ -495,11 +495,11 @@ const SLIDES: Slide[] = [
   // ── WHAT WORKS ────────────────────────────────────────────────────────
   web("WhatWorksPublic",       "Web · Not Signed In",  "What Works"),
   web("WhatWorks",             "Web · Signed In",       "What Works"),
-  web("WhatWorksEmpty",        "Web · Empty State",     "What Works"),
+  web("WhatWorksEmpty",        "Web · Add Item",        "What Works"),
   web("WhatWorksLoading",      "Web · Loading",         "What Works"),
   mob("MobileWhatWorksPublic", "Mobile · Not Signed In","What Works"),
   mob("MobileWhatWorks",       "Mobile · Signed In",    "What Works"),
-  mob("MobileWhatWorksEmpty",  "Mobile · Empty State",  "What Works"),
+  mob("MobileWhatWorksEmpty",  "Mobile · Add Item",     "What Works"),
   mob("MobileWhatWorksLoading","Mobile · Loading",      "What Works"),
 ];
 

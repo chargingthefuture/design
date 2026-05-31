@@ -221,9 +221,9 @@
       "name": "WhatWorksEmpty",
       "file": "src/components/mockups/survivor-hub/WhatWorksEmpty.tsx",
       "kind": "screen",
-      "states": ["empty"],
+      "states": ["empty", "add-item"],
       "platform": "desktop",
-      "notes": "Curator start-the-list add-item form: problem / product / link / why, with success state."
+      "notes": "Add-item / suggest form (admins + members): problem / product / link / why, with success state. Problem is chosen from a pre-existing list; only admins create new problems (avoids duplicates). No prices. Same page reused if per-survivor published lists ship later."
     },
     {
       "id": "what-works-loading",
@@ -254,8 +254,9 @@
       "name": "MobileWhatWorksEmpty",
       "file": "src/components/mockups/survivor-hub/MobileWhatWorksEmpty.tsx",
       "kind": "screen",
-      "states": ["empty"],
-      "platform": "mobile"
+      "states": ["empty", "add-item"],
+      "platform": "mobile",
+      "notes": "Mobile add-item / suggest form (admins + members). Problem chosen from a pre-existing list; only admins create new problems. No prices."
     },
     {
       "id": "mobile-what-works-loading",

@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — public visitor. List is publicly readable; suggesting is gated behind sign-in.
 import {
   ListChecks, UserPlus, BadgeCheck, ExternalLink, ShieldCheck,
-  Heart, Lock, ChevronRight,
+  Ban, Lock, ChevronRight,
 } from "lucide-react";
 
 const BRAND = "#84CC16";
@@ -18,8 +18,8 @@ const PREVIEW = [
     title: "Noise & Verbal Harassment",
     context: "Slurs through the wall, street harassment, or constant noise meant to wear you down.",
     products: [
-      { emoji: "🎧", name: "Sony WH-1000XM5", kind: "Over-ear · noise cancelling", note: "“Blocks voices, not just hum — the only thing that quieted the through-wall talking.”", price: "$398", verified: 6 },
-      { emoji: "🔇", name: "Loop Quiet 2", kind: "Reusable ear plugs", note: "“Discreet, comfortable enough to sleep in. Takes the edge off.”", price: "$25", verified: 4 },
+      { emoji: "🎧", name: "Sony WH-1000XM5", kind: "Over-ear · noise cancelling", note: "“Blocks voices, not just hum — the only thing that quieted the through-wall talking.”", verified: 6 },
+      { emoji: "🔇", name: "Loop Quiet 2", kind: "Reusable ear plugs", note: "“Discreet, comfortable enough to sleep in. Takes the edge off.”", verified: 4 },
     ],
   },
   {
@@ -27,7 +27,7 @@ const PREVIEW = [
     title: "Sleep Disruption",
     context: "Noise, light, or hypervigilance keeping you up at night.",
     products: [
-      { emoji: "🌑", name: "Manta Sleep Mask", kind: "Blackout eye mask", note: "“Total darkness, zero pressure on the eyes. First full night in months.”", price: "$35", verified: 5 },
+      { emoji: "🌑", name: "Manta Sleep Mask", kind: "Blackout eye mask", note: "“Total darkness, zero pressure on the eyes. First full night in months.”", verified: 5 },
     ],
   },
 ];
@@ -73,7 +73,7 @@ export function WhatWorksPublic() {
               <div style={{ fontSize: 13, fontWeight: 700, color: BRAND, marginBottom: 14 }}>Why trust this list?</div>
               {[
                 { icon: <BadgeCheck size={15} color={BRAND} />, t: "Survivor-verified", d: "Used by a real member who said it helped." },
-                { icon: <Heart size={15} color={BRAND} />, t: "No ads or affiliates", d: "Nothing here is sponsored." },
+                { icon: <Ban size={15} color={BRAND} />, t: "No ads or affiliates", d: "Nothing here is sponsored." },
                 { icon: <Lock size={15} color={BRAND} />, t: "Anonymous", d: "Suggesting never reveals who you are." },
               ].map(({ icon, t, d }) => (
                 <div key={t} style={{ display: "flex", gap: 10, marginBottom: 12 }}>
@@ -118,7 +118,7 @@ export function WhatWorksPublic() {
                             <ShieldCheck size={12} /> {prod.verified} verified
                           </span>
                           <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 12, color: BRAND, fontWeight: 700, textDecoration: "none" }}>
-                            {prod.price} · View <ExternalLink size={11} />
+                            View <ExternalLink size={11} />
                           </a>
                         </div>
                       </div>

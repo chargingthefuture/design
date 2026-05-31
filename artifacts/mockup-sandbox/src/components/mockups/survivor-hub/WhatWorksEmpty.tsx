@@ -1,8 +1,9 @@
 // design-sync
-// STATE: Authenticated curator, list has no items yet — "start the list" with add-item form
+// STATE: Add-item / suggest form — used by both admins and members. The product list is empty; add the first item.
+// Members can only pick a pre-existing problem; new problems are created by admins. Same page reused if per-survivor published lists ship later.
 import { useState } from "react";
 import {
-  ListChecks, Plus, ExternalLink, ShieldCheck, Send, CheckCircle, Tag,
+  ListChecks, Plus, ExternalLink, ShieldCheck, Send, CheckCircle, Tag, ChevronDown,
 } from "lucide-react";
 
 const BRAND = "#84CC16";
@@ -11,6 +12,8 @@ const surface = "#161B27";
 const border = "#1E2A3A";
 const text = "#F9FAFB";
 const subtle = "#6B7280";
+
+const EXISTING_PROBLEMS = ["Noise & Verbal Harassment", "Sleep Disruption", "Vehicle Tampering"];
 
 export function WhatWorksEmpty() {
   const [problem, setProblem] = useState("");
@@ -46,7 +49,7 @@ export function WhatWorksEmpty() {
         <ListChecks size={18} color={BRAND} />
         <div>
           <div style={{ fontSize: 15, fontWeight: 600 }}>What Works</div>
-          <div style={{ fontSize: 12, color: subtle }}>Start the shared list of survivor-verified tools</div>
+          <div style={{ fontSize: 12, color: subtle }}>Add a survivor-verified tool to the shared list</div>
         </div>
       </div>
 
@@ -60,7 +63,7 @@ export function WhatWorksEmpty() {
             </div>
             <div style={{ fontSize: 26, fontWeight: 800, marginBottom: 10 }}>The list is empty — add what worked first.</div>
             <div style={{ fontSize: 14, color: subtle, lineHeight: 1.7 }}>
-              Name a problem survivors face, then add a specific product that solved it for you — with a direct purchase link and a short note on why it works. Example: <span style={{ color: "#C4CAD3" }}>“Noise &amp; Verbal Harassment”</span> → a pair of noise-cancelling headphones.
+              Pick the problem your product solves, then add a specific item that worked for you — with a direct purchase link and a short note on why. Example: <span style={{ color: "#C4CAD3" }}>“Noise &amp; Verbal Harassment”</span> → a pair of noise-cancelling headphones.
             </div>
           </div>
 
@@ -68,8 +71,15 @@ export function WhatWorksEmpty() {
             <Field label="Problem it solves" required>
               <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${problem ? BRAND + "50" : border}`, borderRadius: 12 }}>
                 <Tag size={14} color={subtle} style={{ flexShrink: 0 }} />
-                <input value={problem} onChange={(e) => setProblem(e.target.value)} placeholder="e.g. Noise & Verbal Harassment" style={inputStyle} />
+                <select value={problem} onChange={(e) => setProblem(e.target.value)} style={{ ...inputStyle, cursor: "pointer", appearance: "none", color: problem ? "#F9FAFB" : subtle }}>
+                  <option value="" disabled>Choose an existing problem…</option>
+                  {EXISTING_PROBLEMS.map((p) => (
+                    <option key={p} value={p} style={{ background: "#11141B", color: "#F9FAFB" }}>{p}</option>
+                  ))}
+                </select>
+                <ChevronDown size={15} color={subtle} style={{ flexShrink: 0 }} />
               </div>
+              <div style={{ fontSize: 11, color: subtle, marginTop: 6, lineHeight: 1.5 }}>Pick an existing problem. New problems are added by admins to avoid duplicates.</div>
             </Field>
 
             <Field label="Product name" required>
@@ -116,9 +126,9 @@ export function WhatWorksEmpty() {
           <div style={{ padding: "14px 16px", borderRadius: 12, background: `${BRAND}06`, border: `1px solid ${BRAND}20` }}>
             <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 6 }}>
               <ShieldCheck size={13} color={BRAND} />
-              <span style={{ fontSize: 12, fontWeight: 600, color: BRAND }}>One shared list, for now</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: BRAND }}>Pick an existing problem</span>
             </div>
-            <div style={{ fontSize: 11.5, color: subtle, lineHeight: 1.55 }}>Everyone sees the same curated list. If it's helpful, survivors may get their own lists later.</div>
+            <div style={{ fontSize: 11.5, color: subtle, lineHeight: 1.55 }}>When you suggest a product, choose the problem it solves from the list. Admins curate the problems so the same need isn't listed twice under different names.</div>
           </div>
         </div>
       </div>

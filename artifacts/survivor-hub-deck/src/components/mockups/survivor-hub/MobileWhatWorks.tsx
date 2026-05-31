@@ -18,8 +18,8 @@ const PROBLEMS = [
     title: "Noise & Verbal Harassment",
     context: "Slurs through the wall, street harassment, or constant noise.",
     products: [
-      { emoji: "🎧", name: "Sony WH-1000XM5", kind: "Over-ear · noise cancelling", note: "“Blocks voices, not just hum. Quieted the through-wall talking.”", price: "$398", verified: 6 },
-      { emoji: "🔇", name: "Loop Quiet 2", kind: "Reusable ear plugs", note: "“Discreet, comfy enough to sleep in. Takes the edge off.”", price: "$25", verified: 4 },
+      { emoji: "🎧", name: "Sony WH-1000XM5", kind: "Over-ear · noise cancelling", note: "“Blocks voices, not just hum. Quieted the through-wall talking.”", verified: 6 },
+      { emoji: "🔇", name: "Loop Quiet 2", kind: "Reusable ear plugs", note: "“Discreet, comfy enough to sleep in. Takes the edge off.”", verified: 4 },
     ],
   },
   {
@@ -27,7 +27,7 @@ const PROBLEMS = [
     title: "Sleep Disruption",
     context: "Noise, light, or hypervigilance keeping you up.",
     products: [
-      { emoji: "🌑", name: "Manta Sleep Mask", kind: "Blackout eye mask", note: "“Total darkness, no pressure on the eyes. First full night in months.”", price: "$35", verified: 5 },
+      { emoji: "🌑", name: "Manta Sleep Mask", kind: "Blackout eye mask", note: "“Total darkness, no pressure on the eyes. First full night in months.”", verified: 5 },
     ],
   },
 ];
@@ -95,7 +95,6 @@ export function MobileWhatWorks() {
                       <div style={{ fontSize: 13.5, fontWeight: 700 }}>{prod.name}</div>
                       <div style={{ fontSize: 11, color: subtle }}>{prod.kind}</div>
                     </div>
-                    <span style={{ fontSize: 13, fontWeight: 700, flexShrink: 0 }}>{prod.price}</span>
                   </div>
                   <div style={{ fontSize: 12, color: "#C4CAD3", lineHeight: 1.5, marginTop: 9, fontStyle: "italic" }}>{prod.note}</div>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 11 }}>

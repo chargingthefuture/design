@@ -17,7 +17,7 @@ const PREVIEW = [
     title: "Noise & Verbal Harassment",
     context: "Slurs through the wall, street harassment, or constant noise.",
     products: [
-      { emoji: "🎧", name: "Sony WH-1000XM5", kind: "Noise cancelling", note: "“Blocks voices, not just hum.”", price: "$398", verified: 6 },
+      { emoji: "🎧", name: "Sony WH-1000XM5", kind: "Noise cancelling", note: "“Blocks voices, not just hum.”", verified: 6 },
     ],
   },
   {
@@ -25,7 +25,7 @@ const PREVIEW = [
     title: "Sleep Disruption",
     context: "Noise, light, or hypervigilance keeping you up.",
     products: [
-      { emoji: "🌑", name: "Manta Sleep Mask", kind: "Blackout eye mask", note: "“Total darkness, no pressure. First full night in months.”", price: "$35", verified: 5 },
+      { emoji: "🌑", name: "Manta Sleep Mask", kind: "Blackout eye mask", note: "“Total darkness, no pressure. First full night in months.”", verified: 5 },
     ],
   },
 ];
@@ -82,7 +82,6 @@ export function MobileWhatWorksPublic() {
                       <div style={{ fontSize: 13.5, fontWeight: 700 }}>{prod.name}</div>
                       <div style={{ fontSize: 11, color: subtle }}>{prod.kind}</div>
                     </div>
-                    <span style={{ fontSize: 13, fontWeight: 700, flexShrink: 0 }}>{prod.price}</span>
                   </div>
                   <div style={{ fontSize: 12, color: "#C4CAD3", lineHeight: 1.5, marginTop: 8, fontStyle: "italic" }}>{prod.note}</div>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 10 }}>

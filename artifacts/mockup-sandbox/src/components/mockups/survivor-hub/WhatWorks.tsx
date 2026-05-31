@@ -3,7 +3,7 @@
 import { useState } from "react";
 import {
   ListChecks, ShieldCheck, ExternalLink, ThumbsUp, Plus, Search,
-  Bell, Settings, Heart, Lock, Tag, BadgeCheck, ChevronRight,
+  Bell, Settings, Ban, Lock, Tag, BadgeCheck, ChevronRight,
 } from "lucide-react";
 
 const BRAND = "#84CC16";
@@ -18,7 +18,6 @@ type Product = {
   name: string;
   kind: string;
   note: string;
-  price: string;
   verified: number;
 };
 type Problem = {
@@ -34,9 +33,9 @@ const PROBLEMS: Problem[] = [
     title: "Noise & Verbal Harassment",
     context: "Slurs through the wall, street harassment, or constant noise meant to wear you down.",
     products: [
-      { emoji: "🎧", name: "Sony WH-1000XM5", kind: "Over-ear · active noise cancelling", note: "“Blocks voices, not just hum. The only thing that quieted the through-wall talking for me.”", price: "$398", verified: 6 },
-      { emoji: "🔇", name: "Loop Quiet 2", kind: "Reusable ear plugs", note: "“Discreet and comfortable enough to sleep in. Takes the edge off without total silence.”", price: "$25", verified: 4 },
-      { emoji: "🎵", name: "JLab Go Air Pop", kind: "Budget ANC earbuds", note: "“Cheap, pocketable, and good enough to get me through a shift.”", price: "$20", verified: 3 },
+      { emoji: "🎧", name: "Sony WH-1000XM5", kind: "Over-ear · active noise cancelling", note: "“Blocks voices, not just hum. The only thing that quieted the through-wall talking for me.”", verified: 6 },
+      { emoji: "🔇", name: "Loop Quiet 2", kind: "Reusable ear plugs", note: "“Discreet and comfortable enough to sleep in. Takes the edge off without total silence.”", verified: 4 },
+      { emoji: "🎵", name: "JLab Go Air Pop", kind: "Budget ANC earbuds", note: "“Cheap, pocketable, and good enough to get me through a shift.”", verified: 3 },
     ],
   },
   {
@@ -44,8 +43,8 @@ const PROBLEMS: Problem[] = [
     title: "Sleep Disruption",
     context: "Noise, light, or hypervigilance keeping you up at night.",
     products: [
-      { emoji: "🌑", name: "Manta Sleep Mask", kind: "Blackout eye mask", note: "“Zero pressure on the eyes, total darkness. First full night of sleep in months.”", price: "$35", verified: 5 },
-      { emoji: "🌬️", name: "Yogasleep Dohm", kind: "White noise machine", note: "“A real fan inside, not a loop. Masks footsteps and voices outside the door.”", price: "$50", verified: 4 },
+      { emoji: "🌑", name: "Manta Sleep Mask", kind: "Blackout eye mask", note: "“Zero pressure on the eyes, total darkness. First full night of sleep in months.”", verified: 5 },
+      { emoji: "🌬️", name: "Yogasleep Dohm", kind: "White noise machine", note: "“A real fan inside, not a loop. Masks footsteps and voices outside the door.”", verified: 4 },
     ],
   },
   {
@@ -53,8 +52,8 @@ const PROBLEMS: Problem[] = [
     title: "Vehicle Tampering",
     context: "Worried about hidden trackers or tampering on your car.",
     products: [
-      { emoji: "📡", name: "GPS Tracker Detector", kind: "RF bug sweeper", note: "“Found a tracker tucked under my bumper in about ten minutes.”", price: "$60", verified: 3 },
-      { emoji: "🛞", name: "Tire Pressure Monitor", kind: "Solar cap sensors (TPMS)", note: "“Catches slow leaks before they strand me somewhere at night.”", price: "$40", verified: 2 },
+      { emoji: "📡", name: "GPS Tracker Detector", kind: "RF bug sweeper", note: "“Found a tracker tucked under my bumper in about ten minutes.”", verified: 3 },
+      { emoji: "🛞", name: "Tire Pressure Monitor", kind: "Solar cap sensors (TPMS)", note: "“Catches slow leaks before they strand me somewhere at night.”", verified: 2 },
     ],
   },
 ];
@@ -177,8 +176,7 @@ export function WhatWorks() {
                             </span>
                           </div>
                         </div>
-                        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between", flexShrink: 0 }}>
-                          <span style={{ padding: "4px 10px", borderRadius: 8, background: "rgba(255,255,255,0.04)", border: `1px solid ${border}`, fontSize: 13, fontWeight: 700, color: text }}>{prod.price}</span>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "center", flexShrink: 0 }}>
                           <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 13px", borderRadius: 9, background: `${BRAND}18`, border: `1px solid ${BRAND}40`, color: BRAND, fontSize: 12.5, fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap" }}>
                             View on Amazon <ExternalLink size={12} />
                           </a>
@@ -200,7 +198,7 @@ export function WhatWorks() {
           {[
             { icon: <BadgeCheck size={15} color={BRAND} />, t: "Survivor-verified", d: "Every item was used by a real member who said it helped." },
             { icon: <ExternalLink size={15} color={BRAND} />, t: "Direct links", d: "Go straight to the product. We don't sell anything." },
-            { icon: <Heart size={15} color={BRAND} />, t: "No ads, no affiliates", d: "Nothing on this list is sponsored or paid for." },
+            { icon: <Ban size={15} color={BRAND} />, t: "No ads, no affiliates", d: "Nothing on this list is sponsored or paid for." },
             { icon: <Lock size={15} color={BRAND} />, t: "Private to suggest", d: "Suggesting an item never reveals who you are." },
           ].map(({ icon, t, d }) => (
             <div key={t} style={{ display: "flex", gap: 10, marginBottom: 12 }}>
