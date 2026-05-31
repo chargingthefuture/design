@@ -20,5 +20,5 @@ description: Naming, label, and surface conventions for the Survivor Hub "AI Ass
 ## Survivor-safety in AI copy
 AI answers must never reveal a survivor's location or identity, and the assistant must never ask them to. Safety-sensitive drafts default to human review before reaching the survivor.
 
-## Pre-existing brand debt (out of scope, still present as of this work)
-Desktop/MobileHome still contain "Mini-Apps" and "coming soon" strings (apps directory + nav labels) that violate brand rules ("apps" not "mini-apps"; no "coming soon"). Not part of the AI Assistant feature — fix only if a task explicitly covers them.
+## "apps" / "coming soon" cleanup (resolved)
+All user-facing "Mini-Apps"/"mini-app" replaced with "Apps"/"app", and all "coming soon" strings removed across survivor-hub mockups. Note the JS variable `MINI_APPS` in Desktop/MobileHome is internal code, not user-facing — leave it. "coming soon" replacements used: app-detail badge → "Real-time activity"; mobile nav placeholder → "— nothing here yet"; SkillsTaxonomy empty (public) → "Skills taxonomy/database not published yet". "Check back soon" is allowed (only the literal "coming soon" trope is banned).

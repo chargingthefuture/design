@@ -128,7 +128,7 @@ export function Desktop() {
           <div style={{ fontSize: 40 }}>{app.emoji}</div>
           <div style={{ fontSize: 24, fontWeight: 800, color: "#F9FAFB" }}>{app.name}</div>
           <div style={{ fontSize: 15, color: "#6B7280" }}>{app.desc}</div>
-          <div style={{ padding: "10px 20px", borderRadius: 10, background: `${app.color}18`, border: `1px solid ${app.color}35`, color: app.color, fontSize: 13 }}>Coming soon — real-time</div>
+          <div style={{ padding: "10px 20px", borderRadius: 10, background: `${app.color}18`, border: `1px solid ${app.color}35`, color: app.color, fontSize: 13 }}>Real-time activity</div>
         </div>
       </div>
     );
@@ -156,7 +156,7 @@ export function Desktop() {
       <aside style={{ width: 240, background: "#0D0F14", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>
-            {section === "chat" ? "Channels" : "Mini-Apps"}
+            {section === "chat" ? "Channels" : "Apps"}
           </div>
           <div style={{ position: "relative" }}>
             <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: "#4B5563" }} />
@@ -201,7 +201,7 @@ export function Desktop() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
         <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>{section === "chat" ? "# community" : activeApp ? MINI_APPS.find((a) => a.id === activeApp)?.name : "All Mini-Apps"}</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>{section === "chat" ? "# community" : activeApp ? MINI_APPS.find((a) => a.id === activeApp)?.name : "All Apps"}</div>
             <div style={{ fontSize: 12, color: "#6B7280" }}>{section === "chat" ? "Community · 4,912 online" : "Your peer-to-peer marketplace"}</div>
           </div>
           <div style={{ display: "flex", gap: 8 }}>
@@ -390,7 +390,7 @@ export function Desktop() {
               <ScrollArea style={{ flex: 1 }}>
                 <div style={{ padding: "24px" }}>
                   <div style={{ marginBottom: 20 }}>
-                    <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>All Mini-Apps</div>
+                    <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>All Apps</div>
                     <div style={{ fontSize: 14, color: "#6B7280" }}>Your complete peer-to-peer marketplace — from survivor to thriver</div>
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>

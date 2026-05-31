@@ -32,7 +32,7 @@ export function SkillsTaxonomyEmpty({ isAdmin = false }: { isAdmin?: boolean }) 
 
           <div>
             <div style={{ fontSize: 28, fontWeight: 800, color: text, marginBottom: 10 }}>
-              {isAdmin ? "Taxonomy not populated yet" : "Skills taxonomy coming soon"}
+              {isAdmin ? "Taxonomy not populated yet" : "Skills taxonomy not published yet"}
             </div>
             <div style={{ fontSize: 15, color: subtle, lineHeight: 1.7, maxWidth: 460 }}>
               {isAdmin

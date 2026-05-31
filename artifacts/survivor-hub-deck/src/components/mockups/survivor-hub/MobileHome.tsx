@@ -315,7 +315,7 @@ export function MobileHome() {
 
         {activeNav === "apps" && (
           <ScrollArea style={{ flex: 1, padding: "16px" }}>
-            <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Mini-Apps</div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Apps</div>
             <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 16 }}>Tap to launch</div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>
               {MINI_APPS.map((app) => {
@@ -336,7 +336,7 @@ export function MobileHome() {
 
         {activeNav !== "chat" && activeNav !== "apps" && (
           <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", color: "#4B5563", fontSize: 14 }}>
-            {activeNav.charAt(0).toUpperCase() + activeNav.slice(1)} — coming soon
+            {activeNav.charAt(0).toUpperCase() + activeNav.slice(1)} — nothing here yet
           </div>
         )}
       </div>

@@ -40,7 +40,7 @@ export function MobileSkillsTaxonomyEmpty({ isAdmin = false }: { isAdmin?: boole
 
         <div>
           <div style={{ fontSize: 22, fontWeight: 800, color: text, marginBottom: 8 }}>
-            {isAdmin ? "Taxonomy not populated yet" : "Skills database coming soon"}
+            {isAdmin ? "Taxonomy not populated yet" : "Skills database not published yet"}
           </div>
           <div style={{ fontSize: 14, color: subtle, lineHeight: 1.6, maxWidth: 320 }}>
             {isAdmin

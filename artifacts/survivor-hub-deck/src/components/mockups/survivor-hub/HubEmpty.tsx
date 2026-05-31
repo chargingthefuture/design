@@ -15,7 +15,7 @@ const accentCyan = "#0EA5E9";
 
 const ONBOARDING = [
   { icon: Hash, label: "Join a channel", desc: "Browse available channels and join your first community space.", cta: "Explore channels", color: "#A78BFA" },
-  { icon: Zap, label: "Explore an app", desc: "17 mini-apps are waiting — from housing to skills to wellness.", cta: "Browse apps", color: "#38BDF8" },
+  { icon: Zap, label: "Explore an app", desc: "17 apps are waiting — from housing to skills to wellness.", cta: "Browse apps", color: "#38BDF8" },
   { icon: Globe, label: "Check the GDP tracker", desc: "See the TI Skills Economy in real time — $300B opportunity.", cta: "Open GDP", color: "#34D399" },
 ];
 

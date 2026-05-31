@@ -139,7 +139,7 @@ export function MobileServiceCredits() {
             <div style={{ textAlign: "center", padding: "32px 0" }}>
               <div style={{ fontSize: 64, marginBottom: 12 }}>⚙️</div>
               <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>Service Credits</div>
-              <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 20 }}>Earn, spend, trade across all 12 mini-apps</div>
+              <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 20 }}>Earn, spend, trade across all 12 apps</div>
               <div style={{ fontSize: 36, fontWeight: 900, color: COLOR }}>2,420</div>
               <div style={{ fontSize: 13, color: "#6B7280" }}>your balance</div>
             </div>

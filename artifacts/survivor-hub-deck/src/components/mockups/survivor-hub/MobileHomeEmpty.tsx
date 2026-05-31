@@ -70,7 +70,7 @@ export function MobileHomeEmpty() {
           </div>
           <div style={{ fontSize: 18, fontWeight: 800, color: text, marginBottom: 8 }}>Your hub is ready 🌍</div>
           <div style={{ fontSize: 13, color: "#9CA3AF", lineHeight: 1.5, marginBottom: 14 }}>
-            Start by joining a channel or exploring a mini-app. Your economy awaits.
+            Start by joining a channel or exploring an app. Your economy awaits.
           </div>
           <div style={{ display: "flex", gap: 8 }}>
             {[{ v: "4.9M", l: "Members", c: "#A78BFA" }, { v: "$247B", l: "GDP", c: "#38BDF8" }, { v: "127", l: "Nations", c: "#34D399" }].map(({ v, l, c }) => (
