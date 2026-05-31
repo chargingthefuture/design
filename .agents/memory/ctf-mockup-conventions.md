@@ -69,5 +69,15 @@ There is NO standalone/persistent direct-messaging feature on Survivor Hub. DMs 
 
 **Why:** Owner correction — platform model is community channels + app-scoped ephemeral chat, not a Slack/Discord-style persistent DM system.
 
+## App/plugin count labels — do not auto-bump
+The numeric app/plugin count in copy and in `app_count` of both sync-manifest files is owner-sensitive and ambiguous (grid tile count vs brand-narrative count differ). When adding a new app, do NOT change these count labels to keep them "in sync" with the number of tiles — leave them as-is unless the owner explicitly asks. Reviewers (architect) may suggest bumping; treat that as non-blocking and skip it.
+
+**Why:** Counts span brand copy, fiat-parity copy ("usable across N plugins"), and manifest metadata; a blind bump risks contradicting copy elsewhere. Owner intent on the canonical number is unconfirmed.
+
+## "What Works" app (18th user-facing app)
+One SHARED, survivor-verified curated list of tools/products organized by problem (benable.com list format meets the "Look Ma, I Fixed It" problems page). Brand color `#84CC16` (lime, BRAND const in each file). 8 mockup files (web+mobile × default/Public/Empty/Loading). Grid tile id `"what-works"`, icon `ListChecks`. Empty state = curator "start the list" add-item form (problem/product/link/why). Public state is publicly readable with a sign-in gate to suggest. No ads, no affiliates — that framing is core to the concept.
+
+**Why:** Owner wanted a single trusted, survivor-verified shopping list keyed by the real problems survivors face, distinct from per-user lists (which may come later).
+
 ## pnpm version
 Use pnpm@10.26.1 (matches nix store). Do not upgrade to 10.32+ without checking nix store version first.

@@ -72,6 +72,14 @@ import MobileLevelUpDefault from "@/components/mockups/survivor-hub/MobileLevelU
 import { MobileLevelUpEmpty } from "@/components/mockups/survivor-hub/MobileLevelUpEmpty";
 import { MobileLevelUpLoading } from "@/components/mockups/survivor-hub/MobileLevelUpLoading";
 import { MobileLevelUpPublic } from "@/components/mockups/survivor-hub/MobileLevelUpPublic";
+import { WhatWorks } from "@/components/mockups/survivor-hub/WhatWorks";
+import { WhatWorksPublic } from "@/components/mockups/survivor-hub/WhatWorksPublic";
+import { WhatWorksEmpty } from "@/components/mockups/survivor-hub/WhatWorksEmpty";
+import { WhatWorksLoading } from "@/components/mockups/survivor-hub/WhatWorksLoading";
+import { MobileWhatWorks } from "@/components/mockups/survivor-hub/MobileWhatWorks";
+import { MobileWhatWorksPublic } from "@/components/mockups/survivor-hub/MobileWhatWorksPublic";
+import { MobileWhatWorksEmpty } from "@/components/mockups/survivor-hub/MobileWhatWorksEmpty";
+import { MobileWhatWorksLoading } from "@/components/mockups/survivor-hub/MobileWhatWorksLoading";
 import { MobileLightHouseEmpty } from "@/components/mockups/survivor-hub/MobileLightHouseEmpty";
 import { MobileLightHouseLoading } from "@/components/mockups/survivor-hub/MobileLightHouseLoading";
 import { MobileLightHousePublic } from "@/components/mockups/survivor-hub/MobileLightHousePublic";
@@ -202,6 +210,8 @@ const COMPONENTS: Record<string, ComponentType> = {
   MobileGentlePulseEmpty, MobileGentlePulseLoading, MobileGentlePulsePublic, MobileGentlePulse,
   MobileHomeEmpty, MobileHomeLoading, MobileHome, MobileHubPublic,
   MobileLevelUp: MobileLevelUpDefault, MobileLevelUpEmpty, MobileLevelUpLoading, MobileLevelUpPublic,
+  WhatWorks, WhatWorksPublic, WhatWorksEmpty, WhatWorksLoading,
+  MobileWhatWorks, MobileWhatWorksPublic, MobileWhatWorksEmpty, MobileWhatWorksLoading,
   MobileLightHouseEmpty, MobileLightHouseLoading, MobileLightHousePublic, MobileLightHouse,
   MobileMoodEmpty, MobileMoodLoading, MobileMoodPublic, MobileMood,
   MobilePeerProgrammingEmpty, MobilePeerProgrammingLoading, MobilePeerProgrammingPublic, MobilePeerProgramming,
@@ -258,6 +268,7 @@ const SECTION_COLORS: Record<string, string> = {
   "WeeklyPerformance": "#6366F1",
   "SkillsTaxonomy":   "#7C3AED",
   "Unlock":           "#F43F5E",
+  "What Works":       "#84CC16",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -480,6 +491,16 @@ const SLIDES: Slide[] = [
   mob("MobileAIReviewConsoleDetail", "Mobile · Edit & Correct",    "AI Assistant"),
   mob("MobileAIReviewConsoleEmpty",  "Mobile · Queue Clear",       "AI Assistant"),
   mob("MobileAIReviewConsoleLoading","Mobile · Loading",           "AI Assistant"),
+
+  // ── WHAT WORKS ────────────────────────────────────────────────────────
+  web("WhatWorksPublic",       "Web · Not Signed In",  "What Works"),
+  web("WhatWorks",             "Web · Signed In",       "What Works"),
+  web("WhatWorksEmpty",        "Web · Empty State",     "What Works"),
+  web("WhatWorksLoading",      "Web · Loading",         "What Works"),
+  mob("MobileWhatWorksPublic", "Mobile · Not Signed In","What Works"),
+  mob("MobileWhatWorks",       "Mobile · Signed In",    "What Works"),
+  mob("MobileWhatWorksEmpty",  "Mobile · Empty State",  "What Works"),
+  mob("MobileWhatWorksLoading","Mobile · Loading",      "What Works"),
 ];
 
 const DESKTOP_W = 1440;

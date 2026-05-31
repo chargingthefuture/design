@@ -9,7 +9,7 @@ import {
   ChevronRight, Sparkles, Radio, Bell, Settings, MessageSquare,
   Hash, Zap, ArrowUpRight, X, ShieldCheck, Eye, ChevronDown,
   Award, Target, MessageCircle, Bookmark, Pin, AlertCircle,
-  ThumbsUp, ThumbsDown, Flag, AtSign,
+  ThumbsUp, ThumbsDown, Flag, AtSign, ListChecks,
 } from "lucide-react";
 import { ChymeApp } from "./Chyme";
 
@@ -28,6 +28,7 @@ const MINI_APPS = [
   { id: "socketrelay", name: "SocketRelay", emoji: "🔂", icon: Share2, desc: "Mutual aid network", color: "#F43F5E", bg: "#1c0409" },
   { id: "skillshunt", name: "Skills Hunt", emoji: "🎓", icon: Award, desc: "Cohort learning & badges", color: "#A855F7", bg: "#1a0d2e" },
   { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, desc: "Training cohort marketplace", color: "#22C55E", bg: "#052e16" },
+  { id: "what-works", name: "What Works", emoji: "🧰", icon: ListChecks, desc: "Survivor-verified tools by problem", color: "#84CC16", bg: "#1a2705" },
 ];
 
 const CHANNELS = [

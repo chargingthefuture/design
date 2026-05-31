@@ -9,7 +9,7 @@ import {
   Bell, Settings, MessageSquare, Zap, ChevronRight, Sparkles,
   Hash, ArrowUpRight, Plus, Award, Target,
   MessageCircle, Pin, AlertCircle,
-  ThumbsUp, ThumbsDown, Flag, AtSign, ShieldCheck,
+  ThumbsUp, ThumbsDown, Flag, AtSign, ShieldCheck, ListChecks,
 } from "lucide-react";
 
 const MINI_APPS = [
@@ -27,6 +27,7 @@ const MINI_APPS = [
   { id: "socketrelay", name: "SocketRelay", emoji: "🔂", icon: Share2, color: "#F43F5E" },
   { id: "skillshunt", name: "Skills Hunt", emoji: "🎓", icon: Award, color: "#A855F7" },
   { id: "levelup", name: "LevelUp", emoji: "🎯", icon: Target, color: "#22C55E" },
+  { id: "what-works", name: "What Works", emoji: "🧰", icon: ListChecks, color: "#84CC16" },
 ];
 
 const LIVE_ROOMS = [

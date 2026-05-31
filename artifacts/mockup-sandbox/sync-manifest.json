@@ -198,6 +198,72 @@
       "kind": "screen",
       "states": ["loading"],
       "platform": "mobile"
+    },
+    {
+      "id": "what-works-desktop",
+      "name": "WhatWorks",
+      "file": "src/components/mockups/survivor-hub/WhatWorks.tsx",
+      "kind": "screen",
+      "states": ["default"],
+      "platform": "desktop",
+      "notes": "One shared, survivor-verified curated list of tools/products organized by problem. Benable-style lists meets the 'Look Ma, I Fixed It' problems page. No ads, no affiliates."
+    },
+    {
+      "id": "what-works-public",
+      "name": "WhatWorksPublic",
+      "file": "src/components/mockups/survivor-hub/WhatWorksPublic.tsx",
+      "kind": "screen",
+      "states": ["unauthenticated"],
+      "platform": "desktop"
+    },
+    {
+      "id": "what-works-empty",
+      "name": "WhatWorksEmpty",
+      "file": "src/components/mockups/survivor-hub/WhatWorksEmpty.tsx",
+      "kind": "screen",
+      "states": ["empty"],
+      "platform": "desktop",
+      "notes": "Curator start-the-list add-item form: problem / product / link / why, with success state."
+    },
+    {
+      "id": "what-works-loading",
+      "name": "WhatWorksLoading",
+      "file": "src/components/mockups/survivor-hub/WhatWorksLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "desktop"
+    },
+    {
+      "id": "mobile-what-works",
+      "name": "MobileWhatWorks",
+      "file": "src/components/mockups/survivor-hub/MobileWhatWorks.tsx",
+      "kind": "screen",
+      "states": ["default"],
+      "platform": "mobile"
+    },
+    {
+      "id": "mobile-what-works-public",
+      "name": "MobileWhatWorksPublic",
+      "file": "src/components/mockups/survivor-hub/MobileWhatWorksPublic.tsx",
+      "kind": "screen",
+      "states": ["unauthenticated"],
+      "platform": "mobile"
+    },
+    {
+      "id": "mobile-what-works-empty",
+      "name": "MobileWhatWorksEmpty",
+      "file": "src/components/mockups/survivor-hub/MobileWhatWorksEmpty.tsx",
+      "kind": "screen",
+      "states": ["empty"],
+      "platform": "mobile"
+    },
+    {
+      "id": "mobile-what-works-loading",
+      "name": "MobileWhatWorksLoading",
+      "file": "src/components/mockups/survivor-hub/MobileWhatWorksLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "mobile"
     }
   ],
   "channel_model": {
