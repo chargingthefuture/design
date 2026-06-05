@@ -283,6 +283,75 @@
       "states": ["admin", "populated", "editing", "saved"],
       "platform": "mobile",
       "notes": "Mobile admin-only currency USD-rate management. Same guardrails as GDPRateAdmin."
+    },
+    {
+      "id": "account-data",
+      "name": "AccountData",
+      "file": "src/components/mockups/survivor-hub/AccountData.tsx",
+      "kind": "screen",
+      "states": ["authenticated", "populated"],
+      "platform": "desktop",
+      "notes": "Personal data inventory across all 19 deletable services + 2 always-retained (ServiceCredits, GDP). Per-service delete queuing + Danger Zone full-account deletion path."
+    },
+    {
+      "id": "account-data-empty",
+      "name": "AccountDataEmpty",
+      "file": "src/components/mockups/survivor-hub/AccountDataEmpty.tsx",
+      "kind": "screen",
+      "states": ["authenticated", "empty"],
+      "platform": "desktop",
+      "notes": "New account — no activity recorded yet across any service."
+    },
+    {
+      "id": "account-data-loading",
+      "name": "AccountDataLoading",
+      "file": "src/components/mockups/survivor-hub/AccountDataLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "desktop"
+    },
+    {
+      "id": "account-data-confirm-delete",
+      "name": "AccountDataConfirmDelete",
+      "file": "src/components/mockups/survivor-hub/AccountDataConfirmDelete.tsx",
+      "kind": "screen",
+      "states": ["confirm", "full-account-deletion"],
+      "platform": "desktop",
+      "notes": "Most critical screen. Calm trauma-informed language. Type-to-confirm gesture ('delete my account'). Lists what's deleted vs retained. ServiceCredits settled via standard process — not destroyed. Audit records retained by design. Success acknowledgement state."
+    },
+    {
+      "id": "mobile-account-data",
+      "name": "MobileAccountData",
+      "file": "src/components/mockups/survivor-hub/MobileAccountData.tsx",
+      "kind": "screen",
+      "states": ["authenticated", "populated"],
+      "platform": "mobile",
+      "notes": "Mobile data inventory. Tab bar: Your Data | Danger Zone. Per-service delete queuing."
+    },
+    {
+      "id": "mobile-account-data-empty",
+      "name": "MobileAccountDataEmpty",
+      "file": "src/components/mockups/survivor-hub/MobileAccountDataEmpty.tsx",
+      "kind": "screen",
+      "states": ["authenticated", "empty"],
+      "platform": "mobile"
+    },
+    {
+      "id": "mobile-account-data-loading",
+      "name": "MobileAccountDataLoading",
+      "file": "src/components/mockups/survivor-hub/MobileAccountDataLoading.tsx",
+      "kind": "screen",
+      "states": ["loading"],
+      "platform": "mobile"
+    },
+    {
+      "id": "mobile-account-data-confirm-delete",
+      "name": "MobileAccountDataConfirmDelete",
+      "file": "src/components/mockups/survivor-hub/MobileAccountDataConfirmDelete.tsx",
+      "kind": "screen",
+      "states": ["confirm", "full-account-deletion"],
+      "platform": "mobile",
+      "notes": "Mobile full-account deletion confirmation. Type-to-confirm gesture. Lists deleted vs retained. ServiceCredits settled via standard process. Success state."
     }
   ],
   "channel_model": {

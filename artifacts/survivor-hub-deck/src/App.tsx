@@ -1,6 +1,14 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import type { ComponentType } from "react";
 
+import { AccountData } from "@/components/mockups/survivor-hub/AccountData";
+import { AccountDataConfirmDelete } from "@/components/mockups/survivor-hub/AccountDataConfirmDelete";
+import { AccountDataEmpty } from "@/components/mockups/survivor-hub/AccountDataEmpty";
+import { AccountDataLoading } from "@/components/mockups/survivor-hub/AccountDataLoading";
+import { MobileAccountData } from "@/components/mockups/survivor-hub/MobileAccountData";
+import { MobileAccountDataConfirmDelete } from "@/components/mockups/survivor-hub/MobileAccountDataConfirmDelete";
+import { MobileAccountDataEmpty } from "@/components/mockups/survivor-hub/MobileAccountDataEmpty";
+import { MobileAccountDataLoading } from "@/components/mockups/survivor-hub/MobileAccountDataLoading";
 import { AIConsent } from "@/components/mockups/survivor-hub/AIConsent";
 import { AIReviewConsole } from "@/components/mockups/survivor-hub/AIReviewConsole";
 import { AIReviewConsoleDetail } from "@/components/mockups/survivor-hub/AIReviewConsoleDetail";
@@ -191,6 +199,8 @@ const SkillsTaxonomyEmptyAdmin     = () => <SkillsTaxonomyEmpty isAdmin={true} /
 const MobileSkillsTaxonomyEmptyAdmin = () => <MobileSkillsTaxonomyEmpty isAdmin={true} />;
 
 const COMPONENTS: Record<string, ComponentType> = {
+  AccountData, AccountDataConfirmDelete, AccountDataEmpty, AccountDataLoading,
+  MobileAccountData, MobileAccountDataConfirmDelete, MobileAccountDataEmpty, MobileAccountDataLoading,
   AIConsent, MobileAIConsent,
   AIReviewConsole, AIReviewConsoleEmpty, AIReviewConsoleLoading, AIReviewConsoleDetail,
   MobileAIReviewConsole, MobileAIReviewConsoleEmpty, MobileAIReviewConsoleLoading, MobileAIReviewConsoleDetail,
@@ -271,6 +281,7 @@ const SECTION_COLORS: Record<string, string> = {
   "SkillsTaxonomy":   "#7C3AED",
   "Unlock":           "#F43F5E",
   "What Works":       "#84CC16",
+  "Account & Data":   "#A855F7",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -505,6 +516,16 @@ const SLIDES: Slide[] = [
   mob("MobileWhatWorks",       "Mobile · Signed In",    "What Works"),
   mob("MobileWhatWorksEmpty",  "Mobile · Add Item",     "What Works"),
   mob("MobileWhatWorksLoading","Mobile · Loading",      "What Works"),
+
+  // ── ACCOUNT & DATA ────────────────────────────────────────────────────
+  web("AccountData",              "Web · Signed In",        "Account & Data"),
+  web("AccountDataEmpty",         "Web · Empty State",      "Account & Data"),
+  web("AccountDataLoading",       "Web · Loading",          "Account & Data"),
+  web("AccountDataConfirmDelete", "Web · Confirm Delete",   "Account & Data"),
+  mob("MobileAccountData",              "Mobile · Signed In",      "Account & Data"),
+  mob("MobileAccountDataEmpty",         "Mobile · Empty State",    "Account & Data"),
+  mob("MobileAccountDataLoading",       "Mobile · Loading",        "Account & Data"),
+  mob("MobileAccountDataConfirmDelete", "Mobile · Confirm Delete", "Account & Data"),
 ];
 
 const DESKTOP_W = 1440;
