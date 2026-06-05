@@ -192,6 +192,21 @@ import { WorkforceEmpty } from "@/components/mockups/survivor-hub/WorkforceEmpty
 import { WorkforceLoading } from "@/components/mockups/survivor-hub/WorkforceLoading";
 import { WorkforcePublic } from "@/components/mockups/survivor-hub/WorkforcePublic";
 import { Workforce } from "@/components/mockups/survivor-hub/Workforce";
+import { MobileAdminHub } from "@/components/mockups/survivor-hub/MobileAdminHub";
+import { MobileAdminHubEmpty } from "@/components/mockups/survivor-hub/MobileAdminHubEmpty";
+import { MobileAdminHubLoading } from "@/components/mockups/survivor-hub/MobileAdminHubLoading";
+import { MobileFoundationAdmin } from "@/components/mockups/survivor-hub/MobileFoundationAdmin";
+import { MobileLevelUpAdmin } from "@/components/mockups/survivor-hub/MobileLevelUpAdmin";
+import { MobileLightHouseAdmin } from "@/components/mockups/survivor-hub/MobileLightHouseAdmin";
+import { MobilePeerProgrammingAdmin } from "@/components/mockups/survivor-hub/MobilePeerProgrammingAdmin";
+import { MobileServiceCreditsAdmin } from "@/components/mockups/survivor-hub/MobileServiceCreditsAdmin";
+import { MobileSkillsHuntAdmin } from "@/components/mockups/survivor-hub/MobileSkillsHuntAdmin";
+import { MobileSocketRelayAdmin } from "@/components/mockups/survivor-hub/MobileSocketRelayAdmin";
+import { MobileTrustTransportAdmin } from "@/components/mockups/survivor-hub/MobileTrustTransportAdmin";
+import { MobileUnlockAdmin } from "@/components/mockups/survivor-hub/MobileUnlockAdmin";
+import { MobileWeeklyPerformanceAdminView } from "@/components/mockups/survivor-hub/MobileWeeklyPerformanceAdminView";
+import { MobileWhatWorksAdmin } from "@/components/mockups/survivor-hub/MobileWhatWorksAdmin";
+import { MobileWorkforceAdmin } from "@/components/mockups/survivor-hub/MobileWorkforceAdmin";
 
 // Admin wrappers — force isAdmin=true so deck shows admin views
 const WeeklyPerformanceAdmin       = () => <WeeklyPerformance isAdmin={true} />;
@@ -250,6 +265,11 @@ const COMPONENTS: Record<string, ComponentType> = {
   MobileSkillsTaxonomy, MobileSkillsTaxonomyEmptyAdmin, MobileSkillsTaxonomyLoading, MobileSkillsTaxonomyPublic,
   Unlock, UnlockEmpty, UnlockLoading, UnlockPublic,
   MobileUnlock, MobileUnlockEmpty, MobileUnlockLoading, MobileUnlockPublic,
+  MobileAdminHub, MobileAdminHubEmpty, MobileAdminHubLoading,
+  MobileFoundationAdmin, MobileLevelUpAdmin, MobileLightHouseAdmin,
+  MobilePeerProgrammingAdmin, MobileServiceCreditsAdmin, MobileSkillsHuntAdmin,
+  MobileSocketRelayAdmin, MobileTrustTransportAdmin, MobileUnlockAdmin,
+  MobileWeeklyPerformanceAdminView, MobileWhatWorksAdmin, MobileWorkforceAdmin,
 };
 
 type Slide = {
@@ -284,6 +304,7 @@ const SECTION_COLORS: Record<string, string> = {
   "Unlock":           "#F43F5E",
   "What Works":       "#84CC16",
   "Account & Data":   "#A855F7",
+  "Admin Mobile":     "#6366F1",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -519,6 +540,23 @@ const SLIDES: Slide[] = [
   mob("MobileWhatWorks",       "Mobile · Signed In",    "What Works"),
   mob("MobileWhatWorksEmpty",  "Mobile · Add Item",     "What Works"),
   mob("MobileWhatWorksLoading","Mobile · Loading",      "What Works"),
+
+  // ── ADMIN MOBILE ──────────────────────────────────────────────────────
+  mob("MobileAdminHub",                  "Mobile · Admin Hub Overview",     "Admin Mobile"),
+  mob("MobileAdminHubEmpty",             "Mobile · Admin Hub Empty",        "Admin Mobile"),
+  mob("MobileAdminHubLoading",           "Mobile · Admin Hub Loading",      "Admin Mobile"),
+  mob("MobileFoundationAdmin",           "Mobile · Foundation Admin",       "Admin Mobile"),
+  mob("MobileLevelUpAdmin",              "Mobile · LevelUp Admin",          "Admin Mobile"),
+  mob("MobileLightHouseAdmin",           "Mobile · LightHouse Admin",       "Admin Mobile"),
+  mob("MobilePeerProgrammingAdmin",      "Mobile · PeerProgramming Admin",  "Admin Mobile"),
+  mob("MobileServiceCreditsAdmin",       "Mobile · ServiceCredits Admin",   "Admin Mobile"),
+  mob("MobileSkillsHuntAdmin",           "Mobile · SkillsHunt Admin",       "Admin Mobile"),
+  mob("MobileSocketRelayAdmin",          "Mobile · SocketRelay Admin",      "Admin Mobile"),
+  mob("MobileTrustTransportAdmin",       "Mobile · TrustTransport Admin",   "Admin Mobile"),
+  mob("MobileUnlockAdmin",               "Mobile · Unlock Admin",           "Admin Mobile"),
+  mob("MobileWeeklyPerformanceAdminView","Mobile · WeeklyPerformance Admin","Admin Mobile"),
+  mob("MobileWhatWorksAdmin",            "Mobile · WhatWorks Admin",        "Admin Mobile"),
+  mob("MobileWorkforceAdmin",            "Mobile · Workforce Admin",        "Admin Mobile"),
 
   // ── ACCOUNT & DATA ────────────────────────────────────────────────────
   web("AccountData",              "Web · Signed In",        "Account & Data"),
