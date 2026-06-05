@@ -9,6 +9,13 @@ Local reference copy: `.github/instructions/098-agent-communication-rules.mdc`
 
 Rules are updated weekly; the remote URL is authoritative. Summary: robot/system tone, no pleasantries, structured formats, lead with facts, no preamble.
 
+## Survivor Hub Design Guide
+
+**Before making any UI change to the Survivor Hub mockups, read:**
+`artifacts/mockup-sandbox/DESIGN_GUIDE.md`
+
+It is the single authoritative reference for colors, typography, component patterns, screen-state conventions, loading state format, file naming, the deck frame-fit rules, the mirror workflow, brand voice, and all legal rails (ServiceCredits, GDP Estimate chip, no phase labels, no DM system, no app-count auto-bump). The mockup-sandbox is the source of truth; the deck is a byte-identical mirror.
+
 ## Overview
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
