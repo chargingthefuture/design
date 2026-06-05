@@ -24,6 +24,7 @@ import { DirectoryEmpty } from "@/components/mockups/survivor-hub/DirectoryEmpty
 import { DirectoryLoading } from "@/components/mockups/survivor-hub/DirectoryLoading";
 import { DirectoryPublic } from "@/components/mockups/survivor-hub/DirectoryPublic";
 import { Directory } from "@/components/mockups/survivor-hub/Directory";
+import { DirectoryAdmin } from "@/components/mockups/survivor-hub/DirectoryAdmin";
 import { FoundationEmpty } from "@/components/mockups/survivor-hub/FoundationEmpty";
 import { FoundationLoading } from "@/components/mockups/survivor-hub/FoundationLoading";
 import { FoundationPublic } from "@/components/mockups/survivor-hub/FoundationPublic";
@@ -61,6 +62,7 @@ import { MobileDirectoryEmpty } from "@/components/mockups/survivor-hub/MobileDi
 import { MobileDirectoryLoading } from "@/components/mockups/survivor-hub/MobileDirectoryLoading";
 import { MobileDirectoryPublic } from "@/components/mockups/survivor-hub/MobileDirectoryPublic";
 import { MobileDirectory } from "@/components/mockups/survivor-hub/MobileDirectory";
+import { MobileDirectoryAdmin } from "@/components/mockups/survivor-hub/MobileDirectoryAdmin";
 import { MobileFoundationEmpty } from "@/components/mockups/survivor-hub/MobileFoundationEmpty";
 import { MobileFoundationLoading } from "@/components/mockups/survivor-hub/MobileFoundationLoading";
 import { MobileFoundationPublic } from "@/components/mockups/survivor-hub/MobileFoundationPublic";
@@ -208,7 +210,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   MobileClickLog, MobileClickLogEmpty, MobileClickLogLoading, MobileClickLogPublic,
   ChymeApp, ChymeEmpty, ChymeLoading, ChymePublic, Chyme,
   Desktop,
-  DirectoryEmpty, DirectoryLoading, DirectoryPublic, Directory,
+  DirectoryEmpty, DirectoryLoading, DirectoryPublic, Directory, DirectoryAdmin,
   FoundationEmpty, FoundationLoading, FoundationPublic, Foundation,
   GDPEmpty, GDPLoading, GDPPublic, GDPRateAdmin, GDP,
   GentlePulseEmpty, GentlePulseLoading, GentlePulsePublic, GentlePulse,
@@ -216,7 +218,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   LevelUp: LevelUpDefault, LevelUpEmpty, LevelUpLoading, LevelUpPublic,
   LightHouseEmpty, LightHouseLoading, LightHousePublic, LightHouse,
   MobileChymeEmpty, MobileChymeLoading, MobileChymePublic, MobileChyme,
-  MobileDirectoryEmpty, MobileDirectoryLoading, MobileDirectoryPublic, MobileDirectory,
+  MobileDirectoryEmpty, MobileDirectoryLoading, MobileDirectoryPublic, MobileDirectory, MobileDirectoryAdmin,
   MobileFoundationEmpty, MobileFoundationLoading, MobileFoundationPublic, MobileFoundation,
   MobileGDPEmpty, MobileGDPLoading, MobileGDPPublic, MobileGDPRateAdmin, MobileGDP,
   MobileGentlePulseEmpty, MobileGentlePulseLoading, MobileGentlePulsePublic, MobileGentlePulse,
@@ -321,7 +323,8 @@ const SLIDES: Slide[] = [
   mob("MobileDirectory",      "Mobile · Signed In",    "Directory"),
   mob("MobileDirectoryEmpty", "Mobile · Empty State",  "Directory"),
   mob("MobileDirectoryLoading","Mobile · Loading",     "Directory"),
-
+  web("DirectoryAdmin",        "Web · Admin",           "Directory"),
+  mob("MobileDirectoryAdmin",  "Mobile · Admin",        "Directory"),
 
   // ── WORKFORCE ─────────────────────────────────────────────────────────
   web("WorkforcePublic",      "Web · Not Signed In",  "Workforce"),

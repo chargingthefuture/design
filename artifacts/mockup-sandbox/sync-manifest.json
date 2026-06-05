@@ -285,6 +285,24 @@
       "notes": "Mobile admin-only currency USD-rate management. Same guardrails as GDPRateAdmin."
     },
     {
+      "id": "directory-admin",
+      "name": "DirectoryAdmin",
+      "file": "src/components/mockups/survivor-hub/DirectoryAdmin.tsx",
+      "kind": "screen",
+      "states": ["admin", "populated", "editing"],
+      "platform": "desktop",
+      "notes": "Dedicated admin page for Directory. Profile table with source badges (self/community-generated/admin). Edit drawer for unclaimed profiles: rename fields, assign a proper handle (replacing @community-XXXXXX), toggle verified, source → admin-claimed with audit note. Inline admin in Directory.tsx is preserved; this is an additional surface."
+    },
+    {
+      "id": "mobile-directory-admin",
+      "name": "MobileDirectoryAdmin",
+      "file": "src/components/mockups/survivor-hub/MobileDirectoryAdmin.tsx",
+      "kind": "screen",
+      "states": ["admin", "populated", "editing"],
+      "platform": "mobile",
+      "notes": "Mobile Directory admin. Tab bar: Unclaimed | All Profiles. Per-profile card with Edit and Delete actions. Edit taps to full-screen edit form: same fields as desktop (name/role/location/skills/handle/verified). Audit note on save. Inline admin in MobileDirectory.tsx preserved."
+    },
+    {
       "id": "account-data",
       "name": "AccountData",
       "file": "src/components/mockups/survivor-hub/AccountData.tsx",
