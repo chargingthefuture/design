@@ -1,3 +1,8 @@
+// design-sync
+// D7 DECISION — standalone surface, not embedded widget.
+// MobileTrust = full-page Trust Score view, reached by tapping a trust badge
+// in Directory or Profile. Plugin bottom nav: Trust / Activity / Privacy.
+// The MobileTrust* family is NOT an in-hub embedded widget; it is a dedicated route.
 import { useState } from "react";
 import {
   ShieldCheck, CheckCircle2, Circle, Eye, EyeOff, ChevronDown,
@@ -16,7 +21,7 @@ type VisibilityOption = "All Members" | "Verified Only" | "Only Me";
 const SIGNALS = [
   { label: "Profile verified", time: "3 days ago", icon: ShieldCheck, color: BRAND },
   { label: "First transaction made", time: "5 days ago", icon: Zap, color: "#22C55E" },
-  { label: "Joined SkillsHunt round", time: "1 week ago", icon: Star, color: "#A855F7" },
+  { label: "Joined SkillsHunt round", time: "1 week ago", icon: Star, color: "#0284C7" },
   { label: "Referred a survivor", time: "2 weeks ago", icon: Users, color: "#F59E0B" },
 ];
 

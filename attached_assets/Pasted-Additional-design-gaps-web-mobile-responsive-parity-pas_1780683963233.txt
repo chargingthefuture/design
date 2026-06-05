@@ -1,0 +1,29 @@
+Additional design gaps (web↔mobile responsive parity pass) — D6–D11
+
+From auditing the web app's mobile (useIsMobile) layouts against the Android Mobile* mockups. These are design gaps (the mockups need work) so the app can then implement web‑mobile to match. The app‑side fixes (matching each web shell's mobile branch to its mockup — most are currently a thin "back chevron + desktop content" wrapper with no bottom tab bar) are tracked by me as app work, not here.
+
+D6 — WhatWorks has no Mobile* mockup at all
+
+No MobileWhatWorks.tsx/…Empty/…Loading/…Public exists anywhere in design/, despite an Android feature and a desktop web surface. Produce all four for three‑way parity.
+
+D7 — Trust score: MobileTrust* mockups exist but there's no Trust page
+
+MobileTrust.tsx/Empty/Loading/Public exist, but Trust ships only as embedded widgets (no shell, no /apps/trust). Design should either annotate these as embedded‑widget states (and where they mount) or define a standalone mobile Trust surface so app work has a target.
+
+D8 — No dedicated mobile Feed/Announcements mockup
+
+The standalone /apps/feed-announcements mobile view has no mockup — its only reference is the feed stream embedded in MobileHome.tsx. Produce MobileFeed.tsx (+ Empty/Loading), or explicitly designate the MobileHome stream as the canonical feed‑mobile layout.
+
+D9 — Mobile admin variants are missing (owner runs admin on iOS) — affects P4
+
+P4 (admin hub + per‑plugin admin pages) is desktop‑only; the only mobile admin mockups that exist are the comic AI Review Console. Since admin must work on iOS, add Mobile* admin mockups: MobileAdminHub.tsx (+ Empty/Loading) and a Mobile{Plugin}Admin.tsx for each admin page (comic, feed‑announcements, foundation, gdp, levelup, lighthouse, peer‑programming, service‑credits, skills‑hunt, socketrelay, trusttransport, unlock, weekly‑performance, whatworks, workforce). Mobile admin is in‑scope for P4, not optional.
+
+D10 — Decide the in‑plugin bottom‑nav model (blocks the app's mobile build)
+
+Most Mobile* mockups have a height:72 bottom tab bar, but MobileLevelUp.tsx and MobileChyme.tsx have none. The app agent has no consistent target. Design should confirm, per plugin, whether an in‑plugin bottom nav is intended and standardize its item set — otherwise web‑mobile can't reliably match.
+
+D11 — MobileHome.tsx IA diverges from the live web home
+
+MobileHome.tsx specifies a bottom tab bar + mini‑app grid + feed stream, but the live web home (community-shell) uses a hamburger drawer + Chat/Apps top tabs. Design should confirm MobileHome.tsx is the authoritative home‑mobile layout (so the app can replace the hamburger approach) or produce a variant matching the current IA.
+
+Coverage note: the audit read a few shells/mockups in full and structurally sampled (bottom‑nav / tab / content markers) the rest, so per‑plugin entries name the structural gaps (nav/tabs/hero/missing states) but not every card‑level difference; the survivor-hub-deck deck was treated as canonical (re‑point if mockup-sandbox is live).

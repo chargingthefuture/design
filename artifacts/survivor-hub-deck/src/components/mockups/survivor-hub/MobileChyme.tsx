@@ -1,4 +1,10 @@
 // design-sync
+// D10 DECISION — intentionally no hub bottom nav.
+// MobileChyme (active room) is an immersive full-screen audio experience;
+// in-room controls (mute, raise hand, leave) fill the bottom instead.
+// All other plugin signed-in states DO show the standard 72 px hub tab bar
+// (Chat / Apps / Chyme / Alerts / Settings). MobileChymeEmpty/Loading show it
+// because the user is not yet inside a room.
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";

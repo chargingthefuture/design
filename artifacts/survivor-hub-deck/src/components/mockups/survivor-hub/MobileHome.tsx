@@ -1,4 +1,12 @@
 // design-sync
+// D8 DECISION — canonical feed-mobile layout.
+// FeedAnnouncements has no standalone mobile shell. The #community stream
+// rendered here IS the authoritative mobile feed view. No MobileFeed.tsx needed.
+// D11 DECISION — authoritative home-mobile layout.
+// MobileHome.tsx (bottom tab bar + mini-app grid + feed stream) is the canonical
+// mobile home. The web hamburger-drawer / Chat+Apps top-tab approach is NOT the
+// mobile target; the app should replace it with this layout.
+// Canonical hub bottom-tab set (D10): Chat / Apps / Chyme / Alerts / Settings
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";

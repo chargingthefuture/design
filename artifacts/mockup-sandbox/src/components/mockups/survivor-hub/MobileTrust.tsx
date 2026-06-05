@@ -1,4 +1,8 @@
 // design-sync
+// D7 DECISION — standalone surface, not embedded widget.
+// MobileTrust = full-page Trust Score view, reached by tapping a trust badge
+// in Directory or Profile. Plugin bottom nav: Trust / Activity / Privacy.
+// The MobileTrust* family is NOT an in-hub embedded widget; it is a dedicated route.
 import { useState } from "react";
 import {
   ShieldCheck, CheckCircle2, Circle, Eye, EyeOff, ChevronDown,
