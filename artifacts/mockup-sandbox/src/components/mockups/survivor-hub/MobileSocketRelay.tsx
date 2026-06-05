@@ -7,11 +7,12 @@ import { Share2, Plus, AlertCircle, Heart, MapPin, Shield, Home, MessageSquare }
 
 const COLOR = "#FB923C";
 
+// D5: no anonymous — every post identified by @username
 const REQUESTS = [
-  { id: 1, type: "need", title: "Need grocery help for my household", location: "N. Houston", urgency: true, category: "Food", credits: 15, time: "5 min", fulfilled: false },
-  { id: 2, type: "offer", title: "I can give rides to medical appointments", location: "Buckhead, ATL", urgency: false, category: "Transport", credits: 0, time: "12 min", fulfilled: false },
-  { id: 3, type: "need", title: "Spanish interpreter needed for court", location: "Chicago Loop", urgency: true, category: "Legal", credits: 30, time: "24 min", fulfilled: false },
-  { id: 4, type: "offer", title: "Offering resume writing help — 10yr HR", location: "Remote", urgency: false, category: "Employment", credits: 20, time: "1 hr", fulfilled: false },
+  { id: 1, type: "need", title: "Need grocery help for my household", by: "@yolanda-f", location: "N. Houston", urgency: true, category: "Food", credits: 15, time: "5 min", fulfilled: false },
+  { id: 2, type: "offer", title: "I can give rides to medical appointments", by: "@marcus-b", location: "Buckhead, ATL", urgency: false, category: "Transport", credits: 0, time: "12 min", fulfilled: false },
+  { id: 3, type: "need", title: "Spanish interpreter needed for court", by: "@diana-w", location: "Chicago Loop", urgency: true, category: "Legal", credits: 30, time: "24 min", fulfilled: false },
+  { id: 4, type: "offer", title: "Offering resume writing help — 10yr HR", by: "@amara-o", location: "Remote", urgency: false, category: "Employment", credits: 20, time: "1 hr", fulfilled: false },
 ];
 
 const NAV = [
@@ -64,7 +65,8 @@ export function MobileSocketRelay() {
                       {r.urgency && <Badge style={{ background: "#EF444420", color: "#EF4444", border: "1px solid #EF444440", fontSize: 10 }}>⚠ Urgent</Badge>}
                     </div>
                   </div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#F9FAFB", marginBottom: 6, lineHeight: 1.4 }}>{r.title}</div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "#F9FAFB", marginBottom: 4, lineHeight: 1.4 }}>{r.title}</div>
+                  <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontFamily: "monospace" }}>{r.by}</div>
                   <div style={{ fontSize: 11, color: "#6B7280", marginBottom: 10 }}><MapPin size={10} style={{ display: "inline" }} /> {r.location} · {r.time} ago</div>
                   <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                     {r.credits > 0 && <span style={{ fontSize: 12, fontWeight: 700, color: "#F59E0B" }}>{r.credits} credits</span>}

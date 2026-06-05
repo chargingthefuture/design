@@ -1,9 +1,10 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Search, Trophy, Target, Users, Plus, X, ExternalLink, CheckCircle, Send, ChevronDown, Lock } from "lucide-react";
 
-const COLOR = "#A855F7";
+const COLOR = "#D946EF";
 
 // Spec §2.1: taxonomy-first, sourced from skills_taxonomy_skills
 const SKILL_TAXONOMY: Record<string, string[]> = {
@@ -83,7 +84,7 @@ export function MobileSkillsHunt() {
   ];
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100%", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
 
       <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div>
@@ -133,7 +134,7 @@ export function MobileSkillsHunt() {
                   {/* Display Name — spec: 2–100 chars, alphanumeric + spaces */}
                   <div>
                     <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>
-                      Display Name <span style={{ color: COLOR }}>*</span>
+                      Full name <span style={{ color: COLOR }}>*</span>
                       <span style={{ color: "#4B5563", fontWeight: 400 }}> · letters & spaces, 2–100 chars</span>
                     </div>
                     <input
@@ -309,7 +310,7 @@ export function MobileSkillsHunt() {
           {activeNav === "finds" && (
             <>
               <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>My Finds</div>
-              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 14 }}>People you've nominated · display names only for privacy</div>
+              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 14 }}>People you've nominated · full names for verification only, not shown publicly</div>
 
               {/* Badges row */}
               <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>

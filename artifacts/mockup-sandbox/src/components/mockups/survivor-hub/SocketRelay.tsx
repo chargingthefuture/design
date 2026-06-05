@@ -12,20 +12,25 @@ import {
 const COLOR = "#FB923C";
 const BG = "#1c0409";
 
+// D5: no anonymous — every post identified by @username (chosen handle, safe to surface in public view)
 const REQUESTS = [
-  { id: 1, type: "need", title: "Need groceries — single mom, 3 kids", by: "Anonymous", location: "North Houston", urgency: "urgent", category: "Food", credits: 15, time: "5 min ago", fulfilled: false },
-  { id: 2, type: "offer", title: "I can give rides to medical appointments", by: "Marcus B.", location: "Buckhead, ATL", urgency: "normal", category: "Transport", credits: 0, time: "12 min ago", fulfilled: false },
-  { id: 3, type: "need", title: "Interpreter needed — Spanish/English — court hearing", by: "Anonymous", location: "Chicago Loop", urgency: "urgent", category: "Legal", credits: 30, time: "24 min ago", fulfilled: false },
-  { id: 4, type: "offer", title: "Offering resume writing help — 10 years HR experience", by: "Amara O.", location: "Remote", urgency: "normal", category: "Employment", credits: 20, time: "1 hr ago", fulfilled: false },
-  { id: 5, type: "need", title: "Looking for childcare for 2 days while I interview", by: "Anonymous", location: "Dallas, TX", urgency: "normal", category: "Childcare", credits: 40, time: "2 hr ago", fulfilled: true },
+  { id: 1, type: "need", title: "Need groceries — single mom, 3 kids", by: "@yolanda-f", location: "North Houston", urgency: "urgent", category: "Food", credits: 15, time: "5 min ago", fulfilled: false },
+  { id: 2, type: "offer", title: "I can give rides to medical appointments", by: "@marcus-b", location: "Buckhead, ATL", urgency: "normal", category: "Transport", credits: 0, time: "12 min ago", fulfilled: false },
+  { id: 3, type: "need", title: "Interpreter needed — Spanish/English — court hearing", by: "@diana-w", location: "Chicago Loop", urgency: "urgent", category: "Legal", credits: 30, time: "24 min ago", fulfilled: false },
+  { id: 4, type: "offer", title: "Offering resume writing help — 10 years HR experience", by: "@amara-o", location: "Remote", urgency: "normal", category: "Employment", credits: 20, time: "1 hr ago", fulfilled: false },
+  { id: 5, type: "need", title: "Looking for childcare for 2 days while I interview", by: "@lin-c", location: "Dallas, TX", urgency: "normal", category: "Childcare", credits: 40, time: "2 hr ago", fulfilled: true },
 ];
 
 const CATEGORIES = ["All", "Food", "Transport", "Legal", "Employment", "Childcare", "Housing", "Mental Health"];
 
+// D5: 1:1 chat shows @username of the connected community member
 const CHAT = [
-  { id: 1, from: "hub", text: "SocketRelay connects needs to offers in real-time. Privacy-minimized profiles — your identity is protected. What do you need or offer today?" },
+  { id: 1, from: "hub", text: "SocketRelay connects needs to offers in real-time. Your identity is protected. What do you need or offer today?" },
   { id: 2, from: "user", text: "I need a Spanish interpreter for tomorrow morning" },
-  { id: 3, from: "hub", text: "There's an open request for court interpretation in Chicago — and 3 community members who offer Spanish/English interpretation are online right now. Want me to connect you?", action: "Find Interpreter" },
+  { id: 3, from: "hub", text: "3 members offering Spanish/English interpretation are online. @diana-w has court experience. Want me to connect you?", action: "Connect with @diana-w" },
+  { id: 4, from: "@diana-w", text: "Hi! I'm available tomorrow morning — I've done court interpretation before. Which courthouse?" },
+  { id: 5, from: "user", text: "Daley Center, Chicago. Hearing at 9 AM." },
+  { id: 6, from: "@diana-w", text: "I can do that. I'll meet you at the main entrance at 8:45." },
 ];
 
 export function SocketRelay() {
@@ -168,15 +173,20 @@ export function SocketRelay() {
         ) : (
           <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
             <ScrollArea style={{ flex: 1, padding: "16px 24px" }}>
-              {msgs.map((msg) => (
-                <div key={msg.id} style={{ display: "flex", flexDirection: msg.from === "user" ? "row-reverse" : "row", gap: 10, alignItems: "flex-end", marginBottom: 12 }}>
-                  {msg.from === "hub" && <div style={{ width: 32, height: 32, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Share2 size={14} style={{ color: COLOR }} /></div>}
-                  <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: 6 }}>
-                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "#E8EAF0" }}>{msg.text}</div>
-                    {(msg as any).action && <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>{(msg as any).action} <ArrowUpRight size={13} /></button>}
+              {msgs.map((msg) => {
+                const isPerson = msg.from !== "user" && msg.from !== "hub";
+                return (
+                  <div key={msg.id} style={{ display: "flex", flexDirection: msg.from === "user" ? "row-reverse" : "row", gap: 10, alignItems: "flex-end", marginBottom: 12 }}>
+                    {msg.from === "hub" && <div style={{ width: 32, height: 32, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Share2 size={14} style={{ color: COLOR }} /></div>}
+                    {isPerson && <div style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 11, fontWeight: 700, color: "#9CA3AF" }}>{(msg.from as string).slice(1, 3).toUpperCase()}</div>}
+                    <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: isPerson ? 3 : 6 }}>
+                      {isPerson && <div style={{ fontSize: 11, color: COLOR, fontFamily: "monospace", paddingLeft: 2 }}>{msg.from}</div>}
+                      <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "#E8EAF0" }}>{msg.text}</div>
+                      {(msg as any).action && <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>{(msg as any).action} <ArrowUpRight size={13} /></button>}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </ScrollArea>
             <div style={{ padding: "8px 24px 20px", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>

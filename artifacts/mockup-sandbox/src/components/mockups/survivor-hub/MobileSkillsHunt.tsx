@@ -134,7 +134,7 @@ export function MobileSkillsHunt() {
                   {/* Display Name — spec: 2–100 chars, alphanumeric + spaces */}
                   <div>
                     <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>
-                      Display Name <span style={{ color: COLOR }}>*</span>
+                      Full name <span style={{ color: COLOR }}>*</span>
                       <span style={{ color: "#4B5563", fontWeight: 400 }}> · letters & spaces, 2–100 chars</span>
                     </div>
                     <input
@@ -310,7 +310,7 @@ export function MobileSkillsHunt() {
           {activeNav === "finds" && (
             <>
               <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>My Finds</div>
-              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 14 }}>People you've nominated · display names only for privacy</div>
+              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 14 }}>People you've nominated · full names for verification only, not shown publicly</div>
 
               {/* Badges row */}
               <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>

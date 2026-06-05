@@ -212,7 +212,7 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
                       {/* Display Name — spec: 2–100 chars, alphanumeric + spaces */}
                       <div>
                         <label style={{ fontSize: 12, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 6 }}>
-                          Display Name <span style={{ color: COLOR }}>*</span>
+                          Full name <span style={{ color: COLOR }}>*</span>
                           <span style={{ fontSize: 11, color: "#4B5563", fontWeight: 400, marginLeft: 6 }}>2–100 chars, letters and spaces only</span>
                         </label>
                         <input
@@ -464,7 +464,7 @@ export function SkillsHunt({ initialEmpty = false }: { initialEmpty?: boolean } 
             {tab === "my-finds" && (
               <>
                 <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>My Finds</div>
-                <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>People you've nominated · display names only for privacy</div>
+                <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>People you've nominated · full names for verification only, not shown publicly</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {MY_FINDS.map((f, i) => (
                     <div key={i} style={{ padding: "16px 20px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: `1px solid ${f.status === "hidden_gem" ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, display: "flex", alignItems: "flex-start", gap: 16 }}>

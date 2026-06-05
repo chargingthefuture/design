@@ -22,14 +22,14 @@ const PUBLIC_STREAM = [
   },
   {
     id: 2, type: "community",
-    author: "Amara O.", avatar: "AO", authorColor: "#22C55E", time: "18 min",
+    author: "@amara-o", avatar: "AO", authorColor: "#22C55E", time: "18 min",
     body: "Six months ago I had nothing. Workforce showed my gaps, SkillsHunt leveled me up, Foundation got me my first gig. 🙌",
     replies: 14, hearts: 89,
   },
   {
     id: 3, type: "ai_qa",
     question: "How do I earn my first ServiceCredits?",
-    askedBy: "Maria G.", time: "34 min",
+    askedBy: "@maria-g", time: "34 min",
     answer: "Foundation gig (15–45 credits), SkillsHunt badge (10–30 credits), or SocketRelay request (5–20 credits).",
   },
   {
@@ -40,7 +40,7 @@ const PUBLIC_STREAM = [
   },
   {
     id: 5, type: "community",
-    author: "James T.", avatar: "JT", authorColor: "#3B82F6", time: "2 hr",
+    author: "Community member", avatar: "?", authorColor: "#6B7280", time: "2 hr",
     body: "ServiceCredits 101: earn through Foundation / SkillsHunt / SocketRelay, spend on housing or transport, trade peer-to-peer.",
     replies: 9, hearts: 63,
   },

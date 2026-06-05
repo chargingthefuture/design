@@ -13,6 +13,7 @@ const subtle = "#6B7280";
 const accent = "#7C3AED";
 const accentCyan = "#0EA5E9";
 
+// D3: peer posts lead with @username; "Community member" for legacy/null-username posts
 const PUBLIC_STREAM = [
   {
     id: 1, type: "announcement",
@@ -22,14 +23,14 @@ const PUBLIC_STREAM = [
   },
   {
     id: 2, type: "community",
-    author: "Amara O.", avatar: "AO", authorColor: "#22C55E", time: "18 min ago",
+    author: "@amara-o", avatar: "AO", authorColor: "#22C55E", time: "18 min ago",
     body: "My 6-month journey from survivor to employed: Workforce showed my skill gaps, SkillsHunt helped me level up, Foundation got me my first verified gig. It's real. 🙌",
     replies: 14, hearts: 89,
   },
   {
     id: 3, type: "ai_qa",
     question: "How do I earn my first ServiceCredits?",
-    askedBy: "Maria G.", time: "34 min ago",
+    askedBy: "@maria-g", time: "34 min ago",
     answer: "Fastest paths: Foundation gig (15–45 credits), SkillsHunt badge (10–30 credits), or SocketRelay request (5–20 credits).",
   },
   {
@@ -40,14 +41,14 @@ const PUBLIC_STREAM = [
   },
   {
     id: 5, type: "community",
-    author: "James T.", avatar: "JT", authorColor: "#3B82F6", time: "2 hr ago",
+    author: "Community member", avatar: "?", authorColor: "#6B7280", time: "2 hr ago",
     body: "ServiceCredits 101: earn through verified work, spend on housing or transport, trade peer-to-peer. Utility token, no fiat conversion.",
     replies: 9, hearts: 63,
   },
   {
     id: 6, type: "ai_qa",
     question: "Can I browse housing without an account?",
-    askedBy: "David K.", time: "3 hr ago",
+    askedBy: "@david-k", time: "3 hr ago",
     answer: "Yes — LightHouse listings are publicly browsable. You need an account to contact hosts or pay with ServiceCredits.",
   },
 ];

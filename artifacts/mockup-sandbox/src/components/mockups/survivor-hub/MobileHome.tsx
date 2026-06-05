@@ -31,8 +31,8 @@ const MINI_APPS = [
 ];
 
 const LIVE_ROOMS = [
-  { title: "Survivor Stories: Rebuilding Together", host: "Amara O.", listeners: 128, color: "#22C55E" },
-  { title: "Service Credits 101", host: "Maria G.", listeners: 67, color: "#22C55E" },
+  { title: "Survivor Stories: Rebuilding Together", host: "@amara-o", listeners: 128, color: "#22C55E" },
+  { title: "Service Credits 101", host: "@maria-g", listeners: 67, color: "#22C55E" },
 ];
 
 type StreamAnnouncement = {
@@ -68,14 +68,14 @@ const STREAM: StreamItem[] = [
   },
   {
     id: 2, type: "community",
-    author: "Amara O.", avatar: "AO", authorColor: "#22C55E", time: "18 min",
+    author: "@amara-o", avatar: "AO", authorColor: "#22C55E", time: "18 min",
     body: "Six months ago I had nothing. Workforce showed my gaps, SkillsHunt leveled me up, Foundation got me my first gig. It's real. 🙌",
     replies: 14, hearts: 89,
   },
   {
     id: 3, type: "ai_qa",
     question: "How do I earn my first ServiceCredits?",
-    askedBy: "Maria G.", time: "34 min",
+    askedBy: "@maria-g", time: "34 min",
     answer: "Fastest: Foundation gig (15–45 credits), SkillsHunt badge (10–30 credits), or SocketRelay request (5–20 credits).",
   },
   {
@@ -86,7 +86,7 @@ const STREAM: StreamItem[] = [
   },
   {
     id: 5, type: "community",
-    author: "James T.", avatar: "JT", authorColor: "#3B82F6", time: "2 hr",
+    author: "@james-t", avatar: "JT", authorColor: "#3B82F6", time: "2 hr",
     body: "ServiceCredits 101: earn through Foundation / SkillsHunt / SocketRelay, spend on housing or transport, trade peer-to-peer.",
     replies: 9, hearts: 63,
   },

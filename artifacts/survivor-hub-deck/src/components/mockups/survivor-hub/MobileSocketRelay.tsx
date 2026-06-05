@@ -1,16 +1,18 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Share2, Plus, AlertCircle, Heart, MapPin, Shield, Home, MessageSquare } from "lucide-react";
 
-const COLOR = "#F43F5E";
+const COLOR = "#FB923C";
 
+// D5: no anonymous — every post identified by @username
 const REQUESTS = [
-  { id: 1, type: "need", title: "Need groceries — single mom, 3 kids", location: "N. Houston", urgency: true, category: "Food", credits: 15, time: "5 min", fulfilled: false },
-  { id: 2, type: "offer", title: "I can give rides to medical appointments", location: "Buckhead, ATL", urgency: false, category: "Transport", credits: 0, time: "12 min", fulfilled: false },
-  { id: 3, type: "need", title: "Spanish interpreter needed for court", location: "Chicago Loop", urgency: true, category: "Legal", credits: 30, time: "24 min", fulfilled: false },
-  { id: 4, type: "offer", title: "Offering resume writing help — 10yr HR", location: "Remote", urgency: false, category: "Employment", credits: 20, time: "1 hr", fulfilled: false },
+  { id: 1, type: "need", title: "Need grocery help for my household", by: "@yolanda-f", location: "N. Houston", urgency: true, category: "Food", credits: 15, time: "5 min", fulfilled: false },
+  { id: 2, type: "offer", title: "I can give rides to medical appointments", by: "@marcus-b", location: "Buckhead, ATL", urgency: false, category: "Transport", credits: 0, time: "12 min", fulfilled: false },
+  { id: 3, type: "need", title: "Spanish interpreter needed for court", by: "@diana-w", location: "Chicago Loop", urgency: true, category: "Legal", credits: 30, time: "24 min", fulfilled: false },
+  { id: 4, type: "offer", title: "Offering resume writing help — 10yr HR", by: "@amara-o", location: "Remote", urgency: false, category: "Employment", credits: 20, time: "1 hr", fulfilled: false },
 ];
 
 const NAV = [
@@ -26,7 +28,7 @@ export function MobileSocketRelay() {
   const [postType, setPostType] = useState<"need" | "offer">("need");
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100%", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
@@ -63,7 +65,8 @@ export function MobileSocketRelay() {
                       {r.urgency && <Badge style={{ background: "#EF444420", color: "#EF4444", border: "1px solid #EF444440", fontSize: 10 }}>⚠ Urgent</Badge>}
                     </div>
                   </div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#F9FAFB", marginBottom: 6, lineHeight: 1.4 }}>{r.title}</div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "#F9FAFB", marginBottom: 4, lineHeight: 1.4 }}>{r.title}</div>
+                  <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontFamily: "monospace" }}>{r.by}</div>
                   <div style={{ fontSize: 11, color: "#6B7280", marginBottom: 10 }}><MapPin size={10} style={{ display: "inline" }} /> {r.location} · {r.time} ago</div>
                   <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                     {r.credits > 0 && <span style={{ fontSize: 12, fontWeight: 700, color: "#F59E0B" }}>{r.credits} credits</span>}
