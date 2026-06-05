@@ -1,0 +1,14 @@
+GDP currency‑rate admin + the "estimate" label ✅ ready
+
+The rate‑admin screen fits the unified admin hub (guardrail 3). The "estimate" label is a separate, user‑facing treatment.
+
+(full brief — tracking #121) The platform is multi‑currency; GDP rolls eligible volume into one USD‑denominated estimate using owner‑curated factors in currency_usd_rates. Two surfaces needed: (1) an admin screen (inside the admin hub) to view/revise those factors; (2) an "estimate" treatment on the GDP figure.
+
+Hard legal line (honor in mockups): never show a ServiceCredits amount at a fiat equivalent anywhere user‑facing. The USD factor exists only inside the aggregate GDP estimate. The rate‑admin screen is admin‑only and must read as "the notional factor used to estimate GDP," never "what your ServiceCredits are worth." Never render "N ServiceCredits ≈ $X" for a wallet/price/per‑user figure.
+
+Surface 1 — Currency‑rate admin (admin‑only, in the admin hub): list of currencies (from currencies catalog; label like "ServiceCredits"/"United States Dollar", never the bare SC code) with current usd_rate, as_of, source; a revise action that creates a new dated as_of row (history preserved, latest = active) with prior values shown as history; a calm disclaimer (factors only estimate GDP, never a redemption/per‑wallet value); states loading/empty/populated/saved. Components: GDPRatesAdmin.tsx (+ …Empty, …Loading).
+
+Surface 2 — GDP "estimate" treatment: on the headline figure (and USD aggregates gdp_total_revenue, gdp_recognized_volume_usd) add an understated "Estimate" chip/caption + short footnote (USD estimate normalized across currencies; morale/transparency metric, not a ledger). Data via gdp_metric_snapshots.is_estimate. Update existing GDP.tsx, GDPPublic.tsx, MobileGDP.tsx, MobileGDPPublic.tsx (don't add a new screen).
+
+Bindable real data: currencies(code,label,is_service_credits,symbol); currency_usd_rates(currency_code,usd_rate,as_of,source); gdp_metric_snapshots(metric_key,metric_value,is_estimate). No fabricated figures or per‑wallet conversions.
+

@@ -31,8 +31,8 @@ export function WhatWorksEmpty() {
           <div style={{ width: 72, height: 72, borderRadius: "50%", background: `${BRAND}15`, border: `1px solid ${BRAND}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <CheckCircle size={34} color={BRAND} />
           </div>
-          <div style={{ fontSize: 24, fontWeight: 800 }}>First tool added 🎉</div>
-          <div style={{ fontSize: 14, color: subtle, lineHeight: 1.7 }}>The list has started. Keep adding the tools that solved a specific problem — each one helps the next survivor find what works faster.</div>
+          <div style={{ fontSize: 24, fontWeight: 800 }}>Suggestion submitted</div>
+          <div style={{ fontSize: 14, color: subtle, lineHeight: 1.7 }}>Your suggestion is in review. Once an admin approves it, it'll appear on the shared list for everyone.</div>
           <button onClick={() => setAdded(false)} style={{ padding: "12px 24px", borderRadius: 10, background: BRAND, border: "none", color: "#0A0E06", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 7 }}>
             <Plus size={15} /> Add another
           </button>
@@ -99,7 +99,7 @@ export function WhatWorksEmpty() {
 
             <button onClick={() => ready && setAdded(true)} disabled={!ready}
               style={{ padding: "14px", borderRadius: 12, background: ready ? BRAND : "rgba(255,255,255,0.06)", border: "none", color: ready ? "#0A0E06" : subtle, fontSize: 15, fontWeight: 700, cursor: ready ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
-              <Send size={16} /> Add to the list
+              <Send size={16} /> Submit for review
             </button>
           </div>
         </div>

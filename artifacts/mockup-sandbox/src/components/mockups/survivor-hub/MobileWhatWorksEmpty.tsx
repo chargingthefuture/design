@@ -47,8 +47,8 @@ export function MobileWhatWorksEmpty() {
             <div style={{ width: 64, height: 64, borderRadius: "50%", background: `${BRAND}15`, border: `1px solid ${BRAND}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <CheckCircle size={30} color={BRAND} />
             </div>
-            <div style={{ fontSize: 20, fontWeight: 800 }}>First tool added 🎉</div>
-            <div style={{ fontSize: 13, color: subtle, lineHeight: 1.65 }}>The list has started. Keep adding the tools that solved a specific problem.</div>
+            <div style={{ fontSize: 20, fontWeight: 800 }}>Suggestion submitted</div>
+            <div style={{ fontSize: 13, color: subtle, lineHeight: 1.65 }}>Your suggestion is in review. Once approved by an admin, it'll appear on the shared list.</div>
             <button onClick={() => setAdded(false)} style={{ padding: "11px 22px", borderRadius: 10, background: BRAND, border: "none", color: "#0A0E06", fontSize: 13.5, fontWeight: 700, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 7 }}>
               <Plus size={15} /> Add another
             </button>
@@ -92,7 +92,7 @@ export function MobileWhatWorksEmpty() {
 
               <button onClick={() => ready && setAdded(true)} disabled={!ready}
                 style={{ padding: "13px", borderRadius: 11, background: ready ? BRAND : "rgba(255,255,255,0.06)", border: "none", color: ready ? "#0A0E06" : subtle, fontSize: 14.5, fontWeight: 700, cursor: ready ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
-                <Send size={15} /> Add to the list
+                <Send size={15} /> Submit for review
               </button>
 
               <div style={{ display: "flex", alignItems: "center", gap: 7, padding: "11px 13px", borderRadius: 11, background: `${BRAND}06`, border: `1px solid ${BRAND}20` }}>
