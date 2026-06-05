@@ -12,6 +12,18 @@ uri = "file://attached_assets/ctf_mobile_wallpaper.png"
 type = "image"
 title = "CTF mobile wallpaper"
 
+[[generated]]
+id = "yGHh2MVPRcwPA2Irbi5AZ"
+uri = "file://attached_assets/ctf_desktop_wallpaper_v2.png"
+type = "image"
+title = "CTF desktop wallpaper v2"
+
+[[generated]]
+id = "nRJ962PbdmFc13iJyUxMS"
+uri = "file://attached_assets/ctf_mobile_wallpaper_v2.png"
+type = "image"
+title = "CTF mobile wallpaper v2"
+
 [[outputs]]
 id = "RbewMQGdUrH_cWUHLnIPO"
 uri = "file://attached_assets/ctf_desktop_wallpaper.png"
@@ -23,3 +35,15 @@ id = "Yixdk_ZRFUoP2-YpMRiCH"
 uri = "file://attached_assets/ctf_mobile_wallpaper.png"
 type = "image"
 title = "CTF Mobile Wallpaper (9:16)"
+
+[[outputs]]
+id = "EcjW4lrnejZG3g_mPMub3"
+uri = "file://attached_assets/ctf_desktop_wallpaper_v2.png"
+type = "image"
+title = "CTF Desktop Wallpaper — Exit Their Economy (16:9)"
+
+[[outputs]]
+id = "Qxy_vbNiIfBTtuZsc2MwE"
+uri = "file://attached_assets/ctf_mobile_wallpaper_v2.png"
+type = "image"
+title = "CTF Mobile Wallpaper — Exit Their Economy (9:16)"
