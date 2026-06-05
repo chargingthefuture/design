@@ -67,12 +67,16 @@ export function GDPPublic() {
             {/* Hero stat */}
             <div style={{ borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}25`, padding: "20px 16px", textAlign: "center", marginBottom: 16 }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: subtle, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>TI Skills Economy</div>
-              <div style={{ fontSize: 40, fontWeight: 900, color: COLOR, lineHeight: 1 }}>$247B</div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+                <div style={{ fontSize: 40, fontWeight: 900, color: COLOR, lineHeight: 1 }}>$247B</div>
+                <span style={{ fontSize: 10, fontWeight: 600, color: subtle, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 6px", letterSpacing: "0.04em" }}>Estimate</span>
+              </div>
               <div style={{ fontSize: 12, color: subtle, marginTop: 4 }}>of $300B opportunity</div>
               <div style={{ height: 4, borderRadius: 2, background: "rgba(255,255,255,0.06)", marginTop: 12, overflow: "hidden" }}>
                 <div style={{ height: "100%", width: "82%", borderRadius: 2, background: COLOR }} />
               </div>
               <div style={{ fontSize: 11, color: COLOR, marginTop: 6 }}>82% achieved</div>
+              <div style={{ fontSize: 10.5, color: "#4B5563", marginTop: 10, lineHeight: 1.55, fontStyle: "italic", textAlign: "left" }}>* Normalized across currencies — a transparency metric, not a ledger.</div>
             </div>
 
             {[

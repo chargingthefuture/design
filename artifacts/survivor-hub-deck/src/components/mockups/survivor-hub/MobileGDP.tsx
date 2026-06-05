@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
@@ -33,7 +34,7 @@ export function MobileGDP() {
   const [activeNav, setActiveNav] = useState("overview");
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100%", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
@@ -54,11 +55,15 @@ export function MobileGDP() {
               {/* Hero */}
               <div style={{ padding: "20px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}20 0%,rgba(6,182,212,0.05) 100%)`, border: `1px solid ${COLOR}25`, marginBottom: 16, textAlign: "center" }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, letterSpacing: "0.08em", marginBottom: 6 }}>TI SKILLS ECONOMY</div>
-                <div style={{ fontSize: 42, fontWeight: 900, color: "#F9FAFB", lineHeight: 1, marginBottom: 4 }}>$247.1B</div>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 }}>
+                  <div style={{ fontSize: 42, fontWeight: 900, color: "#F9FAFB", lineHeight: 1 }}>$247.1B</div>
+                  <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7280", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 6px", letterSpacing: "0.04em" }}>Estimate</span>
+                </div>
                 <div style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 12 }}>of $300B target · 82.4% reached</div>
                 <div style={{ height: 8, background: "rgba(255,255,255,0.06)", borderRadius: 4, overflow: "hidden" }}>
                   <div style={{ height: "100%", background: `linear-gradient(to right,${COLOR},#22D3EE)`, width: "82.4%", borderRadius: 4 }} />
                 </div>
+                <div style={{ fontSize: 10.5, color: "#4B5563", marginTop: 10, lineHeight: 1.5, fontStyle: "italic" }}>* USD estimate normalized across currencies — a transparency metric, not a ledger.</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 16 }}>
                 {[{ v: "4.9M", l: "Members", c: "#A78BFA" }, { v: "127", l: "Countries", c: "#22C55E" }, { v: "+$1.2B", l: "This week", c: COLOR }].map(({ v, l, c }) => (

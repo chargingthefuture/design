@@ -2,7 +2,7 @@
 // STATE: Authenticated, no community content yet (fresh install)
 import {
   MessageSquare, Zap, Radio, Bell, Settings,
-  Hash, Globe, Plus, ChevronRight, Sparkles, Search,
+  Hash, Globe, Plus, ChevronRight, Sparkles, Search, AtSign, Send,
 } from "lucide-react";
 
 const bg = "#0F1117";
@@ -113,6 +113,23 @@ export function MobileHomeEmpty() {
           <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 8, background: `rgba(124,58,237,0.15)`, border: `1px solid rgba(124,58,237,0.3)`, color: "#A78BFA", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>
             <Plus size={13} /> Create Channel
           </button>
+        </div>
+      </div>
+
+      {/* @comic hint composer — authenticated, no channels yet */}
+      <div style={{ padding: "8px 16px 10px", borderTop: `1px solid ${border}`, background: surface, flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 3, padding: "2px 7px", borderRadius: 6, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.3)", color: "#38BDF8", fontSize: 11, fontWeight: 700 }}>
+            <AtSign size={11} /> comic
+          </span>
+          <span style={{ fontSize: 11, color: subtle }}>Type <span style={{ color: "#38BDF8", fontWeight: 600 }}>@comic</span> to ask the AI Assistant</span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${border}`, borderRadius: 14 }}>
+          <Plus size={16} style={{ color: subtle, flexShrink: 0 }} />
+          <span style={{ flex: 1, fontSize: 14, color: "#374151" }}>Share, or type @comic to ask…</span>
+          <div style={{ width: 30, height: 30, borderRadius: 8, background: "rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+            <Send size={13} style={{ color: "#374151" }} />
+          </div>
         </div>
       </div>
 

@@ -25,8 +25,12 @@ export function MobileGDPPublic() {
         {/* Live snapshot */}
         <div style={{ borderRadius: 16, border: `1px solid ${COLOR}30`, background: COLOR + "06", padding: "16px 18px", display: "flex", flexDirection: "column", gap: 10 }}>
           <div style={{ fontSize: 11, color: "#6B7280" }}>Platform economic activity</div>
-          <div style={{ fontSize: 26, fontWeight: 900, color: COLOR }}>$2.4B</div>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+            <div style={{ fontSize: 26, fontWeight: 900, color: COLOR }}>$2.4B</div>
+            <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7280", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 6px", letterSpacing: "0.04em" }}>Estimate</span>
+          </div>
           <div style={{ fontSize: 11, color: "#9CA3AF" }}>annual service credits exchanged</div>
+          <div style={{ fontSize: 10.5, color: "#4B5563", marginTop: 6, lineHeight: 1.5, fontStyle: "italic" }}>* USD estimate normalized across currencies — a transparency metric, not a ledger.</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {BARS.map((pct, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>

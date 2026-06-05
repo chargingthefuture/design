@@ -265,6 +265,24 @@
       "kind": "screen",
       "states": ["loading"],
       "platform": "mobile"
+    },
+    {
+      "id": "gdp-rate-admin",
+      "name": "GDPRateAdmin",
+      "file": "src/components/mockups/survivor-hub/GDPRateAdmin.tsx",
+      "kind": "screen",
+      "states": ["admin", "populated", "editing", "saved"],
+      "platform": "desktop",
+      "notes": "Admin-only currency USD-rate management screen (inside admin hub). Lists currencies with active usd_rate/as_of/source. Revise action creates a new dated row; prior values shown as history. Calm disclaimer: factors only estimate GDP, never a redemption/per-wallet value. LEGAL: never show 'N ServiceCredits ≈ $X' for any user-facing or per-wallet figure."
+    },
+    {
+      "id": "mobile-gdp-rate-admin",
+      "name": "MobileGDPRateAdmin",
+      "file": "src/components/mockups/survivor-hub/MobileGDPRateAdmin.tsx",
+      "kind": "screen",
+      "states": ["admin", "populated", "editing", "saved"],
+      "platform": "mobile",
+      "notes": "Mobile admin-only currency USD-rate management. Same guardrails as GDPRateAdmin."
     }
   ],
   "channel_model": {

@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -69,14 +70,17 @@ export function GDP() {
         </div>
         <ScrollArea style={{ flex: 1 }}>
           <div style={{ padding: "0 8px 16px" }}>
-            {["Global Overview", "By Sector", "By Country", "By Phase", "Projections"].map((f, i) => (
+            {["Global Overview", "By Sector", "By Country", "Projections"].map((f, i) => (
               <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: i === 0 ? `${COLOR}18` : "transparent", borderLeft: i === 0 ? `2px solid ${COLOR}` : "2px solid transparent", marginLeft: 2, marginBottom: 2 }}>
                 <span style={{ fontSize: 13, color: i === 0 ? "#E8EAF0" : "#9CA3AF", flex: 1 }}>{f}</span>
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Live Ticker</div>
             <div style={{ padding: "12px", margin: "0 8px 8px", borderRadius: 10, background: `${COLOR}08`, border: `1px solid ${COLOR}15` }}>
-              <div style={{ fontSize: 24, fontWeight: 800, color: COLOR }}>$247.1B</div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
+                <div style={{ fontSize: 24, fontWeight: 800, color: COLOR }}>$247.1B</div>
+                <span style={{ fontSize: 10, fontWeight: 600, color: "#4B5563", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 3, padding: "1px 5px" }}>est.</span>
+              </div>
               <div style={{ fontSize: 11, color: "#6B7280", marginBottom: 4 }}>Current TI Skills Economy</div>
               <div style={{ fontSize: 12, color: "#22C55E" }}>↑ +$1.2B this week</div>
             </div>
@@ -105,11 +109,15 @@ export function GDP() {
                 <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", color: COLOR, textTransform: "uppercase", marginBottom: 8 }}>TI Skills Economy — Live</div>
-                    <div style={{ fontSize: 48, fontWeight: 900, color: "#F9FAFB", lineHeight: 1, marginBottom: 8 }}>$247.1B</div>
+                    <div style={{ display: "flex", alignItems: "baseline", marginBottom: 8 }}>
+                      <div style={{ fontSize: 48, fontWeight: 900, color: "#F9FAFB", lineHeight: 1 }}>$247.1B</div>
+                      <span style={{ display: "inline-flex", alignItems: "center", fontSize: 10, fontWeight: 600, color: "#6B7280", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 7px", marginLeft: 10, letterSpacing: "0.04em" }}>Estimate</span>
+                    </div>
                     <div style={{ fontSize: 16, color: "#9CA3AF" }}>of $300 Billion opportunity · 82.4% reached</div>
                     <div style={{ marginTop: 16, height: 8, background: "rgba(255,255,255,0.06)", borderRadius: 4, overflow: "hidden" }}>
                       <div style={{ height: "100%", background: `linear-gradient(to right,${COLOR},#22D3EE)`, borderRadius: 4, width: "82.4%" }} />
                     </div>
+                    <div style={{ fontSize: 11, color: "#4B5563", marginTop: 12, lineHeight: 1.55, fontStyle: "italic" }}>* USD total is a normalized estimate across currencies — a morale and transparency metric, not a financial ledger.</div>
                   </div>
                   <div style={{ display: "flex", gap: 12 }}>
                     {[{ v: "4.9M", l: "Members", c: "#A78BFA" }, { v: "127", l: "Countries", c: "#22C55E" }, { v: "6", l: "Sectors", c: COLOR }].map(({ v, l, c }) => (

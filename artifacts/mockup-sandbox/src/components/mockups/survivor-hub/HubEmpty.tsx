@@ -2,7 +2,7 @@
 // STATE: Authenticated, no community content yet (fresh install / empty hub)
 import {
   MessageSquare, Zap, Hash, Bell, Settings, Globe,
-  Plus, ChevronRight, Sparkles, Search,
+  Plus, ChevronRight, Sparkles, Search, AtSign, Send,
 } from "lucide-react";
 
 const bg = "#0F1117";
@@ -121,6 +121,23 @@ export function HubEmpty() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* @comic hint composer — authenticated, no channels yet */}
+        <div style={{ padding: "10px 24px 16px", borderTop: `1px solid ${border}`, flexShrink: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "3px 9px", borderRadius: 7, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.3)", color: "#38BDF8", fontSize: 12, fontWeight: 700 }}>
+              <AtSign size={12} /> comic
+            </span>
+            <span style={{ fontSize: 12, color: subtle }}>Type <span style={{ color: "#38BDF8", fontWeight: 600 }}>@comic</span> to ask the AI Assistant while you get set up</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: `1px solid ${border}`, borderRadius: 14 }}>
+            <Plus size={18} style={{ color: subtle, flexShrink: 0 }} />
+            <span style={{ flex: 1, fontSize: 14, color: "#374151" }}>Share with the community, or type @comic to ask…</span>
+            <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <Send size={14} style={{ color: "#374151" }} />
             </div>
           </div>
         </div>

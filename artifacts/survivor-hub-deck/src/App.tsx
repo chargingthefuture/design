@@ -23,6 +23,7 @@ import { Foundation } from "@/components/mockups/survivor-hub/Foundation";
 import { GDPEmpty } from "@/components/mockups/survivor-hub/GDPEmpty";
 import { GDPLoading } from "@/components/mockups/survivor-hub/GDPLoading";
 import { GDPPublic } from "@/components/mockups/survivor-hub/GDPPublic";
+import { GDPRateAdmin } from "@/components/mockups/survivor-hub/GDPRateAdmin";
 import { GDP } from "@/components/mockups/survivor-hub/GDP";
 import { GentlePulseEmpty } from "@/components/mockups/survivor-hub/GentlePulseEmpty";
 import { GentlePulseLoading } from "@/components/mockups/survivor-hub/GentlePulseLoading";
@@ -59,6 +60,7 @@ import { MobileFoundation } from "@/components/mockups/survivor-hub/MobileFounda
 import { MobileGDPEmpty } from "@/components/mockups/survivor-hub/MobileGDPEmpty";
 import { MobileGDPLoading } from "@/components/mockups/survivor-hub/MobileGDPLoading";
 import { MobileGDPPublic } from "@/components/mockups/survivor-hub/MobileGDPPublic";
+import { MobileGDPRateAdmin } from "@/components/mockups/survivor-hub/MobileGDPRateAdmin";
 import { MobileGDP } from "@/components/mockups/survivor-hub/MobileGDP";
 import { MobileGentlePulseEmpty } from "@/components/mockups/survivor-hub/MobileGentlePulseEmpty";
 import { MobileGentlePulseLoading } from "@/components/mockups/survivor-hub/MobileGentlePulseLoading";
@@ -198,7 +200,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   Desktop,
   DirectoryEmpty, DirectoryLoading, DirectoryPublic, Directory,
   FoundationEmpty, FoundationLoading, FoundationPublic, Foundation,
-  GDPEmpty, GDPLoading, GDPPublic, GDP,
+  GDPEmpty, GDPLoading, GDPPublic, GDPRateAdmin, GDP,
   GentlePulseEmpty, GentlePulseLoading, GentlePulsePublic, GentlePulse,
   HubEmpty, HubLoading, HubPublic,
   LevelUp: LevelUpDefault, LevelUpEmpty, LevelUpLoading, LevelUpPublic,
@@ -206,7 +208,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   MobileChymeEmpty, MobileChymeLoading, MobileChymePublic, MobileChyme,
   MobileDirectoryEmpty, MobileDirectoryLoading, MobileDirectoryPublic, MobileDirectory,
   MobileFoundationEmpty, MobileFoundationLoading, MobileFoundationPublic, MobileFoundation,
-  MobileGDPEmpty, MobileGDPLoading, MobileGDPPublic, MobileGDP,
+  MobileGDPEmpty, MobileGDPLoading, MobileGDPPublic, MobileGDPRateAdmin, MobileGDP,
   MobileGentlePulseEmpty, MobileGentlePulseLoading, MobileGentlePulsePublic, MobileGentlePulse,
   MobileHomeEmpty, MobileHomeLoading, MobileHome, MobileHubPublic,
   MobileLevelUp: MobileLevelUpDefault, MobileLevelUpEmpty, MobileLevelUpLoading, MobileLevelUpPublic,
@@ -407,8 +409,10 @@ const SLIDES: Slide[] = [
   web("GDPLoading",     "Web · Loading",         "GDP"),
   mob("MobileGDPPublic","Mobile · Not Signed In","GDP"),
   mob("MobileGDP",      "Mobile · Signed In",    "GDP"),
-  mob("MobileGDPEmpty", "Mobile · Empty State",  "GDP"),
-  mob("MobileGDPLoading","Mobile · Loading",     "GDP"),
+  mob("MobileGDPEmpty",     "Mobile · Empty State",        "GDP"),
+  mob("MobileGDPLoading",   "Mobile · Loading",            "GDP"),
+  web("GDPRateAdmin",       "Web · Rate Admin (Admin)",    "GDP"),
+  mob("MobileGDPRateAdmin", "Mobile · Rate Admin (Admin)", "GDP"),
 
   // ── SERVICE CREDITS ───────────────────────────────────────────────────
   web("ServiceCreditsPublic",      "Web · Not Signed In",  "Service Credits"),
