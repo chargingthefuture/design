@@ -54,6 +54,18 @@ uri = "file://attached_assets/ctf_mobile_exit_psyop.png"
 type = "image"
 title = "CTF mobile exit psyop variation"
 
+[[generated]]
+id = "A2H3bWSQ9f52kw3_NPsor"
+uri = "file://attached_assets/_ctf_bg_desktop.png"
+type = "image"
+title = "CTF desktop background no text"
+
+[[generated]]
+id = "TXaU5lOdI30cTNCFSub6Y"
+uri = "file://attached_assets/_ctf_bg_mobile.png"
+type = "image"
+title = "CTF mobile background no text"
+
 [[outputs]]
 id = "RbewMQGdUrH_cWUHLnIPO"
 uri = "file://attached_assets/ctf_desktop_wallpaper.png"
@@ -107,3 +119,15 @@ id = "lNMq_4vodB2anCKJuPn7m"
 uri = "file://attached_assets/ctf_mobile_exit_psyop.png"
 type = "image"
 title = "Mobile — Exit Their Economy. Exit The Psyop. (9:16)"
+
+[[outputs]]
+id = "DEIBfEIDC9YciQj6-53Wc"
+uri = "file://attached_assets/ctf_desktop_exit_psyop_final.png"
+type = "image"
+title = "Desktop — Exit Their Economy. Exit The Psyop. (real heart)"
+
+[[outputs]]
+id = "-sEB20Ntwmb2p16TojR9Y"
+uri = "file://attached_assets/ctf_mobile_exit_psyop_final.png"
+type = "image"
+title = "Mobile — Exit Their Economy. Exit The Psyop. (real heart)"
