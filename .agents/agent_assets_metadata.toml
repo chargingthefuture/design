@@ -1,0 +1,25 @@
+uploads = []
+
+[[generated]]
+id = "nA43B5ekxGkT1KdNze3df"
+uri = "file://attached_assets/ctf_desktop_wallpaper.png"
+type = "image"
+title = "CTF desktop wallpaper"
+
+[[generated]]
+id = "zq1HynN69OR7TW7FpiyM7"
+uri = "file://attached_assets/ctf_mobile_wallpaper.png"
+type = "image"
+title = "CTF mobile wallpaper"
+
+[[outputs]]
+id = "RbewMQGdUrH_cWUHLnIPO"
+uri = "file://attached_assets/ctf_desktop_wallpaper.png"
+type = "image"
+title = "CTF Desktop Wallpaper (16:9)"
+
+[[outputs]]
+id = "Yixdk_ZRFUoP2-YpMRiCH"
+uri = "file://attached_assets/ctf_mobile_wallpaper.png"
+type = "image"
+title = "CTF Mobile Wallpaper (9:16)"
