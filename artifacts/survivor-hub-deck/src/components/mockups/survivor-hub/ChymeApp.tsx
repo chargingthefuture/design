@@ -9,11 +9,13 @@ import {
   MessageSquare, Send, Hash, Volume2, VolumeX, X, Heart,
 } from "lucide-react";
 
+// Production: display_name dropped from chyme_room_members / chyme_messages.
+// Renders raw @username; falls back to user-<first 8 of user_id> when null.
 const ROOMS = [
   {
     id: 1,
     title: "Survivor Stories: Rebuilding After Trafficking",
-    hosts: ["Amara O.", "James T."],
+    hosts: ["@amara-o", "@james-t"],
     speakers: 4,
     listeners: 128,
     tags: ["healing", "testimony"],
@@ -23,7 +25,7 @@ const ROOMS = [
   {
     id: 2,
     title: "Service Credits 101 — How to Earn & Spend",
-    hosts: ["Maria G."],
+    hosts: ["@maria-g"],
     speakers: 2,
     listeners: 67,
     tags: ["finance", "education"],
@@ -33,7 +35,7 @@ const ROOMS = [
   {
     id: 3,
     title: "Global Mastermind: Building Skills Economy",
-    hosts: ["David K.", "Priya S."],
+    hosts: ["@david-k", "@priya-s"],
     speakers: 6,
     listeners: 312,
     tags: ["economy", "skills"],
@@ -43,7 +45,7 @@ const ROOMS = [
   {
     id: 4,
     title: "LightHouse Q&A — Finding Safe Housing",
-    hosts: ["Sofia R."],
+    hosts: ["@sofia-r"],
     speakers: 3,
     listeners: 89,
     tags: ["housing", "safety"],
@@ -53,7 +55,7 @@ const ROOMS = [
   {
     id: 5,
     title: "Meditation & Healing Hour — GentlePulse",
-    hosts: ["Ngo T."],
+    hosts: ["user-4e9f2c1a"],   // no chosen username — fallback
     speakers: 1,
     listeners: 204,
     tags: ["wellness", "meditation"],
@@ -64,7 +66,7 @@ const ROOMS = [
   {
     id: 6,
     title: "SocketRelay: Connecting Resources Globally",
-    hosts: ["Kwame A.", "Lucia M."],
+    hosts: ["@kwame-a", "@lucia-m"],
     speakers: 5,
     listeners: 0,
     tags: ["mutual-aid", "network"],
@@ -75,24 +77,28 @@ const ROOMS = [
 ];
 
 const ACTIVE_SPEAKERS = [
-  { name: "Amara O.", role: "Host", speaking: true, muted: false, initials: "AO", color: "#22C55E" },
-  { name: "James T.", role: "Host", speaking: false, muted: false, initials: "JT", color: "#16A34A" },
-  { name: "Maria G.", role: "Speaker", speaking: true, muted: false, initials: "MG", color: "#4ADE80" },
-  { name: "David K.", role: "Speaker", speaking: false, muted: true, initials: "DK", color: "#86EFAC" },
+  { handle: "@amara-o",      role: "Host",    speaking: true,  muted: false, initials: "AO", color: "#22C55E" },
+  { handle: "@james-t",      role: "Host",    speaking: false, muted: false, initials: "JT", color: "#16A34A" },
+  { handle: "@maria-g",      role: "Speaker", speaking: true,  muted: false, initials: "MG", color: "#4ADE80" },
+  { handle: "user-8c3d7e2f", role: "Speaker", speaking: false, muted: true,  initials: "DK", color: "#86EFAC" }, // fallback
 ];
 
 const AUDIENCE = [
-  { name: "Sofia R.", initials: "SR" }, { name: "Kwame A.", initials: "KA" },
-  { name: "Priya S.", initials: "PS" }, { name: "Ngo T.", initials: "NT" },
-  { name: "Lucia M.", initials: "LM" }, { name: "Omar F.", initials: "OF" },
-  { name: "Ana B.", initials: "AB" }, { name: "Jin L.", initials: "JL" },
+  { handle: "@sofia-r",      initials: "SR" },
+  { handle: "@kwame-a",      initials: "KA" },
+  { handle: "@priya-s",      initials: "PS" },
+  { handle: "user-4e9f2c1a", initials: "NT" }, // fallback
+  { handle: "@lucia-m",      initials: "LM" },
+  { handle: "user-b1d5e8a3", initials: "OF" }, // fallback
+  { handle: "@ana-b",        initials: "AB" },
+  { handle: "@jin-l",        initials: "JL" },
 ];
 
 const CHAT_MSGS = [
-  { id: 1, user: "Sofia R.", text: "This conversation is so healing, thank you!", time: "9:12" },
-  { id: 2, user: "Kwame A.", text: "❤️ Much needed", time: "9:13" },
-  { id: 3, user: "Priya S.", text: "Can we talk about the housing resources mentioned?", time: "9:14" },
-  { id: 4, user: "Omar F.", text: "Great discussion everyone 🙌", time: "9:15" },
+  { id: 1, user: "@sofia-r",       text: "This conversation is so healing, thank you!", time: "9:12" },
+  { id: 2, user: "user-b1d5e8a3",  text: "❤️ Much needed",                              time: "9:13" },
+  { id: 3, user: "@priya-s",       text: "Can we talk about the housing resources mentioned?", time: "9:14" },
+  { id: 4, user: "user-4e9f2c1a",  text: "Great discussion everyone 🙌",                time: "9:15" },
 ];
 
 interface ChymeAppProps {
@@ -155,14 +161,11 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
       <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
         {/* Sidebar */}
         <aside style={{ width: 300, borderRight: `1px solid ${BORDER}`, display: "flex", flexDirection: "column", flexShrink: 0, background: "#030d05" }}>
-          {/* Create room CTA */}
           <div style={{ padding: "16px 16px 12px" }}>
             <button style={{ width: "100%", padding: "12px 16px", borderRadius: 12, background: `linear-gradient(135deg, ${PRIMARY} 0%, #16A34A 100%)`, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
               <Plus size={16} /> Start a Room
             </button>
           </div>
-
-          {/* Tabs */}
           <div style={{ display: "flex", gap: 4, padding: "0 16px 12px" }}>
             {(["rooms", "upcoming"] as const).map((t) => (
               <button key={t} onClick={() => setTab(t)} style={{ flex: 1, padding: "7px 0", borderRadius: 8, background: tab === t ? `${PRIMARY}18` : "transparent", border: tab === t ? `1px solid ${PRIMARY}35` : "1px solid transparent", color: tab === t ? PRIMARY : "#6B7280", fontSize: 13, fontWeight: tab === t ? 600 : 400, cursor: "pointer", textTransform: "capitalize" }}>
@@ -170,7 +173,6 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
               </button>
             ))}
           </div>
-
           <ScrollArea style={{ flex: 1, padding: "0 12px 16px" }}>
             {ROOMS.filter((r) => tab === "rooms" ? r.live : !r.live).map((room) => (
               <div key={room.id} onClick={() => setActiveRoom(room)} style={{ padding: "14px", borderRadius: 12, background: activeRoom?.id === room.id ? `${PRIMARY}14` : "rgba(255,255,255,0.02)", border: `1px solid ${activeRoom?.id === room.id ? PRIMARY + "40" : BORDER}`, marginBottom: 8, cursor: "pointer" }}>
@@ -179,7 +181,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                   <div style={{ fontSize: 13, fontWeight: 600, color: "#F0FDF4", lineHeight: 1.4, flex: 1 }}>{room.title}</div>
                 </div>
                 <div style={{ fontSize: 12, color: "#16A34A", marginBottom: 6 }}>
-                  {room.hosts.join(", ")} · {room.live ? `${room.speakers} speakers` : room.scheduled}
+                  {room.hosts.join(", ")} · {room.live ? `${room.speakers} speakers` : (room as any).scheduled}
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <div style={{ display: "flex", gap: 4 }}>
@@ -232,7 +234,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                     <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 16 }}>On Stage · {ACTIVE_SPEAKERS.length} Speakers</div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
                       {ACTIVE_SPEAKERS.map((sp) => (
-                        <div key={sp.name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, width: 100 }}>
+                        <div key={sp.handle} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, width: 100 }}>
                           <div style={{ position: "relative" }}>
                             <div style={{ width: 72, height: 72, borderRadius: "50%", background: `${sp.color}20`, border: `3px solid ${sp.speaking ? sp.color : "transparent"}`, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: sp.speaking ? `0 0 20px ${sp.color}50` : "none", transition: "all 0.3s" }}>
                               <span style={{ fontSize: 20, fontWeight: 800, color: sp.color }}>{sp.initials}</span>
@@ -241,7 +243,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                               {sp.muted ? <MicOff size={10} style={{ color: "#fff" }} /> : <Mic size={10} style={{ color: "#fff" }} />}
                             </div>
                           </div>
-                          <div style={{ fontSize: 12, fontWeight: 600, color: "#E8EAF0", textAlign: "center" }}>{sp.name}</div>
+                          <div style={{ fontSize: 11, fontWeight: 600, color: "#E8EAF0", textAlign: "center", wordBreak: "break-all" }}>{sp.handle}</div>
                           <Badge style={{ fontSize: 10, background: sp.role === "Host" ? `${PRIMARY}20` : "rgba(255,255,255,0.05)", color: sp.role === "Host" ? PRIMARY : "#6B7280", border: `1px solid ${sp.role === "Host" ? PRIMARY + "35" : "transparent"}`, padding: "1px 8px", borderRadius: 20 }}>
                             {sp.role}
                           </Badge>
@@ -257,14 +259,14 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                     </div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
                       {AUDIENCE.map((a) => (
-                        <div key={a.name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, width: 64 }}>
+                        <div key={a.handle} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, width: 72 }}>
                           <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                             <span style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF" }}>{a.initials}</span>
                           </div>
-                          <div style={{ fontSize: 11, color: "#6B7280", textAlign: "center" }}>{a.name}</div>
+                          <div style={{ fontSize: 10, color: "#6B7280", textAlign: "center", wordBreak: "break-all", lineHeight: 1.3 }}>{a.handle}</div>
                         </div>
                       ))}
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, width: 64 }}>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, width: 72 }}>
                         <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(255,255,255,0.03)", border: "1px dashed rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                           <span style={{ fontSize: 13, color: "#4B5563" }}>+{activeRoom.listeners - AUDIENCE.length}</span>
                         </div>
@@ -329,7 +331,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
               </div>
             </>
           ) : (
-            /* Empty state / welcome */
+            /* Welcome / select-a-room state */
             <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 16 }}>
               <div style={{ width: 80, height: 80, borderRadius: 24, background: `${PRIMARY}18`, border: `2px solid ${PRIMARY}35`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 8 }}>
                 <Radio size={36} style={{ color: PRIMARY }} />
