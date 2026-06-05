@@ -24,6 +24,30 @@ uri = "file://attached_assets/ctf_mobile_wallpaper_v2.png"
 type = "image"
 title = "CTF mobile wallpaper v2"
 
+[[generated]]
+id = "tFIjBNJmFFllmuySD95YR"
+uri = "file://attached_assets/ctf_desktop_v1_final.png"
+type = "image"
+title = "CTF desktop live work prevail"
+
+[[generated]]
+id = "xeLSkIP9owegknZvkp34Z"
+uri = "file://attached_assets/ctf_desktop_v2_final.png"
+type = "image"
+title = "CTF desktop exit psyop"
+
+[[generated]]
+id = "D0p9EhkJ2whu9Jwq3nFNj"
+uri = "file://attached_assets/ctf_mobile_v1_final.png"
+type = "image"
+title = "CTF mobile live work prevail"
+
+[[generated]]
+id = "zHGaI0hcO3nMf6L5uvKKl"
+uri = "file://attached_assets/ctf_mobile_v2_final.png"
+type = "image"
+title = "CTF mobile exit psyop"
+
 [[outputs]]
 id = "RbewMQGdUrH_cWUHLnIPO"
 uri = "file://attached_assets/ctf_desktop_wallpaper.png"
@@ -47,3 +71,27 @@ id = "Qxy_vbNiIfBTtuZsc2MwE"
 uri = "file://attached_assets/ctf_mobile_wallpaper_v2.png"
 type = "image"
 title = "CTF Mobile Wallpaper — Exit Their Economy (9:16)"
+
+[[outputs]]
+id = "LjprVx6YitCgH8y4tWQnH"
+uri = "file://attached_assets/ctf_desktop_v1_final.png"
+type = "image"
+title = "Desktop — Live, Work & Prevail (16:9)"
+
+[[outputs]]
+id = "YtJ0cJ9L000w5TPgQgFzX"
+uri = "file://attached_assets/ctf_desktop_v2_final.png"
+type = "image"
+title = "Desktop — Exit Their Economy (16:9)"
+
+[[outputs]]
+id = "xgEAnTuPtIAT86oqPpJyY"
+uri = "file://attached_assets/ctf_mobile_v1_final.png"
+type = "image"
+title = "Mobile — Live, Work & Prevail (9:16)"
+
+[[outputs]]
+id = "bzdSUFeBjufmw4aHxUV6S"
+uri = "file://attached_assets/ctf_mobile_v2_final.png"
+type = "image"
+title = "Mobile — Exit Their Economy (9:16)"
