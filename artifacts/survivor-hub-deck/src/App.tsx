@@ -143,6 +143,7 @@ import { SkillsHuntEmpty } from "@/components/mockups/survivor-hub/SkillsHuntEmp
 import { SkillsHuntLoading } from "@/components/mockups/survivor-hub/SkillsHuntLoading";
 import { SkillsHuntPublic } from "@/components/mockups/survivor-hub/SkillsHuntPublic";
 import { SkillsHunt } from "@/components/mockups/survivor-hub/SkillsHunt";
+import { SkillsHuntAdmin } from "@/components/mockups/survivor-hub/SkillsHuntAdmin";
 import { SocketRelayEmpty } from "@/components/mockups/survivor-hub/SocketRelayEmpty";
 import { SocketRelayLoading } from "@/components/mockups/survivor-hub/SocketRelayLoading";
 import { SocketRelayPublic } from "@/components/mockups/survivor-hub/SocketRelayPublic";
@@ -253,7 +254,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   MoodEmpty, MoodLoading, MoodPublic, Mood,
   PeerProgrammingEmpty, PeerProgrammingLoading, PeerProgrammingPublic, PeerProgramming,
   ServiceCreditsEmpty, ServiceCreditsLoading, ServiceCreditsPublic, ServiceCredits,
-  SkillsHuntEmpty, SkillsHuntLoading, SkillsHuntPublic, SkillsHunt,
+  SkillsHuntEmpty, SkillsHuntLoading, SkillsHuntPublic, SkillsHunt, SkillsHuntAdmin,
   SocketRelayEmpty, SocketRelayLoading, SocketRelayPublic, SocketRelay,
   TrustEmpty, TrustLoading, TrustPublic, Trust,
   MobileTrustEmpty,
@@ -362,6 +363,7 @@ const SLIDES: Slide[] = [
   web("SkillsHunt",            "Web · Signed In",       "Skills Hunt"),
   web("SkillsHuntEmpty",       "Web · Empty State",     "Skills Hunt"),
   web("SkillsHuntLoading",     "Web · Loading",         "Skills Hunt"),
+  web("SkillsHuntAdmin",       "Web · Admin",           "Skills Hunt"),
   mob("MobileSkillsHuntPublic","Mobile · Not Signed In","Skills Hunt"),
   mob("MobileSkillsHunt",      "Mobile · Signed In",    "Skills Hunt"),
   mob("MobileSkillsHuntEmpty", "Mobile · Empty State",  "Skills Hunt"),

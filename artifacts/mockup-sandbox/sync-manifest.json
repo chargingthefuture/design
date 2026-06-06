@@ -303,6 +303,15 @@
       "notes": "Mobile Directory admin. Tab bar: Unclaimed | All Profiles. Per-profile card with Edit and Delete actions. Edit taps to full-screen edit form: same fields as desktop (name/role/location/skills/handle/verified). Audit note on save. Inline admin in MobileDirectory.tsx preserved."
     },
     {
+      "id": "skills-hunt-admin",
+      "name": "SkillsHuntAdmin",
+      "file": "src/components/mockups/survivor-hub/SkillsHuntAdmin.tsx",
+      "kind": "screen",
+      "states": ["admin", "populated", "editing", "saved"],
+      "platform": "desktop",
+      "notes": "Dedicated admin page for Skills Hunt (DirectoryAdmin layout: icon rail + sidebar + table + edit drawer). Rounds tab: round table (window/scouts/finds/status) with edit drawer + status segmented control. Badges tab: configure the 5 named scout badges (criteria, holders, active toggle). Calm disclaimer: nominations always require human review before appearing in the Directory; nothing publishes automatically. Mirrors the MobileSkillsHuntAdmin domain."
+    },
+    {
       "id": "account-data",
       "name": "AccountData",
       "file": "src/components/mockups/survivor-hub/AccountData.tsx",

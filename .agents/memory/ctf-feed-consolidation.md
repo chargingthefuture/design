@@ -20,13 +20,11 @@ There is no standalone "Feed & Announcements" app. The Hub homepage **is** the c
 - "Use at least one plugin" in Trust widget → "Use at least one app"
 - **No "Safe Space" anywhere.** Replace with: big callouts → `Exit Their Economy · Invite Only`; banner sub-copy → `Exit Their Economy`; small trust badge → `Survivor Verified`; header badge → `Our Economy`; profile card → `Verified Member`; footer tagline → `a work of optimism · Survivor Hub`; status lines → `Exit Their Economy · 4,912 online` / `Exit Their Economy · 4.9M members`; why join → `✓ Invite-only, survivor-verified`; prose → `survivor-verified`; Chyme room label → `Survivor Room`; Chyme feature row → `Survivor Verified, Members confirmed real`; Unlock prose → `protects the integrity of this economy`
 
-## File map (as of consolidation)
-- FeedAnnouncements.tsx — desktop blended channel (logged-in)
-- FeedAnnouncementsPublic.tsx — desktop blended channel (public, full Discord layout, no blur)
-- FeedAnnouncementsEmpty.tsx — wrapper only
-- FeedAnnouncementsLoading.tsx — standard loader, unchanged
-- MobileFeed.tsx — mobile blended channel (logged-in, no separate bottom tabs)
-- MobileFeedPublic.tsx — mobile public channel (no blur, locked composer + join CTA)
-- MobileFeedEmpty.tsx — mobile empty state (Hub purple, not lime)
-- MobileFeedLoading.tsx — standard loader, unchanged
-- sync-manifest.json — component registry at `artifacts/mockup-sandbox/sync-manifest.json`
+## Canonical surfaces (current reality)
+There are **no `Feed*` / `MobileFeed*` files** — the feed lives inside the Hub home, not a separate component.
+- Desktop feed = the `#community` blended stream inside `Desktop.tsx`.
+- Mobile feed = the `#community` stream inside `MobileHome.tsx` (annotated `D8 DECISION` in its header — the authoritative mobile feed; no `MobileFeed.tsx` needed).
+- The 3 typed post kinds (`announcement` / `ai_qa` / `community`) render inline within those home streams.
+- sync-manifest.json (`artifacts/mockup-sandbox/sync-manifest.json`) notes the consolidation; no Feed/Announcements tile.
+
+**Why:** Owner decided the feed is not a standalone app — it is the Hub `#community` stream. If a tracker/issue ever claims a "missing feed mockup," that premise is outdated; the `MobileHome.tsx` header annotation is the authoritative record. Do not create `MobileFeed.tsx`.

@@ -70,6 +70,7 @@ export const modules: ModuleMap = {
   "./components/mockups/survivor-hub/SkillsHunt.tsx": () => import("../components/mockups/survivor-hub/SkillsHunt.tsx"),
   "./components/mockups/survivor-hub/SkillsHuntEmpty.tsx": () => import("../components/mockups/survivor-hub/SkillsHuntEmpty.tsx"),
   "./components/mockups/survivor-hub/SkillsHuntLoading.tsx": () => import("../components/mockups/survivor-hub/SkillsHuntLoading.tsx"),
+  "./components/mockups/survivor-hub/SkillsHuntAdmin.tsx": () => import("../components/mockups/survivor-hub/SkillsHuntAdmin.tsx"),
   "./components/mockups/survivor-hub/SkillsTaxonomyPublic.tsx": () => import("../components/mockups/survivor-hub/SkillsTaxonomyPublic.tsx"),
   "./components/mockups/survivor-hub/SkillsTaxonomy.tsx": () => import("../components/mockups/survivor-hub/SkillsTaxonomy.tsx"),
   "./components/mockups/survivor-hub/SkillsTaxonomyEmpty.tsx": () => import("../components/mockups/survivor-hub/SkillsTaxonomyEmpty.tsx"),

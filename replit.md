@@ -9,6 +9,8 @@ Local reference copy: `.github/instructions/098-agent-communication-rules.mdc`
 
 Rules are updated weekly; the remote URL is authoritative. Summary: robot/system tone, no pleasantries, structured formats, lead with facts, no preamble.
 
+- Do not use the word "stale" in communication — it does not fit this project's context.
+
 ## Survivor Hub Design Guide
 
 **Before making any UI change to the Survivor Hub mockups, read:**
