@@ -197,6 +197,10 @@ import { Workforce } from "@/components/mockups/survivor-hub/Workforce";
 import { MobileAdminHub } from "@/components/mockups/survivor-hub/MobileAdminHub";
 import { MobileAdminHubEmpty } from "@/components/mockups/survivor-hub/MobileAdminHubEmpty";
 import { MobileAdminHubLoading } from "@/components/mockups/survivor-hub/MobileAdminHubLoading";
+import { ComicAccountData } from "@/components/mockups/survivor-hub/ComicAccountData";
+import { ComicAccountDataDanger } from "@/components/mockups/survivor-hub/ComicAccountDataDanger";
+import { ComicMobileAccountData } from "@/components/mockups/survivor-hub/ComicMobileAccountData";
+import { ComicMobileAccountDanger } from "@/components/mockups/survivor-hub/ComicMobileAccountDanger";
 import { MobileFoundationAdmin } from "@/components/mockups/survivor-hub/MobileFoundationAdmin";
 import { MobileLevelUpAdmin } from "@/components/mockups/survivor-hub/MobileLevelUpAdmin";
 import { MobileLightHouseAdmin } from "@/components/mockups/survivor-hub/MobileLightHouseAdmin";
@@ -268,6 +272,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   Unlock, UnlockEmpty, UnlockLoading, UnlockPublic,
   MobileUnlock, MobileUnlockEmpty, MobileUnlockLoading, MobileUnlockPublic,
   MobileAdminHub, MobileAdminHubEmpty, MobileAdminHubLoading,
+  ComicAccountData, ComicAccountDataDanger, ComicMobileAccountData, ComicMobileAccountDanger,
   MobileFoundationAdmin, MobileLevelUpAdmin, MobileLightHouseAdmin,
   MobilePeerProgrammingAdmin, MobileServiceCreditsAdmin, MobileSkillsHuntAdmin,
   MobileSocketRelayAdmin, MobileTrustTransportAdmin, MobileUnlockAdmin,
@@ -308,6 +313,7 @@ const SECTION_COLORS: Record<string, string> = {
   "Account & Data":   "#A855F7",
   "Admin Mobile":     "#6366F1",
   "Admin Web":        "#6366F1",
+  "Comic Theme":      "#B91C1C",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -580,6 +586,12 @@ const SLIDES: Slide[] = [
   mob("MobileAccountDataEmpty",         "Mobile · Empty State",    "Account & Data"),
   mob("MobileAccountDataLoading",       "Mobile · Loading",        "Account & Data"),
   mob("MobileAccountDataConfirmDelete", "Mobile · Confirm Delete", "Account & Data"),
+
+  // ── COMIC THEME (Alt dark theme · Account & Data) ─────────────────────
+  web("ComicAccountData",       "Web · Data Inventory",    "Comic Theme"),
+  web("ComicAccountDataDanger", "Web · Confirm Delete",    "Comic Theme"),
+  mob("ComicMobileAccountData", "Mobile · Data Inventory", "Comic Theme"),
+  mob("ComicMobileAccountDanger","Mobile · Confirm Delete","Comic Theme"),
 ];
 
 const DESKTOP_W = 1440;
