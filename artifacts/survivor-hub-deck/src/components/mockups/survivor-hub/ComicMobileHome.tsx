@@ -88,7 +88,7 @@ export function ComicMobileHome() {
   const rate = (id: number, v: "up" | "down" | "flag") => setRating(r => ({ ...r, [id]: r[id] === v ? "none" : v }));
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter','Arial',sans-serif", color: cream, display: "flex", flexDirection: "column", overflow: "hidden" }}>
+    <div style={{ width: 390, height: 844, background: bg, fontFamily: "'Inter','Arial',sans-serif", color: cream, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
       {/* Status bar */}
       <div style={{ height: 44, background: rail, borderBottom: `2px solid ${ink}`, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>

@@ -40,10 +40,11 @@ const AUDIENCE = [
 ];
 
 const CHAT = [
-  { id: 1, user: "@sofia-r",      text: "This conversation is so healing, thank you!", time: "9:12" },
-  { id: 2, user: "user-b1d5e8a3", text: "Much needed.",                                  time: "9:13" },
-  { id: 3, user: "@priya-s",      text: "Can we discuss the housing resources mentioned?", time: "9:14" },
-  { id: 4, user: "user-4e9f2c1a", text: "Great discussion everyone.",                    time: "9:15" },
+  { id: 1, user: "@sofia-r",      text: "This conversation is so healing, thank you!", time: "9:12", sent: false },
+  { id: 2, user: "You",           text: "Agreed. The housing section especially.",      time: "9:13", sent: true  },
+  { id: 3, user: "@priya-s",      text: "Can we discuss the housing resources mentioned?", time: "9:14", sent: false },
+  { id: 4, user: "You",           text: "Check the LightHouse link in announcements.", time: "9:15", sent: true  },
+  { id: 5, user: "user-4e9f2c1a", text: "Great discussion everyone.",                  time: "9:16", sent: false },
 ];
 
 function PanelLabel({ children }: { children: React.ReactNode }) {
@@ -220,18 +221,27 @@ export function ComicChyme() {
             </div>
             <div style={{ flex: 1, overflowY: "auto", padding: "12px 14px", display: "flex", flexDirection: "column", gap: 10 }}>
               {CHAT.map(msg => (
-                <div key={msg.id} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
-                  <div style={{ width: 26, height: 26, background: `${inkDim}14`, border: `1.5px solid ${inkDim}50`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, fontWeight: 800, color: inkDim, flexShrink: 0 }}>
-                    {msg.user.startsWith("user-") ? msg.user.slice(5, 7).toUpperCase() : msg.user.slice(1, 3).toUpperCase()}
-                  </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 3 }}>
-                      <span style={{ fontSize: 11, fontWeight: 800, color: ink }}>{msg.user}</span>
+                <div key={msg.id} style={{ display: "flex", flexDirection: msg.sent ? "row-reverse" : "row", gap: 8, alignItems: "flex-start" }}>
+                  {!msg.sent && (
+                    <div style={{ width: 26, height: 26, background: `${inkDim}14`, border: `1.5px solid ${inkDim}50`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, fontWeight: 800, color: inkDim, flexShrink: 0 }}>
+                      {msg.user.startsWith("user-") ? msg.user.slice(5, 7).toUpperCase() : msg.user.slice(1, 3).toUpperCase()}
+                    </div>
+                  )}
+                  <div style={{ maxWidth: "75%", minWidth: 0 }}>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 3, justifyContent: msg.sent ? "flex-end" : "flex-start" }}>
+                      {!msg.sent && <span style={{ fontSize: 11, fontWeight: 800, color: ink }}>{msg.user}</span>}
                       <span style={{ fontSize: 10, color: inkDim }}>{msg.time}</span>
+                      {msg.sent && <span style={{ fontSize: 11, fontWeight: 800, color: inkDim }}>You</span>}
                     </div>
-                    <div style={{ padding: "7px 10px", background: surface, border: `1.5px solid ${ink}40`, boxShadow: `2px 2px 0 ${ink}18`, fontSize: 12, color: cream, lineHeight: 1.5 }}>
-                      {msg.text}
-                    </div>
+                    {msg.sent ? (
+                      <div style={{ padding: "7px 10px", background: ink, border: `1.5px solid ${ink}`, boxShadow: `2px 2px 0 ${inkDim}`, fontSize: 12, color: bg, lineHeight: 1.5, fontWeight: 600 }}>
+                        {msg.text}
+                      </div>
+                    ) : (
+                      <div style={{ padding: "7px 10px", background: surface, border: `1.5px solid ${ink}40`, boxShadow: `2px 2px 0 ${ink}18`, fontSize: 12, color: cream, lineHeight: 1.5 }}>
+                        {msg.text}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
