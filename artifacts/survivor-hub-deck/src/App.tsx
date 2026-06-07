@@ -32,6 +32,7 @@ import { Foundation } from "@/components/mockups/survivor-hub/Foundation";
 import { GDPEmpty } from "@/components/mockups/survivor-hub/GDPEmpty";
 import { GDPLoading } from "@/components/mockups/survivor-hub/GDPLoading";
 import { GDPPublic } from "@/components/mockups/survivor-hub/GDPPublic";
+import { GDPPublicAlt } from "@/components/mockups/survivor-hub/GDPPublicAlt";
 import { GDPRateAdmin } from "@/components/mockups/survivor-hub/GDPRateAdmin";
 import { GDP } from "@/components/mockups/survivor-hub/GDP";
 import { GentlePulseEmpty } from "@/components/mockups/survivor-hub/GentlePulseEmpty";
@@ -228,7 +229,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   Desktop,
   DirectoryEmpty, DirectoryLoading, DirectoryPublic, Directory, DirectoryAdmin,
   FoundationEmpty, FoundationLoading, FoundationPublic, Foundation,
-  GDPEmpty, GDPLoading, GDPPublic, GDPRateAdmin, GDP,
+  GDPEmpty, GDPLoading, GDPPublic, GDPPublicAlt, GDPRateAdmin, GDP,
   GentlePulseEmpty, GentlePulseLoading, GentlePulsePublic, GentlePulse,
   HubEmpty, HubLoading, HubPublic,
   LevelUp: LevelUpDefault, LevelUpEmpty, LevelUpLoading, LevelUpPublic,
@@ -260,10 +261,10 @@ const COMPONENTS: Record<string, ComponentType> = {
   MobileTrustEmpty,
   TrustTransportEmpty, TrustTransportLoading, TrustTransportPublic, TrustTransport,
   WorkforceEmpty, WorkforceLoading, WorkforcePublic, Workforce,
-  WeeklyPerformanceAdmin, WeeklyPerformanceEmpty, WeeklyPerformanceLoading, WeeklyPerformancePublic,
-  MobileWeeklyPerformanceAdmin, MobileWeeklyPerformanceEmpty, MobileWeeklyPerformanceLoading, MobileWeeklyPerformancePublic,
-  SkillsTaxonomyAdmin, SkillsTaxonomyEmptyAdmin, SkillsTaxonomyLoading, SkillsTaxonomyPublic,
-  MobileSkillsTaxonomy, MobileSkillsTaxonomyEmptyAdmin, MobileSkillsTaxonomyLoading, MobileSkillsTaxonomyPublic,
+  WeeklyPerformance, WeeklyPerformanceAdmin, WeeklyPerformanceEmpty, WeeklyPerformanceLoading, WeeklyPerformancePublic,
+  MobileWeeklyPerformance, MobileWeeklyPerformanceAdmin, MobileWeeklyPerformanceEmpty, MobileWeeklyPerformanceLoading, MobileWeeklyPerformancePublic,
+  SkillsTaxonomy, SkillsTaxonomyEmpty, SkillsTaxonomyAdmin, SkillsTaxonomyEmptyAdmin, SkillsTaxonomyLoading, SkillsTaxonomyPublic,
+  MobileSkillsTaxonomy, MobileSkillsTaxonomyEmpty, MobileSkillsTaxonomyEmptyAdmin, MobileSkillsTaxonomyLoading, MobileSkillsTaxonomyPublic,
   Unlock, UnlockEmpty, UnlockLoading, UnlockPublic,
   MobileUnlock, MobileUnlockEmpty, MobileUnlockLoading, MobileUnlockPublic,
   MobileAdminHub, MobileAdminHubEmpty, MobileAdminHubLoading,
@@ -306,6 +307,7 @@ const SECTION_COLORS: Record<string, string> = {
   "What Works":       "#84CC16",
   "Account & Data":   "#A855F7",
   "Admin Mobile":     "#6366F1",
+  "Admin Web":        "#6366F1",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -331,6 +333,7 @@ const SLIDES: Slide[] = [
   web("Chyme",            "Web · Signed In",       "Chyme"),
   web("ChymeEmpty",       "Web · Empty State",     "Chyme"),
   web("ChymeLoading",     "Web · Loading",         "Chyme"),
+  web("ChymeApp",         "Web · App Detail",      "Chyme"),
   mob("MobileChymePublic","Mobile · Not Signed In","Chyme"),
   mob("MobileChyme",      "Mobile · Signed In",    "Chyme"),
   mob("MobileChymeEmpty", "Mobile · Empty State",  "Chyme"),
@@ -345,8 +348,6 @@ const SLIDES: Slide[] = [
   mob("MobileDirectory",      "Mobile · Signed In",    "Directory"),
   mob("MobileDirectoryEmpty", "Mobile · Empty State",  "Directory"),
   mob("MobileDirectoryLoading","Mobile · Loading",     "Directory"),
-  web("DirectoryAdmin",        "Web · Admin",           "Directory"),
-  mob("MobileDirectoryAdmin",  "Mobile · Admin",        "Directory"),
 
   // ── WORKFORCE ─────────────────────────────────────────────────────────
   web("WorkforcePublic",      "Web · Not Signed In",  "Workforce"),
@@ -363,7 +364,6 @@ const SLIDES: Slide[] = [
   web("SkillsHunt",            "Web · Signed In",       "Skills Hunt"),
   web("SkillsHuntEmpty",       "Web · Empty State",     "Skills Hunt"),
   web("SkillsHuntLoading",     "Web · Loading",         "Skills Hunt"),
-  web("SkillsHuntAdmin",       "Web · Admin",           "Skills Hunt"),
   mob("MobileSkillsHuntPublic","Mobile · Not Signed In","Skills Hunt"),
   mob("MobileSkillsHunt",      "Mobile · Signed In",    "Skills Hunt"),
   mob("MobileSkillsHuntEmpty", "Mobile · Empty State",  "Skills Hunt"),
@@ -448,8 +448,7 @@ const SLIDES: Slide[] = [
   mob("MobileGDP",      "Mobile · Signed In",    "GDP"),
   mob("MobileGDPEmpty",     "Mobile · Empty State",        "GDP"),
   mob("MobileGDPLoading",   "Mobile · Loading",            "GDP"),
-  web("GDPRateAdmin",       "Web · Rate Admin (Admin)",    "GDP"),
-  mob("MobileGDPRateAdmin", "Mobile · Rate Admin (Admin)", "GDP"),
+  web("GDPPublicAlt",       "Web · Not Signed In (Alt)",   "GDP"),
 
   // ── SERVICE CREDITS ───────────────────────────────────────────────────
   web("ServiceCreditsPublic",      "Web · Not Signed In",  "Service Credits"),
@@ -491,25 +490,25 @@ const SLIDES: Slide[] = [
   mob("MobileClickLogEmpty",  "Mobile · Empty State",  "ClickLog"),
   mob("MobileClickLogLoading","Mobile · Loading",      "ClickLog"),
 
-  // ── WEEKLY PERFORMANCE (Admin) ────────────────────────────────────────
-  web("WeeklyPerformancePublic",       "Web · Not Signed In",     "WeeklyPerformance"),
-  web("WeeklyPerformanceAdmin",        "Web · Admin View",         "WeeklyPerformance"),
-  web("WeeklyPerformanceEmpty",        "Web · Empty State",        "WeeklyPerformance"),
-  web("WeeklyPerformanceLoading",      "Web · Loading",            "WeeklyPerformance"),
-  mob("MobileWeeklyPerformancePublic", "Mobile · Not Signed In",   "WeeklyPerformance"),
-  mob("MobileWeeklyPerformanceAdmin",  "Mobile · Admin View",      "WeeklyPerformance"),
-  mob("MobileWeeklyPerformanceEmpty",  "Mobile · Empty State",     "WeeklyPerformance"),
-  mob("MobileWeeklyPerformanceLoading","Mobile · Loading",         "WeeklyPerformance"),
+  // ── WEEKLY PERFORMANCE ────────────────────────────────────────────────
+  web("WeeklyPerformancePublic",       "Web · Not Signed In",   "WeeklyPerformance"),
+  web("WeeklyPerformance",             "Web · Signed In",        "WeeklyPerformance"),
+  web("WeeklyPerformanceEmpty",        "Web · Empty State",      "WeeklyPerformance"),
+  web("WeeklyPerformanceLoading",      "Web · Loading",          "WeeklyPerformance"),
+  mob("MobileWeeklyPerformancePublic", "Mobile · Not Signed In", "WeeklyPerformance"),
+  mob("MobileWeeklyPerformance",       "Mobile · Signed In",     "WeeklyPerformance"),
+  mob("MobileWeeklyPerformanceEmpty",  "Mobile · Empty State",   "WeeklyPerformance"),
+  mob("MobileWeeklyPerformanceLoading","Mobile · Loading",       "WeeklyPerformance"),
 
-  // ── SKILLS TAXONOMY (Admin) ───────────────────────────────────────────
-  web("SkillsTaxonomyPublic",          "Web · Not Signed In",     "SkillsTaxonomy"),
-  web("SkillsTaxonomyAdmin",           "Web · Admin View",         "SkillsTaxonomy"),
-  web("SkillsTaxonomyEmptyAdmin",      "Web · Empty (Admin)",      "SkillsTaxonomy"),
-  web("SkillsTaxonomyLoading",         "Web · Loading",            "SkillsTaxonomy"),
-  mob("MobileSkillsTaxonomyPublic",    "Mobile · Not Signed In",   "SkillsTaxonomy"),
-  mob("MobileSkillsTaxonomy",          "Mobile · Admin View",      "SkillsTaxonomy"),
-  mob("MobileSkillsTaxonomyEmptyAdmin","Mobile · Empty (Admin)",   "SkillsTaxonomy"),
-  mob("MobileSkillsTaxonomyLoading",   "Mobile · Loading",         "SkillsTaxonomy"),
+  // ── SKILLS TAXONOMY ───────────────────────────────────────────────────
+  web("SkillsTaxonomyPublic",          "Web · Not Signed In",   "SkillsTaxonomy"),
+  web("SkillsTaxonomy",                "Web · Signed In",        "SkillsTaxonomy"),
+  web("SkillsTaxonomyEmpty",           "Web · Empty State",      "SkillsTaxonomy"),
+  web("SkillsTaxonomyLoading",         "Web · Loading",          "SkillsTaxonomy"),
+  mob("MobileSkillsTaxonomyPublic",    "Mobile · Not Signed In", "SkillsTaxonomy"),
+  mob("MobileSkillsTaxonomy",          "Mobile · Signed In",     "SkillsTaxonomy"),
+  mob("MobileSkillsTaxonomyEmpty",     "Mobile · Empty State",   "SkillsTaxonomy"),
+  mob("MobileSkillsTaxonomyLoading",   "Mobile · Loading",       "SkillsTaxonomy"),
 
   // ── UNLOCK ────────────────────────────────────────────────────────────
   web("UnlockPublic",       "Web · Not Signed In",  "Unlock"),
@@ -543,10 +542,20 @@ const SLIDES: Slide[] = [
   mob("MobileWhatWorksEmpty",  "Mobile · Add Item",     "What Works"),
   mob("MobileWhatWorksLoading","Mobile · Loading",      "What Works"),
 
+  // ── ADMIN WEB ─────────────────────────────────────────────────────────
+  web("DirectoryAdmin",          "Web · Admin",                   "Admin Web"),
+  web("GDPRateAdmin",            "Web · GDP Rate Admin",          "Admin Web"),
+  web("SkillsHuntAdmin",         "Web · Skills Hunt Admin",       "Admin Web"),
+  web("WeeklyPerformanceAdmin",  "Web · Weekly Performance Admin","Admin Web"),
+  web("SkillsTaxonomyAdmin",     "Web · Skills Taxonomy Admin",   "Admin Web"),
+  web("SkillsTaxonomyEmptyAdmin","Web · Skills Taxonomy Empty (Admin)","Admin Web"),
+
   // ── ADMIN MOBILE ──────────────────────────────────────────────────────
   mob("MobileAdminHub",                  "Mobile · Admin Hub Overview",     "Admin Mobile"),
   mob("MobileAdminHubEmpty",             "Mobile · Admin Hub Empty",        "Admin Mobile"),
   mob("MobileAdminHubLoading",           "Mobile · Admin Hub Loading",      "Admin Mobile"),
+  mob("MobileDirectoryAdmin",            "Mobile · Directory Admin",        "Admin Mobile"),
+  mob("MobileGDPRateAdmin",              "Mobile · GDP Rate Admin",         "Admin Mobile"),
   mob("MobileFoundationAdmin",           "Mobile · Foundation Admin",       "Admin Mobile"),
   mob("MobileLevelUpAdmin",              "Mobile · LevelUp Admin",          "Admin Mobile"),
   mob("MobileLightHouseAdmin",           "Mobile · LightHouse Admin",       "Admin Mobile"),
@@ -556,7 +565,9 @@ const SLIDES: Slide[] = [
   mob("MobileSocketRelayAdmin",          "Mobile · SocketRelay Admin",      "Admin Mobile"),
   mob("MobileTrustTransportAdmin",       "Mobile · TrustTransport Admin",   "Admin Mobile"),
   mob("MobileUnlockAdmin",               "Mobile · Unlock Admin",           "Admin Mobile"),
+  mob("MobileWeeklyPerformanceAdmin",    "Mobile · Weekly Performance Admin View","Admin Mobile"),
   mob("MobileWeeklyPerformanceAdminView","Mobile · WeeklyPerformance Admin","Admin Mobile"),
+  mob("MobileSkillsTaxonomyEmptyAdmin",  "Mobile · Skills Taxonomy Empty (Admin)","Admin Mobile"),
   mob("MobileWhatWorksAdmin",            "Mobile · WhatWorks Admin",        "Admin Mobile"),
   mob("MobileWorkforceAdmin",            "Mobile · Workforce Admin",        "Admin Mobile"),
 
