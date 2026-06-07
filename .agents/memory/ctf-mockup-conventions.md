@@ -34,7 +34,9 @@ export function XxxLoading() {
   );
 }
 ```
-No spinners, no Tailwind, no "Preparing your community..." copy.
+No spinners, no skeleton/bone frames, no Tailwind, no "Preparing your community..." copy. Mobile variant uses `width:390, height:844` fixed size and `fontSize:10` / `letterSpacing:"0.16em"`.
+
+**Drift risk:** deck loading files can lose the `// design-sync` header or retain old skeleton content if not re-synced after edits. Before finalising any loading file change, verify both sandbox and deck copies are byte-identical (only `// design-sync` header + the two-line body — no extra imports or constants).
 
 ## Fiat parity rule
 Never show dollar-equivalent values for ServiceCredits (e.g. "≈ $242 USD"). Copy should say "usable across 18 plugins" or similar non-monetary framing.

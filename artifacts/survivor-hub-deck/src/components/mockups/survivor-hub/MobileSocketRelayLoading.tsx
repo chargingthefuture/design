@@ -1,3 +1,4 @@
+// design-sync
 // STATE: Loading — data fetch in progress
 
 export function MobileSocketRelayLoading() {
