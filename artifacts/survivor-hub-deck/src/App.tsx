@@ -194,9 +194,6 @@ import { WorkforceEmpty } from "@/components/mockups/survivor-hub/WorkforceEmpty
 import { WorkforceLoading } from "@/components/mockups/survivor-hub/WorkforceLoading";
 import { WorkforcePublic } from "@/components/mockups/survivor-hub/WorkforcePublic";
 import { Workforce } from "@/components/mockups/survivor-hub/Workforce";
-import { MobileAdminHub } from "@/components/mockups/survivor-hub/MobileAdminHub";
-import { MobileAdminHubEmpty } from "@/components/mockups/survivor-hub/MobileAdminHubEmpty";
-import { MobileAdminHubLoading } from "@/components/mockups/survivor-hub/MobileAdminHubLoading";
 import { ComicAccountData } from "@/components/mockups/survivor-hub/ComicAccountData";
 import { ComicAccountDataDanger } from "@/components/mockups/survivor-hub/ComicAccountDataDanger";
 import { ComicMobileAccountData } from "@/components/mockups/survivor-hub/ComicMobileAccountData";
@@ -271,7 +268,6 @@ const COMPONENTS: Record<string, ComponentType> = {
   MobileSkillsTaxonomy, MobileSkillsTaxonomyEmpty, MobileSkillsTaxonomyEmptyAdmin, MobileSkillsTaxonomyLoading, MobileSkillsTaxonomyPublic,
   Unlock, UnlockEmpty, UnlockLoading, UnlockPublic,
   MobileUnlock, MobileUnlockEmpty, MobileUnlockLoading, MobileUnlockPublic,
-  MobileAdminHub, MobileAdminHubEmpty, MobileAdminHubLoading,
   ComicAccountData, ComicAccountDataDanger, ComicMobileAccountData, ComicMobileAccountDanger,
   MobileFoundationAdmin, MobileLevelUpAdmin, MobileLightHouseAdmin,
   MobilePeerProgrammingAdmin, MobileServiceCreditsAdmin, MobileSkillsHuntAdmin,
@@ -557,9 +553,6 @@ const SLIDES: Slide[] = [
   web("SkillsTaxonomyEmptyAdmin","Web · Skills Taxonomy Empty (Admin)","Admin Web"),
 
   // ── ADMIN MOBILE ──────────────────────────────────────────────────────
-  mob("MobileAdminHub",                  "Mobile · Admin Hub Overview",     "Admin Mobile"),
-  mob("MobileAdminHubEmpty",             "Mobile · Admin Hub Empty",        "Admin Mobile"),
-  mob("MobileAdminHubLoading",           "Mobile · Admin Hub Loading",      "Admin Mobile"),
   mob("MobileDirectoryAdmin",            "Mobile · Directory Admin",        "Admin Mobile"),
   mob("MobileGDPRateAdmin",              "Mobile · GDP Rate Admin",         "Admin Mobile"),
   mob("MobileFoundationAdmin",           "Mobile · Foundation Admin",       "Admin Mobile"),

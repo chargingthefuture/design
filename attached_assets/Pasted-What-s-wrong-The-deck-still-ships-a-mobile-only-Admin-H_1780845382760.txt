@@ -1,0 +1,22 @@
+What's wrong
+
+The deck still ships a mobile-only "Admin Hub" / owner command-centre mockup (MobileAdminHub.tsx, plus its Empty/Loading variants, in both artifacts/survivor-hub-deck/... and artifacts/mockup-sandbox/...). It is the page the owner flagged as making no sense. Two problems:
+
+Its content duplicates surfaces that already exist.
+
+The big stat tiles (Members, Active today, Open flags, AI queue) and the per-plugin "issues" grid (which even lists WeeklyPerformance and WhatWorks as rows) are performance/health metrics. Those belong in the Weekly Performance admin screen, which is the real place the owner reviews how the platform is doing.
+The "AI queue — N answers pending approval" tile and the implied review action duplicate the AI Review Console (AIReviewConsole.tsx / mobile MobileAIReviewConsole.tsx). That console — approve / edit (pencil) / reject AI Assistant drafts, with confidence and sources — is the one true human-in-the-loop surface and is already built in the app (/admin/comic, and the "AI Review" tab on mobile).
+It does not match how the app actually does admin. There is no central command-centre in the running product, and there is no desktop counterpart to this mobile-only screen. The app's admin model is: a thin access-confirmation landing at /admin, then one dedicated admin page per plugin (Directory, LightHouse, TrustTransport, SocketRelay, Workforce, Skills Hunt, Peer Programming, Service Credits, LevelUp, GDP rate, Unlock, Weekly Performance, etc.) plus the AI Review Console. A separate "everything at a glance" dashboard was never built and is not planned.
+
+Requested change
+
+Remove the MobileAdminHub mockup family (MobileAdminHub, MobileAdminHubEmpty, MobileAdminHubLoading) from both deck artifacts. There is no desktop AdminHub to remove.
+If any of its tiles are genuinely wanted, fold them into the Weekly Performance admin mockup rather than a standalone hub — that is where platform-health numbers live.
+Leave the AI Review Console mockups as the single owner surface for approving/editing/rejecting AI Assistant answers. Do not re-create an "AI queue" tile anywhere else.
+Why this is reference-only for the app
+
+The app does not implement MobileAdminHub and will not. This issue is purely to keep the design deck honest so the next person reading the mockups doesn't think a command-centre is part of the product. No app code changes follow from this.
+
+Note on the design pointer
+
+main currently pins design at 9a4a1af, a snapshot in which the AdminHub mockup happens to be absent — but the latest design tip (e6347fc) re-includes it, so the deck still needs the cleanup above to be consistent across snapshots.
