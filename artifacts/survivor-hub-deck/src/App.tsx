@@ -198,6 +198,9 @@ import { ComicAccountData } from "@/components/mockups/survivor-hub/ComicAccount
 import { ComicAccountDataDanger } from "@/components/mockups/survivor-hub/ComicAccountDataDanger";
 import { ComicMobileAccountData } from "@/components/mockups/survivor-hub/ComicMobileAccountData";
 import { ComicMobileAccountDanger } from "@/components/mockups/survivor-hub/ComicMobileAccountDanger";
+import { ComicDesktop } from "@/components/mockups/survivor-hub/ComicDesktop";
+import { ComicChyme } from "@/components/mockups/survivor-hub/ComicChyme";
+import { ComicMobileHome } from "@/components/mockups/survivor-hub/ComicMobileHome";
 import { MobileFoundationAdmin } from "@/components/mockups/survivor-hub/MobileFoundationAdmin";
 import { MobileLevelUpAdmin } from "@/components/mockups/survivor-hub/MobileLevelUpAdmin";
 import { MobileLightHouseAdmin } from "@/components/mockups/survivor-hub/MobileLightHouseAdmin";
@@ -269,6 +272,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   Unlock, UnlockEmpty, UnlockLoading, UnlockPublic,
   MobileUnlock, MobileUnlockEmpty, MobileUnlockLoading, MobileUnlockPublic,
   ComicAccountData, ComicAccountDataDanger, ComicMobileAccountData, ComicMobileAccountDanger,
+  ComicDesktop, ComicChyme, ComicMobileHome,
   MobileFoundationAdmin, MobileLevelUpAdmin, MobileLightHouseAdmin,
   MobilePeerProgrammingAdmin, MobileServiceCreditsAdmin, MobileSkillsHuntAdmin,
   MobileSocketRelayAdmin, MobileTrustTransportAdmin, MobileUnlockAdmin,
@@ -580,7 +584,10 @@ const SLIDES: Slide[] = [
   mob("MobileAccountDataLoading",       "Mobile · Loading",        "Account & Data"),
   mob("MobileAccountDataConfirmDelete", "Mobile · Confirm Delete", "Account & Data"),
 
-  // ── COMIC THEME (Alt dark theme · Account & Data) ─────────────────────
+  // ── COMIC THEME ────────────────────────────────────────────────────────
+  web("ComicDesktop",           "Web · Hub Feed",          "Comic Theme"),
+  web("ComicChyme",             "Web · Chyme",             "Comic Theme"),
+  mob("ComicMobileHome",        "Mobile · Hub Home",       "Comic Theme"),
   web("ComicAccountData",       "Web · Data Inventory",    "Comic Theme"),
   web("ComicAccountDataDanger", "Web · Confirm Delete",    "Comic Theme"),
   mob("ComicMobileAccountData", "Mobile · Data Inventory", "Comic Theme"),
