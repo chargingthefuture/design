@@ -85,6 +85,12 @@ import MobileLevelUpDefault from "@/components/mockups/survivor-hub/MobileLevelU
 import { MobileLevelUpEmpty } from "@/components/mockups/survivor-hub/MobileLevelUpEmpty";
 import { MobileLevelUpLoading } from "@/components/mockups/survivor-hub/MobileLevelUpLoading";
 import { MobileLevelUpPublic } from "@/components/mockups/survivor-hub/MobileLevelUpPublic";
+import { LevelUpTrainers } from "@/components/mockups/survivor-hub/LevelUpTrainers";
+import { LevelUpAchievements } from "@/components/mockups/survivor-hub/LevelUpAchievements";
+import { LevelUpCreditsWallet } from "@/components/mockups/survivor-hub/LevelUpCreditsWallet";
+import { MobileLevelUpTrainers } from "@/components/mockups/survivor-hub/MobileLevelUpTrainers";
+import { MobileLevelUpAchievements } from "@/components/mockups/survivor-hub/MobileLevelUpAchievements";
+import { MobileLevelUpCreditsWallet } from "@/components/mockups/survivor-hub/MobileLevelUpCreditsWallet";
 import { WhatWorks } from "@/components/mockups/survivor-hub/WhatWorks";
 import { WhatWorksPublic } from "@/components/mockups/survivor-hub/WhatWorksPublic";
 import { WhatWorksEmpty } from "@/components/mockups/survivor-hub/WhatWorksEmpty";
@@ -236,7 +242,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   GDPEmpty, GDPLoading, GDPPublic, GDPPublicAlt, GDPRateAdmin, GDP,
   GentlePulseEmpty, GentlePulseLoading, GentlePulsePublic, GentlePulse,
   HubEmpty, HubLoading, HubPublic,
-  LevelUp: LevelUpDefault, LevelUpEmpty, LevelUpLoading, LevelUpPublic,
+  LevelUp: LevelUpDefault, LevelUpEmpty, LevelUpLoading, LevelUpPublic, LevelUpTrainers, LevelUpAchievements, LevelUpCreditsWallet,
   LightHouseEmpty, LightHouseLoading, LightHousePublic, LightHouse,
   MobileChymeEmpty, MobileChymeLoading, MobileChymePublic, MobileChyme,
   MobileDirectoryEmpty, MobileDirectoryLoading, MobileDirectoryPublic, MobileDirectory, MobileDirectoryAdmin,
@@ -244,7 +250,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   MobileGDPEmpty, MobileGDPLoading, MobileGDPPublic, MobileGDPRateAdmin, MobileGDP,
   MobileGentlePulseEmpty, MobileGentlePulseLoading, MobileGentlePulsePublic, MobileGentlePulse,
   MobileHomeEmpty, MobileHomeLoading, MobileHome, MobileHubPublic,
-  MobileLevelUp: MobileLevelUpDefault, MobileLevelUpEmpty, MobileLevelUpLoading, MobileLevelUpPublic,
+  MobileLevelUp: MobileLevelUpDefault, MobileLevelUpEmpty, MobileLevelUpLoading, MobileLevelUpPublic, MobileLevelUpTrainers, MobileLevelUpAchievements, MobileLevelUpCreditsWallet,
   WhatWorks, WhatWorksPublic, WhatWorksEmpty, WhatWorksLoading,
   MobileWhatWorks, MobileWhatWorksPublic, MobileWhatWorksEmpty, MobileWhatWorksLoading,
   MobileLightHouseEmpty, MobileLightHouseLoading, MobileLightHousePublic, MobileLightHouse,
@@ -475,6 +481,12 @@ const SLIDES: Slide[] = [
   mob("MobileLevelUp",      "Mobile · Signed In",    "LevelUp"),
   mob("MobileLevelUpEmpty", "Mobile · Empty State",  "LevelUp"),
   mob("MobileLevelUpLoading","Mobile · Loading",     "LevelUp"),
+  web("LevelUpTrainers",            "Web · My Trainers",       "LevelUp"),
+  web("LevelUpAchievements",        "Web · Achievements",      "LevelUp"),
+  web("LevelUpCreditsWallet",       "Web · Credits Wallet",    "LevelUp"),
+  mob("MobileLevelUpTrainers",      "Mobile · My Trainers",    "LevelUp"),
+  mob("MobileLevelUpAchievements",  "Mobile · Achievements",   "LevelUp"),
+  mob("MobileLevelUpCreditsWallet", "Mobile · Credits Wallet", "LevelUp"),
 
   // ── TRUST ─────────────────────────────────────────────────────────────
   web("TrustPublic",      "Web · Not Signed In",  "Trust"),
