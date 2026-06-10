@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Shield, CheckCircle } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#0284C7";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#0284C7";
 
 const SIGNALS = [
   "Identity verification",
@@ -14,10 +14,10 @@ const SIGNALS = [
 
 export function MobileTrustPublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ flex: 1, padding: "24px 20px 32px", display: "flex", flexDirection: "column", gap: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -45,9 +45,9 @@ export function MobileTrustPublic() {
             <Shield size={26} color={COLOR} />
           </div>
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 11, color: "#6B7280" }}>Your Trust Score</div>
+            <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Your Trust Score</div>
             <div style={{ fontSize: 28, fontWeight: 900, color: COLOR, marginTop: 2 }}>—</div>
-            <div style={{ fontSize: 11, color: "#6B7280", marginTop: 2 }}>Sign in to build yours</div>
+            <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)", marginTop: 2 }}>Sign in to build yours</div>
           </div>
           <button style={{ width: "100%", padding: "13px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
             Join the Hub — Free

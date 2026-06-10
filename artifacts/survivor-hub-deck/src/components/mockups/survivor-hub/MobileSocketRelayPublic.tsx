@@ -1,14 +1,15 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Share2, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#F43F5E";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F43F5E";
 
 export function MobileSocketRelayPublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ padding: "24px 20px 16px", display: "flex", flexDirection: "column", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -33,7 +34,7 @@ export function MobileSocketRelayPublic() {
                 <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4, background: r.type === "NEED" ? COLOR + "20" : "#22C55E20", color: r.type === "NEED" ? COLOR : "#22C55E" }}>{r.type}</span>
               </div>
               <div style={{ fontSize: 13, fontWeight: 600 }}>{r.title}</div>
-              <div style={{ fontSize: 11, color: "#6B7280", marginTop: 4 }}>{r.time}</div>
+              <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)", marginTop: 4 }}>{r.time}</div>
             </div>
           ))}
         </div>

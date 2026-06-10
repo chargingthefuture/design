@@ -4,11 +4,11 @@ import { useState } from "react";
 import { Unlock as UnlockIcon, ExternalLink, Shield, CheckCircle, Send } from "lucide-react";
 
 const BRAND = "#10B981";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 export function UnlockEmpty() {
   const [url, setUrl] = useState("");
@@ -32,7 +32,7 @@ export function UnlockEmpty() {
     <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: text, display: "flex", flexDirection: "column" }}>
 
       {/* Header */}
-      <div style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 12, background: "#0D0F14", flexShrink: 0 }}>
+      <div style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 12, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
         <UnlockIcon size={18} color={BRAND} />
         <div>
           <div style={{ fontSize: 15, fontWeight: 600 }}>Unlock Full Access</div>

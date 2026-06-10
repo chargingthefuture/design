@@ -7,11 +7,11 @@ import {
 } from "lucide-react";
 
 const BRAND = "#84CC16";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const EXISTING_PROBLEMS = ["Noise & Verbal Harassment", "Sleep Disruption", "Vehicle Tampering"];
 
@@ -45,7 +45,7 @@ export function WhatWorksEmpty() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxHeight: "100%", background: bg, fontFamily: "'Inter',system-ui", color: text, overflow: "hidden" }}>
 
       {/* Header */}
-      <div style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 28px", gap: 12, background: "#0D0F14", flexShrink: 0 }}>
+      <div style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 28px", gap: 12, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
         <ListChecks size={18} color={BRAND} />
         <div>
           <div style={{ fontSize: 15, fontWeight: 600 }}>What Works</div>
@@ -71,10 +71,10 @@ export function WhatWorksEmpty() {
             <Field label="Problem it solves" required>
               <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${problem ? BRAND + "50" : border}`, borderRadius: 12 }}>
                 <Tag size={14} color={subtle} style={{ flexShrink: 0 }} />
-                <select value={problem} onChange={(e) => setProblem(e.target.value)} style={{ ...inputStyle, cursor: "pointer", appearance: "none", color: problem ? "#F9FAFB" : subtle }}>
+                <select value={problem} onChange={(e) => setProblem(e.target.value)} style={{ ...inputStyle, cursor: "pointer", appearance: "none", color: problem ? "var(--comic-text-primary, #F9FAFB)" : subtle }}>
                   <option value="" disabled>Choose an existing problem…</option>
                   {EXISTING_PROBLEMS.map((p) => (
-                    <option key={p} value={p} style={{ background: "#11141B", color: "#F9FAFB" }}>{p}</option>
+                    <option key={p} value={p} style={{ background: "#11141B", color: "var(--comic-text-primary, #F9FAFB)" }}>{p}</option>
                   ))}
                 </select>
                 <ChevronDown size={15} color={subtle} style={{ flexShrink: 0 }} />
@@ -137,7 +137,7 @@ export function WhatWorksEmpty() {
 }
 
 const inputStyle: React.CSSProperties = {
-  flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#F9FAFB", fontFamily: "inherit",
+  flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #F9FAFB)", fontFamily: "inherit",
 };
 
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {

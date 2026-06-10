@@ -1,12 +1,12 @@
 // design-sync
 import { Heart, Play, Wind, Moon } from "lucide-react";
 
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
-const COLOR = "#14B8A6";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const COLOR = "var(--app-accent, #14B8A6)";
 
 const SESSIONS = [
   { icon: Wind, label: "Breathing", desc: "5 min calm" },
@@ -18,7 +18,7 @@ const SESSIONS = [
 export function MobileGentlePulseEmpty() {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text }}>
-      <div style={{ background: "#090B0F", padding: "12px 16px 6px", display: "flex", justifyContent: "space-between" }}>
+      <div style={{ background: "var(--comic-surface-alt, #090B0F)", padding: "12px 16px 6px", display: "flex", justifyContent: "space-between" }}>
         <span style={{ fontSize: 13, fontWeight: 600 }}>9:41</span>
         <span style={{ fontSize: 11, color: subtle }}>●●●</span>
       </div>

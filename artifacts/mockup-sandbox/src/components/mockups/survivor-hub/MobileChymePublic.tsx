@@ -4,12 +4,12 @@ import {
   Clock, Hash, Heart, Bell, ShieldCheck, Search,
 } from "lucide-react";
 
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
-const COLOR = "#22C55E";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const COLOR = "var(--app-accent, #22C55E)";
 const accent = "#7C3AED";
 const accentCyan = "#0EA5E9";
 
@@ -32,7 +32,7 @@ export function MobileChymePublic() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
 
       {/* Status bar */}
-      <div style={{ background: "#090B0F", padding: "12px 16px 6px", display: "flex", justifyContent: "space-between", flexShrink: 0 }}>
+      <div style={{ background: "var(--comic-surface-alt, #090B0F)", padding: "12px 16px 6px", display: "flex", justifyContent: "space-between", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 600 }}>9:41</span>
         <span style={{ fontSize: 11, color: subtle }}>●●●</span>
       </div>

@@ -8,7 +8,7 @@ import {
   Users, ChevronRight, ArrowLeft, Shield, Link2,
 } from "lucide-react";
 
-const COLOR = "#3B82F6";
+const COLOR = "var(--app-accent, #3B82F6)";
 const COMMUNITY_COLOR = "#D946EF";
 
 // Production: firstName + lastName (no display_name); auth gate removed
@@ -39,16 +39,16 @@ export function MobileDirectory() {
     const p = PROFILES.find(x => x.id === selected)!;
     const fullName = `${p.firstName} ${p.lastName}`;
     return (
-      <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-        <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+      <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+        <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
           <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div>
           <div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
         </div>
-        <div style={{ padding: "14px 20px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ padding: "14px 20px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 12 }}>
           <button onClick={() => setSelected(null)} style={{ background: "none", border: "none", cursor: "pointer", color: COLOR, fontSize: 13, display: "flex", alignItems: "center", gap: 4 }}>
             <ArrowLeft size={16} /> Back
           </button>
-          <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB", flex: 1, textAlign: "center" }}>Profile</div>
+          <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", flex: 1, textAlign: "center" }}>Profile</div>
           <div style={{ width: 40 }} />
         </div>
         <ScrollArea style={{ flex: 1 }}>
@@ -59,7 +59,7 @@ export function MobileDirectory() {
                 <AvatarFallback style={{ background: `${COLOR}30`, color: COLOR, fontSize: 28, fontWeight: 800 }}>{p.avatar}</AvatarFallback>
               </Avatar>
               <div style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: "center", marginBottom: 4 }}>
-                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB" }}>{fullName}</div>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>{fullName}</div>
                 {p.verified && <CheckCircle size={16} style={{ color: COLOR }} />}
                 {p.source === "community-generated" && (
                   <span style={{ fontSize: 10, background: `${COMMUNITY_COLOR}20`, color: COMMUNITY_COLOR, border: `1px solid ${COMMUNITY_COLOR}30`, borderRadius: 7, padding: "2px 7px", fontWeight: 700 }}>Community generated</span>
@@ -68,7 +68,7 @@ export function MobileDirectory() {
               <div style={{ fontSize: 11, color: "#374151", fontFamily: "monospace", marginBottom: 4 }}>{p.handle}</div>
               <div style={{ fontSize: 14, color: "#9CA3AF", marginBottom: 8 }}>{p.role}</div>
               <div style={{ display: "flex", gap: 6, justifyContent: "center", flexWrap: "wrap" }}>
-                <Badge style={{ background: p.online ? "#22C55E20" : "rgba(255,255,255,0.05)", color: p.online ? "#22C55E" : "#6B7280", border: `1px solid ${p.online ? "#22C55E40" : "rgba(255,255,255,0.08)"}`, fontSize: 11 }}>
+                <Badge style={{ background: p.online ? "#22C55E20" : "rgba(255,255,255,0.05)", color: p.online ? "#22C55E" : "var(--comic-text-secondary, #6B7280)", border: `1px solid ${p.online ? "#22C55E40" : "rgba(255,255,255,0.08)"}`, fontSize: 11 }}>
                   {p.online ? "● Online" : "Offline"}
                 </Badge>
                 {p.credits && <Badge style={{ background: "#F59E0B10", color: "#F59E0B", border: "1px solid #F59E0B25", fontSize: 11 }}>Credits ✓</Badge>}
@@ -99,7 +99,7 @@ export function MobileDirectory() {
                         value={attachId}
                         onChange={e => setAttachId(e.target.value)}
                         placeholder="Clerk user ID  (user_…)"
-                        style={{ flex: 1, padding: "9px 11px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(99,102,241,0.28)", borderRadius: 8, fontSize: 12, color: "#E8EAF0", outline: "none", fontFamily: "monospace" }}
+                        style={{ flex: 1, padding: "9px 11px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(99,102,241,0.28)", borderRadius: 8, fontSize: 12, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", fontFamily: "monospace" }}
                       />
                       <button
                         onClick={() => attachId.trim() && setAttached(true)}
@@ -125,7 +125,7 @@ export function MobileDirectory() {
                 <Shield size={12} style={{ color: COLOR }} />
                 <span style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>Privacy Guaranteed</span>
               </div>
-              <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>All messages are encrypted. Your identity is never exposed.</div>
+              <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6 }}>All messages are encrypted. Your identity is never exposed.</div>
             </div>
 
             <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", marginBottom: 10 }}>Endorsements</div>
@@ -142,19 +142,19 @@ export function MobileDirectory() {
 
   // ── Profile list ──────────────────────────────────────────────────────────
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div>
         <div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
-      <div style={{ padding: "14px 20px 10px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div style={{ padding: "14px 20px 10px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <BookOpen size={18} style={{ color: COLOR }} />
             </div>
             <div>
-              <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>Directory</div>
+              <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Directory</div>
               <div style={{ fontSize: 11, color: COLOR }}>47,234 verified providers</div>
             </div>
           </div>
@@ -162,12 +162,12 @@ export function MobileDirectory() {
         </div>
         <div style={{ position: "relative" }}>
           <Search size={14} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#4B5563" }} />
-          <input placeholder="Search providers, skills…" style={{ width: "100%", padding: "10px 12px 10px 34px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
+          <input placeholder="Search providers, skills…" style={{ width: "100%", padding: "10px 12px 10px 34px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
         </div>
       </div>
-      <div style={{ padding: "10px 16px", display: "flex", gap: 6, overflowX: "auto", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div style={{ padding: "10px 16px", display: "flex", gap: 6, overflowX: "auto", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         {["All", "Therapists", "Housing", "Legal", "Employment", "Tech"].map((f, i) => (
-          <button key={f} style={{ padding: "6px 14px", borderRadius: 20, fontSize: 12, fontWeight: 600, background: i === 0 ? `${COLOR}20` : "rgba(255,255,255,0.04)", border: `1px solid ${i === 0 ? COLOR + "50" : "rgba(255,255,255,0.06)"}`, color: i === 0 ? COLOR : "#6B7280", cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0 }}>{f}</button>
+          <button key={f} style={{ padding: "6px 14px", borderRadius: 20, fontSize: 12, fontWeight: 600, background: i === 0 ? `${COLOR}20` : "rgba(255,255,255,0.04)", border: `1px solid ${i === 0 ? COLOR + "50" : "rgba(255,255,255,0.06)"}`, color: i === 0 ? COLOR : "var(--comic-text-secondary, #6B7280)", cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0 }}>{f}</button>
         ))}
       </div>
       <ScrollArea style={{ flex: 1 }}>
@@ -179,7 +179,7 @@ export function MobileDirectory() {
               </Avatar>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 5, marginBottom: 1 }}>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{p.firstName} {p.lastName}</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{p.firstName} {p.lastName}</div>
                   {p.verified && <CheckCircle size={12} style={{ color: COLOR, flexShrink: 0 }} />}
                   {p.source === "community-generated" && (
                     <span style={{ fontSize: 9, background: `${COMMUNITY_COLOR}20`, color: COMMUNITY_COLOR, border: `1px solid ${COMMUNITY_COLOR}30`, borderRadius: 5, padding: "1px 5px", fontWeight: 700, flexShrink: 0 }}>Community</span>
@@ -198,11 +198,11 @@ export function MobileDirectory() {
           ))}
         </div>
       </ScrollArea>
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? COLOR : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? COLOR : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

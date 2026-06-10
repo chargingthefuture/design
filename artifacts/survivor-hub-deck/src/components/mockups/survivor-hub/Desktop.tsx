@@ -128,8 +128,8 @@ export function Desktop() {
         </div>
         <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 16, color: "#9CA3AF" }}>
           <div style={{ fontSize: 40 }}>{app.emoji}</div>
-          <div style={{ fontSize: 24, fontWeight: 800, color: "#F9FAFB" }}>{app.name}</div>
-          <div style={{ fontSize: 15, color: "#6B7280" }}>{app.desc}</div>
+          <div style={{ fontSize: 24, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>{app.name}</div>
+          <div style={{ fontSize: 15, color: "var(--comic-text-secondary, #6B7280)" }}>{app.desc}</div>
           <div style={{ padding: "10px 20px", borderRadius: 10, background: `${app.color}18`, border: `1px solid ${app.color}35`, color: app.color, fontSize: 13 }}>Real-time activity</div>
         </div>
       </div>
@@ -142,13 +142,13 @@ export function Desktop() {
       <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: "1px solid var(--comic-border-faint, rgba(255,255,255,0.06))", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: "#fff", marginBottom: 12, flexShrink: 0 }}>SH</div>
         {[{ icon: MessageSquare, key: "chat" }, { icon: Zap, key: "apps" }].map(({ icon: Icon, key }) => (
-          <button key={key} onClick={() => setSection(key as "chat" | "apps")} style={{ width: 44, height: 44, borderRadius: 12, background: section === key ? "rgba(124,58,237,0.2)" : "transparent", border: section === key ? "1px solid rgba(124,58,237,0.4)" : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: section === key ? "#A78BFA" : "#6B7280" }}>
+          <button key={key} onClick={() => setSection(key as "chat" | "apps")} style={{ width: 44, height: 44, borderRadius: 12, background: section === key ? "rgba(124,58,237,0.2)" : "transparent", border: section === key ? "1px solid rgba(124,58,237,0.4)" : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: section === key ? "#A78BFA" : "var(--comic-text-secondary, #6B7280)" }}>
             <Icon size={20} />
           </button>
         ))}
         <div style={{ flex: 1 }} />
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Bell size={18} /></button>
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Settings size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Bell size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Settings size={18} /></button>
         <Avatar style={{ width: 36, height: 36, marginTop: 4 }}>
           <AvatarFallback style={{ background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", color: "#fff", fontSize: 14, fontWeight: 700 }}>S</AvatarFallback>
         </Avatar>
@@ -157,7 +157,7 @@ export function Desktop() {
       {/* Second sidebar */}
       <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: "1px solid var(--comic-border-faint, rgba(255,255,255,0.06))", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "var(--comic-text-secondary, #6B7280)", textTransform: "uppercase", marginBottom: 12 }}>
             {section === "chat" ? "Channels" : "Apps"}
           </div>
           <div style={{ position: "relative" }}>
@@ -171,7 +171,7 @@ export function Desktop() {
               {CHANNELS.map((ch) => (
                 <div key={ch.name} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: ch.name === "community" ? "rgba(124,58,237,0.12)" : "transparent" }}>
                   <Hash size={15} style={{ color: ch.unread > 0 ? "#9CA3AF" : "#4B5563", flexShrink: 0 }} />
-                  <span style={{ fontSize: 14, color: ch.unread > 0 || ch.name === "community" ? "#E8EAF0" : "#6B7280", flex: 1 }}>{ch.name}</span>
+                  <span style={{ fontSize: 14, color: ch.unread > 0 || ch.name === "community" ? "var(--comic-text-primary, #E8EAF0)" : "var(--comic-text-secondary, #6B7280)", flex: 1 }}>{ch.name}</span>
                   {ch.unread > 0 && <span style={{ background: "#7C3AED", borderRadius: 10, fontSize: 11, fontWeight: 700, color: "#fff", padding: "1px 6px" }}>{ch.unread}</span>}
                 </div>
               ))}
@@ -182,8 +182,8 @@ export function Desktop() {
                 const Icon = app.icon;
                 return (
                   <div key={app.id} onClick={() => setActiveApp(app.id === activeApp ? null : app.id)} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: activeApp === app.id ? `${app.color}18` : "transparent", borderLeft: activeApp === app.id ? `2px solid ${app.color}` : "2px solid transparent", marginLeft: 2 }}>
-                    <Icon size={15} style={{ color: activeApp === app.id ? app.color : "#6B7280", flexShrink: 0 }} />
-                    <span style={{ fontSize: 13, color: activeApp === app.id ? "#E8EAF0" : "#9CA3AF", flex: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{app.name}</span>
+                    <Icon size={15} style={{ color: activeApp === app.id ? app.color : "var(--comic-text-secondary, #6B7280)", flexShrink: 0 }} />
+                    <span style={{ fontSize: 13, color: activeApp === app.id ? "var(--comic-text-primary, #E8EAF0)" : "#9CA3AF", flex: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{app.name}</span>
                     <span style={{ fontSize: 12 }}>{app.emoji}</span>
                   </div>
                 );
@@ -194,7 +194,7 @@ export function Desktop() {
         <div style={{ padding: 12, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <div style={{ padding: "10px 12px", borderRadius: 10, background: "linear-gradient(135deg,rgba(124,58,237,0.15) 0%,rgba(14,165,233,0.15) 100%)", border: "1px solid rgba(124,58,237,0.25)", cursor: "pointer" }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: "#A78BFA", marginBottom: 2 }}>Exit Their Economy · Invite Only</div>
-            <div style={{ fontSize: 11, color: "#6B7280" }}>4.9M survivors worldwide</div>
+            <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>4.9M survivors worldwide</div>
           </div>
         </div>
       </aside>
@@ -203,8 +203,8 @@ export function Desktop() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
         <header style={{ height: 56, borderBottom: "1px solid var(--comic-border-faint, rgba(255,255,255,0.06))", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>{section === "chat" ? "# community" : activeApp ? MINI_APPS.find((a) => a.id === activeApp)?.name : "All Apps"}</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>{section === "chat" ? "Community · 4,912 online" : "Your peer-to-peer marketplace"}</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>{section === "chat" ? "# community" : activeApp ? MINI_APPS.find((a) => a.id === activeApp)?.name : "All Apps"}</div>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{section === "chat" ? "Community · 4,912 online" : "Your peer-to-peer marketplace"}</div>
           </div>
           <div style={{ display: "flex", gap: 8 }}>
             <Badge style={{ background: "rgba(34,197,94,0.15)", color: "#22C55E", border: "1px solid rgba(34,197,94,0.25)", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>Our Economy</Badge>
@@ -221,14 +221,14 @@ export function Desktop() {
                       <Sparkles size={16} style={{ color: "#A78BFA" }} />
                       <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", color: "#A78BFA", textTransform: "uppercase" }}>From Survivor to Thriver</span>
                     </div>
-                    <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", lineHeight: 1.3 }}>Good morning — your network is active.</div>
+                    <div style={{ fontSize: 22, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", lineHeight: 1.3 }}>Good morning — your network is active.</div>
                     <div style={{ fontSize: 14, color: "#9CA3AF", marginTop: 4 }}>5 million survivors. One economy. $300B opportunity.</div>
                   </div>
                   <div style={{ display: "flex", gap: 8 }}>
                     {[{ v: "4.9M", l: "Members", c: "#A78BFA" }, { v: "$247B", l: "GDP", c: "#38BDF8" }, { v: "127", l: "Countries", c: "#34D399" }].map(({ v, l, c }) => (
                       <div key={l} style={{ textAlign: "center", background: "rgba(255,255,255,0.04)", borderRadius: 12, padding: "10px 16px", border: "1px solid rgba(255,255,255,0.06)" }}>
                         <div style={{ fontSize: 20, fontWeight: 800, color: c }}>{v}</div>
-                        <div style={{ fontSize: 11, color: "#6B7280" }}>{l}</div>
+                        <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
                       </div>
                     ))}
                   </div>
@@ -256,7 +256,7 @@ export function Desktop() {
                             <div style={{ width: 40, height: 40, borderRadius: 12, background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: "#fff", flexShrink: 0 }}>SH</div>
                             <div>
                               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                                <span style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>Survivor Hub</span>
+                                <span style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>Survivor Hub</span>
                                 <Badge style={{ background: "rgba(124,58,237,0.18)", color: "#A78BFA", border: "1px solid rgba(124,58,237,0.32)", fontSize: 10, padding: "2px 7px", borderRadius: 4 }}>📣 Official</Badge>
                               </div>
                               <div style={{ fontSize: 12, color: "#4B5563" }}>{ann.time}</div>
@@ -281,7 +281,7 @@ export function Desktop() {
                             </div>
                             <div>
                               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                                <span style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>AI Assistant</span>
+                                <span style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>AI Assistant</span>
                                 <Badge style={{ background: "rgba(14,165,233,0.12)", color: "#38BDF8", border: "1px solid rgba(14,165,233,0.28)", fontSize: 10, padding: "2px 7px", borderRadius: 4 }}>🤖 AI Q&A</Badge>
                               </div>
                               <div style={{ fontSize: 12, color: "#4B5563" }}>Asked by {qa.askedBy} · {qa.time}</div>
@@ -297,10 +297,10 @@ export function Desktop() {
                           </div>
                           <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 14, paddingTop: 12, borderTop: "1px solid rgba(14,165,233,0.12)" }}>
                             <span style={{ fontSize: 11, color: "#4B5563", marginRight: 2 }}>Was this helpful?</span>
-                            <button onClick={() => rate(qa.id, "up")} style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 7, background: rating[qa.id] === "up" ? "rgba(34,197,94,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "up" ? "rgba(34,197,94,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "up" ? "#4ADE80" : "#6B7280", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>
+                            <button onClick={() => rate(qa.id, "up")} style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 7, background: rating[qa.id] === "up" ? "rgba(34,197,94,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "up" ? "rgba(34,197,94,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "up" ? "#4ADE80" : "var(--comic-text-secondary, #6B7280)", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>
                               <ThumbsUp size={13} /> Helpful
                             </button>
-                            <button onClick={() => rate(qa.id, "down")} style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 7, background: rating[qa.id] === "down" ? "rgba(148,163,184,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "down" ? "rgba(148,163,184,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "down" ? "#CBD5E1" : "#6B7280", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>
+                            <button onClick={() => rate(qa.id, "down")} style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 7, background: rating[qa.id] === "down" ? "rgba(148,163,184,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "down" ? "rgba(148,163,184,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "down" ? "#CBD5E1" : "var(--comic-text-secondary, #6B7280)", fontSize: 12, fontWeight: 600, cursor: "pointer" }}>
                               <ThumbsDown size={13} /> Not helpful
                             </button>
                             <button onClick={() => rate(qa.id, "flag")} style={{ display: "flex", alignItems: "center", gap: 5, padding: "4px 10px", borderRadius: 7, background: rating[qa.id] === "flag" ? "rgba(239,68,68,0.12)" : "transparent", border: `1px solid ${rating[qa.id] === "flag" ? "rgba(239,68,68,0.35)" : "transparent"}`, color: rating[qa.id] === "flag" ? "#F87171" : "#4B5563", fontSize: 12, fontWeight: 600, cursor: "pointer", marginLeft: "auto" }}>
@@ -320,7 +320,7 @@ export function Desktop() {
                             </div>
                             <div>
                               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                                <span style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>AI Assistant</span>
+                                <span style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>AI Assistant</span>
                                 <Badge style={{ background: "rgba(14,165,233,0.1)", color: "#7DD3FC", border: "1px solid rgba(14,165,233,0.25)", fontSize: 10, padding: "2px 7px", borderRadius: 4, display: "inline-flex", alignItems: "center", gap: 4 }}><ShieldCheck size={9} /> Reviewing for safety</Badge>
                               </div>
                               <div style={{ fontSize: 12, color: "#4B5563" }}>Asked by {pq.askedBy} · {pq.time}</div>
@@ -347,22 +347,22 @@ export function Desktop() {
                         <div style={{ display: "flex", gap: 12, marginBottom: 12 }}>
                           <div style={{ width: 40, height: 40, borderRadius: 12, background: `${post.authorColor}22`, border: `1px solid ${post.authorColor}38`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: post.authorColor, flexShrink: 0 }}>{post.avatar}</div>
                           <div>
-                            <span style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>{post.author}</span>
+                            <span style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{post.author}</span>
                             <div style={{ fontSize: 12, color: "#4B5563" }}>{post.time}</div>
                           </div>
                         </div>
                         <div style={{ fontSize: 14, color: "#D1D5DB", lineHeight: 1.7, marginBottom: 14 }}>{post.body}</div>
                         <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-                          <button onClick={() => toggleLike(post.id)} style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: liked.includes(post.id) ? "#EC4899" : "#6B7280", fontSize: 13 }}>
+                          <button onClick={() => toggleLike(post.id)} style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: liked.includes(post.id) ? "#EC4899" : "var(--comic-text-secondary, #6B7280)", fontSize: 13 }}>
                             <Heart size={15} fill={liked.includes(post.id) ? "#EC4899" : "none"} /> {post.hearts + (liked.includes(post.id) ? 1 : 0)}
                           </button>
-                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "#6B7280", fontSize: 13 }}>
+                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)", fontSize: 13 }}>
                             <MessageCircle size={15} /> {post.replies}
                           </button>
-                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "#6B7280", fontSize: 13 }}>
+                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)", fontSize: 13 }}>
                             <Share2 size={15} /> Share
                           </button>
-                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "#6B7280", fontSize: 13, marginLeft: "auto" }}>
+                          <button style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)", fontSize: 13, marginLeft: "auto" }}>
                             <Bookmark size={15} />
                           </button>
                         </div>
@@ -376,11 +376,11 @@ export function Desktop() {
                     <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "3px 9px", borderRadius: 7, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.3)", color: "#38BDF8", fontSize: 12, fontWeight: 700 }}>
                       <AtSign size={12} /> comic
                     </span>
-                    <span style={{ fontSize: 12, color: "#6B7280" }}>Type <span style={{ color: "#38BDF8", fontWeight: 600 }}>@comic</span> to ask the AI Assistant</span>
+                    <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Type <span style={{ color: "#38BDF8", fontWeight: 600 }}>@comic</span> to ask the AI Assistant</span>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                     <Plus size={18} style={{ color: "#4B5563", cursor: "pointer", flexShrink: 0 }} />
-                    <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Share with the community, or type @comic to ask…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                    <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Share with the community, or type @comic to ask…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                     <button style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)" : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
                       <Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                     </button>
@@ -392,8 +392,8 @@ export function Desktop() {
               <ScrollArea style={{ flex: 1 }}>
                 <div style={{ padding: "24px" }}>
                   <div style={{ marginBottom: 20 }}>
-                    <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>All Apps</div>
-                    <div style={{ fontSize: 14, color: "#6B7280" }}>Your complete peer-to-peer marketplace — from survivor to thriver</div>
+                    <div style={{ fontSize: 22, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>All Apps</div>
+                    <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)" }}>Your complete peer-to-peer marketplace — from survivor to thriver</div>
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
                     {MINI_APPS.map((app) => {
@@ -408,8 +408,8 @@ export function Desktop() {
                               <Badge style={{ background: `${app.color}15`, color: app.color, border: `1px solid ${app.color}30`, fontSize: 10, padding: "2px 8px", borderRadius: 20 }}>Live</Badge>
                             </div>
                           </div>
-                          <div style={{ fontSize: 15, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>{app.emoji} {app.name}</div>
-                          <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 14 }}>{app.desc}</div>
+                          <div style={{ fontSize: 15, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>{app.emoji} {app.name}</div>
+                          <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 14 }}>{app.desc}</div>
                           <button onClick={(e) => { e.stopPropagation(); setOpenApp(app.id); }} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 14px", borderRadius: 8, background: `${app.color}15`, border: `1px solid ${app.color}35`, color: app.color, fontSize: 12, fontWeight: 600, cursor: "pointer" }}>
                             Open App <ChevronRight size={12} />
                           </button>
@@ -423,14 +423,14 @@ export function Desktop() {
           </div>
 
           {/* Right panel */}
-          <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "#0D0F14", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+          <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "var(--comic-surface, #0D0F14)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
             <div style={{ padding: "20px 16px", flex: 1, overflowY: "auto", minHeight: 0 }}>
               <div style={{ padding: "16px", borderRadius: 14, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", marginBottom: 16, textAlign: "center" }}>
                 <Avatar style={{ width: 56, height: 56, margin: "0 auto 10px" }}>
                   <AvatarFallback style={{ background: "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)", color: "#fff", fontSize: 22, fontWeight: 800 }}>S</AvatarFallback>
                 </Avatar>
-                <div style={{ fontSize: 15, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>Welcome, Survivor</div>
-                <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 10 }}>Member since 2024</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Welcome, Survivor</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 10 }}>Member since 2024</div>
                 <Badge style={{ background: "rgba(124,58,237,0.15)", color: "#A78BFA", border: "1px solid rgba(124,58,237,0.25)", fontSize: 11, padding: "4px 12px", borderRadius: 20 }}>Verified Member</Badge>
               </div>
 
@@ -443,7 +443,7 @@ export function Desktop() {
                     <ShieldCheck size={14} style={{ color: "#0EA5E9" }} />
                     <span style={{ fontSize: 12, fontWeight: 700, color: "#38BDF8", letterSpacing: "0.06em", textTransform: "uppercase" }}>Trust</span>
                   </div>
-                  <Badge style={{ background: "rgba(255,255,255,0.05)", color: "#6B7280", border: "1px solid rgba(255,255,255,0.08)", fontSize: 10, padding: "2px 8px", borderRadius: 20, display: "flex", alignItems: "center", gap: 4 }}>
+                  <Badge style={{ background: "rgba(255,255,255,0.05)", color: "var(--comic-text-secondary, #6B7280)", border: "1px solid rgba(255,255,255,0.08)", fontSize: 10, padding: "2px 8px", borderRadius: 20, display: "flex", alignItems: "center", gap: 4 }}>
                     <ShieldCheck size={9} /> Unverified
                   </Badge>
                 </div>
@@ -466,7 +466,7 @@ export function Desktop() {
                     {["Complete your profile", "Make your first transaction", "Use at least one app"].map((label) => (
                       <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 9px", background: "rgba(255,255,255,0.02)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)" }}>
                         <div style={{ width: 16, height: 16, borderRadius: "50%", border: "1.5px solid rgba(255,255,255,0.12)", flexShrink: 0 }} />
-                        <span style={{ fontSize: 11, color: "#6B7280" }}>{label}</span>
+                        <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{label}</span>
                       </div>
                     ))}
                   </div>
@@ -489,7 +489,7 @@ export function Desktop() {
 
               <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.15)", marginBottom: 16 }}>
                 <div style={{ fontSize: 13, color: "#C4B5FD", lineHeight: 1.6, fontStyle: "italic", marginBottom: 8 }}>"You are not what happened to you. You are what you choose to become."</div>
-                <div style={{ fontSize: 11, color: "#6B7280" }}>— Unattributed</div>
+                <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>— Unattributed</div>
               </div>
               <div style={{ marginBottom: 16 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Active Apps</div>
@@ -511,8 +511,8 @@ export function Desktop() {
                   <Globe size={14} style={{ color: "#06B6D4" }} />
                   <span style={{ fontSize: 12, fontWeight: 600, color: "#22D3EE" }}>GDP Progress</span>
                 </div>
-                <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 2 }}>$247B</div>
-                <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 10 }}>of $300B opportunity</div>
+                <div style={{ fontSize: 22, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 2 }}>$247B</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 10 }}>of $300B opportunity</div>
                 <div style={{ height: 6, borderRadius: 3, background: "rgba(255,255,255,0.08)", overflow: "hidden" }}>
                   <div style={{ height: "100%", width: "82%", borderRadius: 3, background: "linear-gradient(90deg,#06B6D4 0%,#7C3AED 100%)" }} />
                 </div>

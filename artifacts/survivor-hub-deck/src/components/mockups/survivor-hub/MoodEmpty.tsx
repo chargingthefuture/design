@@ -1,11 +1,12 @@
+// design-sync
 import { Smile, Shield, Lock, TrendingUp, Plus, BarChart2 } from "lucide-react";
 
-const COLOR = "#EC4899";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #EC4899)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const subtle = "#6B7280";
-const text = "#F9FAFB";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const text = "var(--comic-text-primary, #F9FAFB)";
 
 const MOODS = [
   { emoji: "😄", label: "Great", value: 5, color: "#22C55E" },
@@ -27,7 +28,6 @@ export function MoodEmpty() {
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <Smile size={16} color={COLOR} />
             <span style={{ fontSize: 15, fontWeight: 700 }}>Mood</span>
-            <span style={{ marginLeft: "auto", fontSize: 11, background: `${COLOR}18`, color: COLOR, border: `1px solid ${COLOR}30`, borderRadius: 4, padding: "2px 7px" }}>Phase 0</span>
           </div>
         </div>
 

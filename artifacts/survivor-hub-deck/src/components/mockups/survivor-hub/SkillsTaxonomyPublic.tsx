@@ -3,11 +3,11 @@
 import { BookOpen, Lock, ChevronRight, UserPlus, LogIn } from "lucide-react";
 
 const BRAND = "#8B5CF6";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const PREVIEW_SECTORS = [
   { name: "Technology", jobs: ["Software Engineer", "UI/UX Designer", "Data Analyst"] },

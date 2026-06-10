@@ -1,7 +1,8 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Zap, Lock, ArrowRight } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#F59E0B";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F59E0B";
 
 const EARN_WAYS = [
   { action: "Complete a GentlePulse session", credits: "+5" },
@@ -13,17 +14,17 @@ const EARN_WAYS = [
 
 const SPEND_WAYS = [
   { action: "Pay for housing (LightHouse)", credits: "Variable" },
-  { action: "Book a TrustTransport ride", credits: "12–40 cr" },
+  { action: "Book a TrustTransport ride", credits: "12–40 ServiceCredits" },
   { action: "Hire from Foundation (trades)", credits: "Variable" },
   { action: "Pay a Directory provider", credits: "Variable" },
 ];
 
 export function ServiceCreditsPublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Zap size={18} color={COLOR} />
-        <span style={{ fontSize: 16, fontWeight: 700 }}>Service Credits</span>
+        <span style={{ fontSize: 16, fontWeight: 700 }}>ServiceCredits</span>
         <div style={{ marginLeft: "auto" }}>
           <button style={{ padding: "8px 20px", borderRadius: 8, background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "#fff", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Sign In</button>
         </div>
@@ -37,7 +38,7 @@ export function ServiceCreditsPublic() {
           Earn credits. Spend them<br /><span style={{ color: COLOR }}>on real services, for free.</span>
         </h1>
         <p style={{ margin: 0, fontSize: 15, color: "#9CA3AF", maxWidth: 520 }}>
-          Service Credits are earned by participating in the Hub and spent on housing, transport, healthcare, and trades. Your participation has real monetary value.
+          ServiceCredits are earned by participating in the Hub and spent on housing, transport, healthcare, and trades. They are usable across all 18 plugins in the network.
         </p>
         <button style={{ marginTop: 8, padding: "14px 32px", borderRadius: 10, background: COLOR, border: "none", color: "#000", fontSize: 15, fontWeight: 700, cursor: "pointer", width: "fit-content" }}>
           Join the Hub — Free

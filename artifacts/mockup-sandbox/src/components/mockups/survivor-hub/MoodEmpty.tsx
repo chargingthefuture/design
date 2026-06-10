@@ -1,12 +1,12 @@
 // design-sync
 import { Smile, Shield, Lock, TrendingUp, Plus, BarChart2 } from "lucide-react";
 
-const COLOR = "#EC4899";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #EC4899)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const subtle = "#6B7280";
-const text = "#F9FAFB";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const text = "var(--comic-text-primary, #F9FAFB)";
 
 const MOODS = [
   { emoji: "😄", label: "Great", value: 5, color: "#22C55E" },

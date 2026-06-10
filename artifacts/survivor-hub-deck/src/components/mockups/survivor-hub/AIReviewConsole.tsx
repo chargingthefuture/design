@@ -6,12 +6,12 @@ import {
   FileText, Bell, Settings, Clock, AtSign, AlertTriangle,
 } from "lucide-react";
 
-const ACCENT = "#0EA5E9";
-const bg = "#0F1117";
-const panel = "#0D0F14";
+const ACCENT = "var(--app-accent, #0EA5E9)";
+const bg = "var(--comic-bg, #0F1117)";
+const panel = "var(--comic-surface, #0D0F14)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const CONF: Record<string, { label: string; color: string; pct: number }> = {
   high: { label: "High confidence", color: "#22C55E", pct: 88 },
@@ -45,7 +45,7 @@ export function AIReviewConsole() {
   return (
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
       {/* Icon rail */}
-      <aside style={{ width: 72, background: "#090B0F", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", padding: "16px 0", gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", padding: "16px 0", gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${ACCENT}22`, border: `1px solid ${ACCENT}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <ShieldCheck size={20} color={ACCENT} />
         </div>
@@ -116,7 +116,7 @@ export function AIReviewConsole() {
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", color: subtle, textTransform: "uppercase" }}>AI Assistant draft</div>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 10, padding: "2px 7px", borderRadius: 4, background: `${ACCENT}15`, color: "#7DD3FC", fontWeight: 600 }}><Sparkles size={9} /> Not yet sent</span>
               </div>
-              <div style={{ padding: "18px", borderRadius: 12, background: `${ACCENT}08`, border: `1px solid ${ACCENT}25`, fontSize: 14.5, color: "#E8EAF0", lineHeight: 1.65 }}>{ans.draft}</div>
+              <div style={{ padding: "18px", borderRadius: 12, background: `${ACCENT}08`, border: `1px solid ${ACCENT}25`, fontSize: 14.5, color: "var(--comic-text-primary, #E8EAF0)", lineHeight: 1.65 }}>{ans.draft}</div>
             </div>
 
             {/* Sources + confidence */}

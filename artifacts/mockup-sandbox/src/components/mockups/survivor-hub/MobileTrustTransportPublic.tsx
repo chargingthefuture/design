@@ -2,14 +2,14 @@
 // STATE: Unauthenticated — visitor with no session
 import { Car, Lock, Package, Utensils } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#F97316";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F97316";
 
 export function MobileTrustTransportPublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ padding: "24px 20px 16px", display: "flex", flexDirection: "column", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -36,7 +36,7 @@ export function MobileTrustTransportPublic() {
 
       <div style={{ flex: 1, padding: "0 20px 20px", position: "relative", minHeight: 280 }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, filter: "blur(4px)", pointerEvents: "none", opacity: 0.5 }}>
-          <div style={{ fontSize: 12, color: "#6B7280" }}>Available drivers</div>
+          <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Available drivers</div>
           {[
             { name: "Jose Martinez", rating: 4.9, eta: "3 min" },
             { name: "Aisha Thompson", rating: 5.0, eta: "6 min" },

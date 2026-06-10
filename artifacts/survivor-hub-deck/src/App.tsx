@@ -718,7 +718,7 @@ export default function App() {
       >
         <div style={{ transform: `scale(${scale})`, transformOrigin: "center center", width: iframeW, height: iframeH, borderRadius: slide.type === "mobile" ? 32 : 4, overflow: "hidden", boxShadow: "0 8px 48px rgba(0,0,0,0.7)", flexShrink: 0 }}>
           {Comp ? (
-            <div key={slide.component} style={{ width: iframeW, height: iframeH, overflow: "hidden" }}>
+            <div key={slide.component} style={{ width: iframeW, height: iframeH, overflow: "hidden", ...(isComic ? { "--app-accent": rowAccent } as React.CSSProperties : {}) }}>
               <Comp />
             </div>
           ) : (

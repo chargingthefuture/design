@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Share2, Plus, AlertCircle, Heart, MapPin, Shield, Home, MessageSquare } from "lucide-react";
 
-const COLOR = "#FB923C";
+const COLOR = "var(--app-accent, #FB923C)";
 
 // D5: no anonymous — every post identified by @username
 const REQUESTS = [
@@ -28,15 +28,15 @@ export function MobileSocketRelay() {
   const [postType, setPostType] = useState<"need" | "offer">("need");
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
-      <div style={{ padding: "14px 20px 12px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "14px 20px 12px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}><Share2 size={18} style={{ color: COLOR }} /></div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>SocketRelay</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>SocketRelay</div>
             <div style={{ fontSize: 11, color: COLOR }}>Mutual aid · 847 fulfilled today</div>
           </div>
         </div>
@@ -50,7 +50,7 @@ export function MobileSocketRelay() {
             <>
               <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
                 {["All", "Needs 🆘", "Offers 🤝", "Urgent"].map((f, i) => (
-                  <button key={f} style={{ padding: "5px 12px", borderRadius: 20, fontSize: 11, fontWeight: 600, background: i === 0 ? `${COLOR}20` : "rgba(255,255,255,0.04)", border: `1px solid ${i === 0 ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, color: i === 0 ? COLOR : "#6B7280", cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0 }}>{f}</button>
+                  <button key={f} style={{ padding: "5px 12px", borderRadius: 20, fontSize: 11, fontWeight: 600, background: i === 0 ? `${COLOR}20` : "rgba(255,255,255,0.04)", border: `1px solid ${i === 0 ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, color: i === 0 ? COLOR : "var(--comic-text-secondary, #6B7280)", cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0 }}>{f}</button>
                 ))}
               </div>
               {REQUESTS.map((r) => (
@@ -61,13 +61,13 @@ export function MobileSocketRelay() {
                     </div>
                     <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                       <Badge style={{ background: r.type === "need" ? `${COLOR}20` : "#22C55E20", color: r.type === "need" ? COLOR : "#22C55E", border: `1px solid ${r.type === "need" ? COLOR + "40" : "#22C55E40"}`, fontSize: 10 }}>{r.type === "need" ? "Need" : "Offer"}</Badge>
-                      <Badge style={{ background: "rgba(255,255,255,0.04)", color: "#6B7280", border: "1px solid rgba(255,255,255,0.06)", fontSize: 10 }}>{r.category}</Badge>
+                      <Badge style={{ background: "rgba(255,255,255,0.04)", color: "var(--comic-text-secondary, #6B7280)", border: "1px solid rgba(255,255,255,0.06)", fontSize: 10 }}>{r.category}</Badge>
                       {r.urgency && <Badge style={{ background: "#EF444420", color: "#EF4444", border: "1px solid #EF444440", fontSize: 10 }}>⚠ Urgent</Badge>}
                     </div>
                   </div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: "#F9FAFB", marginBottom: 4, lineHeight: 1.4 }}>{r.title}</div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4, lineHeight: 1.4 }}>{r.title}</div>
                   <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontFamily: "monospace" }}>{r.by}</div>
-                  <div style={{ fontSize: 11, color: "#6B7280", marginBottom: 10 }}><MapPin size={10} style={{ display: "inline" }} /> {r.location} · {r.time} ago</div>
+                  <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 10 }}><MapPin size={10} style={{ display: "inline" }} /> {r.location} · {r.time} ago</div>
                   <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                     {r.credits > 0 && <span style={{ fontSize: 12, fontWeight: 700, color: "#F59E0B" }}>{r.credits} credits</span>}
                     <button
@@ -83,25 +83,25 @@ export function MobileSocketRelay() {
           )}
           {activeNav === "post" && (
             <div style={{ padding: "8px 0" }}>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 16 }}>Post a Request or Offer</div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 16 }}>Post a Request or Offer</div>
               <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
                 {(["need", "offer"] as const).map((t) => (
                   <button key={t} onClick={() => setPostType(t)} style={{ flex: 1, padding: "16px 12px", borderRadius: 14, background: postType === t ? (t === "need" ? `${COLOR}20` : "#22C55E20") : "rgba(255,255,255,0.02)", border: `2px solid ${postType === t ? (t === "need" ? COLOR : "#22C55E") : "rgba(255,255,255,0.06)"}`, cursor: "pointer", textAlign: "center" }}>
                     <div style={{ fontSize: 24, marginBottom: 4 }}>{t === "need" ? "🆘" : "🤝"}</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: postType === t ? (t === "need" ? COLOR : "#22C55E") : "#6B7280" }}>{t === "need" ? "I Need Help" : "I Can Help"}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: postType === t ? (t === "need" ? COLOR : "#22C55E") : "var(--comic-text-secondary, #6B7280)" }}>{t === "need" ? "I Need Help" : "I Can Help"}</div>
                   </button>
                 ))}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                <textarea placeholder="What do you need or can offer?" rows={3} style={{ width: "100%", padding: "12px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", resize: "none", boxSizing: "border-box" }} />
-                <input placeholder="Category (Food, Transport, Legal…)" style={{ width: "100%", padding: "12px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
-                <input placeholder="Location (neighborhood only)" style={{ width: "100%", padding: "12px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
+                <textarea placeholder="What do you need or can offer?" rows={3} style={{ width: "100%", padding: "12px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", resize: "none", boxSizing: "border-box" }} />
+                <input placeholder="Category (Food, Transport, Legal…)" style={{ width: "100%", padding: "12px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
+                <input placeholder="Location (neighborhood only)" style={{ width: "100%", padding: "12px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
                 <button style={{ padding: "14px", borderRadius: 12, background: postType === "need" ? COLOR : "#22C55E", border: "none", color: "#fff", fontSize: 15, fontWeight: 800, cursor: "pointer" }}>
                   {postType === "need" ? "Post My Need" : "Post My Offer"}
                 </button>
                 <div style={{ padding: "10px 12px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}><Shield size={11} style={{ color: COLOR }} /><span style={{ fontSize: 11, fontWeight: 700, color: COLOR }}>Privacy Minimized</span></div>
-                  <div style={{ fontSize: 11, color: "#6B7280" }}>Never includes identifying info. Encrypted.</div>
+                  <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Never includes identifying info. Encrypted.</div>
                 </div>
               </div>
             </div>
@@ -109,13 +109,13 @@ export function MobileSocketRelay() {
           {(activeNav === "home" || activeNav === "chat") && (
             <div style={{ textAlign: "center", padding: "40px 0" }}>
               <div style={{ fontSize: 48, marginBottom: 12 }}>🔂</div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>SocketRelay</div>
-              <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 20 }}>Real-time mutual aid network</div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>SocketRelay</div>
+              <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 20 }}>Real-time mutual aid network</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                 {[{ l: "Open Needs", v: "234", c: COLOR }, { l: "Open Offers", v: "189", c: "#22C55E" }, { l: "Fulfilled", v: "847", c: "#F59E0B" }, { l: "Members Helped", v: "612", c: "#A855F7" }].map(({ l, v, c }) => (
                   <div key={l} style={{ padding: "14px", borderRadius: 12, background: `${c}08`, border: `1px solid ${c}20`, textAlign: "center" }}>
                     <div style={{ fontSize: 22, fontWeight: 800, color: c }}>{v}</div>
-                    <div style={{ fontSize: 11, color: "#6B7280" }}>{l}</div>
+                    <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
                   </div>
                 ))}
               </div>
@@ -123,11 +123,11 @@ export function MobileSocketRelay() {
           )}
         </div>
       </ScrollArea>
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? COLOR : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? COLOR : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

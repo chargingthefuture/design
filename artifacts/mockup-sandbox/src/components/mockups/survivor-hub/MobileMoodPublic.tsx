@@ -2,14 +2,14 @@
 // STATE: Unauthenticated — visitor with no session
 import { Smile, Shield } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#EC4899";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#EC4899";
 
 export function MobileMoodPublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px 24px 40px", gap: 20, textAlign: "center" }}>
         <div style={{ width: 64, height: 64, borderRadius: 32, background: COLOR + "20", border: `2px solid ${COLOR}40`, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -38,7 +38,7 @@ export function MobileMoodPublic() {
             {["😢", "😔", "😐", "🙂", "😄"].map((e, i) => (
               <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 5 }}>
                 <span style={{ fontSize: 24 }}>{e}</span>
-                <span style={{ fontSize: 10, color: "#6B7280" }}>{["Low", "Down", "Okay", "Good", "Great"][i]}</span>
+                <span style={{ fontSize: 10, color: "var(--comic-text-secondary, #6B7280)" }}>{["Low", "Down", "Okay", "Good", "Great"][i]}</span>
               </div>
             ))}
           </div>

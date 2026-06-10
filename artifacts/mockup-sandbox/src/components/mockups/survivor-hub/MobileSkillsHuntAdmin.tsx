@@ -4,11 +4,11 @@ import { useState } from "react";
 import { Target, Plus, Edit2, Trash2, CheckCircle, Clock } from "lucide-react";
 
 const COLOR  = "#A78BFA";
-const bg      = "#0F1117";
+const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";
-const text    = "#F9FAFB";
-const subtle  = "#6B7280";
+const text    = "var(--comic-text-primary, #F9FAFB)";
+const subtle  = "var(--comic-text-secondary, #6B7280)";
 
 const ROUNDS = [
   { id: 1, name: "Round 14 — Tech Focus",       opens: "Jun 10",  closes: "Jun 17", participants: 342, status: "upcoming" },
@@ -26,12 +26,12 @@ export function MobileSkillsHuntAdmin() {
   return (
     <div style={{ width: 390, height: "100vh", background: bg, fontFamily: "'Inter',system-ui,sans-serif", color: text, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
 
-      <div style={{ padding: "12px 16px 10px", borderBottom: `1px solid ${border}`, background: "#0D0F14", flexShrink: 0 }}>
+      <div style={{ padding: "12px 16px 10px", borderBottom: `1px solid ${border}`, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
           <div style={{ width: 34, height: 34, borderRadius: 9, background: `${COLOR}20`, border: `1px solid ${COLOR}35`, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Target size={16} color={COLOR} />

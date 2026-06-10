@@ -126,7 +126,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
   };
 
   return (
-    <div style={{ minHeight: "100vh", width: "100%", background: DARK_BG, fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", width: "100%", background: DARK_BG, fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
       {/* Top bar */}
       <header style={{ height: 60, borderBottom: `1px solid ${BORDER}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#030d05", flexShrink: 0 }}>
         <button onClick={onClose} style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(34,197,94,0.1)", border: `1px solid ${PRIMARY}30`, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: PRIMARY }}>
@@ -150,10 +150,10 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
             {ROOMS.reduce((s, r) => s + r.listeners, 0)} Listening
           </Badge>
         </div>
-        <button style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}>
+        <button style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}>
           <Search size={16} />
         </button>
-        <button style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}>
+        <button style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}>
           <Bell size={16} />
         </button>
       </header>
@@ -168,7 +168,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
           </div>
           <div style={{ display: "flex", gap: 4, padding: "0 16px 12px" }}>
             {(["rooms", "upcoming"] as const).map((t) => (
-              <button key={t} onClick={() => setTab(t)} style={{ flex: 1, padding: "7px 0", borderRadius: 8, background: tab === t ? `${PRIMARY}18` : "transparent", border: tab === t ? `1px solid ${PRIMARY}35` : "1px solid transparent", color: tab === t ? PRIMARY : "#6B7280", fontSize: 13, fontWeight: tab === t ? 600 : 400, cursor: "pointer", textTransform: "capitalize" }}>
+              <button key={t} onClick={() => setTab(t)} style={{ flex: 1, padding: "7px 0", borderRadius: 8, background: tab === t ? `${PRIMARY}18` : "transparent", border: tab === t ? `1px solid ${PRIMARY}35` : "1px solid transparent", color: tab === t ? PRIMARY : "var(--comic-text-secondary, #6B7280)", fontSize: 13, fontWeight: tab === t ? 600 : 400, cursor: "pointer", textTransform: "capitalize" }}>
                 {t === "rooms" ? "Live Rooms" : "Upcoming"}
               </button>
             ))}
@@ -243,8 +243,8 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                               {sp.muted ? <MicOff size={10} style={{ color: "#fff" }} /> : <Mic size={10} style={{ color: "#fff" }} />}
                             </div>
                           </div>
-                          <div style={{ fontSize: 11, fontWeight: 600, color: "#E8EAF0", textAlign: "center", wordBreak: "break-all" }}>{sp.handle}</div>
-                          <Badge style={{ fontSize: 10, background: sp.role === "Host" ? `${PRIMARY}20` : "rgba(255,255,255,0.05)", color: sp.role === "Host" ? PRIMARY : "#6B7280", border: `1px solid ${sp.role === "Host" ? PRIMARY + "35" : "transparent"}`, padding: "1px 8px", borderRadius: 20 }}>
+                          <div style={{ fontSize: 11, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)", textAlign: "center", wordBreak: "break-all" }}>{sp.handle}</div>
+                          <Badge style={{ fontSize: 10, background: sp.role === "Host" ? `${PRIMARY}20` : "rgba(255,255,255,0.05)", color: sp.role === "Host" ? PRIMARY : "var(--comic-text-secondary, #6B7280)", border: `1px solid ${sp.role === "Host" ? PRIMARY + "35" : "transparent"}`, padding: "1px 8px", borderRadius: 20 }}>
                             {sp.role}
                           </Badge>
                         </div>
@@ -263,7 +263,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                           <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                             <span style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF" }}>{a.initials}</span>
                           </div>
-                          <div style={{ fontSize: 10, color: "#6B7280", textAlign: "center", wordBreak: "break-all", lineHeight: 1.3 }}>{a.handle}</div>
+                          <div style={{ fontSize: 10, color: "var(--comic-text-secondary, #6B7280)", textAlign: "center", wordBreak: "break-all", lineHeight: 1.3 }}>{a.handle}</div>
                         </div>
                       ))}
                       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, width: 72 }}>
@@ -297,7 +297,7 @@ export function ChymeApp({ onClose }: ChymeAppProps) {
                     </ScrollArea>
                     <div style={{ padding: "10px 14px", borderTop: `1px solid ${BORDER}` }}>
                       <div style={{ display: "flex", gap: 8, alignItems: "center", background: "rgba(255,255,255,0.04)", border: `1px solid ${BORDER}`, borderRadius: 10, padding: "8px 12px" }}>
-                        <input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSendChat()} placeholder="Send a message…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 13, color: "#E8EAF0" }} />
+                        <input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSendChat()} placeholder="Send a message…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 13, color: "var(--comic-text-primary, #E8EAF0)" }} />
                         <button onClick={handleSendChat} style={{ width: 28, height: 28, borderRadius: 6, background: chatInput.trim() ? PRIMARY : "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
                           <Send size={12} style={{ color: chatInput.trim() ? "#fff" : "#4B5563" }} />
                         </button>

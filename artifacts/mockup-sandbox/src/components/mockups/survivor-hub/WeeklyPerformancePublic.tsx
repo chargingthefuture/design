@@ -3,11 +3,11 @@
 import { BarChart2, Lock, Users, TrendingUp, UserPlus, LogIn } from "lucide-react";
 
 const BRAND = "#F59E0B";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const BLURRED_METRICS = [
   { label: "Total Members", value: "4,912", color: "#A78BFA" },

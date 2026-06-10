@@ -1,11 +1,12 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Car, Shield, Star, Lock, Package, Utensils } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#F97316";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F97316";
 
 export function TrustTransportPublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       {/* Top bar */}
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Car size={18} color={COLOR} />
@@ -79,7 +80,7 @@ export function TrustTransportPublic() {
             <Lock size={22} color={COLOR} />
           </div>
           <div style={{ fontSize: 16, fontWeight: 700, textAlign: "center" }}>Sign in to book a safe ride</div>
-          <div style={{ fontSize: 13, color: "#6B7280", textAlign: "center", maxWidth: 300 }}>
+          <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", textAlign: "center", maxWidth: 300 }}>
             Schedule rides, track packages, and order food — all with trauma-informed drivers.
           </div>
           <button style={{ padding: "11px 28px", borderRadius: 9, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>

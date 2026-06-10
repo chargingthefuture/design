@@ -66,7 +66,7 @@ export function MobileChyme() {
     return (
       <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", display: "flex", flexDirection: "column" }}>
         <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", padding: "0 16px", justifyContent: "space-between", flexShrink: 0 }}>
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #E8EAF0)" }}>9:41</div>
           <div style={{ fontSize: 12, color: "#9CA3AF" }}>•••</div>
         </div>
         <div style={{ height: 52, background: "#030d05", borderBottom: `1px solid #052e16`, display: "flex", alignItems: "center", padding: "0 16px", gap: 12, flexShrink: 0 }}>
@@ -89,7 +89,7 @@ export function MobileChyme() {
         </ScrollArea>
         <div style={{ padding: "12px 16px", borderTop: `1px solid #052e16`, flexShrink: 0 }}>
           <div style={{ display: "flex", gap: 10, alignItems: "center", background: "rgba(255,255,255,0.04)", border: `1px solid #052e16`, borderRadius: 14, padding: "10px 14px" }}>
-            <input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && sendChat()} placeholder="Say something…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+            <input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && sendChat()} placeholder="Say something…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
             <button onClick={sendChat} style={{ width: 32, height: 32, borderRadius: 8, background: chatInput.trim() ? PRIMARY : "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
               <Send size={14} style={{ color: chatInput.trim() ? "#fff" : "#4B5563" }} />
             </button>
@@ -102,9 +102,9 @@ export function MobileChyme() {
   // ── Active room view ──────────────────────────────────────────────────────
   if (activeRoom) {
     return (
-      <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+      <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
         <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 16px", flexShrink: 0 }}>
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #E8EAF0)" }}>9:41</div>
           <div style={{ fontSize: 12, color: "#9CA3AF" }}>•••</div>
         </div>
         <div style={{ padding: "14px 16px 12px", borderBottom: `1px solid #052e16`, background: "#030d05", flexShrink: 0 }}>
@@ -144,8 +144,8 @@ export function MobileChyme() {
                       {sp.muted ? <MicOff size={10} style={{ color: "#fff" }} /> : <Mic size={10} style={{ color: "#fff" }} />}
                     </div>
                   </div>
-                  <div style={{ fontSize: 10, fontWeight: 600, color: "#E8EAF0", textAlign: "center", wordBreak: "break-all", lineHeight: 1.3 }}>{sp.handle}</div>
-                  <Badge style={{ fontSize: 10, background: sp.role === "Host" ? `${PRIMARY}18` : "rgba(255,255,255,0.05)", color: sp.role === "Host" ? PRIMARY : "#6B7280", border: `1px solid ${sp.role === "Host" ? PRIMARY + "30" : "transparent"}`, padding: "1px 8px", borderRadius: 20 }}>
+                  <div style={{ fontSize: 10, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)", textAlign: "center", wordBreak: "break-all", lineHeight: 1.3 }}>{sp.handle}</div>
+                  <Badge style={{ fontSize: 10, background: sp.role === "Host" ? `${PRIMARY}18` : "rgba(255,255,255,0.05)", color: sp.role === "Host" ? PRIMARY : "var(--comic-text-secondary, #6B7280)", border: `1px solid ${sp.role === "Host" ? PRIMARY + "30" : "transparent"}`, padding: "1px 8px", borderRadius: 20 }}>
                     {sp.role}
                   </Badge>
                 </div>
@@ -161,7 +161,7 @@ export function MobileChyme() {
                 {AUDIENCE.map((a) => (
                   <div key={a.handle} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 5, width: 56 }}>
                     <div style={{ width: 50, height: 50, borderRadius: "50%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <span style={{ fontSize: 13, fontWeight: 700, color: "#6B7280" }}>{a.initials}</span>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-secondary, #6B7280)" }}>{a.initials}</span>
                     </div>
                     <div style={{ fontSize: 9, color: "#4B5563", textAlign: "center", wordBreak: "break-all", lineHeight: 1.2 }}>{a.handle}</div>
                   </div>
@@ -190,19 +190,19 @@ export function MobileChyme() {
               <div style={{ width: 52, height: 52, borderRadius: "50%", background: handRaised ? "rgba(234,179,8,0.15)" : "rgba(255,255,255,0.05)", border: `2px solid ${handRaised ? "rgba(234,179,8,0.5)" : "rgba(255,255,255,0.1)"}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Hand size={22} style={{ color: handRaised ? "#FDE047" : "#9CA3AF" }} />
               </div>
-              <span style={{ fontSize: 11, color: handRaised ? "#FDE047" : "#6B7280" }}>Hand</span>
+              <span style={{ fontSize: 11, color: handRaised ? "#FDE047" : "var(--comic-text-secondary, #6B7280)" }}>Hand</span>
             </button>
             <button onClick={() => setShowChat(true)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, background: "none", border: "none", cursor: "pointer" }}>
               <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(255,255,255,0.05)", border: "2px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <MessageSquare size={22} style={{ color: "#9CA3AF" }} />
               </div>
-              <span style={{ fontSize: 11, color: "#6B7280" }}>Chat</span>
+              <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Chat</span>
             </button>
             <button style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, background: "none", border: "none", cursor: "pointer" }}>
               <div style={{ width: 52, height: 52, borderRadius: "50%", background: "rgba(255,255,255,0.05)", border: "2px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Heart size={22} style={{ color: "#9CA3AF" }} />
               </div>
-              <span style={{ fontSize: 11, color: "#6B7280" }}>React</span>
+              <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>React</span>
             </button>
           </div>
           <button onClick={() => setActiveRoom(null)} style={{ width: "100%", padding: "13px", borderRadius: 14, background: "rgba(239,68,68,0.12)", border: "1px solid rgba(239,68,68,0.3)", color: "#F87171", fontSize: 15, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
@@ -215,9 +215,9 @@ export function MobileChyme() {
 
   // ── Room list ─────────────────────────────────────────────────────────────
   return (
-    <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: 390, minHeight: "100vh", background: "#021006", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 44, background: "#030d05", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 16px", flexShrink: 0 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #E8EAF0)" }}>9:41</div>
         <div style={{ fontSize: 12, color: "#9CA3AF" }}>•••</div>
       </div>
       <div style={{ padding: "14px 16px 12px", borderBottom: `1px solid #052e16`, background: "#030d05", flexShrink: 0 }}>
@@ -232,7 +232,7 @@ export function MobileChyme() {
             </div>
           </div>
           <button style={{ width: 34, height: 34, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-            <Search size={15} style={{ color: "#6B7280" }} />
+            <Search size={15} style={{ color: "var(--comic-text-secondary, #6B7280)" }} />
           </button>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
@@ -241,18 +241,18 @@ export function MobileChyme() {
             <div style={{ fontSize: 11, color: "#4B5563" }}>Live Rooms</div>
           </div>
           <div style={{ flex: 1, padding: "10px", borderRadius: 10, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", textAlign: "center" }}>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#E8EAF0" }}>{ROOMS.reduce((s, r) => s + r.listeners, 0)}</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #E8EAF0)" }}>{ROOMS.reduce((s, r) => s + r.listeners, 0)}</div>
             <div style={{ fontSize: 11, color: "#4B5563" }}>Listening</div>
           </div>
           <div style={{ flex: 1, padding: "10px", borderRadius: 10, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", textAlign: "center" }}>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#E8EAF0" }}>127</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #E8EAF0)" }}>127</div>
             <div style={{ fontSize: 11, color: "#4B5563" }}>Nations</div>
           </div>
         </div>
       </div>
       <div style={{ display: "flex", gap: 6, padding: "12px 16px 8px", flexShrink: 0 }}>
         {(["live", "upcoming"] as const).map((t) => (
-          <button key={t} onClick={() => setTab(t)} style={{ flex: 1, padding: "8px", borderRadius: 10, background: tab === t ? `${PRIMARY}18` : "transparent", border: `1px solid ${tab === t ? PRIMARY + "40" : "#052e16"}`, color: tab === t ? PRIMARY : "#6B7280", fontSize: 13, fontWeight: tab === t ? 700 : 400, cursor: "pointer", textTransform: "capitalize" }}>
+          <button key={t} onClick={() => setTab(t)} style={{ flex: 1, padding: "8px", borderRadius: 10, background: tab === t ? `${PRIMARY}18` : "transparent", border: `1px solid ${tab === t ? PRIMARY + "40" : "#052e16"}`, color: tab === t ? PRIMARY : "var(--comic-text-secondary, #6B7280)", fontSize: 13, fontWeight: tab === t ? 700 : 400, cursor: "pointer", textTransform: "capitalize" }}>
             {t === "live" ? "🔴 Live" : "📅 Upcoming"}
           </button>
         ))}

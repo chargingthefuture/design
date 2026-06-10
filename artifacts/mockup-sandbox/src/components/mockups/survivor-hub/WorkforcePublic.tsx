@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { BarChart2, TrendingUp, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#B45309";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#B45309";
 
 const GAPS = [
   { skill: "Software Development", gap: "14,600", trend: "+31%" },
@@ -14,11 +14,11 @@ const GAPS = [
 
 const BARS = [37, 25, 20, 18];
 const BAR_LABELS = ["Employed", "In Training", "Seeking Work", "Exploring"];
-const BAR_COLORS = ["#22C55E", COLOR, "#F59E0B", "#6B7280"];
+const BAR_COLORS = ["#22C55E", COLOR, "#F59E0B", "var(--comic-text-secondary, #6B7280)"];
 
 export function WorkforcePublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       {/* Top bar */}
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <BarChart2 size={18} color={COLOR} />

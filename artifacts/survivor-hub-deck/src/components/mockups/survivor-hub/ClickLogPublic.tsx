@@ -1,12 +1,13 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { AlertTriangle, Lock, ShieldCheck, UserPlus, Eye, EyeOff } from "lucide-react";
 
 const BRAND = "#E91E8C";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 export function ClickLogPublic() {
   return (

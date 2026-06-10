@@ -6,12 +6,12 @@ import {
   ArrowLeft, AtSign, AlertTriangle, Pencil, RotateCcw,
 } from "lucide-react";
 
-const ACCENT = "#0EA5E9";
-const bg = "#0F1117";
-const panel = "#0D0F14";
+const ACCENT = "var(--app-accent, #0EA5E9)";
+const bg = "var(--comic-bg, #0F1117)";
+const panel = "var(--comic-surface, #0D0F14)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const QUESTION = "Is it safe to share my exact address with a host before I arrive?";
 const ASKER = "Survivor #4821";
@@ -26,7 +26,7 @@ export function AIReviewConsoleDetail() {
   return (
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
       {/* Icon rail */}
-      <aside style={{ width: 72, background: "#090B0F", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", padding: "16px 0", gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", padding: "16px 0", gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${ACCENT}22`, border: `1px solid ${ACCENT}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <ShieldCheck size={20} color={ACCENT} />
         </div>
@@ -93,7 +93,7 @@ export function AIReviewConsoleDetail() {
                 <textarea
                   value={corrected}
                   onChange={(e) => setCorrected(e.target.value)}
-                  style={{ width: "100%", minHeight: 150, resize: "vertical", boxSizing: "border-box", padding: "16px", borderRadius: 12, background: `${ACCENT}08`, border: `1px solid ${ACCENT}40`, color: "#E8EAF0", fontSize: 14, lineHeight: 1.6, fontFamily: "inherit", outline: "none" }}
+                  style={{ width: "100%", minHeight: 150, resize: "vertical", boxSizing: "border-box", padding: "16px", borderRadius: 12, background: `${ACCENT}08`, border: `1px solid ${ACCENT}40`, color: "var(--comic-text-primary, #E8EAF0)", fontSize: 14, lineHeight: 1.6, fontFamily: "inherit", outline: "none" }}
                 />
                 <div style={{ fontSize: 11, color: "#4B5563", marginTop: 6, textAlign: "right" }}>{corrected.length} characters</div>
               </div>

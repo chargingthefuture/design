@@ -1,11 +1,12 @@
+// design-sync
 import { Globe, TrendingUp, BarChart2, Plus, ArrowUpRight, Users, DollarSign, MapPin } from "lucide-react";
 
-const COLOR = "#06B6D4";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #06B6D4)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const subtle = "#6B7280";
-const text = "#F9FAFB";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const text = "var(--comic-text-primary, #F9FAFB)";
 
 const SECTORS = [
   { name: "Professional Services", color: COLOR },
@@ -26,7 +27,6 @@ export function GDPEmpty() {
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <Globe size={16} color={COLOR} />
             <span style={{ fontSize: 15, fontWeight: 700 }}>GDP</span>
-            <span style={{ marginLeft: "auto", fontSize: 11, background: `${COLOR}18`, color: COLOR, border: `1px solid ${COLOR}30`, borderRadius: 4, padding: "2px 7px" }}>Phase 2</span>
           </div>
         </div>
 

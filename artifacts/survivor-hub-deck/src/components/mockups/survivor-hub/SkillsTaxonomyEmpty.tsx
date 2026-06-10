@@ -3,17 +3,17 @@
 import { BookOpen, Plus, Upload, Clock } from "lucide-react";
 
 const BRAND = "#8B5CF6";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 export function SkillsTaxonomyEmpty({ isAdmin = false }: { isAdmin?: boolean }) {
   return (
     <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: text, display: "flex", flexDirection: "column" }}>
 
       {/* Header */}
-      <div style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 12, background: "#0D0F14", flexShrink: 0 }}>
+      <div style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 12, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
         <BookOpen size={18} color={BRAND} />
         <div>
           <div style={{ fontSize: 15, fontWeight: 600 }}>Skills Taxonomy</div>

@@ -4,12 +4,12 @@ import {
   MapPin, LogIn, UserPlus, ShieldCheck, Lock, Plus,
 } from "lucide-react";
 
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
-const COLOR = "#06B6D4";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const COLOR = "var(--app-accent, #06B6D4)";
 const accent = "#7C3AED";
 const accentCyan = "#0EA5E9";
 

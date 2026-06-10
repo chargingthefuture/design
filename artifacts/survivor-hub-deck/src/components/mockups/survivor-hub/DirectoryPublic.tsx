@@ -1,18 +1,19 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 // Spec §2.4: primary Skills Hunt entry point is the Directory public page,
 // via a "Submit a community profile" CTA on the pinned reward card.
 import { useState } from "react";
-import { BookOpen, Users, Star, MapPin, Lock, Search, X, ExternalLink, Send } from "lucide-react";
+import { BookOpen, Users, MapPin, Lock, Search, X, ExternalLink, Send } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#3B82F6", HUNT_COLOR = "#A855F7";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
 
 const PREVIEW = [
-  { name: "Maria G.",   role: "Trauma Therapist",   loc: "Houston, TX",  rating: 4.9, community: false },
-  { name: "James T.",   role: "Housing Navigator",   loc: "Atlanta, GA",  rating: 4.8, community: false },
-  { name: "Amara O.",   role: "Employment Coach",    loc: "Chicago, IL",  rating: 4.7, community: true  },
-  { name: "Priya S.",   role: "Legal Advocate",      loc: "New York, NY", rating: 5.0, community: false },
-  { name: "Lena H.",    role: "Tech Skills Trainer", loc: "Remote",       rating: 4.9, community: true  },
-  { name: "DeShawn W.", role: "Financial Counselor", loc: "Dallas, TX",   rating: 4.6, community: false },
+  { name: "Maria G.",   role: "Trauma Therapist",   loc: "Houston, TX",  community: false },
+  { name: "James T.",   role: "Housing Navigator",   loc: "Atlanta, GA",  community: false },
+  { name: "Amara O.",   role: "Employment Coach",    loc: "Chicago, IL",  community: true  },
+  { name: "Priya S.",   role: "Legal Advocate",      loc: "New York, NY", community: false },
+  { name: "Lena H.",    role: "Tech Skills Trainer", loc: "Remote",       community: true  },
+  { name: "DeShawn W.", role: "Financial Counselor", loc: "Dallas, TX",   community: false },
 ];
 
 // Inline submission modal state (shown over the page when CTA is clicked)
@@ -26,7 +27,7 @@ export function DirectoryPublic() {
   const BIO_MAX = 280;
 
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       {/* Top bar */}
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <BookOpen size={18} color={COLOR} />
@@ -69,15 +70,15 @@ export function DirectoryPublic() {
         </div>
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-            <div style={{ fontSize: 15, fontWeight: 800, color: "#F9FAFB" }}>Skills Hunt — Community Reward</div>
+            <div style={{ fontSize: 15, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Skills Hunt — Community Reward</div>
             <span style={{ padding: "2px 10px", borderRadius: 20, background: "#22C55E20", border: "1px solid #22C55E35", fontSize: 11, color: "#22C55E", fontWeight: 700 }}>Active Round</span>
           </div>
           <div style={{ fontSize: 13, color: "#9CA3AF", lineHeight: 1.5 }}>
             Know a survivor with skills the community needs? Submit their public Quora profile and help grow the Directory from 60 → 384+ profiles. Earn points, badges, and prizes.
           </div>
-          <div style={{ display: "flex", gap: 16, marginTop: 8, fontSize: 12, color: "#6B7280" }}>
-            <span>🔍 <strong style={{ color: "#E8EAF0" }}>247</strong> submitted this week</span>
-            <span>🏆 <strong style={{ color: "#E8EAF0" }}>63</strong> active scouts</span>
+          <div style={{ display: "flex", gap: 16, marginTop: 8, fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>
+            <span>🔍 <strong style={{ color: "var(--comic-text-primary, #E8EAF0)" }}>247</strong> submitted this week</span>
+            <span>🏆 <strong style={{ color: "var(--comic-text-primary, #E8EAF0)" }}>63</strong> active scouts</span>
             <span>💎 <strong style={{ color: HUNT_COLOR }}>Rare skills earn 2×</strong></span>
           </div>
         </div>
@@ -103,10 +104,8 @@ export function DirectoryPublic() {
                 </div>
                 <div style={{ fontSize: 12, color: "#9CA3AF", marginTop: 2 }}>{p.role}</div>
                 <div style={{ display: "flex", gap: 8, marginTop: 6, alignItems: "center" }}>
-                  <Star size={11} color="#F59E0B" fill="#F59E0B" />
-                  <span style={{ fontSize: 12 }}>{p.rating}</span>
-                  <MapPin size={11} color="#6B7280" />
-                  <span style={{ fontSize: 12, color: "#6B7280" }}>{p.loc}</span>
+                  <MapPin size={11} color="var(--comic-text-secondary, #6B7280)" />
+                  <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{p.loc}</span>
                 </div>
               </div>
             </div>
@@ -117,9 +116,9 @@ export function DirectoryPublic() {
           <div style={{ width: 56, height: 56, borderRadius: "50%", border: `2px solid ${COLOR}50`, background: COLOR + "10", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Lock size={24} color={COLOR} />
           </div>
-          <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", textAlign: "center" }}>Sign in to browse 47,000 profiles</div>
-          <div style={{ fontSize: 13, color: "#6B7280", textAlign: "center", maxWidth: 320 }}>
-            Filter by specialty, location, rating, and Service Credit acceptance.
+          <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", textAlign: "center" }}>Sign in to browse 47,000 profiles</div>
+          <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", textAlign: "center", maxWidth: 320 }}>
+            Filter by specialty, location, and Service Credit acceptance.
           </div>
           <button style={{ padding: "12px 32px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>
             Sign in to connect
@@ -137,7 +136,7 @@ export function DirectoryPublic() {
         ].map(({ label, value }, i) => (
           <div key={i}>
             <div style={{ fontSize: 20, fontWeight: 800, color: i === 1 ? HUNT_COLOR : COLOR }}>{value}</div>
-            <div style={{ fontSize: 12, color: "#6B7280", marginTop: 2 }}>{label}</div>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginTop: 2 }}>{label}</div>
           </div>
         ))}
       </div>
@@ -147,13 +146,13 @@ export function DirectoryPublic() {
       {showModal && (
         <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 100, padding: 24 }}>
           <div style={{ width: "100%", maxWidth: 520, background: "#15181F", border: `1px solid ${HUNT_COLOR}30`, borderRadius: 20, padding: "28px 32px", position: "relative" }}>
-            <button onClick={() => { setShowModal(false); setSubmitted(false); }} style={{ position: "absolute", top: 16, right: 16, background: "none", border: "none", color: "#6B7280", cursor: "pointer" }}><X size={18} /></button>
+            <button onClick={() => { setShowModal(false); setSubmitted(false); }} style={{ position: "absolute", top: 16, right: 16, background: "none", border: "none", color: "var(--comic-text-secondary, #6B7280)", cursor: "pointer" }}><X size={18} /></button>
 
             {submitted ? (
               <div style={{ textAlign: "center", padding: "20px 0" }}>
                 <div style={{ fontSize: 40, marginBottom: 12 }}>✅</div>
-                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB", marginBottom: 8 }}>Profile submitted!</div>
-                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 20 }}>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>Profile submitted!</div>
+                <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.7, marginBottom: 20 }}>
                   Thank you for growing the network. This profile will be reviewed and added to the Directory. Join the Hub to track your submission and earn points.
                 </div>
                 <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
@@ -167,9 +166,9 @@ export function DirectoryPublic() {
                   <div style={{ width: 32, height: 32, borderRadius: 10, background: `${HUNT_COLOR}20`, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <Search size={16} style={{ color: HUNT_COLOR }} />
                   </div>
-                  <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB" }}>Submit a community profile</div>
+                  <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Submit a community profile</div>
                 </div>
-                <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.6, marginBottom: 20 }}>
+                <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6, marginBottom: 20 }}>
                   Think of someone you believe may be a survivor — no certainty required. Their Quora profile provides social proof. Skills are selected from our taxonomy when you join.
                 </div>
 
@@ -184,7 +183,7 @@ export function DirectoryPublic() {
                       value={displayName}
                       onChange={e => setDisplayName(e.target.value.replace(/[^a-zA-Z\s]/g, "").slice(0, 100))}
                       placeholder="e.g. Amara Williams"
-                      style={{ width: "100%", padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${displayName.length >= 2 ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }}
+                      style={{ width: "100%", padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${displayName.length >= 2 ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }}
                     />
                   </div>
 
@@ -198,7 +197,7 @@ export function DirectoryPublic() {
                       onChange={e => setBio(e.target.value.slice(0, BIO_MAX))}
                       rows={2}
                       placeholder="e.g. Lives in Houston, works in construction…"
-                      style={{ width: "100%", padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${bio ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit" }}
+                      style={{ width: "100%", padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${bio ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit" }}
                     />
                     <div style={{ fontSize: 11, color: bio.length > 240 ? "#F59E0B" : "#4B5563", textAlign: "right" }}>{bio.length}/{BIO_MAX}</div>
                   </div>
@@ -209,13 +208,13 @@ export function DirectoryPublic() {
                       Quora Profile URL <span style={{ fontSize: 11, color: "#4B5563", fontWeight: 400 }}>(highly recommended — social proof)</span>
                     </label>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: `1px solid ${quora ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10 }}>
-                      <ExternalLink size={14} style={{ color: "#6B7280" }} />
-                      <input value={quora} onChange={e => setQuora(e.target.value)} placeholder="https://quora.com/profile/..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                      <ExternalLink size={14} style={{ color: "var(--comic-text-secondary, #6B7280)" }} />
+                      <input value={quora} onChange={e => setQuora(e.target.value)} placeholder="https://quora.com/profile/..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                     </div>
                     <div style={{ fontSize: 11, color: "#4B5563", marginTop: 4 }}>Reduces infiltration risk. Skills selection happens after you join.</div>
                   </div>
 
-                  <div style={{ padding: "10px 14px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", fontSize: 12, color: "#6B7280", lineHeight: 1.5 }}>
+                  <div style={{ padding: "10px 14px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.5 }}>
                     📌 Skills are selected from our verified taxonomy when you create an account. This prevents junk data and helps match the community faster.
                   </div>
 

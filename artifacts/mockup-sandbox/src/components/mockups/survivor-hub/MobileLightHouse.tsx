@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Home, Search, Heart, Shield, MapPin, Bed, Bath, MessageSquare, ArrowLeft, ChevronRight, Lock } from "lucide-react";
 
-const COLOR = "#EAB308";
+const COLOR = "var(--app-accent, #EAB308)";
 
 const LISTINGS = [
   { id: 1, title: "Private Studio — Safe & Verified", location: "Midtown Houston", price: 850, credits: true, beds: 0, baths: 1, rating: 4.9, available: "Now", emoji: "🏠" },
@@ -31,19 +31,19 @@ export function MobileLightHouse() {
   if (selected) {
     const l = LISTINGS.find((x) => x.id === selected)!;
     return (
-      <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-        <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+      <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+        <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
           <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
         </div>
-        <div style={{ padding: "14px 20px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ padding: "14px 20px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 12 }}>
           <button onClick={() => setSelected(null)} style={{ background: "none", border: "none", cursor: "pointer", color: COLOR, display: "flex", alignItems: "center", gap: 4 }}><ArrowLeft size={16} /> Back</button>
-          <div style={{ flex: 1, fontSize: 16, fontWeight: 800, color: "#F9FAFB", textAlign: "center" }}>Listing</div>
-          <button onClick={() => toggleSave(l.id)} style={{ background: "none", border: "none", cursor: "pointer" }}><Heart size={20} style={{ color: saved.includes(l.id) ? "#EC4899" : "#6B7280" }} fill={saved.includes(l.id) ? "#EC4899" : "none"} /></button>
+          <div style={{ flex: 1, fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", textAlign: "center" }}>Listing</div>
+          <button onClick={() => toggleSave(l.id)} style={{ background: "none", border: "none", cursor: "pointer" }}><Heart size={20} style={{ color: saved.includes(l.id) ? "#EC4899" : "var(--comic-text-secondary, #6B7280)" }} fill={saved.includes(l.id) ? "#EC4899" : "none"} /></button>
         </div>
         <ScrollArea style={{ flex: 1 }}>
           <div style={{ padding: "32px 0 16px", background: `${COLOR}08`, borderBottom: "1px solid rgba(255,255,255,0.06)", textAlign: "center", fontSize: 64 }}>{l.emoji}</div>
           <div style={{ padding: "20px" }}>
-            <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 8 }}>{l.title}</div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>{l.title}</div>
             <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
               <Badge style={{ background: "rgba(255,255,255,0.05)", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.08)", fontSize: 11 }}><MapPin size={10} style={{ display: "inline", marginRight: 3 }} />{l.location}</Badge>
               <Badge style={{ background: "rgba(250,204,21,0.1)", color: "#FBBF24", border: "1px solid rgba(250,204,21,0.2)", fontSize: 11 }}>⭐ {l.rating}</Badge>
@@ -55,14 +55,14 @@ export function MobileLightHouse() {
               <span>Available: {l.available}</span>
             </div>
             <div style={{ padding: "16px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, marginBottom: 16 }}>
-              <div style={{ fontSize: 32, fontWeight: 900, color: COLOR, marginBottom: 2 }}>${l.price}<span style={{ fontSize: 13, color: "#6B7280", fontWeight: 400 }}>/mo</span></div>
+              <div style={{ fontSize: 32, fontWeight: 900, color: COLOR, marginBottom: 2 }}>${l.price}<span style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", fontWeight: 400 }}>/mo</span></div>
               {l.credits && <div style={{ fontSize: 12, color: "#F59E0B" }}>✓ Accepts Service Credits</div>}
             </div>
-            <button style={{ width: "100%", padding: "14px", borderRadius: 14, background: COLOR, border: "none", color: "#0F1117", fontSize: 15, fontWeight: 800, cursor: "pointer", marginBottom: 10 }}>Apply Now</button>
+            <button style={{ width: "100%", padding: "14px", borderRadius: 14, background: COLOR, border: "none", color: "var(--comic-bg, #0F1117)", fontSize: 15, fontWeight: 800, cursor: "pointer", marginBottom: 10 }}>Apply Now</button>
             <button style={{ width: "100%", padding: "12px", borderRadius: 14, background: "rgba(255,255,255,0.04)", border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 600, cursor: "pointer", marginBottom: 16 }}>Message Host</button>
             <div style={{ padding: "12px 14px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}><Lock size={12} style={{ color: COLOR }} /><span style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>Privacy Protected</span></div>
-              <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Your location is never shown until you confirm. All communications are encrypted.</div>
+              <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6 }}>Your location is never shown until you confirm. All communications are encrypted.</div>
             </div>
           </div>
         </ScrollArea>
@@ -71,23 +71,23 @@ export function MobileLightHouse() {
   }
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
-      <div style={{ padding: "14px 20px 12px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "14px 20px 12px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}><Home size={18} style={{ color: COLOR }} /></div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>LightHouse</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>LightHouse</div>
             <div style={{ fontSize: 11, color: COLOR }}>1,204 verified listings</div>
           </div>
         </div>
         <div style={{ padding: "4px 10px", borderRadius: 20, background: "#EF444420", border: "1px solid #EF444440", fontSize: 11, color: "#EF4444", fontWeight: 700 }}>5 Emergency</div>
       </div>
-      <div style={{ padding: "10px 16px", display: "flex", gap: 6, overflowX: "auto", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div style={{ padding: "10px 16px", display: "flex", gap: 6, overflowX: "auto", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         {["All", "Available Now", "Credits OK", "Verified", "Emergency"].map((f, i) => (
-          <button key={f} style={{ padding: "6px 14px", borderRadius: 20, fontSize: 12, fontWeight: 600, background: i === 0 ? `${COLOR}20` : "rgba(255,255,255,0.04)", border: `1px solid ${i === 0 ? COLOR + "50" : "rgba(255,255,255,0.06)"}`, color: i === 0 ? COLOR : "#6B7280", cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0 }}>{f}</button>
+          <button key={f} style={{ padding: "6px 14px", borderRadius: 20, fontSize: 12, fontWeight: 600, background: i === 0 ? `${COLOR}20` : "rgba(255,255,255,0.04)", border: `1px solid ${i === 0 ? COLOR + "50" : "rgba(255,255,255,0.06)"}`, color: i === 0 ? COLOR : "var(--comic-text-secondary, #6B7280)", cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0 }}>{f}</button>
         ))}
       </div>
       <ScrollArea style={{ flex: 1 }}>
@@ -102,15 +102,15 @@ export function MobileLightHouse() {
               <div onClick={() => setSelected(l.id)} style={{ padding: "24px 0", background: `${COLOR}06`, textAlign: "center", fontSize: 48 }}>{l.emoji}</div>
               <div style={{ padding: "14px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB", flex: 1, marginRight: 8, lineHeight: 1.3 }}>{l.title}</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", flex: 1, marginRight: 8, lineHeight: 1.3 }}>{l.title}</div>
                   <button onClick={() => toggleSave(l.id)} style={{ background: "none", border: "none", cursor: "pointer", flexShrink: 0 }}>
                     <Heart size={16} style={{ color: saved.includes(l.id) ? "#EC4899" : "#4B5563" }} fill={saved.includes(l.id) ? "#EC4899" : "none"} />
                   </button>
                 </div>
-                <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 8 }}><MapPin size={11} style={{ display: "inline" }} /> {l.location}</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 8 }}><MapPin size={11} style={{ display: "inline" }} /> {l.location}</div>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div>
-                    <div style={{ fontSize: 18, fontWeight: 800, color: COLOR }}>${l.price}<span style={{ fontSize: 11, color: "#6B7280", fontWeight: 400 }}>/mo</span></div>
+                    <div style={{ fontSize: 18, fontWeight: 800, color: COLOR }}>${l.price}<span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)", fontWeight: 400 }}>/mo</span></div>
                     {l.credits && <div style={{ fontSize: 10, color: "#F59E0B" }}>Credits ✓</div>}
                   </div>
                   <button onClick={() => setSelected(l.id)} style={{ padding: "8px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 12, fontWeight: 600, cursor: "pointer" }}>View</button>
@@ -120,11 +120,11 @@ export function MobileLightHouse() {
           ))}
         </div>
       </ScrollArea>
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? COLOR : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? COLOR : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

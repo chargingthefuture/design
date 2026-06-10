@@ -25,7 +25,7 @@ function TrustHeader({ verified }: { verified: boolean }) {
       <div style={{
         display: "flex", alignItems: "center", gap: 4,
         background: verified ? BRAND_DIM : "rgba(255,255,255,0.05)",
-        color: verified ? "#38BDF8" : "#6B7280",
+        color: verified ? "#38BDF8" : "var(--comic-text-secondary, #6B7280)",
         border: `1px solid ${verified ? BRAND_BORDER : "rgba(255,255,255,0.08)"}`,
         fontSize: 10, padding: "2px 8px", borderRadius: 20,
       }}>
@@ -61,7 +61,7 @@ function TrustEmpty() {
           {["Complete your profile", "Make your first transaction", "Use at least one plugin"].map((label) => (
             <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 9px", background: "rgba(255,255,255,0.02)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)" }}>
               <div style={{ width: 16, height: 16, borderRadius: "50%", border: "1.5px solid rgba(255,255,255,0.12)", flexShrink: 0 }} />
-              <span style={{ fontSize: 11, color: "#6B7280" }}>{label}</span>
+              <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{label}</span>
             </div>
           ))}
         </div>
@@ -107,7 +107,7 @@ function TrustVerified() {
           {steps.map(({ label, done }) => (
             <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 9px", background: "rgba(255,255,255,0.02)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)" }}>
               <CheckCircle2 size={14} style={{ color: done ? "#38BDF8" : "rgba(255,255,255,0.12)", flexShrink: 0 }} />
-              <span style={{ fontSize: 11, color: done ? "#CBD5E1" : "#6B7280", textDecoration: done ? "none" : "none" }}>{label}</span>
+              <span style={{ fontSize: 11, color: done ? "#CBD5E1" : "var(--comic-text-secondary, #6B7280)", textDecoration: done ? "none" : "none" }}>{label}</span>
             </div>
           ))}
         </div>
@@ -126,7 +126,7 @@ function TrustVerified() {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "7px 9px", background: "rgba(255,255,255,0.03)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)", cursor: "pointer" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <Eye size={11} style={{ color: "#4B5563" }} />
-            <span style={{ fontSize: 11, color: "#6B7280" }}>Visible to: All Members</span>
+            <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Visible to: All Members</span>
           </div>
           <ChevronDown size={11} style={{ color: "#4B5563" }} />
         </div>
@@ -138,7 +138,7 @@ function TrustVerified() {
 export function Trust() {
   return (
     <div style={{
-      minHeight: "100vh", background: "#0F1117",
+      minHeight: "100vh", background: "var(--comic-bg, #0F1117)",
       display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
       padding: 40, gap: 32, fontFamily: "'Inter', sans-serif",
     }}>

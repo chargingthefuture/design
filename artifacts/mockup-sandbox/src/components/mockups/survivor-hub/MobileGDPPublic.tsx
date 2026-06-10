@@ -2,17 +2,17 @@
 // STATE: Unauthenticated — visitor with no session
 import { TrendingUp, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#06B6D4";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#06B6D4";
 const BARS = [37, 25, 20, 18];
 const LABELS = ["Employed", "Training", "Seeking", "Exploring"];
-const COLS = ["#22C55E", COLOR, "#F59E0B", "#6B7280"];
+const COLS = ["#22C55E", COLOR, "#F59E0B", "var(--comic-text-secondary, #6B7280)"];
 
 export function MobileGDPPublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ padding: "24px 20px 16px", display: "flex", flexDirection: "column", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -24,10 +24,10 @@ export function MobileGDPPublic() {
 
         {/* Live snapshot */}
         <div style={{ borderRadius: 16, border: `1px solid ${COLOR}30`, background: COLOR + "06", padding: "16px 18px", display: "flex", flexDirection: "column", gap: 10 }}>
-          <div style={{ fontSize: 11, color: "#6B7280" }}>Platform economic activity</div>
+          <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Platform economic activity</div>
           <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
             <div style={{ fontSize: 26, fontWeight: 900, color: COLOR }}>$2.4B</div>
-            <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7280", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 6px", letterSpacing: "0.04em" }}>Estimate</span>
+            <span style={{ fontSize: 10, fontWeight: 600, color: "var(--comic-text-secondary, #6B7280)", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 6px", letterSpacing: "0.04em" }}>Estimate</span>
           </div>
           <div style={{ fontSize: 11, color: "#9CA3AF" }}>annual service credits exchanged</div>
           <div style={{ fontSize: 10.5, color: "#4B5563", marginTop: 6, lineHeight: 1.5, fontStyle: "italic" }}>* USD estimate normalized across currencies — a transparency metric, not a ledger.</div>

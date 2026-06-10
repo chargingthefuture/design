@@ -4,12 +4,12 @@
 import { useState } from "react";
 import { Globe, ShieldCheck, Clock, CheckCircle, Edit2, AlertTriangle, ChevronLeft } from "lucide-react";
 
-const COLOR = "#06B6D4";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #06B6D4)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 type CurrencyRow = {
   code: string; label: string; isServiceCredits?: boolean; isFixed?: boolean;
@@ -51,13 +51,13 @@ export function MobileGDPRateAdmin() {
     <div style={{ width: 390, height: "100vh", maxHeight: "100%", background: bg, fontFamily: "'Inter',system-ui", color: text, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
 
       {/* Header */}
-      <div style={{ padding: "12px 16px", background: "#0D0F14", borderBottom: `1px solid ${border}`, flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
+      <div style={{ padding: "12px 16px", background: "var(--comic-surface, #0D0F14)", borderBottom: `1px solid ${border}`, flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
         {editing && !saved && (
           <button onClick={() => setEditing(null)} style={{ background: "none", border: "none", cursor: "pointer", color: COLOR, display: "flex", alignItems: "center", marginRight: 4, padding: 0 }}>
             <ChevronLeft size={20} />

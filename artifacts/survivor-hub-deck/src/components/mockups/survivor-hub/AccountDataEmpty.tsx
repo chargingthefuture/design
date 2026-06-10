@@ -6,11 +6,11 @@ import {
 } from "lucide-react";
 
 const BRAND = "#E91E8C";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const PREVIEW_SERVICES = [
   { icon: "💬", name: "Chyme",      desc: "Chat messages and room membership" },
@@ -24,7 +24,7 @@ export function AccountDataEmpty() {
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
 
       {/* Icon rail */}
-      <aside style={{ width: 72, background: "#090B0F", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${BRAND}25`, border: `1px solid ${BRAND}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <Shield size={20} color={BRAND} />
         </div>
@@ -40,7 +40,7 @@ export function AccountDataEmpty() {
       </aside>
 
       {/* Left sidebar */}
-      <aside style={{ width: 240, background: "#0D0F14", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: subtle, textTransform: "uppercase", marginBottom: 4 }}>🔒 Account & Data</div>
           <div style={{ fontSize: 12, color: "#4B5563", lineHeight: 1.5 }}>Your data — transparent, under your control</div>
@@ -57,7 +57,7 @@ export function AccountDataEmpty() {
             { l: "Services with your data", v: "0 of 19" },
             { l: "Always retained",          v: "2" },
           ].map(({ l, v }) => (
-            <div key={l} style={{ padding: "5px 2px", fontSize: 12, color: "#6B7280" }}>
+            <div key={l} style={{ padding: "5px 2px", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>
               {l}: <span style={{ color: text, fontWeight: 600 }}>{v}</span>
             </div>
           ))}
@@ -69,7 +69,7 @@ export function AccountDataEmpty() {
 
       {/* Main */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <Shield size={18} color={BRAND} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: text }}>Your Data & Privacy</div>
@@ -107,7 +107,7 @@ export function AccountDataEmpty() {
           {/* Info note */}
           <div style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: "12px 16px", borderRadius: 12, background: `${BRAND}05`, border: `1px solid ${BRAND}15`, maxWidth: 560, width: "100%" }}>
             <Info size={14} color={BRAND} style={{ flexShrink: 0, marginTop: 1 }} />
-            <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6 }}>
               Two entries — ServiceCredits ledger and GDP totals — are always retained for financial integrity and platform accuracy. They hold no personal identifiers.
             </div>
           </div>
@@ -115,7 +115,7 @@ export function AccountDataEmpty() {
       </div>
 
       {/* Right rail */}
-      <aside style={{ width: 280, borderLeft: `1px solid ${border}`, background: "#0D0F14", padding: "20px 16px", flexShrink: 0 }}>
+      <aside style={{ width: 280, borderLeft: `1px solid ${border}`, background: "var(--comic-surface, #0D0F14)", padding: "20px 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 12 }}>Privacy at a Glance</div>
         {[
           { icon: Shield,   label: "End-to-end encrypted",    desc: "All personal data is encrypted at rest." },

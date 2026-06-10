@@ -5,12 +5,12 @@ import {
   Pencil, Check, X, FileText, AtSign, AlertTriangle, ArrowLeft, RotateCcw,
 } from "lucide-react";
 
-const ACCENT = "#0EA5E9";
-const bg = "#0F1117";
-const panel = "#0D0F14";
+const ACCENT = "var(--app-accent, #0EA5E9)";
+const bg = "var(--comic-bg, #0F1117)";
+const panel = "var(--comic-surface, #0D0F14)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const QUESTION = "Is it safe to share my exact address with a host before I arrive?";
 const AI_DRAFT = "You can share your address whenever you feel ready — most hosts ask for it once you book so they can plan your arrival.";
@@ -70,7 +70,7 @@ export function MobileAIReviewConsoleDetail() {
           <textarea
             value={corrected}
             onChange={(e) => setCorrected(e.target.value)}
-            style={{ width: "100%", minHeight: 130, resize: "vertical", boxSizing: "border-box", padding: "13px 14px", borderRadius: 11, background: `${ACCENT}08`, border: `1px solid ${ACCENT}40`, color: "#E8EAF0", fontSize: 13.5, lineHeight: 1.55, fontFamily: "inherit", outline: "none" }}
+            style={{ width: "100%", minHeight: 130, resize: "vertical", boxSizing: "border-box", padding: "13px 14px", borderRadius: 11, background: `${ACCENT}08`, border: `1px solid ${ACCENT}40`, color: "var(--comic-text-primary, #E8EAF0)", fontSize: 13.5, lineHeight: 1.55, fontFamily: "inherit", outline: "none" }}
           />
           <div style={{ fontSize: 10.5, color: "#4B5563", marginTop: 5, textAlign: "right" }}>{corrected.length} characters</div>
         </div>

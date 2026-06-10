@@ -135,16 +135,16 @@ export function MobileHome() {
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: "#fff" }}>SH</div>
             <div>
-              <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>Survivor Hub</div>
+              <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Survivor Hub</div>
               <div style={{ fontSize: 11, color: "#22C55E" }}>Exit Their Economy · 4.9M members</div>
             </div>
           </div>
           <div style={{ display: "flex", gap: 8 }}>
             <button style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-              <Search size={16} style={{ color: "#6B7280" }} />
+              <Search size={16} style={{ color: "var(--comic-text-secondary, #6B7280)" }} />
             </button>
             <button style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-              <Bell size={16} style={{ color: "#6B7280" }} />
+              <Bell size={16} style={{ color: "var(--comic-text-secondary, #6B7280)" }} />
             </button>
           </div>
         </div>
@@ -160,12 +160,12 @@ export function MobileHome() {
                 <Sparkles size={13} style={{ color: "#A78BFA" }} />
                 <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", color: "#A78BFA", textTransform: "uppercase" }}>From Survivor to Thriver</span>
               </div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 8 }}>Your network is active. 🌍</div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>Your network is active. 🌍</div>
               <div style={{ display: "flex", gap: 8 }}>
                 {[{ v: "4.9M", l: "Members", c: "#A78BFA" }, { v: "$247B", l: "GDP", c: "#38BDF8" }, { v: "127", l: "Nations", c: "#34D399" }].map(({ v, l, c }) => (
                   <div key={l} style={{ flex: 1, textAlign: "center", background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: "8px 4px" }}>
                     <div style={{ fontSize: 15, fontWeight: 800, color: c }}>{v}</div>
-                    <div style={{ fontSize: 10, color: "#6B7280" }}>{l}</div>
+                    <div style={{ fontSize: 10, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
                   </div>
                 ))}
               </div>
@@ -214,7 +214,7 @@ export function MobileHome() {
                         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
                           <div style={{ width: 28, height: 28, borderRadius: 8, background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 800, color: "#fff", flexShrink: 0 }}>SH</div>
                           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                            <span style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>Survivor Hub</span>
+                            <span style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>Survivor Hub</span>
                             <span style={{ fontSize: 10, padding: "1px 5px", borderRadius: 3, background: "rgba(124,58,237,0.2)", color: "#A78BFA", fontWeight: 600 }}>📣 Official</span>
                           </div>
                         </div>
@@ -234,7 +234,7 @@ export function MobileHome() {
                             <Sparkles size={14} style={{ color: "#38BDF8" }} />
                           </div>
                           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                            <span style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>AI Assistant</span>
+                            <span style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>AI Assistant</span>
                             <span style={{ fontSize: 10, padding: "1px 5px", borderRadius: 3, background: "rgba(14,165,233,0.12)", color: "#38BDF8", fontWeight: 600 }}>🤖 Q&A</span>
                           </div>
                           <span style={{ fontSize: 11, color: "#4B5563", marginLeft: "auto" }}>{qa.time}</span>
@@ -246,10 +246,10 @@ export function MobileHome() {
                           <span style={{ color: "#38BDF8", fontWeight: 600, fontSize: 12 }}>A: </span>{qa.answer}
                         </div>
                         <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 10, paddingTop: 10, borderTop: "1px solid rgba(14,165,233,0.12)" }}>
-                          <button onClick={() => rate(qa.id, "up")} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 6, background: rating[qa.id] === "up" ? "rgba(34,197,94,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "up" ? "rgba(34,197,94,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "up" ? "#4ADE80" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>
+                          <button onClick={() => rate(qa.id, "up")} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 6, background: rating[qa.id] === "up" ? "rgba(34,197,94,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "up" ? "rgba(34,197,94,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "up" ? "#4ADE80" : "var(--comic-text-secondary, #6B7280)", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>
                             <ThumbsUp size={12} /> Helpful
                           </button>
-                          <button onClick={() => rate(qa.id, "down")} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 6, background: rating[qa.id] === "down" ? "rgba(148,163,184,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "down" ? "rgba(148,163,184,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "down" ? "#CBD5E1" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>
+                          <button onClick={() => rate(qa.id, "down")} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 6, background: rating[qa.id] === "down" ? "rgba(148,163,184,0.15)" : "rgba(255,255,255,0.03)", border: `1px solid ${rating[qa.id] === "down" ? "rgba(148,163,184,0.4)" : "rgba(255,255,255,0.08)"}`, color: rating[qa.id] === "down" ? "#CBD5E1" : "var(--comic-text-secondary, #6B7280)", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>
                             <ThumbsDown size={12} /> Not helpful
                           </button>
                           <button onClick={() => rate(qa.id, "flag")} style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 6, background: rating[qa.id] === "flag" ? "rgba(239,68,68,0.12)" : "transparent", border: `1px solid ${rating[qa.id] === "flag" ? "rgba(239,68,68,0.35)" : "transparent"}`, color: rating[qa.id] === "flag" ? "#F87171" : "#4B5563", fontSize: 11, fontWeight: 600, cursor: "pointer", marginLeft: "auto" }}>
@@ -267,7 +267,7 @@ export function MobileHome() {
                           <div style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                             <Sparkles size={14} style={{ color: "#38BDF8" }} />
                           </div>
-                          <span style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>AI Assistant</span>
+                          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>AI Assistant</span>
                           <span style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 10, padding: "1px 5px", borderRadius: 3, background: "rgba(14,165,233,0.1)", color: "#7DD3FC", fontWeight: 600 }}><ShieldCheck size={9} /> Reviewing</span>
                         </div>
                         <div style={{ padding: "8px 10px", borderRadius: 8, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", marginBottom: 8, fontSize: 12, color: "#9CA3AF" }}>
@@ -285,17 +285,17 @@ export function MobileHome() {
                           <AvatarFallback style={{ background: `${post.authorColor}22`, color: post.authorColor, fontSize: 12, fontWeight: 800 }}>{post.avatar}</AvatarFallback>
                         </Avatar>
                         <div style={{ flex: 1 }}>
-                          <div style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>{post.author}</div>
+                          <div style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{post.author}</div>
                           <div style={{ fontSize: 11, color: "#4B5563" }}>{post.time} ago</div>
                         </div>
                       </div>
                       <div style={{ fontSize: 13, color: "#D1D5DB", lineHeight: 1.6, marginBottom: 10 }}>{post.body}</div>
                       <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
-                        <button onClick={() => toggleLike(post.id)} style={{ display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", cursor: "pointer", color: liked.includes(post.id) ? "#EC4899" : "#6B7280", fontSize: 13 }}>
+                        <button onClick={() => toggleLike(post.id)} style={{ display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", cursor: "pointer", color: liked.includes(post.id) ? "#EC4899" : "var(--comic-text-secondary, #6B7280)", fontSize: 13 }}>
                           <Heart size={14} fill={liked.includes(post.id) ? "#EC4899" : "none"} /> {post.hearts + (liked.includes(post.id) ? 1 : 0)}
                         </button>
-                        <button style={{ display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", cursor: "pointer", color: "#6B7280", fontSize: 13 }}><MessageCircle size={14} /> {post.replies}</button>
-                        <button style={{ display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", cursor: "pointer", color: "#6B7280", fontSize: 13 }}><Share2 size={14} /></button>
+                        <button style={{ display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)", fontSize: 13 }}><MessageCircle size={14} /> {post.replies}</button>
+                        <button style={{ display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)", fontSize: 13 }}><Share2 size={14} /></button>
                       </div>
                     </div>
                   );
@@ -309,11 +309,11 @@ export function MobileHome() {
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 3, padding: "2px 7px", borderRadius: 6, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.3)", color: "#38BDF8", fontSize: 11, fontWeight: 700 }}>
                   <AtSign size={11} /> comic
                 </span>
-                <span style={{ fontSize: 11, color: "#6B7280" }}>Type <span style={{ color: "#38BDF8", fontWeight: 600 }}>@comic</span> to ask the AI Assistant</span>
+                <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Type <span style={{ color: "#38BDF8", fontWeight: 600 }}>@comic</span> to ask the AI Assistant</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                 <Plus size={16} style={{ color: "#4B5563", flexShrink: 0 }} />
-                <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Share, or type @comic to ask…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Share, or type @comic to ask…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                 <button style={{ width: 30, height: 30, borderRadius: 8, background: input.trim() ? "linear-gradient(135deg,#7C3AED,#0EA5E9)" : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
                   <Send size={13} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                 </button>
@@ -324,8 +324,8 @@ export function MobileHome() {
 
         {activeNav === "apps" && (
           <ScrollArea style={{ flex: 1, padding: "16px" }}>
-            <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Apps</div>
-            <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 16 }}>Tap to launch</div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Apps</div>
+            <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 16 }}>Tap to launch</div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>
               {MINI_APPS.map((app) => {
                 const Icon = app.icon;
@@ -334,7 +334,7 @@ export function MobileHome() {
                     <div style={{ width: 44, height: 44, borderRadius: 12, background: `${app.color}20`, border: `1px solid ${app.color}35`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 8px" }}>
                       <Icon size={22} style={{ color: app.color }} />
                     </div>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: "#E8EAF0", marginBottom: 2 }}>{app.name}</div>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: "var(--comic-text-primary, #E8EAF0)", marginBottom: 2 }}>{app.name}</div>
                     <div style={{ fontSize: 14 }}>{app.emoji}</div>
                   </div>
                 );
@@ -351,11 +351,11 @@ export function MobileHome() {
       </div>
 
       {/* Bottom nav */}
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px", flexShrink: 0 }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px", flexShrink: 0 }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? "rgba(124,58,237,0.2)" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? "#A78BFA" : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? "#A78BFA" : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? "#A78BFA" : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

@@ -1,12 +1,12 @@
 // design-sync
 import { Mic, Radio, Clock, Bell, Plus, Lock, Globe, Users } from "lucide-react";
 
-const COLOR = "#22C55E";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #22C55E)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const subtle = "#6B7280";
-const text = "#F9FAFB";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const text = "var(--comic-text-primary, #F9FAFB)";
 
 const UPCOMING = [
   { title: "Survivor Stories: Rebuilding Together", host: "Amara O.", when: "Today · 7 PM UTC", tags: ["healing", "testimony"], privacy: "Public" },

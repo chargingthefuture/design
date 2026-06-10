@@ -4,11 +4,11 @@ import { useState } from "react";
 import { Unlock as UnlockIcon, CheckCircle, Clock, XCircle, ExternalLink, RefreshCw, ChevronRight } from "lucide-react";
 
 const BRAND = "#10B981";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 type Status = "pending" | "approved" | "rejected";
 
@@ -27,13 +27,13 @@ export function MobileUnlock({ initialStatus = "pending" }: { initialStatus?: St
     <div style={{ width: 390, minHeight: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column" }}>
 
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
 
       {/* Header */}
-      <div style={{ padding: "12px 16px", background: "#0D0F14", borderBottom: `1px solid ${border}`, flexShrink: 0 }}>
+      <div style={{ padding: "12px 16px", background: "var(--comic-surface, #0D0F14)", borderBottom: `1px solid ${border}`, flexShrink: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 2 }}>
           <UnlockIcon size={16} color={BRAND} />
           <span style={{ fontSize: 16, fontWeight: 700 }}>Verification Status</span>
@@ -137,7 +137,7 @@ export function MobileUnlock({ initialStatus = "pending" }: { initialStatus?: St
       </div>
 
       {/* Bottom nav */}
-      <div style={{ height: 72, background: "#090B0F", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
         {[
           { icon: <UnlockIcon size={20} color={BRAND} />, label: "Unlock", active: true },
           { icon: <CheckCircle size={20} color={subtle} />, label: "Status", active: false },

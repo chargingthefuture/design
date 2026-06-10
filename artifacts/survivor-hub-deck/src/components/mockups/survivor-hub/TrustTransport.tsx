@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -9,7 +10,7 @@ import {
   Phone, Zap,
 } from "lucide-react";
 
-const COLOR = "#F97316";
+const COLOR = "var(--app-accent, #F97316)";
 const BG = "#1c0a03";
 
 const RIDE_TYPES = [
@@ -50,34 +51,34 @@ export function TrustTransport() {
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex" }}>
-      <aside style={{ width: 72, background: "#090B0F", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex" }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${COLOR}30`, border: `1px solid ${COLOR}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <Car size={20} style={{ color: COLOR }} />
         </div>
         {[{ icon: Car, key: "book" }, { icon: Navigation, key: "tracking" }, { icon: MessageSquare, key: "chat" }].map(({ icon: Icon, key }) => (
-          <button key={key} onClick={() => setTab(key as "book" | "tracking" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "#6B7280" }}>
+          <button key={key} onClick={() => setTab(key as "book" | "tracking" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }}>
             <Icon size={20} />
           </button>
         ))}
         <div style={{ flex: 1 }} />
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Bell size={18} /></button>
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Settings size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Bell size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Settings size={18} /></button>
         <Avatar style={{ width: 36, height: 36 }}>
           <AvatarFallback style={{ background: `${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 700 }}>S</AvatarFallback>
         </Avatar>
       </aside>
 
-      <aside style={{ width: 240, background: "#0D0F14", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>📦 TrustTransport</div>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "var(--comic-text-secondary, #6B7280)", textTransform: "uppercase", marginBottom: 12 }}>📦 TrustTransport</div>
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
             {RIDE_TYPES.map((rt) => {
               const Icon = rt.icon;
               return (
                 <button key={rt.id} onClick={() => setRideType(rt.id)} style={{ flex: 1, padding: "8px 6px", borderRadius: 10, background: rideType === rt.id ? `${rt.color}20` : "rgba(255,255,255,0.04)", border: `1px solid ${rideType === rt.id ? rt.color + "50" : "rgba(255,255,255,0.06)"}`, cursor: "pointer", textAlign: "center" }}>
-                  <Icon size={16} style={{ color: rideType === rt.id ? rt.color : "#6B7280", margin: "0 auto 2px" }} />
-                  <div style={{ fontSize: 10, color: rideType === rt.id ? rt.color : "#6B7280", fontWeight: 600 }}>{rt.name}</div>
+                  <Icon size={16} style={{ color: rideType === rt.id ? rt.color : "var(--comic-text-secondary, #6B7280)", margin: "0 auto 2px" }} />
+                  <div style={{ fontSize: 10, color: rideType === rt.id ? rt.color : "var(--comic-text-secondary, #6B7280)", fontWeight: 600 }}>{rt.name}</div>
                 </button>
               );
             })}
@@ -88,24 +89,24 @@ export function TrustTransport() {
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 8, padding: "0 10px" }}>Recent Trips</div>
             {[{ from: "Home", to: "Medical Center", date: "Today" }, { from: "Home", to: "Job Interview", date: "Yesterday" }, { from: "Shelter", to: "Court House", date: "Mon" }].map((trip, i) => (
               <div key={i} style={{ padding: "10px 10px", borderRadius: 8, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", marginBottom: 6 }}>
-                <div style={{ fontSize: 12, color: "#E8EAF0", fontWeight: 600, marginBottom: 2 }}>{trip.from} → {trip.to}</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-primary, #E8EAF0)", fontWeight: 600, marginBottom: 2 }}>{trip.from} → {trip.to}</div>
                 <div style={{ fontSize: 11, color: "#4B5563" }}>{trip.date}</div>
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Quick Stats</div>
             {[{ l: "Drivers Online", v: "1,247" }, { l: "Avg ETA", v: "5 min" }, { l: "Safety Rating", v: "4.9 ⭐" }].map(({ l, v }) => (
-              <div key={l} style={{ padding: "6px 10px", fontSize: 12, color: "#6B7280" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
+              <div key={l} style={{ padding: "6px 10px", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
             ))}
           </div>
         </ScrollArea>
       </aside>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <Car size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>📦 TrustTransport</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Rides · packages · food · Safety-first · Phase 2</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>📦 TrustTransport</div>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Rides · packages · food · Safety-first </div>
           </div>
           <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E35", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>1,247 Drivers Online</Badge>
         </header>
@@ -114,7 +115,7 @@ export function TrustTransport() {
           <div style={{ flex: 1, display: "flex", overflow: "hidden" }}>
             <div style={{ flex: 1, padding: "24px", display: "flex", flexDirection: "column", gap: 16, overflow: "auto" }}>
               <div style={{ padding: "20px 24px", borderRadius: 16, background: `${COLOR}08`, border: `1px solid ${COLOR}20` }}>
-                <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Book a {RIDE_TYPES.find((r) => r.id === rideType)?.name}</div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Book a {RIDE_TYPES.find((r) => r.id === rideType)?.name}</div>
                 <div style={{ fontSize: 13, color: "#9CA3AF" }}>All drivers background-checked · Trauma-informed · Service Credits accepted</div>
               </div>
               <div style={{ display: "flex", gap: 8 }}>
@@ -122,8 +123,8 @@ export function TrustTransport() {
                   const Icon = rt.icon;
                   return (
                     <button key={rt.id} onClick={() => setRideType(rt.id)} style={{ flex: 1, padding: "16px 12px", borderRadius: 14, background: rideType === rt.id ? `${rt.color}15` : "rgba(255,255,255,0.02)", border: `2px solid ${rideType === rt.id ? rt.color : "rgba(255,255,255,0.06)"}`, cursor: "pointer", textAlign: "center" }}>
-                      <Icon size={24} style={{ color: rideType === rt.id ? rt.color : "#6B7280", marginBottom: 8 }} />
-                      <div style={{ fontSize: 14, fontWeight: 700, color: rideType === rt.id ? rt.color : "#6B7280" }}>{rt.name}</div>
+                      <Icon size={24} style={{ color: rideType === rt.id ? rt.color : "var(--comic-text-secondary, #6B7280)", marginBottom: 8 }} />
+                      <div style={{ fontSize: 14, fontWeight: 700, color: rideType === rt.id ? rt.color : "var(--comic-text-secondary, #6B7280)" }}>{rt.name}</div>
                       <div style={{ fontSize: 11, color: "#4B5563" }}>{rt.desc}</div>
                     </button>
                   );
@@ -132,11 +133,11 @@ export function TrustTransport() {
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 <div style={{ position: "relative" }}>
                   <div style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", width: 8, height: 8, borderRadius: "50%", background: "#22C55E" }} />
-                  <input value={from} onChange={(e) => setFrom(e.target.value)} placeholder="Pickup location (privacy-protected)" style={{ width: "100%", padding: "14px 16px 14px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
+                  <input value={from} onChange={(e) => setFrom(e.target.value)} placeholder="Pickup location (privacy-protected)" style={{ width: "100%", padding: "14px 16px 14px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
                 </div>
                 <div style={{ position: "relative" }}>
                   <div style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", width: 8, height: 8, borderRadius: "50%", background: COLOR }} />
-                  <input value={to} onChange={(e) => setTo(e.target.value)} placeholder="Where to?" style={{ width: "100%", padding: "14px 16px 14px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
+                  <input value={to} onChange={(e) => setTo(e.target.value)} placeholder="Where to?" style={{ width: "100%", padding: "14px 16px 14px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
                 </div>
               </div>
               {(from || to) && (
@@ -149,11 +150,11 @@ export function TrustTransport() {
                       </Avatar>
                       <div style={{ flex: 1 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 2 }}>
-                          <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>{d.name}</div>
+                          <div style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{d.name}</div>
                           {d.verified && <CheckCircle size={13} style={{ color: COLOR }} />}
                           {d.credits && <Badge style={{ background: "#F59E0B10", color: "#F59E0B", border: "1px solid #F59E0B25", fontSize: 10 }}>Credits ✓</Badge>}
                         </div>
-                        <div style={{ fontSize: 12, color: "#6B7280" }}>{d.vehicle} · ⭐ {d.rating} ({d.trips} trips)</div>
+                        <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{d.vehicle} · ⭐ {d.rating} ({d.trips} trips)</div>
                       </div>
                       <div style={{ textAlign: "right" }}>
                         <div style={{ fontSize: 14, fontWeight: 700, color: "#22C55E" }}>ETA {d.eta}</div>
@@ -176,7 +177,7 @@ export function TrustTransport() {
           </div>
         ) : tab === "tracking" ? (
           <div style={{ flex: 1, padding: "24px" }}>
-            <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 20 }}>Live Tracking</div>
+            <div style={{ fontSize: 22, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 20 }}>Live Tracking</div>
             {ACTIVE_ORDERS.map((o) => (
               <div key={o.id} style={{ padding: "24px", borderRadius: 16, background: `${COLOR}08`, border: `1px solid ${COLOR}30` }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
@@ -184,7 +185,7 @@ export function TrustTransport() {
                     <Car size={24} style={{ color: COLOR }} />
                   </div>
                   <div>
-                    <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB" }}>{o.driver} · En Route</div>
+                    <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{o.driver} · En Route</div>
                     <div style={{ fontSize: 13, color: "#9CA3AF" }}>ETA {o.eta} · {o.fare}</div>
                   </div>
                   <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E40", fontSize: 12, marginLeft: "auto" }}>🔴 Live</Badge>
@@ -206,7 +207,7 @@ export function TrustTransport() {
                 <div key={msg.id} style={{ display: "flex", flexDirection: msg.from === "user" ? "row-reverse" : "row", gap: 10, alignItems: "flex-end", marginBottom: 12 }}>
                   {msg.from === "hub" && <div style={{ width: 32, height: 32, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Car size={14} style={{ color: COLOR }} /></div>}
                   <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: 6 }}>
-                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "#E8EAF0" }}>{msg.text}</div>
+                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "var(--comic-text-primary, #E8EAF0)" }}>{msg.text}</div>
                     {(msg as any).action && <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>{(msg as any).action} <ArrowUpRight size={13} /></button>}
                   </div>
                 </div>
@@ -215,7 +216,7 @@ export function TrustTransport() {
             <div style={{ padding: "8px 24px 20px", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                 <Plus size={18} style={{ color: "#4B5563" }} />
-                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Book a ride, package, or food delivery…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Book a ride, package, or food delivery…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                 <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} /></button>
               </div>
             </div>
@@ -223,7 +224,7 @@ export function TrustTransport() {
         )}
       </div>
 
-      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "#0D0F14", padding: "20px 16px", flexShrink: 0 }}>
+      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "var(--comic-surface, #0D0F14)", padding: "20px 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 12 }}>Safety Features</div>
         {[
           { icon: Shield, l: "Background Checked", v: "All drivers", c: "#22C55E" },
@@ -234,15 +235,15 @@ export function TrustTransport() {
           <div key={l} style={{ display: "flex", gap: 10, alignItems: "center", padding: "12px", borderRadius: 10, background: `${c}08`, border: `1px solid ${c}20`, marginBottom: 8 }}>
             <Icon size={16} style={{ color: c, flexShrink: 0 }} />
             <div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: "#E8EAF0" }}>{l}</div>
-              <div style={{ fontSize: 11, color: "#6B7280" }}>{v}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>{l}</div>
+              <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{v}</div>
             </div>
           </div>
         ))}
         <div style={{ marginTop: 8, padding: "16px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Platform Stats</div>
           {[{ l: "Rides Today", v: "12,481" }, { l: "Packages", v: "4,230" }, { l: "Food Orders", v: "8,917" }, { l: "Safety Incidents", v: "0 today" }].map(({ l, v }) => (
-            <div key={l} style={{ display: "flex", justifyContent: "space-between", fontSize: 12, padding: "5px 0", color: "#6B7280" }}>
+            <div key={l} style={{ display: "flex", justifyContent: "space-between", fontSize: 12, padding: "5px 0", color: "var(--comic-text-secondary, #6B7280)" }}>
               <span>{l}</span>
               <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span>
             </div>

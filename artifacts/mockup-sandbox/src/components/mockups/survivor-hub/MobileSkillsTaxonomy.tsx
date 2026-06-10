@@ -4,11 +4,11 @@ import { useState } from "react";
 import { BookOpen, Search, ChevronDown, Plus, Bell } from "lucide-react";
 
 const BRAND = "#8B5CF6";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const SECTORS = [
   { name: "Technology", count: 24, color: "#3B82F6" },
@@ -34,7 +34,7 @@ export function MobileSkillsTaxonomy() {
     <div style={{ width: 390, minHeight: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column" }}>
 
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
@@ -98,7 +98,7 @@ export function MobileSkillsTaxonomy() {
       </div>
 
       {/* Bottom nav */}
-      <div style={{ height: 72, background: "#090B0F", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
         {[
           { label: "Browse", active: true },
           { label: "Search", active: false },

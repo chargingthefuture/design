@@ -4,11 +4,11 @@ import { useState } from "react";
 import { Heart, DollarSign, MessageSquare, Github, X } from "lucide-react";
 
 const COLOR   = "#F472B6";
-const bg      = "#0F1117";
+const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";
-const text    = "#F9FAFB";
-const subtle  = "#6B7280";
+const text    = "var(--comic-text-primary, #F9FAFB)";
+const subtle  = "var(--comic-text-secondary, #6B7280)";
 
 const GOALS = [
   { label: "Funding",  current: 1340, target: 2400, unit: "$", Icon: DollarSign,    color: "#22C55E" },
@@ -70,7 +70,7 @@ export function ContributionsBanner() {
     <div style={{ width: "100%", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column" }}>
 
       {/* Demo context header */}
-      <div style={{ padding: "10px 18px", borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-between", background: "#090B0F" }}>
+      <div style={{ padding: "10px 18px", borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-between", background: "var(--comic-surface-alt, #090B0F)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{ width: 22, height: 22, borderRadius: 6, background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <span style={{ fontSize: 11, fontWeight: 700, color: "#fff" }}>SH</span>

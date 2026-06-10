@@ -3,7 +3,7 @@
 
 export function FoundationLoading() {
   return (
-    <div style={{ display: "flex", height: "100vh", background: "#0F1117", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',system-ui" }}>
+    <div style={{ display: "flex", height: "100vh", background: "var(--comic-bg, #0F1117)", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',system-ui" }}>
       <div style={{ textAlign: "center", padding: "0 32px" }}>
         <div style={{ fontSize: 11, letterSpacing: "0.18em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", fontWeight: 500, marginBottom: 16, lineHeight: 2 }}>
           EXIT THEIR ECONOMY

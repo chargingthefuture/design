@@ -1,10 +1,11 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Car, Package, Navigation, CheckCircle, Shield, AlertCircle, Phone, Home, MessageSquare, Clock } from "lucide-react";
 
-const COLOR = "#F97316";
+const COLOR = "var(--app-accent, #F97316)";
 
 const DRIVERS = [
   { id: 1, name: "Jose Martinez", rating: 4.9, trips: 847, eta: "3 min", avatar: "JM", vehicle: "Toyota Camry", credits: true },
@@ -26,15 +27,15 @@ export function MobileTrustTransport() {
   const [booked, setBooked] = useState(false);
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100%", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
-      <div style={{ padding: "14px 20px 12px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "14px 20px 12px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}><Car size={18} style={{ color: COLOR }} /></div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>TrustTransport</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>TrustTransport</div>
             <div style={{ fontSize: 11, color: COLOR }}>1,247 drivers online</div>
           </div>
         </div>
@@ -46,17 +47,17 @@ export function MobileTrustTransport() {
           {activeNav === "ride" && (
             <>
               <div style={{ padding: "16px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}18`, marginBottom: 16 }}>
-                <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Book a Safe Ride</div>
-                <div style={{ fontSize: 12, color: "#6B7280" }}>Background-checked drivers · Trauma-informed · Credits OK</div>
+                <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Book a Safe Ride</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Background-checked drivers · Trauma-informed · ServiceCredits OK</div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 }}>
                 <div style={{ position: "relative" }}>
                   <div style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", width: 8, height: 8, borderRadius: "50%", background: "#22C55E" }} />
-                  <input value={from} onChange={(e) => setFrom(e.target.value)} placeholder="Pickup location (private)" style={{ width: "100%", padding: "14px 14px 14px 32px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
+                  <input value={from} onChange={(e) => setFrom(e.target.value)} placeholder="Pickup location (private)" style={{ width: "100%", padding: "14px 14px 14px 32px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
                 </div>
                 <div style={{ position: "relative" }}>
                   <div style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", width: 8, height: 8, borderRadius: "50%", background: COLOR }} />
-                  <input value={to} onChange={(e) => setTo(e.target.value)} placeholder="Where to?" style={{ width: "100%", padding: "14px 14px 14px 32px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
+                  <input value={to} onChange={(e) => setTo(e.target.value)} placeholder="Where to?" style={{ width: "100%", padding: "14px 14px 14px 32px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
                 </div>
               </div>
               {(from || to) ? (
@@ -69,10 +70,10 @@ export function MobileTrustTransport() {
                       </Avatar>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 2 }}>
-                          <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB" }}>{d.name}</div>
-                          {d.credits && <Badge style={{ background: "#F59E0B10", color: "#F59E0B", border: "1px solid #F59E0B25", fontSize: 10 }}>Credits</Badge>}
+                          <div style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{d.name}</div>
+                          {d.credits && <Badge style={{ background: "#F59E0B10", color: "#F59E0B", border: "1px solid #F59E0B25", fontSize: 10 }}>ServiceCredits</Badge>}
                         </div>
-                        <div style={{ fontSize: 12, color: "#6B7280" }}>{d.vehicle} · ⭐ {d.rating}</div>
+                        <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{d.vehicle} · ⭐ {d.rating}</div>
                       </div>
                       <div style={{ textAlign: "right" }}>
                         <div style={{ fontSize: 13, color: "#22C55E", fontWeight: 700, marginBottom: 6 }}>ETA {d.eta}</div>
@@ -84,7 +85,7 @@ export function MobileTrustTransport() {
               ) : (
                 <div style={{ textAlign: "center", padding: "24px 0" }}>
                   <div style={{ fontSize: 48, marginBottom: 12 }}>📦</div>
-                  <div style={{ fontSize: 14, color: "#6B7280" }}>Enter pickup and destination to see drivers</div>
+                  <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)" }}>Enter pickup and destination to see drivers</div>
                 </div>
               )}
               {booked && (
@@ -102,10 +103,10 @@ export function MobileTrustTransport() {
             <div>
               <div style={{ padding: "14px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}25`, marginBottom: 16 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-                  <div style={{ fontSize: 15, fontWeight: 700, color: "#F9FAFB" }}>Jose Martinez · En Route</div>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>Jose Martinez · En Route</div>
                   <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E40", fontSize: 11 }}>🔴 Live</Badge>
                 </div>
-                <div style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 12 }}>ETA 8 min · Toyota Camry · 12 credits</div>
+                <div style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 12 }}>ETA 8 min · Toyota Camry · 12 ServiceCredits</div>
                 <div style={{ padding: "60px 20px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", textAlign: "center", color: "#4B5563", fontSize: 13, marginBottom: 12 }}>
                   [Live Map — encrypted location feed]
                 </div>
@@ -128,17 +129,17 @@ export function MobileTrustTransport() {
           {(activeNav === "package" || activeNav === "chat") && (
             <div style={{ textAlign: "center", padding: "40px 0" }}>
               <div style={{ fontSize: 48, marginBottom: 12 }}>{activeNav === "package" ? "📦" : "💬"}</div>
-              <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>{activeNav === "package" ? "Package Delivery" : "Transport Chat"}</div>
-              <div style={{ fontSize: 13, color: "#6B7280" }}>Encrypted · Safety-first</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>{activeNav === "package" ? "Package Delivery" : "Transport Chat"}</div>
+              <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)" }}>Encrypted · Safety-first</div>
             </div>
           )}
         </div>
       </ScrollArea>
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? COLOR : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? COLOR : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

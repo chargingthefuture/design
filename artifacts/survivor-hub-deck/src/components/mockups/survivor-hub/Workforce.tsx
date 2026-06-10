@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -8,7 +9,7 @@ import {
   Briefcase, Award, Target, CheckCircle, ChevronRight,
 } from "lucide-react";
 
-const COLOR = "#6366F1";
+const COLOR = "var(--app-accent, #B45309)";
 const BG = "#0e0f30";
 
 const SKILL_GAPS = [
@@ -24,7 +25,7 @@ const CHARTS = [
   { label: "Employed", value: 1830000, pct: 37, color: "#22C55E" },
   { label: "In Training", value: 1220000, pct: 25, color: COLOR },
   { label: "Seeking Work", value: 980000, pct: 20, color: "#F59E0B" },
-  { label: "Exploring", value: 890000, pct: 18, color: "#6B7280" },
+  { label: "Exploring", value: 890000, pct: 18, color: "var(--comic-text-secondary, #6B7280)" },
 ];
 
 const CHAT = [
@@ -46,29 +47,29 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex" }}>
+    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex" }}>
       {/* Icon rail */}
-      <aside style={{ width: 72, background: "#090B0F", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${COLOR}30`, border: `1px solid ${COLOR}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <BarChart2 size={20} style={{ color: COLOR }} />
         </div>
         {[{ icon: BarChart2, key: "dashboard" }, { icon: MessageSquare, key: "chat" }].map(({ icon: Icon, key }) => (
-          <button key={key} onClick={() => setTab(key as "dashboard" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "#6B7280" }}>
+          <button key={key} onClick={() => setTab(key as "dashboard" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }}>
             <Icon size={20} />
           </button>
         ))}
         <div style={{ flex: 1 }} />
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Bell size={18} /></button>
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Settings size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Bell size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Settings size={18} /></button>
         <Avatar style={{ width: 36, height: 36 }}>
           <AvatarFallback style={{ background: `${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 700 }}>S</AvatarFallback>
         </Avatar>
       </aside>
 
       {/* Second sidebar */}
-      <aside style={{ width: 240, background: "#0D0F14", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>💼 Workforce</div>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "var(--comic-text-secondary, #6B7280)", textTransform: "uppercase", marginBottom: 12 }}>💼 Workforce</div>
           <div style={{ position: "relative" }}>
             <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: "#4B5563" }} />
             <input placeholder="Search skills, sectors…" style={{ width: "100%", padding: "7px 10px 7px 30px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, fontSize: 13, color: "#9CA3AF", outline: "none", boxSizing: "border-box" }} />
@@ -76,15 +77,15 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
         </div>
         <ScrollArea style={{ flex: 1 }}>
           <div style={{ padding: "0 8px 16px" }}>
-            {["Overview", "Skill Gaps", "By Region", "By Phase", "Recruited", "My Profile"].map((f, i) => (
+            {["Overview", "Skill Gaps", "By Region", "Recruited", "My Profile"].map((f, i) => (
               <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: i === 0 ? `${COLOR}18` : "transparent", borderLeft: i === 0 ? `2px solid ${COLOR}` : "2px solid transparent", marginLeft: 2, marginBottom: 2 }}>
-                <span style={{ fontSize: 13, color: i === 0 ? "#E8EAF0" : "#9CA3AF", flex: 1 }}>{f}</span>
+                <span style={{ fontSize: 13, color: i === 0 ? "var(--comic-text-primary, #E8EAF0)" : "#9CA3AF", flex: 1 }}>{f}</span>
                 {f === "Skill Gaps" && <span style={{ background: "#EF4444", borderRadius: 10, fontSize: 11, fontWeight: 700, color: "#fff", padding: "1px 6px" }}>6</span>}
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Quick Stats</div>
             {[{ l: "Total Members", v: "4.9M" }, { l: "Employed", v: "1.83M" }, { l: "Skill Gaps", v: "6 Critical" }].map(({ l, v }) => (
-              <div key={l} style={{ padding: "7px 10px", fontSize: 12, color: "#6B7280" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
+              <div key={l} style={{ padding: "7px 10px", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
             ))}
           </div>
         </ScrollArea>
@@ -92,28 +93,28 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
 
       {/* Main */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <BarChart2 size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>💼 Workforce Dashboard</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Live skills distribution · 4.9M survivors · Phase 1</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>💼 Workforce Dashboard</div>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Live skills distribution · 4.9M survivors </div>
           </div>
-          <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>Phase 1</Badge>
-          <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
+          
+          <button onClick={() => setEmptyMode(e => !e)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyMode ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyMode ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyMode ? "#EF4444" : "var(--comic-text-secondary, #6B7280)", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyMode ? "Empty State ✓" : "Show Empty State"}</button>
         </header>
 
         {tab === "dashboard" ? (
           emptyMode ? (
             <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 16 }}>
               <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <BarChart2 size={32} style={{ color: "#6366F1", opacity: 0.5 }} />
+                <BarChart2 size={32} style={{ color: "#B45309", opacity: 0.5 }} />
               </div>
               <div style={{ textAlign: "center", maxWidth: 360 }}>
-                <div style={{ fontSize: 20, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No workforce data yet</div>
-                <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 24 }}>Once survivors complete their profile and onboarding, workforce distribution and skill gap analysis will appear here. Live data streams in real time.</div>
+                <div style={{ fontSize: 20, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>No workforce data yet</div>
+                <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.7, marginBottom: 24 }}>Once survivors complete their profile and onboarding, workforce distribution and skill gap analysis will appear here. Live data streams in real time.</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, width: "100%", maxWidth: 700 }}>
-                {[{ label: "Total Members", color: "#6366F1" }, { label: "Employed", color: "#22C55E" }, { label: "In Training", color: "#F59E0B" }, { label: "Skill Gaps", color: "#EF4444" }].map(({ label, color }) => (
+                {[{ label: "Total Members", color: "#B45309" }, { label: "Employed", color: "#22C55E" }, { label: "In Training", color: "#F59E0B" }, { label: "Skill Gaps", color: "#EF4444" }].map(({ label, color }) => (
                   <div key={label} style={{ padding: "20px", borderRadius: 16, background: `${color}06`, border: `1px dashed ${color}25`, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
                     <div style={{ width: 32, height: 8, borderRadius: 4, background: `${color}20` }} />
                     <div style={{ fontSize: 12, color: "#4B5563", textAlign: "center" }}>{label}</div>
@@ -121,12 +122,12 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
                 ))}
               </div>
               <div style={{ padding: "16px 24px", borderRadius: 12, background: "rgba(99,102,241,0.06)", border: "1px dashed rgba(99,102,241,0.2)", width: "100%", maxWidth: 700 }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#6366F1", marginBottom: 6, display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#B45309", marginBottom: 6, display: "flex", alignItems: "center", gap: 6 }}>
                   <Target size={14} /> Critical Skill Gaps
                 </div>
                 <div style={{ fontSize: 13, color: "#4B5563" }}>No skill gap data — gaps populate as workforce profiles are submitted and analyzed. Sourced from Workforce × LevelUp cross-reference.</div>
               </div>
-              <button style={{ padding: "12px 28px", borderRadius: 12, background: "#6366F1", border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+              <button style={{ padding: "12px 28px", borderRadius: 12, background: "#B45309", border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
                 <Plus size={16} /> Invite Survivors to Onboard
               </button>
             </div>
@@ -143,21 +144,21 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
                 ].map(({ label, value, delta, color }) => (
                   <div key={label} style={{ padding: "20px", borderRadius: 16, background: `${color}08`, border: `1px solid ${color}20` }}>
                     <div style={{ fontSize: 28, fontWeight: 800, color, marginBottom: 4 }}>{value}</div>
-                    <div style={{ fontSize: 13, color: "#F9FAFB", fontWeight: 600, marginBottom: 4 }}>{label}</div>
-                    <div style={{ fontSize: 12, color: "#6B7280" }}>{delta}</div>
+                    <div style={{ fontSize: 13, color: "var(--comic-text-primary, #F9FAFB)", fontWeight: 600, marginBottom: 4 }}>{label}</div>
+                    <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{delta}</div>
                   </div>
                 ))}
               </div>
 
               {/* Status distribution */}
               <div style={{ padding: "20px 24px", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", marginBottom: 24 }}>
-                <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 16 }}>Workforce Status Distribution</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 16 }}>Workforce Status Distribution</div>
                 <div style={{ display: "flex", gap: 16, marginBottom: 16 }}>
                   {CHARTS.map((c) => (
                     <div key={c.label} style={{ flex: 1, textAlign: "center" }}>
                       <div style={{ height: 120, background: "rgba(255,255,255,0.03)", borderRadius: 8, position: "relative", overflow: "hidden", marginBottom: 8 }}>
                         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: c.color, height: `${c.pct}%`, borderRadius: "8px 8px 0 0", opacity: 0.85 }} />
-                        <div style={{ position: "absolute", bottom: "50%", left: 0, right: 0, textAlign: "center", fontSize: 18, fontWeight: 800, color: "#F9FAFB", transform: "translateY(50%)" }}>{c.pct}%</div>
+                        <div style={{ position: "absolute", bottom: "50%", left: 0, right: 0, textAlign: "center", fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", transform: "translateY(50%)" }}>{c.pct}%</div>
                       </div>
                       <div style={{ fontSize: 12, color: "#9CA3AF" }}>{c.label}</div>
                       <div style={{ fontSize: 13, color: c.color, fontWeight: 700 }}>{(c.value / 1000000).toFixed(1)}M</div>
@@ -169,13 +170,13 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
               {/* Skill gaps table */}
               <div style={{ padding: "20px 24px", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-                  <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB" }}>Critical Skill Gaps</div>
+                  <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>Critical Skill Gaps</div>
                   <Badge style={{ background: "#EF444420", color: "#EF4444", border: "1px solid #EF444435", fontSize: 11 }}>6 Critical</Badge>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {SKILL_GAPS.map((g) => (
                     <div key={g.skill} style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                      <div style={{ width: 200, fontSize: 13, color: "#E8EAF0", flexShrink: 0 }}>{g.skill}</div>
+                      <div style={{ width: 200, fontSize: 13, color: "var(--comic-text-primary, #E8EAF0)", flexShrink: 0 }}>{g.skill}</div>
                       <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
                         <div style={{ height: 6, background: "rgba(255,255,255,0.05)", borderRadius: 3, overflow: "hidden" }}>
                           <div style={{ height: "100%", background: "#22C55E", borderRadius: 3, width: `${(g.supply / 22000) * 100}%` }} />
@@ -190,8 +191,8 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
                   ))}
                 </div>
                 <div style={{ display: "flex", gap: 16, marginTop: 12 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}><div style={{ width: 12, height: 4, background: "#22C55E", borderRadius: 2 }} /><span style={{ fontSize: 12, color: "#6B7280" }}>Supply</span></div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}><div style={{ width: 12, height: 4, background: "#EF4444", borderRadius: 2 }} /><span style={{ fontSize: 12, color: "#6B7280" }}>Demand</span></div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}><div style={{ width: 12, height: 4, background: "#22C55E", borderRadius: 2 }} /><span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Supply</span></div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}><div style={{ width: 12, height: 4, background: "#EF4444", borderRadius: 2 }} /><span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Demand</span></div>
                 </div>
               </div>
             </div>
@@ -208,7 +209,7 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
                     </div>
                   )}
                   <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: 6 }}>
-                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "#E8EAF0" }}>{msg.text}</div>
+                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "var(--comic-text-primary, #E8EAF0)" }}>{msg.text}</div>
                     {(msg as any).action && (
                       <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>
                         {(msg as any).action} <ArrowUpRight size={13} />
@@ -221,7 +222,7 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
             <div style={{ padding: "8px 24px 20px", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                 <Plus size={18} style={{ color: "#4B5563" }} />
-                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Explore workforce data, skill gaps, pathways…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Explore workforce data, skill gaps, pathways…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                 <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
                   <Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} />
                 </button>
@@ -232,18 +233,18 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
       </div>
 
       {/* Right panel */}
-      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "#0D0F14", padding: "20px 16px", flexShrink: 0 }}>
+      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "var(--comic-surface, #0D0F14)", padding: "20px 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 12 }}>Your Workforce Profile</div>
         <div style={{ padding: "16px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, marginBottom: 16, textAlign: "center" }}>
           <Avatar style={{ width: 52, height: 52, margin: "0 auto 10px" }}>
             <AvatarFallback style={{ background: `${COLOR}30`, color: COLOR, fontSize: 20, fontWeight: 800 }}>S</AvatarFallback>
           </Avatar>
-          <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>Survivor</div>
-          <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 10 }}>Skills: 7 verified · Phase 1</div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Survivor</div>
+          <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 10 }}>Skills: 7 verified </div>
           <div style={{ height: 6, background: "rgba(255,255,255,0.05)", borderRadius: 3, overflow: "hidden", marginBottom: 6 }}>
             <div style={{ height: "100%", background: COLOR, borderRadius: 3, width: "64%" }} />
           </div>
-          <div style={{ fontSize: 11, color: "#6B7280" }}>Profile 64% complete</div>
+          <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Profile 64% complete</div>
         </div>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Recommended Pathways</div>
         {[
@@ -253,7 +254,7 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
         ].map(({ name, match, color }) => (
           <div key={name} style={{ padding: "12px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: `1px solid ${color}20`, marginBottom: 8, display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 13, fontWeight: 600, color: "#E8EAF0", marginBottom: 4 }}>{name}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)", marginBottom: 4 }}>{name}</div>
               <div style={{ height: 4, background: "rgba(255,255,255,0.05)", borderRadius: 2, overflow: "hidden" }}>
                 <div style={{ height: "100%", background: color, borderRadius: 2, width: `${match}%` }} />
               </div>

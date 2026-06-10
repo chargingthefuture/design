@@ -5,11 +5,11 @@ import {
 } from "lucide-react";
 
 const BRAND = "#84CC16";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const PREVIEW = [
   {
@@ -35,13 +35,13 @@ export function MobileWhatWorksPublic() {
     <div style={{ width: 390, height: "100vh", maxHeight: "100%", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
 
       {/* Header */}
-      <div style={{ padding: "12px 16px", background: "#0D0F14", borderBottom: `1px solid ${border}`, flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
+      <div style={{ padding: "12px 16px", background: "var(--comic-surface, #0D0F14)", borderBottom: `1px solid ${border}`, flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
         <ListChecks size={17} color={BRAND} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>What Works</span>
         <button style={{ marginLeft: "auto", padding: "6px 13px", borderRadius: 8, background: BRAND, border: "none", color: "#0A0E06", fontSize: 12.5, fontWeight: 700, cursor: "pointer" }}>Sign In</button>

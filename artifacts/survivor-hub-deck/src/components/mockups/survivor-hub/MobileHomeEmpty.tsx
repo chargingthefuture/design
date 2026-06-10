@@ -5,11 +5,11 @@ import {
   Hash, Globe, Plus, ChevronRight, Sparkles, Search, AtSign, Send,
 } from "lucide-react";
 
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 const accent = "#7C3AED";
 const accentCyan = "#0EA5E9";
 
@@ -32,7 +32,7 @@ export function MobileHomeEmpty() {
     <div style={{ width: 390, height: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
 
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: text }}>9:41</div>
         <div style={{ display: "flex", gap: 6, alignItems: "center", color: "#9CA3AF" }}>
           <div style={{ fontSize: 12 }}>•••</div>
@@ -42,7 +42,7 @@ export function MobileHomeEmpty() {
       </div>
 
       {/* Header */}
-      <div style={{ padding: "14px 20px 10px", background: "#090B0F", borderBottom: `1px solid ${border}`, flexShrink: 0 }}>
+      <div style={{ padding: "14px 20px 10px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: `1px solid ${border}`, flexShrink: 0 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: `linear-gradient(135deg,${accent},${accentCyan})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: "#fff" }}>SH</div>
@@ -134,7 +134,7 @@ export function MobileHomeEmpty() {
       </div>
 
       {/* Bottom nav */}
-      <div style={{ height: 72, background: "#090B0F", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px", flexShrink: 0 }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px", flexShrink: 0 }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: key === "chat" ? "rgba(124,58,237,0.2)" : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>

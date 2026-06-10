@@ -4,11 +4,11 @@ import { useState } from "react";
 import { Coins, CheckCircle, XCircle, AlertTriangle, Plus } from "lucide-react";
 
 const COLOR  = "#F59E0B";
-const bg      = "#0F1117";
+const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";
-const text    = "#F9FAFB";
-const subtle  = "#6B7280";
+const text    = "var(--comic-text-primary, #F9FAFB)";
+const subtle  = "var(--comic-text-secondary, #6B7280)";
 
 const DISPUTES = [
   { id: 1, member: "@yolanda-f", amount: 45, reason: "Gig completed but credits not issued",       status: "pending" },
@@ -31,12 +31,12 @@ export function MobileServiceCreditsAdmin() {
   return (
     <div style={{ width: 390, height: "100vh", background: bg, fontFamily: "'Inter',system-ui,sans-serif", color: text, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
 
-      <div style={{ padding: "12px 16px 10px", borderBottom: `1px solid ${border}`, background: "#0D0F14", flexShrink: 0 }}>
+      <div style={{ padding: "12px 16px 10px", borderBottom: `1px solid ${border}`, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{ width: 34, height: 34, borderRadius: 9, background: `${COLOR}20`, border: `1px solid ${COLOR}35`, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Coins size={16} color={COLOR} />
@@ -90,9 +90,9 @@ export function MobileServiceCreditsAdmin() {
         {/* Manual issue */}
         <div style={{ marginTop: 8, padding: "14px", borderRadius: 12, background: surface, border: `1px dashed ${border}` }}>
           <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 10 }}>Manual credit issuance</div>
-          <input placeholder="@handle" style={{ width: "100%", padding: "8px 12px", borderRadius: 8, background: "#0F1117", border: `1px solid ${border}`, color: text, fontSize: 13, marginBottom: 8, boxSizing: "border-box" }} />
+          <input placeholder="@handle" style={{ width: "100%", padding: "8px 12px", borderRadius: 8, background: "var(--comic-bg, #0F1117)", border: `1px solid ${border}`, color: text, fontSize: 13, marginBottom: 8, boxSizing: "border-box" }} />
           <div style={{ display: "flex", gap: 8 }}>
-            <input placeholder="Amount (SC)" style={{ flex: 1, padding: "8px 12px", borderRadius: 8, background: "#0F1117", border: `1px solid ${border}`, color: text, fontSize: 13 }} />
+            <input placeholder="Amount (SC)" style={{ flex: 1, padding: "8px 12px", borderRadius: 8, background: "var(--comic-bg, #0F1117)", border: `1px solid ${border}`, color: text, fontSize: 13 }} />
             <button style={{ display: "flex", alignItems: "center", gap: 4, padding: "8px 14px", borderRadius: 8, background: COLOR, border: "none", color: "#000", fontSize: 13, fontWeight: 700, cursor: "pointer" }}><Plus size={13} /> Issue</button>
           </div>
         </div>

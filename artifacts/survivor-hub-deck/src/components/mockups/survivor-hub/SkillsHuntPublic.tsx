@@ -1,7 +1,8 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Search, Lock, Users, Zap, TrendingUp } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#A855F7";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#D946EF";
 
 const SCOUTS = [
   { name: "Amara O.", found: 47, gem: true },
@@ -12,7 +13,7 @@ const SCOUTS = [
 
 export function SkillsHuntPublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       {/* Top bar */}
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Search size={18} color={COLOR} />
@@ -41,7 +42,7 @@ export function SkillsHuntPublic() {
             {[{ n: "247", l: "found this week" }, { n: "1,482", l: "skills mapped" }, { n: "63", l: "scouts active" }].map(({ n, l }) => (
               <div key={l} style={{ textAlign: "center" }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: COLOR }}>{n}</div>
-                <div style={{ fontSize: 12, color: "#6B7280" }}>{l}</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
               </div>
             ))}
           </div>
@@ -59,14 +60,14 @@ export function SkillsHuntPublic() {
             {[
               { step: "1", icon: "👤", title: "Someone you believe may be a survivor", desc: "You don't need to be 100% certain — your best judgment is enough." },
               { step: "2", icon: "🔗", title: "Enter their info", desc: "First name, bio, Quora profile for social proof, skills, and claimed professions." },
-              { step: "3", icon: "⚡", title: "They join our economy", desc: "Their skills become tradeable in the network. We stop needing traffickers." },
+              { step: "3", icon: "⚡", title: "They join our economy", desc: "Their skills become tradeable in the network. We build self-sufficient pathways." },
               { step: "4", icon: "🏆", title: "You earn points", desc: "Climb the leaderboard. Earn badges. Find hidden gems." },
             ].map(item => (
               <div key={item.step} style={{ display: "flex", gap: 12, marginBottom: 14, alignItems: "flex-start" }}>
                 <span style={{ fontSize: 20, flexShrink: 0 }}>{item.icon}</span>
                 <div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: "#E8EAF0", marginBottom: 2 }}>{item.title}</div>
-                  <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.5 }}>{item.desc}</div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)", marginBottom: 2 }}>{item.title}</div>
+                  <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.5 }}>{item.desc}</div>
                 </div>
               </div>
             ))}
@@ -82,7 +83,7 @@ export function SkillsHuntPublic() {
             <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 16 }}>Nominate a Survivor</div>
             {["First Name", "Bio", "Quora Profile URL", "Skills", "Claimed Professions"].map(f => (
               <div key={f} style={{ marginBottom: 12 }}>
-                <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 4 }}>{f}</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 4 }}>{f}</div>
                 <div style={{ height: 40, borderRadius: 8, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }} />
               </div>
             ))}
@@ -97,7 +98,7 @@ export function SkillsHuntPublic() {
                 <div style={{ width: 36, height: 36, borderRadius: "50%", background: COLOR + "30" }} />
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 13, fontWeight: 600 }}>{s.name}</div>
-                  <div style={{ fontSize: 11, color: "#6B7280" }}>{s.found} survivors found {s.gem ? "· 💎" : ""}</div>
+                  <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{s.found} survivors found {s.gem ? "· 💎" : ""}</div>
                 </div>
               </div>
             ))}
@@ -108,7 +109,7 @@ export function SkillsHuntPublic() {
             <Lock size={22} color={COLOR} />
           </div>
           <div style={{ fontSize: 16, fontWeight: 700, textAlign: "center" }}>Join to start scouting</div>
-          <div style={{ fontSize: 13, color: "#6B7280", textAlign: "center", maxWidth: 320 }}>
+          <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", textAlign: "center", maxWidth: 320 }}>
             Survivors only. Sign in to nominate people you believe may be survivors and help grow our self-sustaining economy.
           </div>
           <button style={{ padding: "12px 28px", borderRadius: 9, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>

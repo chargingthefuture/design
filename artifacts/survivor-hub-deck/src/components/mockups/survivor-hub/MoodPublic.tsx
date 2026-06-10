@@ -1,11 +1,12 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Smile, Shield, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#EC4899";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#EC4899";
 
 export function MoodPublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Smile size={18} color={COLOR} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>Mood</span>
@@ -44,7 +45,7 @@ export function MoodPublic() {
               {["😢", "😔", "😐", "🙂", "😄"].map((e, i) => (
                 <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
                   <div style={{ fontSize: 28, cursor: "pointer" }}>{e}</div>
-                  <div style={{ fontSize: 11, color: "#6B7280" }}>{["Struggling", "Low", "Okay", "Good", "Great"][i]}</div>
+                  <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{["Struggling", "Low", "Okay", "Good", "Great"][i]}</div>
                 </div>
               ))}
             </div>

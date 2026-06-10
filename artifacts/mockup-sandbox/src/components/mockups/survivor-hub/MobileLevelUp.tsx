@@ -6,7 +6,7 @@ import {
 
 export default function MobileLevelUp() {
   const green = "#10B981";
-  const bg = "#0F1117";
+  const bg = "var(--comic-bg, #0F1117)";
   const surface = "#161B27";
   const border = "#1E2A3A";
   const muted = "#4B5563";

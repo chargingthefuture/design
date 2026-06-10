@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { BookOpen, CheckCircle, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#10B981";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#10B981";
 
 const COHORTS = [
   { title: "Web Development Fundamentals", track: "Tech", credits: 40, seats: 8, tags: ["HTML", "CSS", "React"] },
@@ -13,7 +13,7 @@ const COHORTS = [
 
 export function LevelUpPublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <BookOpen size={18} color={COLOR} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>LevelUp</span>

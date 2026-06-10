@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Globe, BarChart2, TrendingUp, Home } from "lucide-react";
 
-const COLOR = "#06B6D4";
+const COLOR = "var(--app-accent, #06B6D4)";
 
 const SECTORS = [
   { name: "Professional Services", value: 84.2, pct: 34, color: COLOR },
@@ -34,15 +34,15 @@ export function MobileGDP() {
   const [activeNav, setActiveNav] = useState("overview");
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
-      <div style={{ padding: "14px 20px 12px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "14px 20px 12px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}><Globe size={18} style={{ color: COLOR }} /></div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>GDP Tracker</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>GDP Tracker</div>
             <div style={{ fontSize: 11, color: COLOR }}>TI Skills Economy · Live</div>
           </div>
         </div>
@@ -56,8 +56,8 @@ export function MobileGDP() {
               <div style={{ padding: "20px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}20 0%,rgba(6,182,212,0.05) 100%)`, border: `1px solid ${COLOR}25`, marginBottom: 16, textAlign: "center" }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, letterSpacing: "0.08em", marginBottom: 6 }}>TI SKILLS ECONOMY</div>
                 <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 }}>
-                  <div style={{ fontSize: 42, fontWeight: 900, color: "#F9FAFB", lineHeight: 1 }}>$247.1B</div>
-                  <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7280", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 6px", letterSpacing: "0.04em" }}>Estimate</span>
+                  <div style={{ fontSize: 42, fontWeight: 900, color: "var(--comic-text-primary, #F9FAFB)", lineHeight: 1 }}>$247.1B</div>
+                  <span style={{ fontSize: 10, fontWeight: 600, color: "var(--comic-text-secondary, #6B7280)", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 6px", letterSpacing: "0.04em" }}>Estimate</span>
                 </div>
                 <div style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 12 }}>of $300B target · 82.4% reached</div>
                 <div style={{ height: 8, background: "rgba(255,255,255,0.06)", borderRadius: 4, overflow: "hidden" }}>
@@ -69,19 +69,19 @@ export function MobileGDP() {
                 {[{ v: "4.9M", l: "Members", c: "#A78BFA" }, { v: "127", l: "Countries", c: "#22C55E" }, { v: "+$1.2B", l: "This week", c: COLOR }].map(({ v, l, c }) => (
                   <div key={l} style={{ padding: "14px 8px", borderRadius: 12, background: `${c}08`, border: `1px solid ${c}20`, textAlign: "center" }}>
                     <div style={{ fontSize: 18, fontWeight: 800, color: c, marginBottom: 2 }}>{v}</div>
-                    <div style={{ fontSize: 10, color: "#6B7280" }}>{l}</div>
+                    <div style={{ fontSize: 10, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
                   </div>
                 ))}
               </div>
               {/* Top countries */}
               <div style={{ padding: "14px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", marginBottom: 16 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB", marginBottom: 12 }}>Top Countries</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 12 }}>Top Countries</div>
                 {TOP_COUNTRIES.map((c, i) => (
                   <div key={c.country} style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 10 }}>
                     <div style={{ fontSize: 20 }}>{c.flag}</div>
                     <div style={{ flex: 1 }}>
                       <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginBottom: 3 }}>
-                        <span style={{ color: "#E8EAF0" }}>{c.country}</span>
+                        <span style={{ color: "var(--comic-text-primary, #E8EAF0)" }}>{c.country}</span>
                         <span style={{ color: COLOR, fontWeight: 700 }}>${c.gdp}B</span>
                       </div>
                       <div style={{ height: 4, background: "rgba(255,255,255,0.04)", borderRadius: 2, overflow: "hidden" }}>
@@ -93,18 +93,18 @@ export function MobileGDP() {
               </div>
               {/* Your contribution */}
               <div style={{ padding: "14px", borderRadius: 12, background: `${COLOR}08`, border: `1px solid ${COLOR}18`, textAlign: "center" }}>
-                <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 4 }}>Your contribution to GDP</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 4 }}>Your contribution to GDP</div>
                 <div style={{ fontSize: 28, fontWeight: 900, color: COLOR }}>$24,800</div>
               </div>
             </>
           )}
           {activeNav === "sectors" && (
             <>
-              <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB", marginBottom: 12 }}>GDP by Sector</div>
+              <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 12 }}>GDP by Sector</div>
               {SECTORS.map((s) => (
                 <div key={s.name} style={{ marginBottom: 14 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, marginBottom: 4 }}>
-                    <span style={{ color: "#E8EAF0" }}>{s.name}</span>
+                    <span style={{ color: "var(--comic-text-primary, #E8EAF0)" }}>{s.name}</span>
                     <span style={{ color: s.color, fontWeight: 700 }}>${s.value}B ({s.pct}%)</span>
                   </div>
                   <div style={{ height: 8, background: "rgba(255,255,255,0.04)", borderRadius: 4, overflow: "hidden" }}>
@@ -116,7 +116,7 @@ export function MobileGDP() {
           )}
           {activeNav === "trend" && (
             <>
-              <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB", marginBottom: 12 }}>Weekly Growth</div>
+              <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 12 }}>Weekly Growth</div>
               <div style={{ padding: "16px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", marginBottom: 12 }}>
                 <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 100 }}>
                   {[212,218,224,229,235,241,247].map((v, i) => (
@@ -133,24 +133,24 @@ export function MobileGDP() {
                 <div style={{ height: 6, background: "rgba(255,255,255,0.05)", borderRadius: 3, overflow: "hidden", marginBottom: 6 }}>
                   <div style={{ height: "100%", background: COLOR, width: "82.4%" }} />
                 </div>
-                <div style={{ fontSize: 12, color: "#6B7280" }}>82.4% reached · Est. Q4 2026</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>82.4% reached · Est. Q4 2026</div>
               </div>
             </>
           )}
           {activeNav === "home" && (
             <div style={{ textAlign: "center", padding: "32px 0" }}>
               <div style={{ fontSize: 64, marginBottom: 12 }}>🗺️</div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>TI Skills Economy</div>
-              <div style={{ fontSize: 13, color: "#6B7280" }}>Building a $300B survivor economy across 127 countries</div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 6 }}>TI Skills Economy</div>
+              <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)" }}>Building a $300B survivor economy across 127 countries</div>
             </div>
           )}
         </div>
       </ScrollArea>
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? COLOR : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? COLOR : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { BookOpen, Lock, Search, X, ExternalLink, Send } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
 
 export function MobileDirectoryPublic() {
   const [showModal, setShowModal] = useState(false);
@@ -16,10 +16,10 @@ export function MobileDirectoryPublic() {
   const BIO_MAX = 280;
 
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
 
       <div style={{ padding: "20px 20px 14px", display: "flex", flexDirection: "column", gap: 12 }}>
@@ -39,14 +39,14 @@ export function MobileDirectoryPublic() {
           <div style={{ width: 28, height: 28, borderRadius: 8, background: `${HUNT_COLOR}20`, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Search size={14} style={{ color: HUNT_COLOR }} />
           </div>
-          <div style={{ fontSize: 14, fontWeight: 800, color: "#F9FAFB" }}>Skills Hunt</div>
+          <div style={{ fontSize: 14, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Skills Hunt</div>
           <span style={{ marginLeft: "auto", fontSize: 10, background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E35", borderRadius: 10, padding: "2px 8px", fontWeight: 700 }}>Active</span>
         </div>
         <div style={{ fontSize: 12, color: "#9CA3AF", lineHeight: 1.5, marginBottom: 10 }}>
           Know a survivor? Submit their public Quora profile and help grow the Directory. Earn points &amp; badges.
         </div>
-        <div style={{ display: "flex", gap: 12, marginBottom: 12, fontSize: 11, color: "#6B7280" }}>
-          <span>🔍 <strong style={{ color: "#E8EAF0" }}>247</strong> this week</span>
+        <div style={{ display: "flex", gap: 12, marginBottom: 12, fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>
+          <span>🔍 <strong style={{ color: "var(--comic-text-primary, #E8EAF0)" }}>247</strong> this week</span>
           <span>💎 <strong style={{ color: HUNT_COLOR }}>Rare skills 2×</strong></span>
         </div>
         <button
@@ -90,22 +90,22 @@ export function MobileDirectoryPublic() {
         <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)", display: "flex", alignItems: "flex-end", zIndex: 100 }}>
           <div style={{ width: "100%", background: "#15181F", border: `1px solid ${HUNT_COLOR}30`, borderRadius: "20px 20px 0 0", padding: "24px 20px 40px", maxHeight: "90vh", overflowY: "auto" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-              <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>Submit a community profile</div>
-              <button onClick={() => { setShowModal(false); setSubmitted(false); }} style={{ background: "none", border: "none", color: "#6B7280", cursor: "pointer" }}><X size={18} /></button>
+              <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Submit a community profile</div>
+              <button onClick={() => { setShowModal(false); setSubmitted(false); }} style={{ background: "none", border: "none", color: "var(--comic-text-secondary, #6B7280)", cursor: "pointer" }}><X size={18} /></button>
             </div>
 
             {submitted ? (
               <div style={{ textAlign: "center", padding: "16px 0" }}>
                 <div style={{ fontSize: 36, marginBottom: 12 }}>✅</div>
-                <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 8 }}>Profile submitted!</div>
-                <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.6, marginBottom: 20 }}>
+                <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>Profile submitted!</div>
+                <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6, marginBottom: 20 }}>
                   Thank you for growing the network. Join the Hub to track your submission and earn points.
                 </div>
                 <button style={{ width: "100%", padding: "13px", borderRadius: 12, background: HUNT_COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Join to earn points</button>
               </div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.5 }}>
+                <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.5 }}>
                   Think of someone you believe may be a survivor — no certainty needed. Quora provides social proof. Skills are added from our taxonomy when you join.
                 </div>
 
@@ -114,24 +114,24 @@ export function MobileDirectoryPublic() {
                     Display Name <span style={{ color: HUNT_COLOR }}>*</span>
                     <span style={{ color: "#4B5563", fontWeight: 400 }}> · letters & spaces, 2–100 chars</span>
                   </div>
-                  <input value={displayName} onChange={e => setDisplayName(e.target.value.replace(/[^a-zA-Z\s]/g, "").slice(0, 100))} placeholder="e.g. Amara Williams" style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${displayName.length >= 2 ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
+                  <input value={displayName} onChange={e => setDisplayName(e.target.value.replace(/[^a-zA-Z\s]/g, "").slice(0, 100))} placeholder="e.g. Amara Williams" style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${displayName.length >= 2 ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
                 </div>
 
                 <div>
                   <div style={{ fontSize: 11, color: "#9CA3AF", fontWeight: 600, marginBottom: 5 }}>Bio <span style={{ color: "#4B5563", fontWeight: 400 }}>(optional)</span></div>
-                  <textarea value={bio} onChange={e => setBio(e.target.value.slice(0, BIO_MAX))} rows={2} placeholder="One sentence about who they are…" style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${bio ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 13, color: "#E8EAF0", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit" }} />
+                  <textarea value={bio} onChange={e => setBio(e.target.value.slice(0, BIO_MAX))} rows={2} placeholder="One sentence about who they are…" style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${bio ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 13, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit" }} />
                   <div style={{ fontSize: 10, color: bio.length > 240 ? "#F59E0B" : "#4B5563", textAlign: "right" }}>{bio.length}/{BIO_MAX}</div>
                 </div>
 
                 <div>
                   <div style={{ fontSize: 11, color: "#9CA3AF", fontWeight: 600, marginBottom: 5 }}>Quora Profile URL <span style={{ color: "#4B5563", fontWeight: 400 }}>(social proof)</span></div>
                   <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${quora ? HUNT_COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10 }}>
-                    <ExternalLink size={13} style={{ color: "#6B7280" }} />
-                    <input value={quora} onChange={e => setQuora(e.target.value)} placeholder="quora.com/profile/..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 13, color: "#E8EAF0" }} />
+                    <ExternalLink size={13} style={{ color: "var(--comic-text-secondary, #6B7280)" }} />
+                    <input value={quora} onChange={e => setQuora(e.target.value)} placeholder="quora.com/profile/..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 13, color: "var(--comic-text-primary, #E8EAF0)" }} />
                   </div>
                 </div>
 
-                <div style={{ padding: "10px 12px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", fontSize: 11, color: "#6B7280", lineHeight: 1.5 }}>
+                <div style={{ padding: "10px 12px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", fontSize: 11, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.5 }}>
                   📌 Skills are picked from our verified taxonomy when you join — keeping profiles clean and matchable.
                 </div>
 

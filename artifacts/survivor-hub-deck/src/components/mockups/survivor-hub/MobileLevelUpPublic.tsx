@@ -1,14 +1,15 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { BookOpen, Lock, CheckCircle } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#22C55E";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#10B981";
 
 export function MobileLevelUpPublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ padding: "24px 20px 16px", display: "flex", flexDirection: "column", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -41,7 +42,7 @@ export function MobileLevelUpPublic() {
                 <div style={{ fontSize: 11, color: "#9CA3AF", marginTop: 2 }}>{c.track}</div>
               </div>
               <div style={{ textAlign: "right" }}>
-                <div style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>+{c.credits} cr</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: COLOR }}>+{c.credits} ServiceCredits</div>
                 <div style={{ fontSize: 11, color: c.seats === 0 ? "#EF4444" : "#9CA3AF" }}>{c.seats === 0 ? "Full" : `${c.seats} left`}</div>
               </div>
             </div>

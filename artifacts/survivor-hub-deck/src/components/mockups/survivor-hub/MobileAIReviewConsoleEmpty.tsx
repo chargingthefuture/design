@@ -2,11 +2,11 @@
 // STATE: Empty (mobile) — Owner Review & Correction Console
 import { ShieldCheck, Clock, CheckCircle2, Inbox } from "lucide-react";
 
-const ACCENT = "#0EA5E9";
-const bg = "#0F1117";
+const ACCENT = "var(--app-accent, #0EA5E9)";
+const bg = "var(--comic-bg, #0F1117)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 export function MobileAIReviewConsoleEmpty() {
   return (

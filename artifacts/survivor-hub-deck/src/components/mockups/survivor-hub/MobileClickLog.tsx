@@ -1,13 +1,14 @@
+// design-sync
 // STATE: Authenticated + Populated
 import { useState } from "react";
 import { AlertTriangle, Clock, FileText, Bell, MapPin, Trash2 } from "lucide-react";
 
 const BRAND = "#E91E8C";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const INCIDENTS = [
   { id: 1, time: "Today, 9:41 AM", notes: "Felt unsafe at transit stop.", hasLocation: true },
@@ -29,7 +30,7 @@ export function MobileClickLog() {
     <div style={{ width: 390, minHeight: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column" }}>
 
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
@@ -113,7 +114,7 @@ export function MobileClickLog() {
       </div>
 
       {/* Bottom nav */}
-      <div style={{ height: 72, background: "#090B0F", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
         {[
           { Icon: AlertTriangle, label: "Log", key: "log" },
           { Icon: Clock, label: "History", key: "history" },

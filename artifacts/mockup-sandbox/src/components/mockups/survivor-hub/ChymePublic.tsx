@@ -4,12 +4,12 @@ import {
   Globe, Clock, Hash, Heart, Bell, Search, Star,
 } from "lucide-react";
 
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
-const COLOR = "#22C55E";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const COLOR = "var(--app-accent, #22C55E)";
 const accent = "#7C3AED";
 const accentCyan = "#0EA5E9";
 

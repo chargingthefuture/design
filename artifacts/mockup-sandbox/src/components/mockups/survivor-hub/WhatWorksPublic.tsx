@@ -6,11 +6,11 @@ import {
 } from "lucide-react";
 
 const BRAND = "#84CC16";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const PREVIEW = [
   {
@@ -37,7 +37,7 @@ export function WhatWorksPublic() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxHeight: "100%", background: bg, fontFamily: "'Inter',system-ui", color: text, overflow: "hidden" }}>
 
       {/* Top bar */}
-      <div style={{ height: 52, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 28px", gap: 10, flexShrink: 0, background: "#0D0F14" }}>
+      <div style={{ height: 52, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 28px", gap: 10, flexShrink: 0, background: "var(--comic-surface, #0D0F14)" }}>
         <ListChecks size={18} color={BRAND} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>What Works</span>
         <span style={{ fontSize: 12, color: subtle, marginLeft: 4 }}>· survivor-verified tools</span>

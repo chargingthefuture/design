@@ -7,12 +7,12 @@ import {
   Globe, ShieldCheck, Clock, CheckCircle, Edit2, AlertTriangle,
 } from "lucide-react";
 
-const COLOR = "#06B6D4";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #06B6D4)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 type CurrencyRow = {
   code: string; label: string; isServiceCredits?: boolean; isFixed?: boolean;
@@ -65,7 +65,7 @@ export function GDPRateAdmin() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", maxHeight: "100%", background: bg, fontFamily: "'Inter',system-ui", color: text, overflow: "hidden" }}>
 
       {/* Header */}
-      <div style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 28px", gap: 12, background: "#0D0F14", flexShrink: 0 }}>
+      <div style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 28px", gap: 12, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
         <Globe size={18} color={COLOR} />
         <div>
           <div style={{ fontSize: 15, fontWeight: 600 }}>GDP — Currency Rate Admin</div>
@@ -85,7 +85,7 @@ export function GDPRateAdmin() {
           <div style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "13px 16px", borderRadius: 12, background: "rgba(234,179,8,0.05)", border: "1px solid rgba(234,179,8,0.18)", marginBottom: 24 }}>
             <AlertTriangle size={14} color="#EAB308" style={{ flexShrink: 0, marginTop: 2 }} />
             <div style={{ fontSize: 12, color: "#9CA3AF", lineHeight: 1.65 }}>
-              These factors exist <strong style={{ color: "#F9FAFB" }}>solely</strong> to normalize multi-currency activity into one aggregate GDP estimate — a morale and transparency metric. They are <strong style={{ color: "#F9FAFB" }}>never</strong> a redemption rate, per-wallet conversion, or price of ServiceCredits. Revisions add a new dated row; all prior values are preserved as history.
+              These factors exist <strong style={{ color: "var(--comic-text-primary, #F9FAFB)" }}>solely</strong> to normalize multi-currency activity into one aggregate GDP estimate — a morale and transparency metric. They are <strong style={{ color: "var(--comic-text-primary, #F9FAFB)" }}>never</strong> a redemption rate, per-wallet conversion, or price of ServiceCredits. Revisions add a new dated row; all prior values are preserved as history.
             </div>
           </div>
 

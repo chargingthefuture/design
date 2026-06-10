@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Zap, Lock, ArrowRight } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#F59E0B";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F59E0B";
 
 const EARN_WAYS = [
   { action: "Complete a GentlePulse session", credits: "+5" },
@@ -21,7 +21,7 @@ const SPEND_WAYS = [
 
 export function ServiceCreditsPublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Zap size={18} color={COLOR} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>ServiceCredits</span>

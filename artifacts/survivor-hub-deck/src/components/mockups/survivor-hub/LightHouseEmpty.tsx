@@ -1,11 +1,12 @@
+// design-sync
 import { Home, MapPin, Search, Bell, Filter, Heart, Shield, AlertCircle } from "lucide-react";
 
-const COLOR = "#EAB308";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #EAB308)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const subtle = "#6B7280";
-const text = "#F9FAFB";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const text = "var(--comic-text-primary, #F9FAFB)";
 
 const FILTER_CHIPS = ["Any price", "1 bed+", "Accepts credits", "Available now", "Female-only", "Verified host"];
 const CATEGORIES = ["All", "Private Studio", "1BR", "2BR+", "Safe House", "Temporary"];
@@ -38,7 +39,6 @@ export function LightHouseEmpty() {
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
             <Home size={16} color={COLOR} />
             <span style={{ fontSize: 15, fontWeight: 700, color: text }}>LightHouse</span>
-            <span style={{ marginLeft: "auto", fontSize: 11, background: `${COLOR}18`, color: COLOR, border: `1px solid ${COLOR}30`, borderRadius: 4, padding: "2px 7px" }}>Phase 2</span>
           </div>
           <div style={{ position: "relative", marginBottom: 10 }}>
             <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: subtle }} />

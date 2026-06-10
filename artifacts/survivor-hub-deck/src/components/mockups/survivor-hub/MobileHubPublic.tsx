@@ -5,11 +5,11 @@ import {
   Lock, LogIn, AlertCircle, MessageCircle,
 } from "lucide-react";
 
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 const accent = "#7C3AED";
 const accentCyan = "#0EA5E9";
 
@@ -40,7 +40,7 @@ const PUBLIC_STREAM = [
   },
   {
     id: 5, type: "community",
-    author: "Community member", avatar: "?", authorColor: "#6B7280", time: "2 hr",
+    author: "Community member", avatar: "?", authorColor: "var(--comic-text-secondary, #6B7280)", time: "2 hr",
     body: "ServiceCredits 101: earn through Foundation / SkillsHunt / SocketRelay, spend on housing or transport, trade peer-to-peer.",
     replies: 9, hearts: 63,
   },
@@ -57,7 +57,7 @@ export function MobileHubPublic() {
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden", fontSize: 14 }}>
 
       {/* Status bar */}
-      <div style={{ background: "#090B0F", padding: "12px 16px 6px", display: "flex", justifyContent: "space-between", flexShrink: 0 }}>
+      <div style={{ background: "var(--comic-surface-alt, #090B0F)", padding: "12px 16px 6px", display: "flex", justifyContent: "space-between", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 600 }}>9:41</span>
         <span style={{ fontSize: 11, color: subtle }}>●●●</span>
       </div>
@@ -114,7 +114,7 @@ export function MobileHubPublic() {
                 )}
                 <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 6 }}>
                   <div style={{ width: 26, height: 26, borderRadius: 7, background: `linear-gradient(135deg,${accent},${accentCyan})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, fontWeight: 800, color: "#fff", flexShrink: 0 }}>SH</div>
-                  <span style={{ fontSize: 12, fontWeight: 700, color: "#F9FAFB" }}>Survivor Hub</span>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>Survivor Hub</span>
                   <span style={{ fontSize: 10, padding: "1px 5px", borderRadius: 3, background: "rgba(124,58,237,0.18)", color: "#A78BFA", fontWeight: 600 }}>📣 Official</span>
                   <span style={{ fontSize: 11, color: subtle, marginLeft: "auto" }}>{item.time}</span>
                 </div>
@@ -130,7 +130,7 @@ export function MobileHubPublic() {
                   <div style={{ width: 26, height: 26, borderRadius: 7, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <Sparkles size={13} style={{ color: "#38BDF8" }} />
                   </div>
-                  <span style={{ fontSize: 12, fontWeight: 700, color: "#F9FAFB" }}>AI Assistant</span>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>AI Assistant</span>
                   <span style={{ fontSize: 10, padding: "1px 5px", borderRadius: 3, background: "rgba(14,165,233,0.12)", color: "#38BDF8", fontWeight: 600 }}>🤖 Q&A</span>
                   <span style={{ fontSize: 11, color: subtle, marginLeft: "auto" }}>{item.time}</span>
                 </div>
@@ -150,7 +150,7 @@ export function MobileHubPublic() {
                 <div style={{ width: 32, height: 32, borderRadius: "50%", background: `${post.authorColor}22`, border: `1px solid ${post.authorColor}38`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 800, color: post.authorColor, flexShrink: 0 }}>{post.avatar}</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ display: "flex", alignItems: "baseline", gap: 7, marginBottom: 3 }}>
-                    <span style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>{post.author}</span>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{post.author}</span>
                     <span style={{ fontSize: 11, color: subtle }}>{post.time} ago</span>
                   </div>
                   <div style={{ fontSize: 13, color: "#D1D5DB", lineHeight: 1.55, marginBottom: 7 }}>{post.body}</div>
@@ -177,7 +177,7 @@ export function MobileHubPublic() {
       </div>
 
       {/* Bottom nav (locked) */}
-      <div style={{ display: "flex", borderTop: `1px solid ${border}`, background: "#090B0F", flexShrink: 0 }}>
+      <div style={{ display: "flex", borderTop: `1px solid ${border}`, background: "var(--comic-surface-alt, #090B0F)", flexShrink: 0 }}>
         {[
           { icon: MessageSquare, label: "Community", active: true },
           { icon: Radio, label: "Chyme", active: false },

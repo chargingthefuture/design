@@ -4,18 +4,18 @@ import {
   ShieldCheck, Inbox, Sparkles, FileText, Bell, Settings, CheckCircle2,
 } from "lucide-react";
 
-const ACCENT = "#0EA5E9";
-const bg = "#0F1117";
-const panel = "#0D0F14";
+const ACCENT = "var(--app-accent, #0EA5E9)";
+const bg = "var(--comic-bg, #0F1117)";
+const panel = "var(--comic-surface, #0D0F14)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 export function AIReviewConsoleEmpty() {
   return (
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
       {/* Icon rail */}
-      <aside style={{ width: 72, background: "#090B0F", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", padding: "16px 0", gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", padding: "16px 0", gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${ACCENT}22`, border: `1px solid ${ACCENT}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <ShieldCheck size={20} color={ACCENT} />
         </div>

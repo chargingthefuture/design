@@ -1,3 +1,4 @@
+// design-sync
 import { useState } from "react";
 import {
   Home, BookOpen, TrendingUp, Users, Trophy, Coins,
@@ -6,8 +7,8 @@ import {
 } from "lucide-react";
 
 export default function LevelUp({ initialEmpty = false }: { initialEmpty?: boolean } = {}) {
-  const green = "#22C55E";
-  const bg = "#0F1117";
+  const green = "#10B981";
+  const bg = "var(--comic-bg, #0F1117)";
   const surface = "#161B27";
   const border = "#1E2A3A";
   const muted = "#4B5563";
@@ -137,7 +138,7 @@ export default function LevelUp({ initialEmpty = false }: { initialEmpty?: boole
     { label: "Open Cohorts", value: "18", Icon: BookOpen, color: green },
     { label: "Enrolled Learners", value: "342", Icon: Users, color: "#3B82F6" },
     { label: "Milestones Validated", value: "1,204", Icon: CheckCircle, color: "#F59E0B" },
-    { label: "Credits Released", value: "8,910 SC", Icon: Coins, color: "#A855F7" },
+    { label: "Credits Released", value: "8,910 ServiceCredits", Icon: Coins, color: "#A855F7" },
   ];
 
   const pendingValidations = [

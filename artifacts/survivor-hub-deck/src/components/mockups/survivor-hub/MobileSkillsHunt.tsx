@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Search, Trophy, Target, Users, Plus, X, ExternalLink, CheckCircle, Send, ChevronDown, Lock } from "lucide-react";
 
-const COLOR = "#D946EF";
+const COLOR = "var(--app-accent, #D946EF)";
 
 // Spec §2.1: taxonomy-first, sourced from skills_taxonomy_skills
 const SKILL_TAXONOMY: Record<string, string[]> = {
@@ -84,26 +84,26 @@ export function MobileSkillsHunt() {
   ];
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
 
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div>
         <div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
 
-      <div style={{ padding: "14px 20px 12px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "14px 20px 12px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Search size={18} style={{ color: COLOR }} />
           </div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>Skills Hunt</div>
-            <div style={{ fontSize: 11, color: "#6B7280" }}>Nominate · connect · build</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Skills Hunt</div>
+            <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Nominate · connect · build</div>
           </div>
         </div>
         <div style={{ padding: "8px 12px", borderRadius: 10, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, textAlign: "center" }}>
           <div style={{ fontSize: 14, fontWeight: 800, color: COLOR }}>394</div>
-          <div style={{ fontSize: 9, color: "#6B7280" }}>pts · #4</div>
+          <div style={{ fontSize: 9, color: "var(--comic-text-secondary, #6B7280)" }}>pts · #4</div>
         </div>
       </div>
 
@@ -117,8 +117,8 @@ export function MobileSkillsHunt() {
                 <div style={{ width: 64, height: 64, borderRadius: "50%", background: "#22C55E20", border: "1px solid #22C55E40", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <CheckCircle size={32} style={{ color: "#22C55E" }} />
                 </div>
-                <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB" }}>Nomination submitted!</div>
-                <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.6, maxWidth: 280 }}>
+                <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Nomination submitted!</div>
+                <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6, maxWidth: 280 }}>
                   Thank you. Points are granted when an admin accepts. <span style={{ color: COLOR, fontWeight: 700 }}>+30 pts pending ⏳</span>
                 </div>
                 <button onClick={() => { setSubmitted(false); setDisplayName(""); setBio(""); setQuora(""); setSkills([]); setProposed([]); }} style={{ padding: "12px 28px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Nominate Another</button>
@@ -126,8 +126,8 @@ export function MobileSkillsHunt() {
             ) : (
               <>
                 <div style={{ marginBottom: 14 }}>
-                  <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Nominate a Survivor</div>
-                  <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.5 }}>Think of someone you believe may be a survivor — no certainty needed. Their Quora profile helps verify their identity, and their skills join our economy.</div>
+                  <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Nominate a Survivor</div>
+                  <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.5 }}>Think of someone you believe may be a survivor — no certainty needed. Their Quora profile helps verify their identity, and their skills join our economy.</div>
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -141,7 +141,7 @@ export function MobileSkillsHunt() {
                       value={displayName}
                       onChange={e => setDisplayName(e.target.value.replace(/[^a-zA-Z\s]/g, "").slice(0, 100))}
                       placeholder="e.g. Amara Williams"
-                      style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${displayName.length >= 2 ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }}
+                      style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${displayName.length >= 2 ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }}
                     />
                   </div>
 
@@ -153,7 +153,7 @@ export function MobileSkillsHunt() {
                       onChange={e => setBio(e.target.value.slice(0, BIO_MAX))}
                       rows={2}
                       placeholder="One sentence about who they are…"
-                      style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${bio ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 13, color: "#E8EAF0", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit" }}
+                      style={{ width: "100%", padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${bio ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10, fontSize: 13, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", resize: "none", boxSizing: "border-box", fontFamily: "inherit" }}
                     />
                     <div style={{ fontSize: 10, color: bio.length > 240 ? "#F59E0B" : "#4B5563", textAlign: "right" }}>{bio.length}/{BIO_MAX}</div>
                   </div>
@@ -162,8 +162,8 @@ export function MobileSkillsHunt() {
                   <div>
                     <div style={{ fontSize: 11, color: "#9CA3AF", marginBottom: 4, fontWeight: 600 }}>Quora Profile URL <span style={{ color: "#4B5563", fontWeight: 400 }}>(social proof)</span></div>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 12px", background: "rgba(255,255,255,0.04)", border: `1px solid ${quora ? COLOR + "50" : "rgba(255,255,255,0.1)"}`, borderRadius: 10 }}>
-                      <ExternalLink size={13} style={{ color: "#6B7280" }} />
-                      <input value={quora} onChange={e => setQuora(e.target.value)} placeholder="quora.com/profile/..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 13, color: "#E8EAF0" }} />
+                      <ExternalLink size={13} style={{ color: "var(--comic-text-secondary, #6B7280)" }} />
+                      <input value={quora} onChange={e => setQuora(e.target.value)} placeholder="quora.com/profile/..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 13, color: "var(--comic-text-primary, #E8EAF0)" }} />
                     </div>
                   </div>
 
@@ -233,7 +233,7 @@ export function MobileSkillsHunt() {
                       <div>
                         <div style={{ fontSize: 10, color: "#4B5563", marginBottom: 5 }}>Not in the list? Add free-text skills (comma-separated, each ≤ 40 chars):</div>
                         <div style={{ display: "flex", gap: 6 }}>
-                          <input value={freeText} onChange={e => setFreeText(e.target.value)} onKeyDown={e => { if (e.key === "Enter") { e.preventDefault(); addProposed(); }}} placeholder="e.g. Kintsugi, Beekeeping…" style={{ flex: 1, padding: "8px 10px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 8, fontSize: 12, color: "#E8EAF0", outline: "none" }} />
+                          <input value={freeText} onChange={e => setFreeText(e.target.value)} onKeyDown={e => { if (e.key === "Enter") { e.preventDefault(); addProposed(); }}} placeholder="e.g. Kintsugi, Beekeeping…" style={{ flex: 1, padding: "8px 10px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 8, fontSize: 12, color: "var(--comic-text-primary, #E8EAF0)", outline: "none" }} />
                           <button onClick={addProposed} style={{ padding: "8px 12px", borderRadius: 8, background: "rgba(251,191,36,0.1)", border: "1px solid rgba(251,191,36,0.2)", color: "#FBBF24", cursor: "pointer", fontSize: 12 }}>Add</button>
                         </div>
                         <div style={{ fontSize: 10, color: "#4B5563", marginTop: 3 }}>Yellow = proposed · admin promotes to taxonomy later</div>
@@ -251,8 +251,8 @@ export function MobileSkillsHunt() {
                   <div style={{ padding: "12px", borderRadius: 12, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, display: "flex", gap: 10, alignItems: "center" }}>
                     <Target size={16} style={{ color: COLOR, flexShrink: 0 }} />
                     <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: 12, fontWeight: 700, color: "#E8EAF0" }}>Mission: Find coding survivors</div>
-                      <div style={{ fontSize: 11, color: "#6B7280" }}>2/3 · 150 pts on complete</div>
+                      <div style={{ fontSize: 12, fontWeight: 700, color: "var(--comic-text-primary, #E8EAF0)" }}>Mission: Find coding survivors</div>
+                      <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>2/3 · 150 pts on complete</div>
                     </div>
                   </div>
                 </div>
@@ -263,15 +263,15 @@ export function MobileSkillsHunt() {
           {/* LEADERBOARD — spec: accepted_points DESC, first_match_count DESC */}
           {activeNav === "leaderboard" && (
             <>
-              <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 2 }}>Scout Leaderboard</div>
-              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 4 }}>Ranked by accepted points — tie-break: first-match count</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 2 }}>Scout Leaderboard</div>
+              <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 4 }}>Ranked by accepted points — tie-break: first-match count</div>
               <div style={{ fontSize: 11, color: "#4B5563", marginBottom: 14 }}>⏳ Pending converts after admin review</div>
               {LEADERBOARD.map(p => (
                 <div key={p.rank} style={{ padding: "12px 14px", borderRadius: 12, background: p.isMe ? `${COLOR}12` : "rgba(255,255,255,0.02)", border: `1px solid ${p.isMe ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, marginBottom: 8, display: "flex", alignItems: "center", gap: 12 }}>
                   <div style={{ fontSize: 18, width: 28, textAlign: "center" }}>{p.rank <= 3 ? ["🥇","🥈","🥉"][p.rank-1] : `#${p.rank}`}</div>
                   <Avatar style={{ width: 36, height: 36 }}><AvatarFallback style={{ background: `${COLOR}25`, color: COLOR, fontSize: 13, fontWeight: 800 }}>{p.avatar}</AvatarFallback></Avatar>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: p.isMe ? COLOR : "#F9FAFB" }}>{p.name}{p.isMe ? " (You)" : ""}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: p.isMe ? COLOR : "var(--comic-text-primary, #F9FAFB)" }}>{p.name}{p.isMe ? " (You)" : ""}</div>
                   </div>
                   <div style={{ textAlign: "right" }}>
                     <div style={{ fontSize: 16, fontWeight: 800, color: COLOR }}>{p.pts}</div>
@@ -286,13 +286,13 @@ export function MobileSkillsHunt() {
           {/* MISSIONS */}
           {activeNav === "missions" && (
             <>
-              <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>Active Missions</div>
-              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 14 }}>Complete missions to earn bonus points</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Active Missions</div>
+              <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 14 }}>Complete missions to earn bonus points</div>
               {MISSIONS.map((m, i) => (
                 <div key={i} style={{ padding: "14px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: `1px solid ${m.color}35`, marginBottom: 10 }}>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB", marginBottom: 8, lineHeight: 1.3 }}>{m.title}</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8, lineHeight: 1.3 }}>{m.title}</div>
                   <div style={{ marginBottom: 8 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, marginBottom: 4, color: "#6B7280" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, marginBottom: 4, color: "var(--comic-text-secondary, #6B7280)" }}>
                       <span>{m.progress}/{m.goal} complete</span>
                       <span style={{ color: m.color, fontWeight: 700 }}>+{m.reward} pts</span>
                     </div>
@@ -309,8 +309,8 @@ export function MobileSkillsHunt() {
           {/* MY FINDS */}
           {activeNav === "finds" && (
             <>
-              <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>My Finds</div>
-              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 14 }}>People you've nominated · full names for verification only, not shown publicly</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>My Finds</div>
+              <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 14 }}>People you've nominated · full names for verification only, not shown publicly</div>
 
               {/* Badges row */}
               <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
@@ -324,7 +324,7 @@ export function MobileSkillsHunt() {
               {MY_FINDS.map((f, i) => (
                 <div key={i} style={{ padding: "12px 14px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: `1px solid ${f.status === "hidden_gem" ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, marginBottom: 8 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>{f.name}</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{f.name}</div>
                     <div style={{ padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 700, background: f.status === "verified" ? "#22C55E20" : f.status === "hidden_gem" ? `${COLOR}20` : "rgba(255,165,0,0.15)", color: f.status === "verified" ? "#22C55E" : f.status === "hidden_gem" ? COLOR : "#F59E0B" }}>
                       {f.status === "verified" ? "✓ Accepted" : f.status === "hidden_gem" ? "💎 Rare" : "⏳ Pending"}
                     </div>
@@ -340,11 +340,11 @@ export function MobileSkillsHunt() {
         </div>
       </ScrollArea>
 
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? COLOR : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? COLOR : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

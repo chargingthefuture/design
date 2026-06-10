@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Smile, TrendingUp, Home, Lock, ArrowUpRight } from "lucide-react";
 
-const COLOR = "#EC4899";
+const COLOR = "var(--app-accent, #EC4899)";
 
 const MOODS = [
   { emoji: "😄", label: "Great", value: 5, color: "#22C55E" },
@@ -33,15 +33,15 @@ export function MobileMood() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
-      <div style={{ padding: "14px 20px 12px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "14px 20px 12px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}><Smile size={18} style={{ color: COLOR }} /></div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>Mood</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Mood</div>
             <div style={{ fontSize: 11, color: COLOR }}>100% anonymous check-ins</div>
           </div>
         </div>
@@ -54,8 +54,8 @@ export function MobileMood() {
           {activeNav === "checkin" && !submitted && (
             <>
               <div style={{ textAlign: "center", marginBottom: 24 }}>
-                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>How are you feeling?</div>
-                <div style={{ fontSize: 13, color: "#6B7280" }}>Anonymous · Safe · Private. Your mood never leaves this device.</div>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 6 }}>How are you feeling?</div>
+                <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)" }}>Anonymous · Safe · Private. Your mood never leaves this device.</div>
               </div>
               <div style={{ display: "flex", gap: 8, justifyContent: "center", marginBottom: 24 }}>
                 {MOODS.map((m) => (
@@ -67,7 +67,7 @@ export function MobileMood() {
               </div>
               {selected && (
                 <>
-                  <textarea placeholder="(Optional) Anything to share? Completely anonymous…" rows={3} style={{ width: "100%", padding: "12px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#E8EAF0", outline: "none", resize: "none", boxSizing: "border-box", marginBottom: 12 }} />
+                  <textarea placeholder="(Optional) Anything to share? Completely anonymous…" rows={3} style={{ width: "100%", padding: "12px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", resize: "none", boxSizing: "border-box", marginBottom: 12 }} />
                   <button onClick={() => setSubmitted(true)} style={{ width: "100%", padding: "14px", borderRadius: 14, background: COLOR, border: "none", color: "#fff", fontSize: 15, fontWeight: 800, cursor: "pointer", marginBottom: 8 }}>Submit Anonymously</button>
                   <div style={{ textAlign: "center", fontSize: 11, color: "#4B5563" }}>Not linked to your account · Encrypted · Instantly deletable</div>
                 </>
@@ -75,21 +75,21 @@ export function MobileMood() {
               <div style={{ marginTop: 20, padding: "14px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", textAlign: "center" }}>
                 <div style={{ fontSize: 24, marginBottom: 6 }}>😄</div>
                 <div style={{ fontSize: 18, fontWeight: 800, color: "#22C55E" }}>4.1</div>
-                <div style={{ fontSize: 12, color: "#6B7280" }}>Community avg today · 12,847 check-ins</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Community avg today · 12,847 check-ins</div>
               </div>
             </>
           )}
           {activeNav === "checkin" && submitted && (
             <div style={{ textAlign: "center", padding: "24px 0" }}>
               <div style={{ fontSize: 80, marginBottom: 16 }}>💚</div>
-              <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>Thank you for checking in.</div>
-              <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 24 }}>You're part of a community supporting each other.</div>
+              <div style={{ fontSize: 22, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 6 }}>Thank you for checking in.</div>
+              <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 24 }}>You're part of a community supporting each other.</div>
               {RESOURCES.map((r) => (
                 <div key={r.title} style={{ padding: "12px 14px", borderRadius: 12, background: `${r.color}10`, border: `1px solid ${r.color}25`, display: "flex", alignItems: "center", gap: 10, cursor: "pointer", marginBottom: 8 }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: r.color, flexShrink: 0 }} />
                   <div style={{ flex: 1, textAlign: "left" }}>
-                    <div style={{ fontSize: 13, fontWeight: 600, color: "#E8EAF0" }}>{r.title}</div>
-                    <div style={{ fontSize: 11, color: "#6B7280" }}>{r.type}</div>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>{r.title}</div>
+                    <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{r.type}</div>
                   </div>
                   <ArrowUpRight size={14} style={{ color: r.color }} />
                 </div>
@@ -99,8 +99,8 @@ export function MobileMood() {
           )}
           {activeNav === "trends" && (
             <>
-              <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Community Wellness</div>
-              <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 16 }}>Aggregated · Individual data never exposed</div>
+              <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Community Wellness</div>
+              <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 16 }}>Aggregated · Individual data never exposed</div>
               <div style={{ padding: "16px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", marginBottom: 12 }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: "#9CA3AF", marginBottom: 12 }}>7-Day Community Mood</div>
                 <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 80 }}>
@@ -116,7 +116,7 @@ export function MobileMood() {
                 {[{ l: "Daily Check-ins", v: "12,847", c: COLOR }, { l: "Avg Score", v: "4.1/5", c: "#22C55E" }, { l: "7-day Trend", v: "+0.3 ↑", c: "#22C55E" }, { l: "Crisis Support Provided", v: "23", c: "#EF4444" }].map(({ l, v, c }) => (
                   <div key={l} style={{ padding: "14px", borderRadius: 12, background: `${c}08`, border: `1px solid ${c}20` }}>
                     <div style={{ fontSize: 20, fontWeight: 800, color: c, marginBottom: 2 }}>{v}</div>
-                    <div style={{ fontSize: 11, color: "#6B7280" }}>{l}</div>
+                    <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
                   </div>
                 ))}
               </div>
@@ -125,18 +125,18 @@ export function MobileMood() {
           {(activeNav === "home" || activeNav === "private") && (
             <div style={{ textAlign: "center", padding: "32px 0" }}>
               <div style={{ fontSize: 64, marginBottom: 16 }}>{activeNav === "home" ? "😁" : "🔒"}</div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 6 }}>{activeNav === "home" ? "Mood Check-in" : "Privacy First"}</div>
-              <div style={{ fontSize: 13, color: "#6B7280", lineHeight: 1.7 }}>{activeNav === "home" ? "Check in daily to track your wellness journey" : "100% anonymous. Zero tracking. Encrypted. Your data is only yours."}</div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 6 }}>{activeNav === "home" ? "Mood Check-in" : "Privacy First"}</div>
+              <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.7 }}>{activeNav === "home" ? "Check in daily to track your wellness journey" : "100% anonymous. Zero tracking. Encrypted. Your data is only yours."}</div>
               {activeNav === "home" && <button onClick={() => setActiveNav("checkin")} style={{ marginTop: 20, padding: "12px 28px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Check In Now</button>}
             </div>
           )}
         </div>
       </ScrollArea>
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? COLOR : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? COLOR : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

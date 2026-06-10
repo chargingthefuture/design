@@ -5,12 +5,12 @@ import {
   ShieldCheck, Sparkles, Check, Pencil, X, FileText, Clock, AtSign, AlertTriangle, ChevronRight,
 } from "lucide-react";
 
-const ACCENT = "#0EA5E9";
-const bg = "#0F1117";
-const panel = "#0D0F14";
+const ACCENT = "var(--app-accent, #0EA5E9)";
+const bg = "var(--comic-bg, #0F1117)";
+const panel = "var(--comic-surface, #0D0F14)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const CONF: Record<string, { label: string; color: string; pct: number }> = {
   high: { label: "High", color: "#22C55E", pct: 88 },
@@ -86,7 +86,7 @@ export function MobileAIReviewConsole() {
             <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.06em", color: subtle, textTransform: "uppercase" }}>AI draft</div>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 9, padding: "1px 6px", borderRadius: 4, background: `${ACCENT}15`, color: "#7DD3FC", fontWeight: 600 }}><Sparkles size={8} /> Not sent</span>
           </div>
-          <div style={{ padding: "14px", borderRadius: 11, background: `${ACCENT}08`, border: `1px solid ${ACCENT}25`, fontSize: 13.5, color: "#E8EAF0", lineHeight: 1.6 }}>{DRAFT}</div>
+          <div style={{ padding: "14px", borderRadius: 11, background: `${ACCENT}08`, border: `1px solid ${ACCENT}25`, fontSize: 13.5, color: "var(--comic-text-primary, #E8EAF0)", lineHeight: 1.6 }}>{DRAFT}</div>
         </div>
 
         <div>

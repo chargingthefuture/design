@@ -6,11 +6,11 @@ import {
 
 const BRAND = "#7C3AED";
 const CYAN = "#0EA5E9";
-const bg = "#0F1117";
-const panel = "#0D0F14";
+const bg = "var(--comic-bg, #0F1117)";
+const panel = "var(--comic-surface, #0D0F14)";
 const border = "rgba(255,255,255,0.08)";
-const text = "#E8EAF0";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #E8EAF0)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const POINTS = [
   { icon: Server, title: "Runs on our own servers", desc: "Self-hosted in Survivor Hub. Your questions never leave our infrastructure." },

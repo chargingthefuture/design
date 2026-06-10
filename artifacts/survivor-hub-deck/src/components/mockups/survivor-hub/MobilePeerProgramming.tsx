@@ -1,10 +1,11 @@
+// design-sync
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Users, Video, MessageSquare, Home, Globe } from "lucide-react";
 
-const COLOR = "#8B5CF6";
+const COLOR = "var(--app-accent, #8B5CF6)";
 
 const COHORTS = [
   { id: 1, name: "Tech for Good — Week 4", facilitator: "Lena H.", time: "Tues 7 PM UTC", members: 12, maxMembers: 12, status: "active", skills: ["React", "Node.js"], countries: ["🇺🇸","🇳🇬","🇧🇷","🇮🇳"], joinable: false },
@@ -24,19 +25,19 @@ export function MobilePeerProgramming() {
   const [joined, setJoined] = useState<number[]>([]);
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100%", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column" }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
-      <div style={{ padding: "14px 20px 12px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "14px 20px 12px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}><Users size={18} style={{ color: COLOR }} /></div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#F9FAFB" }}>Peer Programming</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>Peer Programming</div>
             <div style={{ fontSize: 11, color: COLOR }}>48 cohorts · 576 members placed</div>
           </div>
         </div>
-        <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11 }}>Phase 2</Badge>
+        
       </div>
       <ScrollArea style={{ flex: 1 }}>
         <div style={{ padding: "12px 16px" }}>
@@ -44,14 +45,14 @@ export function MobilePeerProgramming() {
             <>
               <div style={{ padding: "12px 14px", borderRadius: 12, background: `${COLOR}08`, border: `1px solid ${COLOR}18`, marginBottom: 14 }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 4 }}>Deterministic Placement</div>
-                <div style={{ fontSize: 12, color: "#6B7280" }}>Every survivor gets placed in a cohort. No one left behind.</div>
+                <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Every survivor gets placed in a cohort. No one left behind.</div>
               </div>
               {COHORTS.map((c) => (
                 <div key={c.id} style={{ padding: "14px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: `1px solid ${COLOR}${c.status === "active" ? "30" : "18"}`, marginBottom: 10 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
                     <div style={{ flex: 1, marginRight: 8 }}>
-                      <div style={{ fontSize: 14, fontWeight: 700, color: "#F9FAFB", marginBottom: 4, lineHeight: 1.3 }}>{c.name}</div>
-                      <div style={{ fontSize: 12, color: "#6B7280" }}>{c.facilitator} · {c.time}</div>
+                      <div style={{ fontSize: 14, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4, lineHeight: 1.3 }}>{c.name}</div>
+                      <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{c.facilitator} · {c.time}</div>
                     </div>
                     <Badge style={{ background: c.status === "active" ? "#22C55E20" : `${COLOR}20`, color: c.status === "active" ? "#22C55E" : COLOR, border: `1px solid ${c.status === "active" ? "#22C55E40" : COLOR + "40"}`, fontSize: 10, flexShrink: 0 }}>
                       {c.status === "active" ? "🔴 Active" : "⏳ Forming"}
@@ -62,7 +63,7 @@ export function MobilePeerProgramming() {
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
                     <div style={{ display: "flex" }}>{c.countries.map((f, i) => <span key={i} style={{ fontSize: 14 }}>{f}</span>)}</div>
-                    <span style={{ fontSize: 11, color: "#6B7280" }}>{c.members}/{c.maxMembers} members</span>
+                    <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{c.members}/{c.maxMembers} members</span>
                     <div style={{ flex: 1, height: 4, background: "rgba(255,255,255,0.05)", borderRadius: 2, overflow: "hidden" }}>
                       <div style={{ height: "100%", background: COLOR, width: `${(c.members / c.maxMembers) * 100}%` }} />
                     </div>
@@ -82,7 +83,7 @@ export function MobilePeerProgramming() {
             <div>
               <div style={{ padding: "24px", borderRadius: 16, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, textAlign: "center", marginBottom: 16 }}>
                 <Video size={48} style={{ color: COLOR, marginBottom: 12 }} />
-                <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>Tech for Good — Week 4</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Tech for Good — Week 4</div>
                 <div style={{ fontSize: 13, color: "#9CA3AF", marginBottom: 14 }}>Facilitated by Lena Hoffmann · Tues 7 PM UTC</div>
                 <button style={{ width: "100%", padding: "12px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Join Session</button>
               </div>
@@ -102,12 +103,12 @@ export function MobilePeerProgramming() {
           {(activeNav === "home" || activeNav === "global") && (
             <div style={{ textAlign: "center", padding: "32px 0" }}>
               <div style={{ fontSize: 48, marginBottom: 12 }}>🏘️</div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Global Network</div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Global Network</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 20 }}>
                 {[{ l: "Active Cohorts", v: "48", c: COLOR }, { l: "Members Placed", v: "576", c: "#22C55E" }, { l: "Countries", v: "127", c: "#F59E0B" }, { l: "Jobs Landed", v: "1,284", c: "#EC4899" }].map(({ l, v, c }) => (
                   <div key={l} style={{ padding: "14px", borderRadius: 12, background: `${c}08`, border: `1px solid ${c}20`, textAlign: "center" }}>
                     <div style={{ fontSize: 22, fontWeight: 800, color: c }}>{v}</div>
-                    <div style={{ fontSize: 11, color: "#6B7280" }}>{l}</div>
+                    <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
                   </div>
                 ))}
               </div>
@@ -115,11 +116,11 @@ export function MobilePeerProgramming() {
           )}
         </div>
       </ScrollArea>
-      <div style={{ height: 72, background: "#090B0F", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon size={20} style={{ color: activeNav === key ? COLOR : "#6B7280" }} />
+              <Icon size={20} style={{ color: activeNav === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }} />
             </div>
             <span style={{ fontSize: 10, color: activeNav === key ? COLOR : "#4B5563", fontWeight: activeNav === key ? 600 : 400 }}>{label}</span>
           </button>

@@ -9,7 +9,7 @@ import {
   Wind, Droplets, Sun, Moon, Volume2,
 } from "lucide-react";
 
-const COLOR = "#14B8A6";
+const COLOR = "var(--app-accent, #14B8A6)";
 
 const SESSIONS = [
   { id: 1, title: "4-7-8 Breathing", category: "Breathing", duration: "5 min", level: "Beginner", plays: 47823, rating: 4.9, emoji: "🌬️", description: "Inhale for 4, hold for 7, exhale for 8. Scientifically proven to reduce cortisol." },
@@ -46,7 +46,7 @@ export function GentlePulse() {
   const filtered = category === "All" ? SESSIONS : SESSIONS.filter((s) => s.category === category);
 
   return (
-    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "#0A0F0E", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex" }}>
+    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "#0A0F0E", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex" }}>
       <aside style={{ width: 72, background: "#060A09", borderRight: "1px solid rgba(20,184,166,0.1)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${COLOR}30`, border: `1px solid ${COLOR}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <Heart size={20} style={{ color: COLOR }} />
@@ -72,16 +72,16 @@ export function GentlePulse() {
           <div style={{ padding: "0 8px 16px" }}>
             {CATEGORIES.map((c, i) => (
               <div key={c} onClick={() => setCategory(c)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: category === c ? `${COLOR}18` : "transparent", borderLeft: category === c ? `2px solid ${COLOR}` : "2px solid transparent", marginLeft: 2, marginBottom: 2 }}>
-                <span style={{ fontSize: 13, color: category === c ? "#E8EAF0" : "#6B7280", flex: 1 }}>{c}</span>
+                <span style={{ fontSize: 13, color: category === c ? "var(--comic-text-primary, #E8EAF0)" : "var(--comic-text-secondary, #6B7280)", flex: 1 }}>{c}</span>
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Your Progress</div>
             <div style={{ padding: "12px", margin: "0 8px 8px", borderRadius: 10, background: `${COLOR}08`, border: `1px solid ${COLOR}15` }}>
               <div style={{ fontSize: 20, fontWeight: 800, color: COLOR, marginBottom: 2 }}>23 min</div>
-              <div style={{ fontSize: 11, color: "#6B7280" }}>practiced today · 🔥 7-day streak</div>
+              <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>practiced today · 🔥 7-day streak</div>
             </div>
             {[{ l: "Sessions Done", v: "47" }, { l: "Favorites", v: "6" }, { l: "Total Time", v: "14h 20m" }].map(({ l, v }) => (
-              <div key={l} style={{ padding: "6px 10px", fontSize: 12, color: "#6B7280" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
+              <div key={l} style={{ padding: "6px 10px", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
             ))}
           </div>
         </ScrollArea>
@@ -91,7 +91,7 @@ export function GentlePulse() {
         <header style={{ height: 56, borderBottom: "1px solid rgba(20,184,166,0.1)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#080D0C", flexShrink: 0 }}>
           <Heart size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>💚 GentlePulse — Guided Meditation</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>💚 GentlePulse — Guided Meditation</div>
             <div style={{ fontSize: 12, color: "#4B5563" }}>Trauma-informed · Expert-designed · Safe sanctuary</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>✓ Trauma-Informed</Badge>
@@ -101,22 +101,22 @@ export function GentlePulse() {
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               <div style={{ marginBottom: 20, padding: "20px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(20,184,166,0.03) 100%)`, border: `1px solid ${COLOR}20` }}>
-                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Room to Breathe</div>
-                <div style={{ fontSize: 14, color: "#6B7280" }}>6 sessions · Trauma-informed therapists · Designed to minimize triggers · Always free</div>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Room to Breathe</div>
+                <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)" }}>6 sessions · Trauma-informed therapists · Designed to minimize triggers · Always free</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
                 {filtered.map((s) => (
                   <div key={s.id} onClick={() => { setPlaying(s.id); setTab("playing"); }} style={{ padding: "20px", borderRadius: 16, background: "rgba(20,184,166,0.04)", border: `1px solid ${COLOR}20`, cursor: "pointer", transition: "all 0.15s" }}>
                     <div style={{ fontSize: 36, marginBottom: 12 }}>{s.emoji}</div>
-                    <div style={{ fontSize: 15, fontWeight: 700, color: "#F9FAFB", marginBottom: 4 }}>{s.title}</div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>{s.title}</div>
                     <div style={{ fontSize: 12, color: "#4B5563", marginBottom: 12, lineHeight: 1.5 }}>{s.description}</div>
-                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "#6B7280", marginBottom: 12 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 12 }}>
                       <span><Clock size={11} style={{ display: "inline" }} /> {s.duration}</span>
                       <span>⭐ {s.rating}</span>
                     </div>
                     <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
                       <Badge style={{ background: `${COLOR}10`, color: COLOR, border: `1px solid ${COLOR}25`, fontSize: 10 }}>{s.category}</Badge>
-                      <Badge style={{ background: "rgba(255,255,255,0.04)", color: "#6B7280", border: "1px solid rgba(255,255,255,0.06)", fontSize: 10 }}>{s.level}</Badge>
+                      <Badge style={{ background: "rgba(255,255,255,0.04)", color: "var(--comic-text-secondary, #6B7280)", border: "1px solid rgba(255,255,255,0.06)", fontSize: 10 }}>{s.level}</Badge>
                     </div>
                     <button style={{ width: "100%", padding: "8px", borderRadius: 8, background: `${COLOR}20`, border: `1px solid ${COLOR}35`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
                       <Play size={13} /> Start
@@ -133,8 +133,8 @@ export function GentlePulse() {
               return (
                 <div style={{ maxWidth: 480, width: "100%", padding: "40px", textAlign: "center" }}>
                   <div style={{ fontSize: 80, marginBottom: 20 }}>{session.emoji}</div>
-                  <div style={{ fontSize: 24, fontWeight: 800, color: "#F9FAFB", marginBottom: 8 }}>{session.title}</div>
-                  <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 32, lineHeight: 1.7 }}>{session.description}</div>
+                  <div style={{ fontSize: 24, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>{session.title}</div>
+                  <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 32, lineHeight: 1.7 }}>{session.description}</div>
                   <div style={{ position: "relative", marginBottom: 32 }}>
                     <div style={{ height: 6, background: "rgba(255,255,255,0.05)", borderRadius: 3, overflow: "hidden", marginBottom: 8 }}>
                       <div style={{ height: "100%", background: `linear-gradient(to right,${COLOR},${COLOR}88)`, borderRadius: 3, width: `${progress}%`, transition: "width 0.3s" }} />
@@ -145,11 +145,11 @@ export function GentlePulse() {
                     </div>
                   </div>
                   <div style={{ display: "flex", justifyContent: "center", gap: 20, marginBottom: 24 }}>
-                    <button style={{ width: 56, height: 56, borderRadius: "50%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Volume2 size={20} /></button>
+                    <button style={{ width: 56, height: 56, borderRadius: "50%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Volume2 size={20} /></button>
                     <button onClick={() => setIsPaused(!isPaused)} style={{ width: 72, height: 72, borderRadius: "50%", background: `${COLOR}`, border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
                       {isPaused ? <Play size={28} style={{ color: "#0A0F0E" }} /> : <Pause size={28} style={{ color: "#0A0F0E" }} />}
                     </button>
-                    <button onClick={() => setTab("sessions")} style={{ width: 56, height: 56, borderRadius: "50%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280", fontSize: 14 }}>✕</button>
+                    <button onClick={() => setTab("sessions")} style={{ width: 56, height: 56, borderRadius: "50%", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)", fontSize: 14 }}>✕</button>
                   </div>
                   <div style={{ fontSize: 13, color: `${COLOR}80` }}>You are safe. You are enough. You are healing. 💚</div>
                 </div>
@@ -157,7 +157,7 @@ export function GentlePulse() {
             })() : (
               <div style={{ textAlign: "center", color: "#4B5563" }}>
                 <Heart size={48} style={{ color: COLOR, opacity: 0.3, marginBottom: 12 }} />
-                <div style={{ fontSize: 16, fontWeight: 600, color: "#6B7280" }}>Select a session to begin</div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: "var(--comic-text-secondary, #6B7280)" }}>Select a session to begin</div>
                 <button onClick={() => setTab("sessions")} style={{ marginTop: 16, padding: "10px 24px", borderRadius: 10, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>Browse Sessions</button>
               </div>
             )}
@@ -169,7 +169,7 @@ export function GentlePulse() {
                 <div key={msg.id} style={{ display: "flex", flexDirection: msg.from === "user" ? "row-reverse" : "row", gap: 10, alignItems: "flex-end", marginBottom: 12 }}>
                   {msg.from === "hub" && <div style={{ width: 32, height: 32, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Heart size={14} style={{ color: COLOR }} /></div>}
                   <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: 6 }}>
-                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.04)", border: msg.from === "user" ? "none" : `1px solid ${COLOR}15`, fontSize: 14, lineHeight: 1.6, color: msg.from === "user" ? "#0A0F0E" : "#E8EAF0" }}>{msg.text}</div>
+                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.04)", border: msg.from === "user" ? "none" : `1px solid ${COLOR}15`, fontSize: 14, lineHeight: 1.6, color: msg.from === "user" ? "#0A0F0E" : "var(--comic-text-primary, #E8EAF0)" }}>{msg.text}</div>
                     {(msg as any).action && <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>{(msg as any).action} <ArrowUpRight size={13} /></button>}
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export function GentlePulse() {
             <div style={{ padding: "8px 24px 20px", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(20,184,166,0.04)", border: `1px solid ${COLOR}20`, borderRadius: 14 }}>
                 <Plus size={18} style={{ color: "#4B5563" }} />
-                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="How can GentlePulse help you right now?" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="How can GentlePulse help you right now?" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                 <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "#0A0F0E" : "#4B5563" }} /></button>
               </div>
             </div>
@@ -192,7 +192,7 @@ export function GentlePulse() {
           <div key={s.id} onClick={() => { setPlaying(s.id); setTab("playing"); }} style={{ display: "flex", gap: 10, alignItems: "center", padding: "10px", borderRadius: 10, background: `${COLOR}06`, border: `1px solid ${COLOR}15`, marginBottom: 8, cursor: "pointer" }}>
             <div style={{ fontSize: 24, flexShrink: 0 }}>{s.emoji}</div>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 13, fontWeight: 600, color: "#E8EAF0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{s.title}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{s.title}</div>
               <div style={{ fontSize: 11, color: "#4B5563" }}>{s.duration} · {s.plays.toLocaleString()} plays</div>
             </div>
             <Play size={16} style={{ color: COLOR, flexShrink: 0 }} />
@@ -205,7 +205,7 @@ export function GentlePulse() {
         <div style={{ marginTop: 12, padding: "14px 16px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.04)" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 8 }}>Designed By</div>
           {["Dr. Sarah Kim — Trauma Therapist", "Marcus Bell — EMDR Specialist", "Fatima Hassan — Somatic Coach"].map((p) => (
-            <div key={p} style={{ fontSize: 12, color: "#6B7280", marginBottom: 4 }}>• {p}</div>
+            <div key={p} style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 4 }}>• {p}</div>
           ))}
         </div>
       </aside>

@@ -6,10 +6,10 @@ import {
   AlertCircle, Sparkles, Zap,
 } from "lucide-react";
 
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const border = "#1E2A3A";
 const surface = "#161B27";
-const subtle = "#6B7280";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 const accent = "#7C3AED";
 const accentCyan = "#0EA5E9";
 
@@ -41,7 +41,7 @@ const PUBLIC_STREAM = [
   },
   {
     id: 5, type: "community",
-    author: "Community member", avatar: "?", authorColor: "#6B7280", time: "2 hr ago",
+    author: "Community member", avatar: "?", authorColor: "var(--comic-text-secondary, #6B7280)", time: "2 hr ago",
     body: "ServiceCredits 101: earn through verified work, spend on housing or transport, trade peer-to-peer. Utility token, no fiat conversion.",
     replies: 9, hearts: 63,
   },
@@ -62,7 +62,7 @@ const STATS = [
 
 export function HubPublic() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: "#F9FAFB", overflow: "hidden" }}>
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #F9FAFB)", overflow: "hidden" }}>
 
       {/* Marketing banner */}
       <div style={{ background: `linear-gradient(90deg,${accent} 0%,${accentCyan} 100%)`, padding: "10px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
@@ -85,7 +85,7 @@ export function HubPublic() {
       <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
 
         {/* Icon rail */}
-        <aside style={{ width: 72, background: "#090B0F", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, gap: 8, flexShrink: 0 }}>
+        <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, gap: 8, flexShrink: 0 }}>
           <div style={{ width: 40, height: 40, borderRadius: 12, background: `linear-gradient(135deg,${accent},${accentCyan})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: "#fff", marginBottom: 12 }}>SH</div>
           {[Hash, Zap].map((Icon, i) => (
             <div key={i} style={{ width: 44, height: 44, borderRadius: 12, background: i === 0 ? "rgba(124,58,237,0.2)" : "transparent", border: i === 0 ? "1px solid rgba(124,58,237,0.4)" : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", color: i === 0 ? "#A78BFA" : subtle, cursor: "pointer" }}>
@@ -100,12 +100,12 @@ export function HubPublic() {
         </aside>
 
         {/* Second sidebar */}
-        <aside style={{ width: 240, background: "#0D0F14", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
+        <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
           <div style={{ padding: "16px 12px 10px" }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: subtle, textTransform: "uppercase", marginBottom: 10 }}>Public Channel</div>
             <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, background: "rgba(124,58,237,0.12)", borderLeft: `2px solid ${accent}`, marginLeft: 2, cursor: "pointer" }}>
               <Hash size={14} style={{ color: "#A78BFA" }} />
-              <span style={{ fontSize: 14, color: "#F9FAFB", flex: 1 }}>community</span>
+              <span style={{ fontSize: 14, color: "var(--comic-text-primary, #F9FAFB)", flex: 1 }}>community</span>
               <span style={{ fontSize: 10, background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E30", borderRadius: 4, padding: "1px 5px" }}>LIVE</span>
             </div>
           </div>
@@ -135,7 +135,7 @@ export function HubPublic() {
           {/* Blended stream — publicly readable */}
           <div style={{ flex: 1, overflowY: "auto", padding: "16px 24px", display: "flex", flexDirection: "column", gap: 12 }}>
             <div style={{ textAlign: "center", padding: "8px 16px", borderRadius: 8, background: `${accent}10`, border: `1px solid ${accent}20`, fontSize: 12, color: "#A78BFA", marginBottom: 4 }}>
-              You are reading the public #community channel — <span style={{ color: "#F9FAFB", fontWeight: 600 }}>sign in to post or ask the AI Assistant with @comic</span>
+              You are reading the public #community channel — <span style={{ color: "var(--comic-text-primary, #F9FAFB)", fontWeight: 600 }}>sign in to post or ask the AI Assistant with @comic</span>
             </div>
             {PUBLIC_STREAM.map((item) => {
               if (item.type === "announcement") {
@@ -151,7 +151,7 @@ export function HubPublic() {
                       <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: "#fff", flexShrink: 0 }}>SH</div>
                       <div>
                         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 3 }}>
-                          <span style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>Survivor Hub</span>
+                          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>Survivor Hub</span>
                           <span style={{ fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 4, background: "rgba(124,58,237,0.18)", color: "#A78BFA" }}>📣 Official</span>
                           <span style={{ fontSize: 11, color: subtle }}>{item.time}</span>
                         </div>
@@ -170,7 +170,7 @@ export function HubPublic() {
                       </div>
                       <div style={{ flex: 1 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-                          <span style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>AI Assistant</span>
+                          <span style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>AI Assistant</span>
                           <span style={{ fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 4, background: "rgba(14,165,233,0.12)", color: "#38BDF8" }}>🤖 AI Q&A</span>
                           <span style={{ fontSize: 11, color: subtle }}>asked by {(item as any).askedBy} · {item.time}</span>
                         </div>
@@ -191,7 +191,7 @@ export function HubPublic() {
                   <div style={{ width: 36, height: 36, borderRadius: "50%", background: `${post.authorColor}22`, border: `1px solid ${post.authorColor}38`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 700, color: post.authorColor, flexShrink: 0 }}>{post.avatar}</div>
                   <div>
                     <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 3 }}>
-                      <span style={{ fontSize: 13, fontWeight: 700, color: "#F9FAFB" }}>{post.author}</span>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{post.author}</span>
                       <span style={{ fontSize: 11, color: subtle }}>{post.time}</span>
                     </div>
                     <div style={{ fontSize: 14, color: "#D1D5DB", lineHeight: 1.55, marginBottom: 6 }}>{post.body}</div>
@@ -218,7 +218,7 @@ export function HubPublic() {
         </main>
 
         {/* Right panel */}
-        <aside style={{ width: 240, borderLeft: `1px solid ${border}`, background: "#0D0F14", padding: "20px 16px", display: "flex", flexDirection: "column", gap: 14, overflowY: "auto", flexShrink: 0 }}>
+        <aside style={{ width: 240, borderLeft: `1px solid ${border}`, background: "var(--comic-surface, #0D0F14)", padding: "20px 16px", display: "flex", flexDirection: "column", gap: 14, overflowY: "auto", flexShrink: 0 }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: subtle, textTransform: "uppercase", letterSpacing: "0.08em" }}>Community at a Glance</div>
           {STATS.map(({ label, value, icon: Icon, color }) => (
             <div key={label} style={{ borderRadius: 10, border: `1px solid ${color}20`, background: `${color}08`, padding: "12px" }}>
@@ -230,7 +230,7 @@ export function HubPublic() {
             </div>
           ))}
           <div style={{ borderRadius: 10, border: `1px solid ${border}`, background: surface, padding: "14px 12px" }}>
-            <div style={{ fontSize: 12, fontWeight: 600, color: "#F9FAFB", marginBottom: 8 }}>Why join?</div>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>Why join?</div>
             {["17 apps — everything peer-to-peer", "ServiceCredits utility economy", "No data sold — ever", "✓ Invite-only, survivor-verified"].map((pt) => (
               <div key={pt} style={{ fontSize: 12, color: subtle, marginBottom: 5, lineHeight: 1.5 }}>→ {pt}</div>
             ))}

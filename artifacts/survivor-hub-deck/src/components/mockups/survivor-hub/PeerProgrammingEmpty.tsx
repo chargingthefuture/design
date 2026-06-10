@@ -1,11 +1,12 @@
+// design-sync
 import { Users, Globe, Calendar, CheckCircle2, Plus, Bell, Zap } from "lucide-react";
 
-const COLOR = "#8B5CF6";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #8B5CF6)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const subtle = "#6B7280";
-const text = "#F9FAFB";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const text = "var(--comic-text-primary, #F9FAFB)";
 
 const SKILL_OPTIONS = [
   { label: "Technology & Coding", emoji: "💻", color: "#06B6D4" },
@@ -32,7 +33,6 @@ export function PeerProgrammingEmpty() {
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <Users size={16} color={COLOR} />
             <span style={{ fontSize: 15, fontWeight: 700 }}>Peer Programming</span>
-            <span style={{ marginLeft: "auto", fontSize: 11, background: `${COLOR}18`, color: COLOR, border: `1px solid ${COLOR}30`, borderRadius: 4, padding: "2px 7px" }}>Phase 1</span>
           </div>
         </div>
 

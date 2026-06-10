@@ -1,14 +1,15 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Users, Globe, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#8B5CF6";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#8B5CF6";
 
 export function MobilePeerProgrammingPublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ padding: "24px 20px 16px", display: "flex", flexDirection: "column", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -18,8 +19,8 @@ export function MobilePeerProgrammingPublic() {
         <span style={{ padding: "3px 12px", borderRadius: 20, background: COLOR + "20", border: `1px solid ${COLOR}40`, fontSize: 11, color: COLOR, fontWeight: 600, width: "fit-content" }}>Deterministic global cohorts</span>
         <p style={{ margin: 0, fontSize: 14, color: "#9CA3AF", lineHeight: 1.5 }}>12-person weekly cohorts across 47 countries. You're always placed — no competitive selection, guaranteed spot.</p>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <Globe size={13} color="#6B7280" />
-          <span style={{ fontSize: 12, color: "#6B7280" }}>Active cohorts in 47 countries</span>
+          <Globe size={13} color="var(--comic-text-secondary, #6B7280)" />
+          <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Active cohorts in 47 countries</span>
         </div>
         <button style={{ padding: "14px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Join the Hub — Free</button>
       </div>
@@ -36,7 +37,7 @@ export function MobilePeerProgrammingPublic() {
               <div style={{ fontSize: 12, color: "#9CA3AF" }}>{c.skill}</div>
               <div style={{ display: "flex", gap: 6, marginTop: 6, alignItems: "center" }}>
                 <span style={{ fontSize: 14 }}>{c.countries}</span>
-                <span style={{ fontSize: 11, color: "#6B7280" }}>{c.members}/12</span>
+                <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{c.members}/12</span>
               </div>
             </div>
           ))}

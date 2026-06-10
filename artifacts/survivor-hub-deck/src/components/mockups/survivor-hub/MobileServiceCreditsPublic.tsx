@@ -1,24 +1,25 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { Zap, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#F59E0B";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F59E0B";
 
 export function MobileServiceCreditsPublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ flex: 1, padding: "24px 20px 32px", display: "flex", flexDirection: "column", gap: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <Zap size={20} color={COLOR} />
-          <span style={{ fontSize: 20, fontWeight: 800 }}>Service Credits</span>
+          <span style={{ fontSize: 20, fontWeight: 800 }}>ServiceCredits</span>
         </div>
         <h2 style={{ margin: 0, fontSize: 22, fontWeight: 800, lineHeight: 1.2 }}>
           Earn credits by participating.<br /><span style={{ color: COLOR }}>Spend them on real services.</span>
         </h2>
-        <p style={{ margin: 0, fontSize: 14, color: "#9CA3AF", lineHeight: 1.5 }}>Your participation in the Hub has real monetary value. Earn credits through learning, mentoring, and community activities.</p>
+        <p style={{ margin: 0, fontSize: 14, color: "#9CA3AF", lineHeight: 1.5 }}>Earn ServiceCredits through learning, mentoring, and community activities. Use them across housing, transport, trades, and more.</p>
 
         {/* Earn examples */}
         <div style={{ borderRadius: 14, border: "1px solid rgba(255,255,255,0.08)", padding: "16px", background: "rgba(255,255,255,0.02)" }}>

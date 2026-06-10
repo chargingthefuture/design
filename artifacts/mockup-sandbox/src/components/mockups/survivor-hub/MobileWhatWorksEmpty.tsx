@@ -5,15 +5,15 @@ import { useState } from "react";
 import { ListChecks, ExternalLink, Send, CheckCircle, Tag, Plus, ShieldCheck, ChevronDown } from "lucide-react";
 
 const BRAND = "#84CC16";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const EXISTING_PROBLEMS = ["Noise & Verbal Harassment", "Sleep Disruption", "Vehicle Tampering"];
 
 const inputStyle: React.CSSProperties = {
-  flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#F9FAFB", fontFamily: "inherit",
+  flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #F9FAFB)", fontFamily: "inherit",
 };
 
 export function MobileWhatWorksEmpty() {
@@ -27,13 +27,13 @@ export function MobileWhatWorksEmpty() {
     <div style={{ width: 390, height: "100vh", maxHeight: "100%", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
 
       {/* Header */}
-      <div style={{ padding: "12px 16px", background: "#0D0F14", borderBottom: `1px solid ${border}`, flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
+      <div style={{ padding: "12px 16px", background: "var(--comic-surface, #0D0F14)", borderBottom: `1px solid ${border}`, flexShrink: 0, display: "flex", alignItems: "center", gap: 8 }}>
         <ListChecks size={17} color={BRAND} />
         <div>
           <div style={{ fontSize: 15, fontWeight: 700 }}>What Works</div>
@@ -68,10 +68,10 @@ export function MobileWhatWorksEmpty() {
                 <label style={{ fontSize: 12.5, fontWeight: 600, color: "#9CA3AF", display: "block", marginBottom: 7 }}>Problem it solves <span style={{ color: BRAND }}>*</span></label>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 13px", background: "rgba(255,255,255,0.04)", border: `1px solid ${problem ? BRAND + "50" : border}`, borderRadius: 11 }}>
                   <Tag size={14} color={subtle} style={{ flexShrink: 0 }} />
-                  <select value={problem} onChange={(e) => setProblem(e.target.value)} style={{ ...inputStyle, cursor: "pointer", appearance: "none", color: problem ? "#F9FAFB" : subtle }}>
+                  <select value={problem} onChange={(e) => setProblem(e.target.value)} style={{ ...inputStyle, cursor: "pointer", appearance: "none", color: problem ? "var(--comic-text-primary, #F9FAFB)" : subtle }}>
                     <option value="" disabled>Choose an existing problem…</option>
                     {EXISTING_PROBLEMS.map((p) => (
-                      <option key={p} value={p} style={{ background: "#11141B", color: "#F9FAFB" }}>{p}</option>
+                      <option key={p} value={p} style={{ background: "#11141B", color: "var(--comic-text-primary, #F9FAFB)" }}>{p}</option>
                     ))}
                   </select>
                   <ChevronDown size={15} color={subtle} style={{ flexShrink: 0 }} />

@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Users, Globe, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#8B5CF6";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#8B5CF6";
 
 const COHORTS = [
   { name: "Tech for Good Cohort", skill: "React · Node.js · Databases", countries: "🇺🇸🇳🇬🇧🇷🇮🇳", members: 12 },
@@ -13,7 +13,7 @@ const COHORTS = [
 
 export function PeerProgrammingPublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Users size={18} color={COLOR} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>Peer Programming</span>
@@ -35,8 +35,8 @@ export function PeerProgrammingPublic() {
         <div style={{ display: "flex", gap: 12, marginTop: 8, alignItems: "center" }}>
           <button style={{ padding: "14px 32px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Join the Hub — Free</button>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            <Globe size={14} color="#6B7280" />
-            <span style={{ fontSize: 13, color: "#6B7280" }}>Active cohorts across 47 countries</span>
+            <Globe size={14} color="var(--comic-text-secondary, #6B7280)" />
+            <span style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)" }}>Active cohorts across 47 countries</span>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ export function PeerProgrammingPublic() {
               <div style={{ fontSize: 12, color: "#9CA3AF", marginBottom: 8 }}>{c.skill}</div>
               <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                 <span style={{ fontSize: 16 }}>{c.countries}</span>
-                <span style={{ fontSize: 12, color: "#6B7280" }}>{c.members}/12 members</span>
+                <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{c.members}/12 members</span>
               </div>
             </div>
           ))}
@@ -57,7 +57,7 @@ export function PeerProgrammingPublic() {
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
           <div style={{ width: 52, height: 52, borderRadius: "50%", border: `2px solid ${COLOR}50`, background: COLOR + "10", display: "flex", alignItems: "center", justifyContent: "center" }}><Lock size={22} color={COLOR} /></div>
           <div style={{ fontSize: 16, fontWeight: 700, textAlign: "center" }}>Sign in to join your cohort</div>
-          <div style={{ fontSize: 13, color: "#6B7280", textAlign: "center", maxWidth: 300 }}>You'll be matched automatically. First session within 48 hours.</div>
+          <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", textAlign: "center", maxWidth: 300 }}>You'll be matched automatically. First session within 48 hours.</div>
           <button style={{ padding: "11px 28px", borderRadius: 9, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Sign in to get matched</button>
         </div>
       </div>

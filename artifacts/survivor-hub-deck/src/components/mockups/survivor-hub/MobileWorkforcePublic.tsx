@@ -1,17 +1,18 @@
+// design-sync
 // STATE: Unauthenticated — visitor with no session
 import { BarChart2, Lock } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#6366F1";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#B45309";
 const BARS = [37, 25, 20, 18];
 const LABELS = ["Employed", "In Training", "Seeking", "Exploring"];
-const COLORS = ["#22C55E", COLOR, "#F59E0B", "#6B7280"];
+const COLORS = ["#22C55E", COLOR, "#F59E0B", "var(--comic-text-secondary, #6B7280)"];
 
 export function MobileWorkforcePublic() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 15, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 12, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
       <div style={{ padding: "24px 20px 16px", display: "flex", flexDirection: "column", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -22,7 +23,7 @@ export function MobileWorkforcePublic() {
         <p style={{ margin: 0, fontSize: 14, color: "#9CA3AF", lineHeight: 1.5 }}>Real-time skills distribution, employment gaps, and personalized pathways across 4.9M survivors.</p>
         {/* Live snapshot */}
         <div style={{ borderRadius: 12, border: "1px solid rgba(255,255,255,0.07)", padding: "14px 16px", background: "rgba(255,255,255,0.02)" }}>
-          <div style={{ fontSize: 11, color: "#6B7280", marginBottom: 10 }}>Live snapshot</div>
+          <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 10 }}>Live snapshot</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {BARS.map((pct, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>

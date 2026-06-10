@@ -15,7 +15,7 @@ const SESSIONS = [
 
 export function GentlePulsePublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 52, borderBottom: "1px solid rgba(20,184,166,0.1)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Heart size={18} color={COLOR} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>GentlePulse</span>
@@ -57,7 +57,7 @@ export function GentlePulsePublic() {
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
           <div style={{ width: 52, height: 52, borderRadius: "50%", border: `2px solid ${COLOR}50`, background: COLOR + "10", display: "flex", alignItems: "center", justifyContent: "center" }}><Lock size={22} color={COLOR} /></div>
           <div style={{ fontSize: 16, fontWeight: 700, textAlign: "center" }}>Sign in to access all sessions</div>
-          <div style={{ fontSize: 13, color: "#6B7280", textAlign: "center", maxWidth: 300 }}>Save progress, track streaks, and get personalized recommendations.</div>
+          <div style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", textAlign: "center", maxWidth: 300 }}>Save progress, track streaks, and get personalized recommendations.</div>
           <button style={{ padding: "11px 28px", borderRadius: 9, background: COLOR, border: "none", color: "#000", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Sign in to begin healing</button>
         </div>
       </div>

@@ -7,10 +7,10 @@ import {
 } from "lucide-react";
 
 const BRAND = "#E91E8C";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const PHRASE = "delete my account";
 
@@ -40,7 +40,7 @@ export function AccountDataConfirmDelete() {
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
 
       {/* Icon rail */}
-      <aside style={{ width: 72, background: "#090B0F", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${BRAND}25`, border: `1px solid ${BRAND}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <Shield size={20} color={BRAND} />
         </div>
@@ -57,7 +57,7 @@ export function AccountDataConfirmDelete() {
 
       {/* Main */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, position: "relative" }}>
-        <header style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <AlertTriangle size={18} color="#EF4444" />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: text }}>Confirm Deletion</div>
@@ -77,7 +77,7 @@ export function AccountDataConfirmDelete() {
 
         {/* Confirmation panel */}
         <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px", position: "relative" }}>
-          <div style={{ width: 560, borderRadius: 22, background: "#0D0F14", border: "1px solid rgba(239,68,68,0.3)", boxShadow: "0 28px 72px rgba(0,0,0,0.65)", overflow: "hidden" }}>
+          <div style={{ width: 560, borderRadius: 22, background: "var(--comic-surface, #0D0F14)", border: "1px solid rgba(239,68,68,0.3)", boxShadow: "0 28px 72px rgba(0,0,0,0.65)", overflow: "hidden" }}>
 
             {/* Header band */}
             <div style={{ padding: "26px 30px 20px", background: "linear-gradient(135deg,rgba(239,68,68,0.1),rgba(233,30,140,0.04))", borderBottom: "1px solid rgba(239,68,68,0.12)" }}>

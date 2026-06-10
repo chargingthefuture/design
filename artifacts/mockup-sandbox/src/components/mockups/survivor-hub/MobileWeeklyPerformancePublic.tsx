@@ -3,11 +3,11 @@
 import { BarChart2, Lock, UserPlus, Calendar, TrendingUp } from "lucide-react";
 
 const BRAND = "#F59E0B";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const BLURRED = [
   { label: "Members", value: "4,912", color: "#A78BFA" },
@@ -19,7 +19,7 @@ const BLURRED = [
 export function MobileWeeklyPerformancePublic() {
   return (
     <div style={{ width: 390, minHeight: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
@@ -71,7 +71,7 @@ export function MobileWeeklyPerformancePublic() {
       </div>
 
       {/* Bottom nav (locked) */}
-      <div style={{ marginTop: "auto", height: 72, background: "#090B0F", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
+      <div style={{ marginTop: "auto", height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
         {[BarChart2, Calendar, TrendingUp].map((Icon, i) => (
           <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, opacity: 0.4 }}>
             <Icon size={20} color={subtle} />

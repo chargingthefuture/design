@@ -9,7 +9,7 @@ import {
   Heart, Package, Users, ChevronRight, AlertCircle,
 } from "lucide-react";
 
-const COLOR = "#FB923C";
+const COLOR = "var(--app-accent, #FB923C)";
 const BG = "#1c0409";
 
 // D5: no anonymous — every post identified by @username (chosen handle, safe to surface in public view)
@@ -48,27 +48,27 @@ export function SocketRelay() {
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex" }}>
-      <aside style={{ width: 72, background: "#090B0F", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex" }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${COLOR}30`, border: `1px solid ${COLOR}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <Share2 size={20} style={{ color: COLOR }} />
         </div>
         {[{ icon: Share2, key: "feed" }, { icon: Plus, key: "post" }, { icon: MessageSquare, key: "chat" }].map(({ icon: Icon, key }) => (
-          <button key={key} onClick={() => setTab(key as "feed" | "post" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "#6B7280" }}>
+          <button key={key} onClick={() => setTab(key as "feed" | "post" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }}>
             <Icon size={20} />
           </button>
         ))}
         <div style={{ flex: 1 }} />
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Bell size={18} /></button>
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Settings size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Bell size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Settings size={18} /></button>
         <Avatar style={{ width: 36, height: 36 }}>
           <AvatarFallback style={{ background: `${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 700 }}>S</AvatarFallback>
         </Avatar>
       </aside>
 
-      <aside style={{ width: 240, background: "#0D0F14", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>🔂 SocketRelay</div>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "var(--comic-text-secondary, #6B7280)", textTransform: "uppercase", marginBottom: 12 }}>🔂 SocketRelay</div>
           <div style={{ position: "relative" }}>
             <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: "#4B5563" }} />
             <input placeholder="Search requests…" style={{ width: "100%", padding: "7px 10px 7px 30px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, fontSize: 13, color: "#9CA3AF", outline: "none", boxSizing: "border-box" }} />
@@ -78,23 +78,23 @@ export function SocketRelay() {
           <div style={{ padding: "0 8px 16px" }}>
             {CATEGORIES.map((c, i) => (
               <div key={c} onClick={() => setCategory(c)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: category === c ? `${COLOR}18` : "transparent", borderLeft: category === c ? `2px solid ${COLOR}` : "2px solid transparent", marginLeft: 2, marginBottom: 2 }}>
-                <span style={{ fontSize: 13, color: category === c ? "#E8EAF0" : "#9CA3AF", flex: 1 }}>{c}</span>
+                <span style={{ fontSize: 13, color: category === c ? "var(--comic-text-primary, #E8EAF0)" : "#9CA3AF", flex: 1 }}>{c}</span>
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Live Stats</div>
             {[{ l: "Open Needs", v: "234" }, { l: "Open Offers", v: "189" }, { l: "Fulfilled Today", v: "847" }].map(({ l, v }) => (
-              <div key={l} style={{ padding: "6px 10px", fontSize: 12, color: "#6B7280" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
+              <div key={l} style={{ padding: "6px 10px", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
             ))}
           </div>
         </ScrollArea>
       </aside>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <Share2 size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>🔂 SocketRelay — Mutual Aid</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Real-time needs ↔ offers · Privacy-minimized </div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>🔂 SocketRelay — Mutual Aid</div>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Real-time needs ↔ offers · Privacy-minimized </div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>847 fulfilled today</Badge>
         </header>
@@ -104,7 +104,7 @@ export function SocketRelay() {
             <div style={{ padding: "20px 24px" }}>
               <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
                 {["All", "Needs 🆘", "Offers 🤝", "Urgent"].map((f) => (
-                  <button key={f} style={{ padding: "6px 14px", borderRadius: 20, fontSize: 12, fontWeight: 600, background: f === "All" ? `${COLOR}20` : "rgba(255,255,255,0.04)", border: `1px solid ${f === "All" ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, color: f === "All" ? COLOR : "#6B7280", cursor: "pointer" }}>{f}</button>
+                  <button key={f} style={{ padding: "6px 14px", borderRadius: 20, fontSize: 12, fontWeight: 600, background: f === "All" ? `${COLOR}20` : "rgba(255,255,255,0.04)", border: `1px solid ${f === "All" ? COLOR + "40" : "rgba(255,255,255,0.06)"}`, color: f === "All" ? COLOR : "var(--comic-text-secondary, #6B7280)", cursor: "pointer" }}>{f}</button>
                 ))}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -120,8 +120,8 @@ export function SocketRelay() {
                           <Badge style={{ background: "rgba(255,255,255,0.04)", color: "#9CA3AF", border: "1px solid rgba(255,255,255,0.06)", fontSize: 11 }}>{r.category}</Badge>
                           {r.urgency === "urgent" && <Badge style={{ background: "#EF444420", color: "#EF4444", border: "1px solid #EF444440", fontSize: 11 }}>⚠ Urgent</Badge>}
                         </div>
-                        <div style={{ fontSize: 14, fontWeight: 600, color: "#F9FAFB", marginBottom: 6, lineHeight: 1.4 }}>{r.title}</div>
-                        <div style={{ display: "flex", gap: 12, fontSize: 12, color: "#6B7280" }}>
+                        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 6, lineHeight: 1.4 }}>{r.title}</div>
+                        <div style={{ display: "flex", gap: 12, fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>
                           <span>{r.by}</span>
                           <span>· <MapPin size={11} style={{ display: "inline" }} /> {r.location}</span>
                           <span>· {r.time}</span>
@@ -145,12 +145,12 @@ export function SocketRelay() {
           </ScrollArea>
         ) : tab === "post" ? (
           <div style={{ flex: 1, padding: "32px 40px" }}>
-            <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 20 }}>Post a Request or Offer</div>
+            <div style={{ fontSize: 22, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 20 }}>Post a Request or Offer</div>
             <div style={{ display: "flex", gap: 8, marginBottom: 24 }}>
               {(["need", "offer"] as const).map((t) => (
                 <button key={t} onClick={() => setPostType(t)} style={{ flex: 1, padding: "14px", borderRadius: 12, background: postType === t ? (t === "need" ? `${COLOR}20` : "#22C55E20") : "rgba(255,255,255,0.03)", border: `2px solid ${postType === t ? (t === "need" ? COLOR : "#22C55E") : "rgba(255,255,255,0.06)"}`, cursor: "pointer", textAlign: "center" }}>
                   <div style={{ fontSize: 20, marginBottom: 4 }}>{t === "need" ? "🆘" : "🤝"}</div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: postType === t ? (t === "need" ? COLOR : "#22C55E") : "#6B7280" }}>{t === "need" ? "I Need Help" : "I Can Help"}</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: postType === t ? (t === "need" ? COLOR : "#22C55E") : "var(--comic-text-secondary, #6B7280)" }}>{t === "need" ? "I Need Help" : "I Can Help"}</div>
                 </button>
               ))}
             </div>
@@ -159,9 +159,9 @@ export function SocketRelay() {
                 <div key={label}>
                   <div style={{ fontSize: 13, fontWeight: 600, color: "#9CA3AF", marginBottom: 6 }}>{label}</div>
                   {type === "textarea" ? (
-                    <textarea placeholder={placeholder} rows={3} style={{ width: "100%", padding: "12px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", resize: "none", boxSizing: "border-box" }} />
+                    <textarea placeholder={placeholder} rows={3} style={{ width: "100%", padding: "12px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", resize: "none", boxSizing: "border-box" }} />
                   ) : (
-                    <input placeholder={placeholder} style={{ width: "100%", padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, fontSize: 14, color: "#E8EAF0", outline: "none", boxSizing: "border-box" }} />
+                    <input placeholder={placeholder} style={{ width: "100%", padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)", outline: "none", boxSizing: "border-box" }} />
                   )}
                 </div>
               ))}
@@ -181,7 +181,7 @@ export function SocketRelay() {
                     {isPerson && <div style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 11, fontWeight: 700, color: "#9CA3AF" }}>{(msg.from as string).slice(1, 3).toUpperCase()}</div>}
                     <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: isPerson ? 3 : 6 }}>
                       {isPerson && <div style={{ fontSize: 11, color: COLOR, fontFamily: "monospace", paddingLeft: 2 }}>{msg.from}</div>}
-                      <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "#E8EAF0" }}>{msg.text}</div>
+                      <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "var(--comic-text-primary, #E8EAF0)" }}>{msg.text}</div>
                       {(msg as any).action && <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>{(msg as any).action} <ArrowUpRight size={13} /></button>}
                     </div>
                   </div>
@@ -191,7 +191,7 @@ export function SocketRelay() {
             <div style={{ padding: "8px 24px 20px", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                 <Plus size={18} style={{ color: "#4B5563" }} />
-                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Describe what you need or can offer…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Describe what you need or can offer…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                 <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} /></button>
               </div>
             </div>
@@ -199,12 +199,12 @@ export function SocketRelay() {
         )}
       </div>
 
-      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "#0D0F14", padding: "20px 16px", flexShrink: 0 }}>
+      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "var(--comic-surface, #0D0F14)", padding: "20px 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 12 }}>Impact Today</div>
         {[{ l: "Needs Fulfilled", v: "847", c: "#22C55E" }, { l: "Offers Made", v: "1,203", c: COLOR }, { l: "Credits Exchanged", v: "14,320", c: "#F59E0B" }, { l: "Members Helped", v: "612", c: "#A855F7" }].map(({ l, v, c }) => (
           <div key={l} style={{ padding: "14px 16px", borderRadius: 12, background: `${c}08`, border: `1px solid ${c}20`, marginBottom: 8 }}>
             <div style={{ fontSize: 24, fontWeight: 800, color: c }}>{v}</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>{l}</div>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
           </div>
         ))}
         <div style={{ marginTop: 8, padding: "14px 16px", borderRadius: 12, background: `${COLOR}08`, border: `1px solid ${COLOR}20` }}>
@@ -212,7 +212,7 @@ export function SocketRelay() {
             <Shield size={12} style={{ color: COLOR }} />
             <span style={{ fontSize: 12, fontWeight: 600, color: COLOR }}>Privacy Minimized</span>
           </div>
-          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>Public projections never include identifying information. All connections are encrypted.</div>
+          <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6 }}>Public projections never include identifying information. All connections are encrypted.</div>
         </div>
       </aside>
     </div>

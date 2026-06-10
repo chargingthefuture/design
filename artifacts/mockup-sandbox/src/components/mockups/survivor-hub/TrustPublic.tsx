@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Shield, CheckCircle } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#0284C7";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#0284C7";
 
 const SIGNALS = [
   "Identity verification",
@@ -14,7 +14,7 @@ const SIGNALS = [
 
 export function TrustPublic() {
   return (
-    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "#F9FAFB", display: "flex", flexDirection: "column" }}>
+    <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
       <div style={{ height: 52, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Shield size={18} color={COLOR} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>Trust</span>
@@ -54,9 +54,9 @@ export function TrustPublic() {
               <Shield size={32} color={COLOR} />
             </div>
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 11, color: "#6B7280" }}>Your Trust Score</div>
+              <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Your Trust Score</div>
               <div style={{ fontSize: 32, fontWeight: 900, color: COLOR, marginTop: 2 }}>—</div>
-              <div style={{ fontSize: 12, color: "#6B7280", marginTop: 2 }}>Sign in to build yours</div>
+              <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", marginTop: 2 }}>Sign in to build yours</div>
             </div>
             <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 8 }}>
               {SIGNALS.slice(0, 3).map((s, i) => (

@@ -2,15 +2,15 @@
 // STATE: Authenticated, zero nominations yet
 import { Search, Plus, Target } from "lucide-react";
 
-const bg = "#0F1117", COLOR = "#D946EF";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#D946EF";
 
 export function MobileSkillsHuntEmpty() {
   return (
-    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "#F9FAFB" }}>
+    <div style={{ width: 390, minHeight: 844, background: bg, display: "flex", flexDirection: "column", fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)" }}>
       {/* Status bar */}
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
-        <span style={{ fontSize: 11, color: "#6B7280" }}>●●●</span>
+        <span style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>●●●</span>
       </div>
 
       {/* Header */}
@@ -27,7 +27,7 @@ export function MobileSkillsHuntEmpty() {
 
         <div>
           <div style={{ fontSize: 20, fontWeight: 800, marginBottom: 10 }}>The hunt starts with you</div>
-          <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7 }}>
+          <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.7 }}>
             Think of someone you believe may be a survivor — no certainty required. Their Quora profile, skills, and professions help build our economy to build our own economy.
           </div>
         </div>
@@ -54,8 +54,8 @@ export function MobileSkillsHuntEmpty() {
         <div style={{ width: "100%", padding: "12px 14px", borderRadius: 12, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, display: "flex", alignItems: "center", gap: 12, boxSizing: "border-box" }}>
           <Target size={16} style={{ color: COLOR, flexShrink: 0 }} />
           <div style={{ flex: 1, textAlign: "left" }}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: "#E8EAF0" }}>Mission: Nominate 1 survivor</div>
-            <div style={{ fontSize: 11, color: "#6B7280" }}>Earn 🔍 First Find badge + 50 pts</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: "var(--comic-text-primary, #E8EAF0)" }}>Mission: Nominate 1 survivor</div>
+            <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>Earn 🔍 First Find badge + 50 pts</div>
           </div>
           <div style={{ fontSize: 13, fontWeight: 700, color: COLOR }}>0/1</div>
         </div>

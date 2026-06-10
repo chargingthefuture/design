@@ -25,7 +25,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const COLOR = "#EF4444";
+const COLOR = "var(--app-accent, #EF4444)";
 const BG = "#1c0505";
 
 const PROVIDERS = [
@@ -173,9 +173,9 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
         style={{
           width: "100%",
           minHeight: "100vh",
-          background: "#0F1117",
+          background: "var(--comic-bg, #0F1117)",
           fontFamily: "'Inter', system-ui, sans-serif",
-          color: "#E8EAF0",
+          color: "var(--comic-text-primary, #E8EAF0)",
           display: "flex",
           flexDirection: "column",
         }}
@@ -188,7 +188,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
             alignItems: "center",
             padding: "0 24px",
             gap: 16,
-            background: "#0D0F14",
+            background: "var(--comic-surface, #0D0F14)",
             flexShrink: 0,
           }}
         >
@@ -208,7 +208,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
             ← Back
           </button>
           <div
-            style={{ flex: 1, fontSize: 16, fontWeight: 700, color: "#F9FAFB" }}
+            style={{ flex: 1, fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}
           >
             🪛 Provider Profile
           </div>
@@ -237,7 +237,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                 }}
               >
                 <div
-                  style={{ fontSize: 24, fontWeight: 800, color: "#F9FAFB" }}
+                  style={{ fontSize: 24, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}
                 >
                   {p.name}
                 </div>
@@ -264,7 +264,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                     background: p.available
                       ? "#22C55E20"
                       : "rgba(255,255,255,0.05)",
-                    color: p.available ? "#22C55E" : "#6B7280",
+                    color: p.available ? "#22C55E" : "var(--comic-text-secondary, #6B7280)",
                     border: `1px solid ${p.available ? "#22C55E40" : "rgba(255,255,255,0.08)"}`,
                     fontSize: 12,
                   }}
@@ -364,8 +364,8 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                       fontSize: 13,
                     }}
                   >
-                    <span style={{ color: "#6B7280" }}>{label}</span>
-                    <span style={{ color: "#E8EAF0", fontWeight: 600 }}>
+                    <span style={{ color: "var(--comic-text-secondary, #6B7280)" }}>{label}</span>
+                    <span style={{ color: "var(--comic-text-primary, #E8EAF0)", fontWeight: 600 }}>
                       {value}
                     </span>
                   </div>
@@ -424,7 +424,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                         style={{
                           fontSize: 13,
                           fontWeight: 600,
-                          color: "#E8EAF0",
+                          color: "var(--comic-text-primary, #E8EAF0)",
                         }}
                       >
                         {rv.r}
@@ -470,7 +470,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                   </span>
                 </div>
                 <div
-                  style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}
+                  style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6 }}
                 >
                   All Foundation providers are background-checked, insured, and
                   trauma-informed. All communications are encrypted.
@@ -489,16 +489,16 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
         width: "100%",
         height: "100%",
         minHeight: "100vh",
-        background: "#0F1117",
+        background: "var(--comic-bg, #0F1117)",
         fontFamily: "'Inter', system-ui, sans-serif",
-        color: "#E8EAF0",
+        color: "var(--comic-text-primary, #E8EAF0)",
         display: "flex",
       }}
     >
       <aside
         style={{
           width: 72,
-          background: "#090B0F",
+          background: "var(--comic-surface-alt, #090B0F)",
           borderRight: "1px solid rgba(255,255,255,0.06)",
           display: "flex",
           flexDirection: "column",
@@ -543,7 +543,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              color: tab === key ? COLOR : "#6B7280",
+              color: tab === key ? COLOR : "var(--comic-text-secondary, #6B7280)",
             }}
           >
             <Icon size={20} />
@@ -561,7 +561,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
             alignItems: "center",
             justifyContent: "center",
             cursor: "pointer",
-            color: "#6B7280",
+            color: "var(--comic-text-secondary, #6B7280)",
           }}
         >
           <Bell size={18} />
@@ -577,7 +577,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
             alignItems: "center",
             justifyContent: "center",
             cursor: "pointer",
-            color: "#6B7280",
+            color: "var(--comic-text-secondary, #6B7280)",
           }}
         >
           <Settings size={18} />
@@ -599,7 +599,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
       <aside
         style={{
           width: 240,
-          background: "#0D0F14",
+          background: "var(--comic-surface, #0D0F14)",
           borderRight: "1px solid rgba(255,255,255,0.06)",
           display: "flex",
           flexDirection: "column",
@@ -612,7 +612,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
               fontSize: 11,
               fontWeight: 700,
               letterSpacing: "0.08em",
-              color: "#6B7280",
+              color: "var(--comic-text-secondary, #6B7280)",
               textTransform: "uppercase",
               marginBottom: 12,
             }}
@@ -671,7 +671,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                 <span
                   style={{
                     fontSize: 13,
-                    color: trade === t ? "#E8EAF0" : "#9CA3AF",
+                    color: trade === t ? "var(--comic-text-primary, #E8EAF0)" : "#9CA3AF",
                     flex: 1,
                   }}
                 >
@@ -702,7 +702,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
             >
               List a Service
             </div>
-            <div style={{ fontSize: 11, color: "#6B7280" }}>
+            <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>
               Join 8,400+ providers
             </div>
           </div>
@@ -725,16 +725,16 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
             alignItems: "center",
             padding: "0 24px",
             gap: 16,
-            background: "#0D0F14",
+            background: "var(--comic-surface, #0D0F14)",
             flexShrink: 0,
           }}
         >
           <Hammer size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>
               🪛 Foundation
             </div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>
               8,400 vetted tradespeople · Quote lifecycle 
             </div>
           </div>
@@ -768,7 +768,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                   style={{
                     fontSize: 20,
                     fontWeight: 800,
-                    color: "#F9FAFB",
+                    color: "var(--comic-text-primary, #F9FAFB)",
                     marginBottom: 4,
                   }}
                 >
@@ -822,7 +822,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                           style={{
                             fontSize: 15,
                             fontWeight: 700,
-                            color: "#F9FAFB",
+                            color: "var(--comic-text-primary, #F9FAFB)",
                           }}
                         >
                           {p.name}
@@ -857,7 +857,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                           display: "flex",
                           gap: 12,
                           fontSize: 12,
-                          color: "#6B7280",
+                          color: "var(--comic-text-secondary, #6B7280)",
                         }}
                       >
                         <span>
@@ -906,7 +906,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                         <span
                           style={{
                             fontSize: 11,
-                            color: p.available ? "#22C55E" : "#6B7280",
+                            color: p.available ? "#22C55E" : "var(--comic-text-secondary, #6B7280)",
                           }}
                         >
                           {p.available ? "Available" : "Busy"}
@@ -936,10 +936,10 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
-                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB" }}>My Quote Requests</div>
-                <button onClick={() => setEmptyQuotes(q => !q)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyQuotes ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyQuotes ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyQuotes ? "#EF4444" : "#6B7280", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyQuotes ? "Empty State ✓" : "Show Empty State"}</button>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)" }}>My Quote Requests</div>
+                <button onClick={() => setEmptyQuotes(q => !q)} style={{ padding: "4px 12px", borderRadius: 20, background: emptyQuotes ? "#EF444420" : "rgba(255,255,255,0.04)", border: emptyQuotes ? "1px solid #EF444440" : "1px solid rgba(255,255,255,0.08)", color: emptyQuotes ? "#EF4444" : "var(--comic-text-secondary, #6B7280)", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{emptyQuotes ? "Empty State ✓" : "Show Empty State"}</button>
               </div>
-              <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>
+              <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 20 }}>
                 Track your service requests and responses
               </div>
               {emptyQuotes ? (
@@ -948,14 +948,14 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                     <FileText size={28} style={{ color: COLOR, opacity: 0.5 }} />
                   </div>
                   <div style={{ textAlign: "center", maxWidth: 360 }}>
-                    <div style={{ fontSize: 18, fontWeight: 700, color: "#F9FAFB", marginBottom: 8 }}>No quote requests yet</div>
-                    <div style={{ fontSize: 14, color: "#6B7280", lineHeight: 1.7, marginBottom: 20 }}>When you request quotes from trade providers, they'll appear here. You can track status (Pending, Accepted, Rejected) and manage your service history in one place.</div>
+                    <div style={{ fontSize: 18, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>No quote requests yet</div>
+                    <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.7, marginBottom: 20 }}>When you request quotes from trade providers, they'll appear here. You can track status (Pending, Accepted, Rejected) and manage your service history in one place.</div>
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 400 }}>
                     {["Request an electrician or plumber", "Get quotes from multiple providers", "Accept a quote and pay with Service Credits"].map((step, i) => (
                       <div key={step} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px dashed rgba(239,68,68,0.15)" }}>
                         <div style={{ width: 22, height: 22, borderRadius: "50%", background: `${COLOR}15`, border: `1px solid ${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 11, fontWeight: 700, color: COLOR }}>{i + 1}</div>
-                        <span style={{ fontSize: 13, color: "#6B7280" }}>{step}</span>
+                        <span style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)" }}>{step}</span>
                       </div>
                     ))}
                   </div>
@@ -994,13 +994,13 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                         style={{
                           fontSize: 14,
                           fontWeight: 700,
-                          color: "#F9FAFB",
+                          color: "var(--comic-text-primary, #F9FAFB)",
                           marginBottom: 2,
                         }}
                       >
                         {q.provider}
                       </div>
-                      <div style={{ fontSize: 12, color: "#6B7280" }}>
+                      <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>
                         {q.trade} · {q.submitted}
                       </div>
                     </div>
@@ -1010,7 +1010,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                           fontSize: 16,
                           fontWeight: 800,
                           color:
-                            q.status === "Accepted" ? "#22C55E" : "#F9FAFB",
+                            q.status === "Accepted" ? "#22C55E" : "var(--comic-text-primary, #F9FAFB)",
                           marginBottom: 4,
                         }}
                       >
@@ -1090,7 +1090,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                             : "1px solid rgba(255,255,255,0.06)",
                         fontSize: 14,
                         lineHeight: 1.6,
-                        color: "#E8EAF0",
+                        color: "var(--comic-text-primary, #E8EAF0)",
                       }}
                     >
                       {msg.text}
@@ -1143,7 +1143,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                     border: "none",
                     outline: "none",
                     fontSize: 14,
-                    color: "#E8EAF0",
+                    color: "var(--comic-text-primary, #E8EAF0)",
                   }}
                 />
                 <button
@@ -1175,7 +1175,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
         style={{
           width: 280,
           borderLeft: "1px solid rgba(255,255,255,0.06)",
-          background: "#0D0F14",
+          background: "var(--comic-surface, #0D0F14)",
           padding: "20px 16px",
           flexShrink: 0,
         }}
@@ -1227,7 +1227,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                   style={{
                     fontSize: 13,
                     fontWeight: 600,
-                    color: "#E8EAF0",
+                    color: "var(--comic-text-primary, #E8EAF0)",
                     whiteSpace: "nowrap",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
@@ -1235,7 +1235,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                 >
                   {p.name}
                 </div>
-                <div style={{ fontSize: 11, color: "#6B7280" }}>
+                <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>
                   {p.trade} · {p.price}
                 </div>
               </div>
@@ -1264,7 +1264,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
               Safety Guarantee
             </span>
           </div>
-          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>
+          <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.6 }}>
             Every provider is background-checked and trauma-informed. Service
             Credits accepted on all bookings.
           </div>
@@ -1303,7 +1303,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                 justifyContent: "space-between",
                 fontSize: 12,
                 padding: "5px 0",
-                color: "#6B7280",
+                color: "var(--comic-text-secondary, #6B7280)",
               }}
             >
               <span>{l}</span>

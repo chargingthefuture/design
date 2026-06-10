@@ -5,11 +5,11 @@ import {
 } from "lucide-react";
 
 const BRAND = "#E91E8C";
-const bg = "#0F1117";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const PREVIEW = [
   { icon: "💬", name: "Chyme" },
@@ -24,7 +24,7 @@ export function MobileAccountDataEmpty() {
     <div style={{ width: 390, height: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
         <span style={{ fontSize: 13, fontWeight: 700 }}>9:41</span>
         <span style={{ fontSize: 12, color: subtle }}>•••</span>
       </div>
@@ -74,7 +74,7 @@ export function MobileAccountDataEmpty() {
         {/* Retained note */}
         <div style={{ display: "flex", gap: 8, alignItems: "flex-start", padding: "12px", borderRadius: 12, background: `${BRAND}05`, border: `1px solid ${BRAND}15`, width: "100%", marginBottom: 16 }}>
           <Info size={13} color={BRAND} style={{ flexShrink: 0, marginTop: 1 }} />
-          <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.5 }}>
+          <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.5 }}>
             ServiceCredits ledger and GDP totals are always retained for financial integrity. They hold no personal identifiers.
           </div>
         </div>
@@ -93,7 +93,7 @@ export function MobileAccountDataEmpty() {
       </div>
 
       {/* Bottom nav */}
-      <div style={{ height: 72, background: "#090B0F", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
+      <div style={{ height: 72, background: "var(--comic-surface-alt, #090B0F)", borderTop: `1px solid ${border}`, display: "flex", alignItems: "center", justifyContent: "space-around", flexShrink: 0 }}>
         {[
           { Icon: Shield,       label: "Data" },
           { Icon: Download,     label: "Export" },

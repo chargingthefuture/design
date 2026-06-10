@@ -1,11 +1,12 @@
+// design-sync
 import { Heart, Play, Wind, Sun, Moon, Star, Clock, Plus, Sparkles } from "lucide-react";
 
-const COLOR = "#14B8A6";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #14B8A6)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const subtle = "#6B7280";
-const text = "#F9FAFB";
+const subtle = "var(--comic-text-secondary, #6B7280)";
+const text = "var(--comic-text-primary, #F9FAFB)";
 
 const CATEGORIES = [
   { icon: Wind, label: "Breathing", desc: "Calm your nervous system", color: COLOR, duration: "5 min" },
@@ -26,7 +27,6 @@ export function GentlePulseEmpty() {
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <Heart size={16} color={COLOR} />
             <span style={{ fontSize: 15, fontWeight: 700 }}>GentlePulse</span>
-            <span style={{ marginLeft: "auto", fontSize: 11, background: `${COLOR}18`, color: COLOR, border: `1px solid ${COLOR}30`, borderRadius: 4, padding: "2px 7px" }}>Phase 2</span>
           </div>
         </div>
 

@@ -9,7 +9,7 @@ import {
   MapPin, ChevronRight, Activity,
 } from "lucide-react";
 
-const COLOR = "#06B6D4";
+const COLOR = "var(--app-accent, #06B6D4)";
 
 const SECTORS = [
   { name: "Professional Services", value: 84.2, pct: 34, color: COLOR, members: 1680000 },
@@ -46,33 +46,33 @@ export function GDP() {
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex" }}>
-      <aside style={{ width: 72, background: "#090B0F", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex" }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${COLOR}30`, border: `1px solid ${COLOR}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <Globe size={20} style={{ color: COLOR }} />
         </div>
         {[{ icon: BarChart2, key: "dashboard" }, { icon: Globe, key: "map" }, { icon: MessageSquare, key: "chat" }].map(({ icon: Icon, key }) => (
-          <button key={key} onClick={() => setTab(key as "dashboard" | "map" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "#6B7280" }}>
+          <button key={key} onClick={() => setTab(key as "dashboard" | "map" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }}>
             <Icon size={20} />
           </button>
         ))}
         <div style={{ flex: 1 }} />
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Bell size={18} /></button>
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Settings size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Bell size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Settings size={18} /></button>
         <Avatar style={{ width: 36, height: 36 }}>
           <AvatarFallback style={{ background: `${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 700 }}>S</AvatarFallback>
         </Avatar>
       </aside>
 
-      <aside style={{ width: 240, background: "#0D0F14", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>🗺️ GDP Tracker</div>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "var(--comic-text-secondary, #6B7280)", textTransform: "uppercase", marginBottom: 12 }}>🗺️ GDP Tracker</div>
         </div>
         <ScrollArea style={{ flex: 1 }}>
           <div style={{ padding: "0 8px 16px" }}>
             {["Global Overview", "By Sector", "By Country", "Projections"].map((f, i) => (
               <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: i === 0 ? `${COLOR}18` : "transparent", borderLeft: i === 0 ? `2px solid ${COLOR}` : "2px solid transparent", marginLeft: 2, marginBottom: 2 }}>
-                <span style={{ fontSize: 13, color: i === 0 ? "#E8EAF0" : "#9CA3AF", flex: 1 }}>{f}</span>
+                <span style={{ fontSize: 13, color: i === 0 ? "var(--comic-text-primary, #E8EAF0)" : "#9CA3AF", flex: 1 }}>{f}</span>
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>Live Ticker</div>
@@ -81,22 +81,22 @@ export function GDP() {
                 <div style={{ fontSize: 24, fontWeight: 800, color: COLOR }}>$247.1B</div>
                 <span style={{ fontSize: 10, fontWeight: 600, color: "#4B5563", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 3, padding: "1px 5px" }}>est.</span>
               </div>
-              <div style={{ fontSize: 11, color: "#6B7280", marginBottom: 4 }}>Current TI Skills Economy</div>
+              <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 4 }}>Current TI Skills Economy</div>
               <div style={{ fontSize: 12, color: "#22C55E" }}>↑ +$1.2B this week</div>
             </div>
             {[{ l: "Target", v: "$300B" }, { l: "Progress", v: "82.4%" }, { l: "Countries", v: "127" }, { l: "Members", v: "4.9M" }].map(({ l, v }) => (
-              <div key={l} style={{ padding: "6px 10px", fontSize: 12, color: "#6B7280" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
+              <div key={l} style={{ padding: "6px 10px", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{l}: <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span></div>
             ))}
           </div>
         </ScrollArea>
       </aside>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <Globe size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>🗺️ Gross Domestic Product — TI Skills Economy</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Real-time · 127 countries · 4.9M survivors building $300B</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>🗺️ Gross Domestic Product — TI Skills Economy</div>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Real-time · 127 countries · 4.9M survivors building $300B</div>
           </div>
           <Badge style={{ background: "#22C55E20", color: "#22C55E", border: "1px solid #22C55E35", fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>↑ Live</Badge>
         </header>
@@ -110,8 +110,8 @@ export function GDP() {
                   <div style={{ flex: 1 }}>
                     <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", color: COLOR, textTransform: "uppercase", marginBottom: 8 }}>TI Skills Economy — Live</div>
                     <div style={{ display: "flex", alignItems: "baseline", marginBottom: 8 }}>
-                      <div style={{ fontSize: 48, fontWeight: 900, color: "#F9FAFB", lineHeight: 1 }}>$247.1B</div>
-                      <span style={{ display: "inline-flex", alignItems: "center", fontSize: 10, fontWeight: 600, color: "#6B7280", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 7px", marginLeft: 10, letterSpacing: "0.04em" }}>Estimate</span>
+                      <div style={{ fontSize: 48, fontWeight: 900, color: "var(--comic-text-primary, #F9FAFB)", lineHeight: 1 }}>$247.1B</div>
+                      <span style={{ display: "inline-flex", alignItems: "center", fontSize: 10, fontWeight: 600, color: "var(--comic-text-secondary, #6B7280)", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 4, padding: "2px 7px", marginLeft: 10, letterSpacing: "0.04em" }}>Estimate</span>
                     </div>
                     <div style={{ fontSize: 16, color: "#9CA3AF" }}>of $300 Billion opportunity · 82.4% reached</div>
                     <div style={{ marginTop: 16, height: 8, background: "rgba(255,255,255,0.06)", borderRadius: 4, overflow: "hidden" }}>
@@ -123,7 +123,7 @@ export function GDP() {
                     {[{ v: "4.9M", l: "Members", c: "#A78BFA" }, { v: "127", l: "Countries", c: "#22C55E" }, { v: "6", l: "Sectors", c: COLOR }].map(({ v, l, c }) => (
                       <div key={l} style={{ textAlign: "center", background: "rgba(255,255,255,0.03)", borderRadius: 12, padding: "16px 20px", border: "1px solid rgba(255,255,255,0.06)" }}>
                         <div style={{ fontSize: 24, fontWeight: 800, color: c }}>{v}</div>
-                        <div style={{ fontSize: 11, color: "#6B7280" }}>{l}</div>
+                        <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)" }}>{l}</div>
                       </div>
                     ))}
                   </div>
@@ -133,11 +133,11 @@ export function GDP() {
               <div style={{ display: "grid", gridTemplateColumns: "3fr 2fr", gap: 20 }}>
                 {/* Sectors */}
                 <div style={{ padding: "20px 24px", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 16 }}>GDP by Sector ($B)</div>
+                  <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 16 }}>GDP by Sector ($B)</div>
                   {SECTORS.map((s) => (
                     <div key={s.name} style={{ marginBottom: 14 }}>
                       <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, marginBottom: 4 }}>
-                        <span style={{ color: "#E8EAF0" }}>{s.name}</span>
+                        <span style={{ color: "var(--comic-text-primary, #E8EAF0)" }}>{s.name}</span>
                         <span style={{ color: s.color, fontWeight: 700 }}>${s.value}B ({s.pct}%)</span>
                       </div>
                       <div style={{ height: 8, background: "rgba(255,255,255,0.04)", borderRadius: 4, overflow: "hidden" }}>
@@ -150,13 +150,13 @@ export function GDP() {
 
                 {/* Top Countries */}
                 <div style={{ padding: "20px 24px", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 16 }}>Top 5 Countries</div>
+                  <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 16 }}>Top 5 Countries</div>
                   {TOP_COUNTRIES.map((c, i) => (
                     <div key={c.country} style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 14 }}>
                       <div style={{ fontSize: 24, flexShrink: 0 }}>{c.flag}</div>
                       <div style={{ flex: 1 }}>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-                          <span style={{ fontSize: 13, color: "#E8EAF0", fontWeight: 600 }}>{c.country}</span>
+                          <span style={{ fontSize: 13, color: "var(--comic-text-primary, #E8EAF0)", fontWeight: 600 }}>{c.country}</span>
                           <span style={{ fontSize: 13, color: COLOR, fontWeight: 700 }}>${c.gdp}B</span>
                         </div>
                         <div style={{ height: 4, background: "rgba(255,255,255,0.04)", borderRadius: 2, overflow: "hidden" }}>
@@ -171,7 +171,7 @@ export function GDP() {
 
               {/* Weekly trend */}
               <div style={{ marginTop: 20, padding: "20px 24px", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB", marginBottom: 16 }}>Weekly GDP Growth</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 16 }}>Weekly GDP Growth</div>
                 <div style={{ display: "flex", gap: 8, alignItems: "flex-end", height: 80 }}>
                   {[212, 218, 224, 229, 235, 241, 247].map((v, i) => (
                     <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
@@ -186,7 +186,7 @@ export function GDP() {
         ) : tab === "map" ? (
           <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 12 }}>
             <Globe size={64} style={{ color: COLOR, opacity: 0.4 }} />
-            <div style={{ fontSize: 18, fontWeight: 600, color: "#6B7280" }}>World Map — 127 Countries</div>
+            <div style={{ fontSize: 18, fontWeight: 600, color: "var(--comic-text-secondary, #6B7280)" }}>World Map — 127 Countries</div>
             <div style={{ fontSize: 13, color: "#4B5563" }}>Live GDP distribution — real-time</div>
             <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
               {TOP_COUNTRIES.map((c) => <span key={c.country} style={{ fontSize: 24 }}>{c.flag}</span>)}
@@ -199,7 +199,7 @@ export function GDP() {
                 <div key={msg.id} style={{ display: "flex", flexDirection: msg.from === "user" ? "row-reverse" : "row", gap: 10, alignItems: "flex-end", marginBottom: 12 }}>
                   {msg.from === "hub" && <div style={{ width: 32, height: 32, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Globe size={14} style={{ color: COLOR }} /></div>}
                   <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: 6 }}>
-                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: msg.from === "user" ? "#0F1117" : "#E8EAF0" }}>{msg.text}</div>
+                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: msg.from === "user" ? "var(--comic-bg, #0F1117)" : "var(--comic-text-primary, #E8EAF0)" }}>{msg.text}</div>
                     {(msg as any).action && <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>{(msg as any).action} <ArrowUpRight size={13} /></button>}
                   </div>
                 </div>
@@ -208,20 +208,20 @@ export function GDP() {
             <div style={{ padding: "8px 24px 20px", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                 <Plus size={18} style={{ color: "#4B5563" }} />
-                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Ask about GDP, sectors, countries, projections…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
-                <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "#0F1117" : "#4B5563" }} /></button>
+                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Ask about GDP, sectors, countries, projections…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
+                <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "var(--comic-bg, #0F1117)" : "#4B5563" }} /></button>
               </div>
             </div>
           </div>
         )}
       </div>
 
-      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "#0D0F14", padding: "20px 16px", flexShrink: 0 }}>
+      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "var(--comic-surface, #0D0F14)", padding: "20px 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 12 }}>Your Contribution</div>
         <div style={{ padding: "16px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, marginBottom: 16, textAlign: "center" }}>
-          <div style={{ fontSize: 11, color: "#6B7280", marginBottom: 4 }}>Your estimated contribution</div>
+          <div style={{ fontSize: 11, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 4 }}>Your estimated contribution</div>
           <div style={{ fontSize: 28, fontWeight: 800, color: COLOR }}>$24,800</div>
-          <div style={{ fontSize: 12, color: "#6B7280" }}>to the TI Skills Economy</div>
+          <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>to the TI Skills Economy</div>
         </div>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Live Feed</div>
         {[
@@ -230,7 +230,7 @@ export function GDP() {
           { flag: "🇧🇷", action: "TrustTransport trip completed — $18 added to GDP" },
           { flag: "🇮🇳", action: "Skills Hunt cohort graduated — 12 employed" },
         ].map((e, i) => (
-          <div key={i} style={{ padding: "8px 0", borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.04)" : "none", fontSize: 12, color: "#6B7280", lineHeight: 1.5 }}>
+          <div key={i} style={{ padding: "8px 0", borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.04)" : "none", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.5 }}>
             <span style={{ marginRight: 6 }}>{e.flag}</span>{e.action}
           </div>
         ))}
@@ -239,7 +239,7 @@ export function GDP() {
           <div style={{ height: 6, background: "rgba(255,255,255,0.05)", borderRadius: 3, overflow: "hidden", marginBottom: 6 }}>
             <div style={{ height: "100%", background: COLOR, borderRadius: 3, width: "82.4%" }} />
           </div>
-          <div style={{ fontSize: 12, color: "#6B7280" }}>$247.1B / $300B · Est. Q4 2026</div>
+          <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>$247.1B / $300B · Est. Q4 2026</div>
         </div>
       </aside>
     </div>

@@ -9,7 +9,7 @@ import {
   Globe, Clock, Star, Zap, Video, Hash,
 } from "lucide-react";
 
-const COLOR = "#8B5CF6";
+const COLOR = "var(--app-accent, #8B5CF6)";
 
 const COHORTS = [
   {
@@ -53,27 +53,27 @@ export function PeerProgramming() {
   };
 
   return (
-    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex" }}>
-      <aside style={{ width: 72, background: "#090B0F", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+    <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex" }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${COLOR}30`, border: `1px solid ${COLOR}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <Users size={20} style={{ color: COLOR }} />
         </div>
         {[{ icon: Users, key: "cohorts" }, { icon: Video, key: "session" }, { icon: MessageSquare, key: "chat" }].map(({ icon: Icon, key }) => (
-          <button key={key} onClick={() => setTab(key as "cohorts" | "session" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "#6B7280" }}>
+          <button key={key} onClick={() => setTab(key as "cohorts" | "session" | "chat")} style={{ width: 44, height: 44, borderRadius: 12, background: tab === key ? `${COLOR}20` : "transparent", border: tab === key ? `1px solid ${COLOR}40` : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: tab === key ? COLOR : "var(--comic-text-secondary, #6B7280)" }}>
             <Icon size={20} />
           </button>
         ))}
         <div style={{ flex: 1 }} />
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Bell size={18} /></button>
-        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#6B7280" }}><Settings size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Bell size={18} /></button>
+        <button style={{ width: 44, height: 44, borderRadius: 12, background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--comic-text-secondary, #6B7280)" }}><Settings size={18} /></button>
         <Avatar style={{ width: 36, height: 36 }}>
           <AvatarFallback style={{ background: `${COLOR}30`, color: COLOR, fontSize: 14, fontWeight: 700 }}>S</AvatarFallback>
         </Avatar>
       </aside>
 
-      <aside style={{ width: 240, background: "#0D0F14", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>🏘️ Peer Programming</div>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "var(--comic-text-secondary, #6B7280)", textTransform: "uppercase", marginBottom: 12 }}>🏘️ Peer Programming</div>
           <div style={{ position: "relative" }}>
             <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: "#4B5563" }} />
             <input placeholder="Search cohorts…" style={{ width: "100%", padding: "7px 10px 7px 30px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 8, fontSize: 13, color: "#9CA3AF", outline: "none", boxSizing: "border-box" }} />
@@ -83,24 +83,24 @@ export function PeerProgramming() {
           <div style={{ padding: "0 8px 16px" }}>
             {["All Cohorts", "My Cohort", "Forming", "Active", "By Skill"].map((f, i) => (
               <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 8, cursor: "pointer", background: i === 0 ? `${COLOR}18` : "transparent", borderLeft: i === 0 ? `2px solid ${COLOR}` : "2px solid transparent", marginLeft: 2, marginBottom: 2 }}>
-                <span style={{ fontSize: 13, color: i === 0 ? "#E8EAF0" : "#9CA3AF", flex: 1 }}>{f}</span>
+                <span style={{ fontSize: 13, color: i === 0 ? "var(--comic-text-primary, #E8EAF0)" : "#9CA3AF", flex: 1 }}>{f}</span>
                 {f === "Forming" && <span style={{ background: "#F59E0B", borderRadius: 10, fontSize: 11, fontWeight: 700, color: "#fff", padding: "1px 6px" }}>2</span>}
               </div>
             ))}
             <div style={{ margin: "16px 0 8px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", padding: "0 10px" }}>How It Works</div>
             {["12 survivors per cohort", "Weekly 90-min sessions", "Deterministic placement", "Global, always-open"].map((l) => (
-              <div key={l} style={{ padding: "5px 10px", fontSize: 12, color: "#6B7280", lineHeight: 1.5 }}>• {l}</div>
+              <div key={l} style={{ padding: "5px 10px", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.5 }}>• {l}</div>
             ))}
           </div>
         </ScrollArea>
       </aside>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <Users size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>🏘️ Peer Programming</div>
-            <div style={{ fontSize: 12, color: "#6B7280" }}>Weekly global masterminds · 12 per cohort · Always-open</div>
+            <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>🏘️ Peer Programming</div>
+            <div style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>Weekly global masterminds · 12 per cohort · Always-open</div>
           </div>
           <Badge style={{ background: `${COLOR}20`, color: COLOR, border: `1px solid ${COLOR}35`, fontSize: 11, padding: "3px 10px", borderRadius: 20 }}>48 Active Cohorts</Badge>
         </header>
@@ -109,7 +109,7 @@ export function PeerProgramming() {
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               <div style={{ marginBottom: 20, padding: "18px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(139,92,246,0.05) 100%)`, border: `1px solid ${COLOR}25` }}>
-                <div style={{ fontSize: 20, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Weekly Global Masterminds</div>
+                <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Weekly Global Masterminds</div>
                 <div style={{ fontSize: 14, color: "#9CA3AF" }}>Deterministic placement — you always get a cohort. No one left behind.</div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -118,12 +118,12 @@ export function PeerProgramming() {
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
                       <div style={{ flex: 1 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                          <div style={{ fontSize: 16, fontWeight: 700, color: "#F9FAFB" }}>{c.name}</div>
+                          <div style={{ fontSize: 16, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)" }}>{c.name}</div>
                           <Badge style={{ background: c.status === "active" ? "#22C55E20" : `${COLOR}20`, color: c.status === "active" ? "#22C55E" : COLOR, border: `1px solid ${c.status === "active" ? "#22C55E40" : COLOR + "40"}`, fontSize: 11 }}>
                             {c.status === "active" ? "🔴 Active" : "⏳ Forming"}
                           </Badge>
                         </div>
-                        <div style={{ display: "flex", gap: 16, fontSize: 13, color: "#6B7280", marginBottom: 10 }}>
+                        <div style={{ display: "flex", gap: 16, fontSize: 13, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 10 }}>
                           <span>👤 {c.facilitator}</span>
                           <span>🗓 {c.time}</span>
                           <span>⏱ {c.nextSession}</span>
@@ -133,7 +133,7 @@ export function PeerProgramming() {
                         </div>
                         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                           <div style={{ display: "flex" }}>{c.countries.map((flag, i) => <span key={i} style={{ fontSize: 16, marginLeft: i > 0 ? -4 : 0 }}>{flag}</span>)}</div>
-                          <span style={{ fontSize: 12, color: "#6B7280" }}>{c.members}/{c.maxMembers} members</span>
+                          <span style={{ fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>{c.members}/{c.maxMembers} members</span>
                           <div style={{ flex: 1, height: 4, background: "rgba(255,255,255,0.05)", borderRadius: 2, overflow: "hidden" }}>
                             <div style={{ height: "100%", background: COLOR, borderRadius: 2, width: `${(c.members / c.maxMembers) * 100}%` }} />
                           </div>
@@ -156,11 +156,11 @@ export function PeerProgramming() {
           </ScrollArea>
         ) : tab === "session" ? (
           <div style={{ flex: 1, padding: "24px" }}>
-            <div style={{ fontSize: 22, fontWeight: 800, color: "#F9FAFB", marginBottom: 4 }}>Live Session</div>
-            <div style={{ fontSize: 14, color: "#6B7280", marginBottom: 20 }}>Tech for Good Cohort — Week 4 · Facilitated by Lena Hoffmann</div>
+            <div style={{ fontSize: 22, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Live Session</div>
+            <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 20 }}>Tech for Good Cohort — Week 4 · Facilitated by Lena Hoffmann</div>
             <div style={{ padding: "60px 0", borderRadius: 16, background: "rgba(255,255,255,0.02)", border: `1px solid ${COLOR}30`, textAlign: "center", marginBottom: 20 }}>
               <Video size={48} style={{ color: COLOR, marginBottom: 12 }} />
-              <div style={{ fontSize: 16, color: "#6B7280" }}>Video session — encrypted</div>
+              <div style={{ fontSize: 16, color: "var(--comic-text-secondary, #6B7280)" }}>Video session — encrypted</div>
               <button style={{ marginTop: 16, padding: "12px 32px", borderRadius: 10, background: COLOR, border: "none", color: "#fff", fontSize: 15, fontWeight: 700, cursor: "pointer" }}>Join Session</button>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
@@ -181,7 +181,7 @@ export function PeerProgramming() {
                 <div key={msg.id} style={{ display: "flex", flexDirection: msg.from === "user" ? "row-reverse" : "row", gap: 10, alignItems: "flex-end", marginBottom: 12 }}>
                   {msg.from === "hub" && <div style={{ width: 32, height: 32, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Users size={14} style={{ color: COLOR }} /></div>}
                   <div style={{ maxWidth: "70%", display: "flex", flexDirection: "column", gap: 6 }}>
-                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "#E8EAF0" }}>{msg.text}</div>
+                    <div style={{ padding: "12px 16px", borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: msg.from === "user" ? COLOR : "rgba(255,255,255,0.05)", border: msg.from === "user" ? "none" : "1px solid rgba(255,255,255,0.06)", fontSize: 14, lineHeight: 1.6, color: "var(--comic-text-primary, #E8EAF0)" }}>{msg.text}</div>
                     {(msg as any).action && <button style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: `${COLOR}15`, border: `1px solid ${COLOR}30`, color: COLOR, fontSize: 13, fontWeight: 600, cursor: "pointer", alignSelf: "flex-start" }}>{(msg as any).action} <ArrowUpRight size={13} /></button>}
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export function PeerProgramming() {
             <div style={{ padding: "8px 24px 20px", flexShrink: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14 }}>
                 <Plus size={18} style={{ color: "#4B5563" }} />
-                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Find cohorts, ask about skills, join a group…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "#E8EAF0" }} />
+                <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="Find cohorts, ask about skills, join a group…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                 <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "#fff" : "#4B5563" }} /></button>
               </div>
             </div>
@@ -198,7 +198,7 @@ export function PeerProgramming() {
         )}
       </div>
 
-      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "#0D0F14", padding: "20px 16px", flexShrink: 0 }}>
+      <aside style={{ width: 280, borderLeft: "1px solid rgba(255,255,255,0.06)", background: "var(--comic-surface, #0D0F14)", padding: "20px 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 12 }}>My Cohort</div>
         <div style={{ padding: "16px", borderRadius: 14, background: `${COLOR}08`, border: `1px solid ${COLOR}20`, marginBottom: 16 }}>
           <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 8 }}>Tech for Good — Week 4</div>
@@ -219,7 +219,7 @@ export function PeerProgramming() {
         <div style={{ marginTop: 16, padding: "14px 16px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
           <div style={{ fontSize: 12, fontWeight: 700, color: "#9CA3AF", marginBottom: 8 }}>Global Stats</div>
           {[{ l: "Active Cohorts", v: "48" }, { l: "Members Placed", v: "576" }, { l: "Countries", v: "127" }, { l: "Jobs Landed", v: "1,284" }].map(({ l, v }) => (
-            <div key={l} style={{ display: "flex", justifyContent: "space-between", fontSize: 12, padding: "4px 0", color: "#6B7280" }}>
+            <div key={l} style={{ display: "flex", justifyContent: "space-between", fontSize: 12, padding: "4px 0", color: "var(--comic-text-secondary, #6B7280)" }}>
               <span>{l}</span>
               <span style={{ color: COLOR, fontWeight: 600 }}>{v}</span>
             </div>

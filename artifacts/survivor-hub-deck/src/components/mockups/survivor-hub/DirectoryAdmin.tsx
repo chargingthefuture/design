@@ -6,12 +6,12 @@ import {
   Edit2, Trash2, Users, X, Save, AlertTriangle, UserCheck,
 } from "lucide-react";
 
-const COLOR = "#3B82F6";
-const bg = "#0F1117";
+const COLOR = "var(--app-accent, #3B82F6)";
+const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
-const text = "#F9FAFB";
-const subtle = "#6B7280";
+const text = "var(--comic-text-primary, #F9FAFB)";
+const subtle = "var(--comic-text-secondary, #6B7280)";
 
 const PROFILES = [
   { id: 1, name: "Maria Gonzalez",  avatar: "MG", role: "Trauma-Informed Therapist", location: "Houston, TX",  handle: "@maria-g",          source: "self",               verified: true  },
@@ -63,7 +63,7 @@ export function DirectoryAdmin() {
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
 
       {/* Icon rail */}
-      <aside style={{ width: 72, background: "#090B0F", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${COLOR}25`, border: `1px solid ${COLOR}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <BookOpen size={20} color={COLOR} />
         </div>
@@ -79,7 +79,7 @@ export function DirectoryAdmin() {
       </aside>
 
       {/* Left sidebar */}
-      <aside style={{ width: 240, background: "#0D0F14", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: `1px solid ${border}`, display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: subtle, textTransform: "uppercase", marginBottom: 4 }}>📇 Directory Admin</div>
           <div style={{ fontSize: 12, color: "#4B5563", lineHeight: 1.5 }}>Claim, verify, and edit provider records</div>
@@ -104,7 +104,7 @@ export function DirectoryAdmin() {
             { l: "Pending verification", v: "412",    c: "#EF4444" },
             { l: "Admin-claimed",        v: "319",    c: "#06B6D4" },
           ].map(({ l, v, c }) => (
-            <div key={l} style={{ padding: "5px 2px", fontSize: 12, color: "#6B7280" }}>
+            <div key={l} style={{ padding: "5px 2px", fontSize: 12, color: "var(--comic-text-secondary, #6B7280)" }}>
               {l}: <span style={{ color: c, fontWeight: 600 }}>{v}</span>
             </div>
           ))}
@@ -113,7 +113,7 @@ export function DirectoryAdmin() {
 
       {/* Main */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <Shield size={18} color={COLOR} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: text }}>Directory — Admin</div>
@@ -184,7 +184,7 @@ export function DirectoryAdmin() {
         const p = PROFILES.find(x => x.id === editId);
         if (!p) return null;
         return (
-          <aside style={{ width: 340, borderLeft: `1px solid ${border}`, background: "#0D0F14", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+          <aside style={{ width: 340, borderLeft: `1px solid ${border}`, background: "var(--comic-surface, #0D0F14)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
             <div style={{ padding: "14px 18px", borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", gap: 10 }}>
               <Edit2 size={14} color={COLOR} />
               <div style={{ flex: 1 }}>
