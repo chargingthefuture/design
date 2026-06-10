@@ -1,0 +1,48 @@
+Design the complete UI for the Contributions plugin of the TI Skills Economy app (organization: Charging the Future). Three deliverables: the member contribution screen, the app-wide fundraiser banner, and the owner admin page. Web desktop + mobile-responsive (phone-width) layouts for each. Follow the existing design system in this repo and match the visual language of shipped plugin shells.
+
+Product context (read carefully — it shapes every word)
+
+The platform serves survivors rebuilding their lives, many in financial hardship. Access to the platform is free and stays free — contributing money is never required, and the design must never imply otherwise. The plugin lets members who are able help cover the platform's real infrastructure costs, which the owner currently pays personally. Framing is a collective fundraiser drive (like Wikipedia's): progress toward a shared goal, never a personal bill, never a subscription, never an overdue notice.
+
+As a thank-you, confirmed contributions earn Service Credits (the platform's internal exchange token). Credits are a thank-you, not a purchase, and are never redeemable for cash — say "as a thank-you, you'll receive Service Credits," never "buy credits."
+
+Copy rules (binding)
+
+Trauma-informed per ctf/docs/BRAND_VOICE_LEXICON.md and rule 124: calm, plain, predictable, low-pressure; reinforce agency and consent; no urgency mechanics, no guilt, no countdown timers, no "we can't survive without you," no shame for not giving.
+Every ask includes an easy, equal-weight way out: a "Not now" / dismiss action styled with the same visual weight as the contribute action — never a shrunken or grayed guilt-button.
+Dismissing the banner silently snoozes it server-side; the copy must NOT mention how long it stays away. Just "Not now" — no "remind me in X months."
+"Survivors," never "victims." No "safe space" phrasing. No promises the product can't keep.
+The contribution screen never asks for or mentions entering a gift-card code in the app. Codes go to the owner over Signal, outside the app.
+Surface 1 — Member contribution screen (/apps/contributions)
+
+States: signed-out visitor shell (brief explanation + sign-in), loading, main, post-submit confirmation, history/empty.
+
+Main state:
+
+A short fundraiser section: current drive progress toward three owner-set goals — money raised (USD), Quora comments, GitHub stars. Progress bars or equivalent. Copy explains: "if everyone who's able gave a little, the platform's costs would be covered" (collective framing).
+Three contribution paths the member picks from:
+Gift card (Amazon, Apple, or Denny's): member picks the card type, enters the card's dollar value (max $500), and a required Signal URL or phone number field (explained as: "so we can match your card to your account"). On submit, the confirmation screen shows the owner's Signal instructions (from server config): send the code to the owner on Signal; everything else belongs in the public Hub support channel.
+Comment on a Quora post — with an optional URL field for the post they commented on ("If you have the link, paste it here — if not, that's fine, we'll find it").
+Star the GitHub repository — with an optional URL field for their GitHub profile.
+A quiet note that every confirmed contribution earns Service Credits as a thank-you (10 per dollar; comments and stars count too), and that credits can't be turned back into cash.
+"My contributions" history: each submission with status pending / confirmed / not confirmed, amount, credits received. Statuses use calm wording ("Waiting for review," not "FAILED").
+Surface 2 — Fundraiser banner (app-wide, dismissible)
+
+A slim, calm banner shown to signed-in members while a drive is active: drive progress (the three goals), one line of collective framing, a "Contribute" action that opens the plugin, and an equal-weight "Not now" that dismisses it. Non-blocking, never a modal, never interrupts a task. Design both desktop and phone-width placements consistent with the existing shell layout.
+
+Surface 3 — Admin page (/admin/contributions, owner only)
+
+Function over flourish; matches existing admin shells (see the Unlock and Skills Hunt admin pages):
+
+Submission queue, filterable by status, each row showing: member, kind (gift card / Quora comment / GitHub star), claimed value, Signal contact (gift cards), submitted optional URLs, and date.
+Review action per row: confirm with a confirmed value (USD) input (defaults to $1-equivalent for comments/stars), or reject — both with an optional note. Confirmation copy states credits will be granted automatically and the per-cycle cap may reduce them.
+For comment/star rows: editable URL fields so the owner can paste in the Quora post or GitHub profile URL found via notifications.
+Drive (cycle) management: create/edit a drive with start/end dates and the three goals.
+Settings panel exposing the runtime config: credits per dollar, value of a comment/star, per-member per-drive credit cap, banner on/off, Signal instructions text.
+Hard boundaries
+
+No gift-card code entry anywhere in any screen.
+Nothing in these designs touches or references Unlock verification, tiers, or access gating; contributing requires only being signed in.
+No public recognition of contributors anywhere — no badges, no donor lists, no leaderboards. Contributions are private to the member and the owner.
+No recurring-payment, subscription, or autopay UI of any kind.
+Deliver mockups for all listed states, desktop and phone-width, into the design/ submodule using its existing conventions.

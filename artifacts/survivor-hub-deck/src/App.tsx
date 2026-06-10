@@ -219,6 +219,20 @@ import { MobileUnlockAdmin } from "@/components/mockups/survivor-hub/MobileUnloc
 import { MobileWeeklyPerformanceAdminView } from "@/components/mockups/survivor-hub/MobileWeeklyPerformanceAdminView";
 import { MobileWhatWorksAdmin } from "@/components/mockups/survivor-hub/MobileWhatWorksAdmin";
 import { MobileWorkforceAdmin } from "@/components/mockups/survivor-hub/MobileWorkforceAdmin";
+import { Contributions } from "@/components/mockups/survivor-hub/Contributions";
+import { ContributionsBanner } from "@/components/mockups/survivor-hub/ContributionsBanner";
+import { ContributionsConfirmation } from "@/components/mockups/survivor-hub/ContributionsConfirmation";
+import { ContributionsEmpty } from "@/components/mockups/survivor-hub/ContributionsEmpty";
+import { ContributionsLoading } from "@/components/mockups/survivor-hub/ContributionsLoading";
+import { ContributionsPublic } from "@/components/mockups/survivor-hub/ContributionsPublic";
+import { ContributionsAdmin } from "@/components/mockups/survivor-hub/ContributionsAdmin";
+import { MobileContributions } from "@/components/mockups/survivor-hub/MobileContributions";
+import { MobileContributionsBanner } from "@/components/mockups/survivor-hub/MobileContributionsBanner";
+import { MobileContributionsConfirmation } from "@/components/mockups/survivor-hub/MobileContributionsConfirmation";
+import { MobileContributionsEmpty } from "@/components/mockups/survivor-hub/MobileContributionsEmpty";
+import { MobileContributionsLoading } from "@/components/mockups/survivor-hub/MobileContributionsLoading";
+import { MobileContributionsPublic } from "@/components/mockups/survivor-hub/MobileContributionsPublic";
+import { MobileContributionsAdmin } from "@/components/mockups/survivor-hub/MobileContributionsAdmin";
 
 // Admin wrappers — force isAdmin=true so deck shows admin views
 const WeeklyPerformanceAdmin       = () => <WeeklyPerformance isAdmin={true} />;
@@ -283,6 +297,8 @@ const COMPONENTS: Record<string, ComponentType> = {
   MobilePeerProgrammingAdmin, MobileServiceCreditsAdmin, MobileSkillsHuntAdmin,
   MobileSocketRelayAdmin, MobileTrustTransportAdmin, MobileUnlockAdmin,
   MobileWeeklyPerformanceAdminView, MobileWhatWorksAdmin, MobileWorkforceAdmin,
+  Contributions, ContributionsBanner, ContributionsConfirmation, ContributionsEmpty, ContributionsLoading, ContributionsPublic, ContributionsAdmin,
+  MobileContributions, MobileContributionsBanner, MobileContributionsConfirmation, MobileContributionsEmpty, MobileContributionsLoading, MobileContributionsPublic, MobileContributionsAdmin,
 };
 
 type Slide = {
@@ -320,6 +336,7 @@ const SECTION_COLORS: Record<string, string> = {
   "Admin Mobile":     "#6366F1",
   "Admin Web":        "#6366F1",
   "Comic Theme":      "#B91C1C",
+  "Contributions":    "#F472B6",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -560,6 +577,20 @@ const SLIDES: Slide[] = [
   mob("MobileWhatWorksEmpty",  "Mobile · Add Item",     "What Works"),
   mob("MobileWhatWorksLoading","Mobile · Loading",      "What Works"),
 
+  // ── CONTRIBUTIONS ─────────────────────────────────────────────────────
+  web("ContributionsPublic",      "Web · Not Signed In",    "Contributions"),
+  web("Contributions",            "Web · Signed In",        "Contributions"),
+  web("ContributionsEmpty",       "Web · History Empty",    "Contributions"),
+  web("ContributionsLoading",     "Web · Loading",          "Contributions"),
+  web("ContributionsConfirmation","Web · Post-Submit",       "Contributions"),
+  web("ContributionsBanner",      "Web · App Banner",       "Contributions"),
+  mob("MobileContributionsPublic",      "Mobile · Not Signed In",    "Contributions"),
+  mob("MobileContributions",            "Mobile · Signed In",        "Contributions"),
+  mob("MobileContributionsEmpty",       "Mobile · History Empty",    "Contributions"),
+  mob("MobileContributionsLoading",     "Mobile · Loading",          "Contributions"),
+  mob("MobileContributionsConfirmation","Mobile · Post-Submit",       "Contributions"),
+  mob("MobileContributionsBanner",      "Mobile · App Banner",       "Contributions"),
+
   // ── ADMIN WEB ─────────────────────────────────────────────────────────
   web("DirectoryAdmin",          "Web · Admin",                   "Admin Web"),
   web("GDPRateAdmin",            "Web · GDP Rate Admin",          "Admin Web"),
@@ -567,6 +598,7 @@ const SLIDES: Slide[] = [
   web("WeeklyPerformanceAdmin",  "Web · Weekly Performance Admin","Admin Web"),
   web("SkillsTaxonomyAdmin",     "Web · Skills Taxonomy Admin",   "Admin Web"),
   web("SkillsTaxonomyEmptyAdmin","Web · Skills Taxonomy Empty (Admin)","Admin Web"),
+  web("ContributionsAdmin",      "Web · Contributions Admin",         "Admin Web"),
 
   // ── ADMIN MOBILE ──────────────────────────────────────────────────────
   mob("MobileDirectoryAdmin",            "Mobile · Directory Admin",        "Admin Mobile"),
@@ -585,6 +617,7 @@ const SLIDES: Slide[] = [
   mob("MobileSkillsTaxonomyEmptyAdmin",  "Mobile · Skills Taxonomy Empty (Admin)","Admin Mobile"),
   mob("MobileWhatWorksAdmin",            "Mobile · WhatWorks Admin",        "Admin Mobile"),
   mob("MobileWorkforceAdmin",            "Mobile · Workforce Admin",        "Admin Mobile"),
+  mob("MobileContributionsAdmin",        "Mobile · Contributions Admin",    "Admin Mobile"),
 
   // ── ACCOUNT & DATA ────────────────────────────────────────────────────
   web("AccountData",              "Web · Signed In",        "Account & Data"),
