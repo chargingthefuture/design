@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import type { ComponentType } from "react";
+import { useTheme } from "./ThemeContext";
+import { COMIC_COMPONENT_MAP } from "./theme";
 
 import { AccountData } from "@/components/mockups/survivor-hub/AccountData";
 import { AccountDataConfirmDelete } from "@/components/mockups/survivor-hub/AccountDataConfirmDelete";
@@ -693,17 +695,21 @@ export default function App() {
     };
   }, [slide.type]);
 
+  const { theme, toggleTheme } = useTheme();
+  const isComic = theme === "comic";
+
   const sections = Array.from(new Set(SLIDES.map(s => s.row)));
   const iframeW  = slide.type === "desktop" ? DESKTOP_W : MOBILE_W;
   const iframeH  = slide.type === "desktop" ? DESKTOP_H : MOBILE_H;
-  const Comp     = COMPONENTS[slide.component];
+  const effectiveKey = isComic ? (COMIC_COMPONENT_MAP[slide.component] ?? slide.component) : slide.component;
+  const Comp     = COMPONENTS[effectiveKey] ?? COMPONENTS[slide.component];
 
   return (
     <div
-      style={{ background: "#0F1117", height: "100vh", width: "100vw", display: "flex", flexDirection: "column", overflow: "hidden", fontFamily: "system-ui, sans-serif" }}
+      style={{ background: isComic ? "#0D0D0D" : "#0F1117", height: "100vh", width: "100vw", display: "flex", flexDirection: "column", overflow: "hidden", fontFamily: "system-ui, sans-serif" }}
       onClick={() => menuOpen && setMenu(false)}
     >
-      <div style={{ height: 3, background: slide.rowColor, flexShrink: 0 }} />
+      <div style={{ height: isComic ? 2 : 3, background: isComic ? "#D4C49A" : slide.rowColor, flexShrink: 0 }} />
 
       <div
         ref={containerRef}
@@ -725,7 +731,7 @@ export default function App() {
         <button onClick={() => go(1)} disabled={idx === total - 1} style={{ position: "absolute", right: 0, top: 0, width: "10%", height: "100%", background: "transparent", border: "none", cursor: idx === total - 1 ? "default" : "e-resize", zIndex: 10 }} aria-label="Next" />
       </div>
 
-      <div style={{ height: NAV_H, flexShrink: 0, background: "#1A1D27", borderTop: "1px solid #2A2D3A", display: "flex", alignItems: "center", paddingLeft: 20, paddingRight: 20, gap: 16, position: "relative" }}>
+      <div style={{ height: NAV_H, flexShrink: 0, background: isComic ? "#141414" : "#1A1D27", borderTop: isComic ? "2px solid #D4C49A" : "1px solid #2A2D3A", display: "flex", alignItems: "center", paddingLeft: 20, paddingRight: 20, gap: 16, position: "relative" }}>
         <button
           onClick={e => { e.stopPropagation(); setMenu(m => !m); }}
           style={{ background: "#2A2D3A", border: `1px solid ${slide.rowColor}44`, color: slide.rowColor, borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", cursor: "pointer", whiteSpace: "nowrap" }}
@@ -742,7 +748,28 @@ export default function App() {
         <button onClick={() => go(-1)} disabled={idx === 0} style={{ background: idx === 0 ? "#1E2130" : "#2A2D3A", border: "1px solid #3A3D4A", color: idx === 0 ? "#3A3D4A" : "#CBD5E1", borderRadius: 6, width: 36, height: 36, cursor: idx === 0 ? "default" : "pointer", fontSize: 18, display: "flex", alignItems: "center", justifyContent: "center" }}>←</button>
         <button onClick={() => go(1)} disabled={idx === total - 1} style={{ background: idx === total - 1 ? "#1E2130" : slide.rowColor, border: "none", color: "#fff", borderRadius: 6, width: 36, height: 36, cursor: idx === total - 1 ? "default" : "pointer", fontSize: 18, display: "flex", alignItems: "center", justifyContent: "center" }}>→</button>
 
-        <span style={{ color: "#3A3D4A", fontSize: 11 }}>← → keys</span>
+        <button
+          onClick={e => { e.stopPropagation(); toggleTheme(); }}
+          style={{
+            background: isComic ? "#141414" : "#2A2D3A",
+            border: isComic ? "1.5px solid #D4C49A" : "1px solid #3A3D4A",
+            boxShadow: isComic ? "2px 2px 0 #D4C49A" : "none",
+            color: isComic ? "#D4C49A" : "#94A3B8",
+            borderRadius: isComic ? 0 : 6,
+            padding: "4px 10px",
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            cursor: "pointer",
+            whiteSpace: "nowrap",
+          }}
+          title={isComic ? "Switch to Default theme" : "Switch to Comic theme"}
+        >
+          {isComic ? "Comic ✓" : "Comic"}
+        </button>
+
+        <span style={{ color: isComic ? "#4A3A2A" : "#3A3D4A", fontSize: 11 }}>← → keys</span>
 
         {menuOpen && (
           <div
