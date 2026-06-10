@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import type { ComponentType } from "react";
 import { useTheme } from "./ThemeContext";
-import { COMIC_COMPONENT_MAP } from "./theme";
+import { COMIC_COMPONENT_MAP, getAccent } from "./theme";
 
 import { AccountData } from "@/components/mockups/survivor-hub/AccountData";
 import { AccountDataConfirmDelete } from "@/components/mockups/survivor-hub/AccountDataConfirmDelete";
@@ -697,6 +697,7 @@ export default function App() {
 
   const { theme, toggleTheme } = useTheme();
   const isComic = theme === "comic";
+  const rowAccent = getAccent(slide.row, theme);
 
   const sections = Array.from(new Set(SLIDES.map(s => s.row)));
   const iframeW  = slide.type === "desktop" ? DESKTOP_W : MOBILE_W;
@@ -709,7 +710,7 @@ export default function App() {
       style={{ background: isComic ? "#0D0D0D" : "#0F1117", height: "100vh", width: "100vw", display: "flex", flexDirection: "column", overflow: "hidden", fontFamily: "system-ui, sans-serif" }}
       onClick={() => menuOpen && setMenu(false)}
     >
-      <div style={{ height: isComic ? 2 : 3, background: isComic ? "#D4C49A" : slide.rowColor, flexShrink: 0 }} />
+      <div style={{ height: isComic ? 2 : 3, background: isComic ? "#D4C49A" : rowAccent, flexShrink: 0 }} />
 
       <div
         ref={containerRef}
@@ -734,7 +735,7 @@ export default function App() {
       <div style={{ height: NAV_H, flexShrink: 0, background: isComic ? "#141414" : "#1A1D27", borderTop: isComic ? "2px solid #D4C49A" : "1px solid #2A2D3A", display: "flex", alignItems: "center", paddingLeft: 20, paddingRight: 20, gap: 16, position: "relative" }}>
         <button
           onClick={e => { e.stopPropagation(); setMenu(m => !m); }}
-          style={{ background: "#2A2D3A", border: `1px solid ${slide.rowColor}44`, color: slide.rowColor, borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", cursor: "pointer", whiteSpace: "nowrap" }}
+          style={{ background: "#2A2D3A", border: `1px solid ${rowAccent}44`, color: rowAccent, borderRadius: 6, padding: "4px 10px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", cursor: "pointer", whiteSpace: "nowrap" }}
         >
           {slide.row}
         </button>
@@ -746,7 +747,7 @@ export default function App() {
         <span style={{ color: "#64748B", fontSize: 13, whiteSpace: "nowrap" }}>{idx + 1} / {total}</span>
 
         <button onClick={() => go(-1)} disabled={idx === 0} style={{ background: idx === 0 ? "#1E2130" : "#2A2D3A", border: "1px solid #3A3D4A", color: idx === 0 ? "#3A3D4A" : "#CBD5E1", borderRadius: 6, width: 36, height: 36, cursor: idx === 0 ? "default" : "pointer", fontSize: 18, display: "flex", alignItems: "center", justifyContent: "center" }}>←</button>
-        <button onClick={() => go(1)} disabled={idx === total - 1} style={{ background: idx === total - 1 ? "#1E2130" : slide.rowColor, border: "none", color: "#fff", borderRadius: 6, width: 36, height: 36, cursor: idx === total - 1 ? "default" : "pointer", fontSize: 18, display: "flex", alignItems: "center", justifyContent: "center" }}>→</button>
+        <button onClick={() => go(1)} disabled={idx === total - 1} style={{ background: idx === total - 1 ? "#1E2130" : rowAccent, border: "none", color: "#fff", borderRadius: 6, width: 36, height: 36, cursor: idx === total - 1 ? "default" : "pointer", fontSize: 18, display: "flex", alignItems: "center", justifyContent: "center" }}>→</button>
 
         <button
           onClick={e => { e.stopPropagation(); toggleTheme(); }}

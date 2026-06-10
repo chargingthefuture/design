@@ -118,10 +118,10 @@ export function MobileHome() {
   const rate = (id: number, v: "up" | "down" | "flag") => setRating((r) => ({ ...r, [id]: r[id] === v ? "none" : v }));
 
   return (
-    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
+    <div style={{ width: 390, height: "100%", minHeight: "100vh", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden" }}>
       {/* Status bar */}
-      <div style={{ height: 44, background: "#090B0F", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: "#E8EAF0" }}>9:41</div>
+      <div style={{ height: 44, background: "var(--comic-surface-alt, #090B0F)", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", flexShrink: 0 }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #E8EAF0)" }}>9:41</div>
         <div style={{ display: "flex", gap: 6, alignItems: "center", color: "#9CA3AF" }}>
           <div style={{ fontSize: 12 }}>•••</div>
           <div style={{ fontSize: 12 }}>WiFi</div>
@@ -130,7 +130,7 @@ export function MobileHome() {
       </div>
 
       {/* Header */}
-      <div style={{ padding: "14px 20px 10px", background: "#090B0F", borderBottom: "1px solid rgba(255,255,255,0.06)", flexShrink: 0 }}>
+      <div style={{ padding: "14px 20px 10px", background: "var(--comic-surface-alt, #090B0F)", borderBottom: "1px solid var(--comic-border-faint, rgba(255,255,255,0.06))", flexShrink: 0 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#7C3AED,#0EA5E9)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: "#fff" }}>SH</div>

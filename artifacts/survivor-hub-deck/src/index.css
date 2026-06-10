@@ -1,25 +1,56 @@
 @import "tailwindcss";
 
-/* ── Comic theme CSS variable layer ───────────────────────────────────────── */
+/* ── Comic theme CSS variable layer (names verbatim from COMIC_THEME_TOKENS.md) ── */
 :root[data-theme="comic"] {
-  --comic-bg:           #0D0D0D;
-  --comic-surface:      #141414;
-  --comic-surface-alt:  #080808;
-  --comic-border:       #D4C49A;
-  --comic-border-dim:   #7A6A50;
-  --comic-border-faint: #D4C49A1A;
-  --comic-text-primary: #EDE3CB;
-  --comic-text-sec:     #7A6A50;
-  --comic-text-muted:   #4A3A2A;
-  --comic-danger:       #B91C1C;
-  --comic-success:      #22C55E;
-  --comic-gold:         #C8A84B;
-  --comic-shadow:       3px 3px 0 #D4C49A;
-  --comic-shadow-dim:   2px 2px 0 #7A6A50;
-  --comic-dot-bg:       radial-gradient(#D4C49A1A 1px, transparent 1px);
-  --comic-dot-size:     8px 8px;
+  /* § 1 Shared surface tokens */
+  --comic-bg:                #0D0D0D;
+  --comic-surface:           #141414;
+  --comic-surface-alt:       #080808;
+  --comic-border:            #D4C49A;
+  --comic-border-dim:        #7A6A50;
+  --comic-border-faint:      #D4C49A1A;
+  --comic-text-primary:      #EDE3CB;
+  --comic-text-secondary:    #7A6A50;
+  --comic-text-muted:        #4A3A2A;
+  --comic-danger:            #B91C1C;
+  --comic-success:           #22C55E;
+  --comic-gold:              #C8A84B;
+
+  /* § 2 Shadow tokens */
+  --comic-shadow:            3px 3px 0 #D4C49A;
+  --comic-shadow-dim:        2px 2px 0 #7A6A50;
+  --comic-shadow-danger:     3px 3px 0 #B91C1C;
+
+  /* § 5 Background texture */
+  --comic-dot-bg:            radial-gradient(#D4C49A1A 1px, transparent 1px);
+  --comic-dot-size:          8px 8px;
+
+  /* § 6 Per-app accent color translations */
+  --accent-chyme:            #1A5C32;
+  --accent-lighthouse:       #1A4A7A;
+  --accent-trusttransport:   #0C4A6E;
+  --accent-directory:        #1A3A6A;
+  --accent-foundation:       #7A4A05;
+  --accent-peerprogramming:  #1A5C40;
+  --accent-gdp:              #0E5A68;
+  --accent-servicecredits:   #5C2C8A;
+  --accent-workforce:        #6A2A05;
+  --accent-gentlepulse:      #1A5C45;
+  --accent-mood:             #1A5C2A;
+  --accent-socketrelay:      #7A3A0C;
+  --accent-skillshunt:       #7A5A05;
+  --accent-levelup:          #1A5C30;
+  --accent-whatworks:        #4A6B10;
+  --accent-trust:            #0C5278;
+  --accent-clicklog:         #7A1A4A;
+  --accent-skillstaxonomy:   #2A2A7A;
+  --accent-unlock:           #5C1A8A;
+  --accent-weeklyperformance:#2A2A6A;
+  --accent-ai:               #7A6A50;
+  --accent-accountdata:      #B91C1C;
+  --accent-contributions:    #7A1A4A;
 }
-/* ───────────────────────────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────────────────────── */
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 

@@ -137,9 +137,9 @@ export function Desktop() {
   }
 
   return (
-    <div className="w-full flex" style={{ height: "100vh", maxHeight: "100%", overflow: "hidden", background: "#0F1117", fontFamily: "'Inter', system-ui, sans-serif", color: "#E8EAF0" }}>
+    <div className="w-full flex" style={{ height: "100vh", maxHeight: "100%", overflow: "hidden", background: "var(--comic-bg, #0F1117)", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)" }}>
       {/* Icon rail */}
-      <aside style={{ width: 72, background: "#090B0F", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "var(--comic-surface-alt, #090B0F)", borderRight: "1px solid var(--comic-border-faint, rgba(255,255,255,0.06))", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: "linear-gradient(135deg,#7C3AED 0%,#0EA5E9 100%)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: "#fff", marginBottom: 12, flexShrink: 0 }}>SH</div>
         {[{ icon: MessageSquare, key: "chat" }, { icon: Zap, key: "apps" }].map(({ icon: Icon, key }) => (
           <button key={key} onClick={() => setSection(key as "chat" | "apps")} style={{ width: 44, height: 44, borderRadius: 12, background: section === key ? "rgba(124,58,237,0.2)" : "transparent", border: section === key ? "1px solid rgba(124,58,237,0.4)" : "1px solid transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: section === key ? "#A78BFA" : "#6B7280" }}>
@@ -155,7 +155,7 @@ export function Desktop() {
       </aside>
 
       {/* Second sidebar */}
-      <aside style={{ width: 240, background: "#0D0F14", borderRight: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "var(--comic-surface, #0D0F14)", borderRight: "1px solid var(--comic-border-faint, rgba(255,255,255,0.06))", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#6B7280", textTransform: "uppercase", marginBottom: 12 }}>
             {section === "chat" ? "Channels" : "Apps"}
@@ -201,7 +201,7 @@ export function Desktop() {
 
       {/* Main */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#0D0F14", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: "1px solid var(--comic-border-faint, rgba(255,255,255,0.06))", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "var(--comic-surface, #0D0F14)", flexShrink: 0 }}>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "#E8EAF0" }}>{section === "chat" ? "# community" : activeApp ? MINI_APPS.find((a) => a.id === activeApp)?.name : "All Apps"}</div>
             <div style={{ fontSize: 12, color: "#6B7280" }}>{section === "chat" ? "Community · 4,912 online" : "Your peer-to-peer marketplace"}</div>
