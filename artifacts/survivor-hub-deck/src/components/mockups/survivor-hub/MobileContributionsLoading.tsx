@@ -2,11 +2,11 @@
 import { Heart, Home, Layers, User } from "lucide-react";
 
 const COLOR   = "#F472B6";
-const bg      = "var(--comic-bg, #0F1117)";
+const bg      = "#0F1117";
 const surface = "#161B27";
 const border  = "#1E2A3A";
-const text    = "var(--comic-text-primary, #F9FAFB)";
-const subtle  = "var(--comic-text-secondary, #6B7280)";
+const text    = "#F9FAFB";
+const subtle  = "#6B7280";
 
 const Sk = ({ w, h, radius = 6 }: { w: string | number; h: number; radius?: number }) => (
   <div style={{ width: w, height: h, borderRadius: radius, background: surface, border: `1px solid ${border}` }} />

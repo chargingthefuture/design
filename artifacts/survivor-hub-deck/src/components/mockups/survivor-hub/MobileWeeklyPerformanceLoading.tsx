@@ -3,7 +3,7 @@
 
 export function MobileWeeklyPerformanceLoading() {
   return (
-    <div style={{ width: 390, height: 844, background: "var(--comic-bg, #0F1117)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',system-ui" }}>
+    <div style={{ width: 390, height: 844, background: "#0F1117", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',system-ui" }}>
       <div style={{ textAlign: "center", padding: "0 32px" }}>
         <div style={{ fontSize: 10, letterSpacing: "0.16em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", fontWeight: 500, marginBottom: 14, lineHeight: 2 }}>
           EXIT THEIR ECONOMY
