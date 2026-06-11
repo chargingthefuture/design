@@ -235,6 +235,18 @@ import { MobileContributionsEmpty } from "@/components/mockups/survivor-hub/Mobi
 import { MobileContributionsLoading } from "@/components/mockups/survivor-hub/MobileContributionsLoading";
 import { MobileContributionsPublic } from "@/components/mockups/survivor-hub/MobileContributionsPublic";
 import { MobileContributionsAdmin } from "@/components/mockups/survivor-hub/MobileContributionsAdmin";
+import { ReportAProblem } from "@/components/mockups/survivor-hub/ReportAProblem";
+import { ReportAProblemForm } from "@/components/mockups/survivor-hub/ReportAProblemForm";
+import { ReportAProblemSubmitting } from "@/components/mockups/survivor-hub/ReportAProblemSubmitting";
+import { ReportAProblemSuccess } from "@/components/mockups/survivor-hub/ReportAProblemSuccess";
+import { ReportAProblemError } from "@/components/mockups/survivor-hub/ReportAProblemError";
+import { ReportAProblemRateLimit } from "@/components/mockups/survivor-hub/ReportAProblemRateLimit";
+import { MobileReportAProblem } from "@/components/mockups/survivor-hub/MobileReportAProblem";
+import { MobileReportAProblemForm } from "@/components/mockups/survivor-hub/MobileReportAProblemForm";
+import { MobileReportAProblemSubmitting } from "@/components/mockups/survivor-hub/MobileReportAProblemSubmitting";
+import { MobileReportAProblemSuccess } from "@/components/mockups/survivor-hub/MobileReportAProblemSuccess";
+import { MobileReportAProblemError } from "@/components/mockups/survivor-hub/MobileReportAProblemError";
+import { MobileReportAProblemRateLimit } from "@/components/mockups/survivor-hub/MobileReportAProblemRateLimit";
 
 // Admin wrappers — force isAdmin=true so deck shows admin views
 const WeeklyPerformanceAdmin       = () => <WeeklyPerformance isAdmin={true} />;
@@ -249,6 +261,8 @@ const COMPONENTS: Record<string, ComponentType> = {
   AIConsent, MobileAIConsent,
   AIReviewConsole, AIReviewConsoleEmpty, AIReviewConsoleLoading, AIReviewConsoleDetail,
   MobileAIReviewConsole, MobileAIReviewConsoleEmpty, MobileAIReviewConsoleLoading, MobileAIReviewConsoleDetail,
+  ReportAProblem, ReportAProblemForm, ReportAProblemSubmitting, ReportAProblemSuccess, ReportAProblemError, ReportAProblemRateLimit,
+  MobileReportAProblem, MobileReportAProblemForm, MobileReportAProblemSubmitting, MobileReportAProblemSuccess, MobileReportAProblemError, MobileReportAProblemRateLimit,
   ClickLog, ClickLogEmpty, ClickLogLoading, ClickLogPublic,
   MobileClickLog, MobileClickLogEmpty, MobileClickLogLoading, MobileClickLogPublic,
   ChymeApp, ChymeEmpty, ChymeLoading, ChymePublic, Chyme,
@@ -339,6 +353,7 @@ const SECTION_COLORS: Record<string, string> = {
   "Admin Web":        "#6366F1",
   "Comic Theme":      "#B91C1C",
   "Contributions":    "#F472B6",
+  "Report a Problem": "#A78BFA",
 };
 
 const web = (component: string, name: string, row: string): Slide => ({
@@ -620,6 +635,20 @@ const SLIDES: Slide[] = [
   mob("MobileWhatWorksAdmin",            "Mobile · WhatWorks Admin",        "Admin Mobile"),
   mob("MobileWorkforceAdmin",            "Mobile · Workforce Admin",        "Admin Mobile"),
   mob("MobileContributionsAdmin",        "Mobile · Contributions Admin",    "Admin Mobile"),
+
+  // ── REPORT A PROBLEM ──────────────────────────────────────────────────
+  web("ReportAProblem",           "Web · Entry Trigger",   "Report a Problem"),
+  web("ReportAProblemForm",       "Web · Form",            "Report a Problem"),
+  web("ReportAProblemSubmitting", "Web · Submitting",      "Report a Problem"),
+  web("ReportAProblemSuccess",    "Web · Success",         "Report a Problem"),
+  web("ReportAProblemError",      "Web · Error",           "Report a Problem"),
+  web("ReportAProblemRateLimit",  "Web · Rate Limited",    "Report a Problem"),
+  mob("MobileReportAProblem",           "Mobile · Entry Trigger", "Report a Problem"),
+  mob("MobileReportAProblemForm",       "Mobile · Form",          "Report a Problem"),
+  mob("MobileReportAProblemSubmitting", "Mobile · Submitting",    "Report a Problem"),
+  mob("MobileReportAProblemSuccess",    "Mobile · Success",       "Report a Problem"),
+  mob("MobileReportAProblemError",      "Mobile · Error",         "Report a Problem"),
+  mob("MobileReportAProblemRateLimit",  "Mobile · Rate Limited",  "Report a Problem"),
 
   // ── ACCOUNT & DATA ────────────────────────────────────────────────────
   web("AccountData",              "Web · Signed In",        "Account & Data"),
