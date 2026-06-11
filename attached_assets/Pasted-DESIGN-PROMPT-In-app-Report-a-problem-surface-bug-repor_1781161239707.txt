@@ -1,0 +1,48 @@
+DESIGN PROMPT — In-app "Report a problem" surface (bug reporting)
+
+Goal
+Design the user-facing surface that lets any signed-in member report a problem from
+inside the app in one tap, with zero technical knowledge required. The audience is
+non-technical and the product is sensitive, so the experience must feel calm, plain,
+and private. Users never see GitHub anywhere in this flow.
+
+Surfaces to design (desktop AND phone-width / mobile-responsive for every one):
+
+1. The entry control — a "Report a problem" trigger that is reachable from anywhere in
+   the app (propose the best home for it: a persistent footer link, an item in a help
+   menu, or an icon in the global nav). Show its default and hover/pressed states.
+
+2. The report form (modal or lightweight page). Exactly two text inputs:
+   - "What went wrong?" — required, multi-line.
+   - "What were you trying to do?" — optional, multi-line.
+   Plus a short, reassuring privacy note in plain words, e.g. "Our team reads these to
+   fix problems. Please don't include passwords or personal details." Plus a single
+   primary submit action. Do NOT ask the user for page, plugin, version, or any
+   technical field — those are captured automatically and are not shown.
+
+3. States for the form:
+   - Default / empty.
+   - Submitting (in-progress).
+   - Success confirmation — brief, plain, e.g. "Got it — we'll look into this." with a
+     way to close or report another.
+   - Error — the save failed; offer to try again.
+   - Rate-limited — the member has sent several reports recently; a gentle "we already
+     have your recent reports, try again a little later."
+
+Voice and content rules
+- Plain, everyday language. No jargon, no acronyms, no "submit your feedback" marketing
+  tone. Follow the brand voice lexicon (ctf/docs/BRAND_VOICE_LEXICON.md): supportive and
+  direct, but no pleasantries, no performed feelings, no closing sign-offs.
+- Keep copy short. A newcomer should understand every word.
+
+Visual rules
+- Match the app's existing dark theme and the design tokens / component conventions
+  already used in the design system. Reuse existing input, button, and modal patterns
+  rather than inventing new ones.
+- Do NOT encode any "phase" language anywhere in the mockup.
+- Mobile-responsive is required: deliver the phone-width layout for every surface, not
+  just desktop.
+
+Out of scope (do not design)
+- Anything GitHub-facing. Users never see issues, repos, labels, or triage.
+- The owner-only admin view for flagged reports (separate, later request).
