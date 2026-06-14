@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Users, Globe, Lock } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#8B5CF6";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#6EE7B7";
 
 const COHORTS = [
   { name: "Tech for Good Cohort", skill: "React · Node.js · Databases", countries: "🇺🇸🇳🇬🇧🇷🇮🇳", members: 12 },

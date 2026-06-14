@@ -2,7 +2,7 @@
 // STATE: Authenticated, zero nominations yet
 import { Search, Plus, Target } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#D946EF";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#FBBF24";
 
 export function MobileSkillsHuntEmpty() {
   return (

@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { BarChart2, TrendingUp, Bell, ChevronRight, Users, MessageSquare, Home } from "lucide-react";
 
-const COLOR = "var(--app-accent, #B45309)";
+const COLOR = "var(--app-accent, #F97316)";
 
 const GAPS = [
   { skill: "Software Dev", supply: 7400, demand: 22000, color: COLOR },

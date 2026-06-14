@@ -1,7 +1,7 @@
 // design-sync
 import { Car, Package, Utensils, MapPin, Shield, Clock, Plus, Star, Bell } from "lucide-react";
 
-const COLOR = "var(--app-accent, #F97316)";
+const COLOR = "var(--app-accent, #38BDF8)";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

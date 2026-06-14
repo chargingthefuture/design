@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Hammer, Search, CheckCircle, Clock, Shield, ChevronRight, ArrowLeft, Home, FileText, MessageSquare } from "lucide-react";
 
-const COLOR = "var(--app-accent, #EF4444)";
+const COLOR = "var(--app-accent, #F59E0B)";
 
 const PROVIDERS = [
   { id: 1, name: "Carlos Rivera", trade: "Electrician", rating: 4.9, jobs: 312, available: true, credits: true, avatar: "CR", price: "$85/hr", eta: "30 min" },

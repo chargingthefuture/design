@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { AlertTriangle, Lock, ShieldCheck, Clock, FileText, UserPlus } from "lucide-react";
 
-const BRAND = "#E91E8C";
+const BRAND = "#EC4899";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
@@ -35,12 +35,12 @@ export function MobileClickLogPublic() {
 
         {/* Locked button */}
         <div style={{ position: "relative" }}>
-          <div style={{ width: 140, height: 140, borderRadius: "50%", background: "rgba(233,30,140,0.1)", border: `3px solid rgba(233,30,140,0.25)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6, filter: "blur(2px)", opacity: 0.5 }}>
+          <div style={{ width: 140, height: 140, borderRadius: "50%", background: "rgba(236,72,153,0.1)", border: `3px solid rgba(236,72,153,0.25)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6, filter: "blur(2px)", opacity: 0.5 }}>
             <AlertTriangle size={34} color={BRAND} />
             <span style={{ fontSize: 13, fontWeight: 800, color: BRAND }}>Log Incident</span>
           </div>
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(233,30,140,0.12)", border: `2px solid ${BRAND}50`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(236,72,153,0.12)", border: `2px solid ${BRAND}50`, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <Lock size={18} color={BRAND} />
             </div>
           </div>

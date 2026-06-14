@@ -1,7 +1,7 @@
 // design-sync
 import { Smile, Shield, Lock, TrendingUp, Plus, BarChart2 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #EC4899)";
+const COLOR = "var(--app-accent, #4ADE80)";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

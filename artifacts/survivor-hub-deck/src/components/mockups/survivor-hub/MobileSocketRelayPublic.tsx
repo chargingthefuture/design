@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Share2, Lock } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#F43F5E";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#FB923C";
 
 export function MobileSocketRelayPublic() {
   return (

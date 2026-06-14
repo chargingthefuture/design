@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Home, Lock } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#EAB308";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#60A5FA";
 
 export function MobileLightHousePublic() {
   return (

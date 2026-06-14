@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { BarChart2, TrendingUp, Lock } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#B45309";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F97316";
 
 const GAPS = [
   { skill: "Software Development", gap: "14,600", trend: "+31%" },

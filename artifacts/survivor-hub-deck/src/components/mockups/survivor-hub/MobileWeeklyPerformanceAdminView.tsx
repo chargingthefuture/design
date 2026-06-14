@@ -22,11 +22,11 @@ const METRICS = [
 ];
 
 const PLUGINS = [
-  { name: "Foundation",    active: 847,  color: "#22C55E" },
-  { name: "SkillsHunt",   active: 692,  color: "#A78BFA" },
-  { name: "LightHouse",   active: 534,  color: "#06B6D4" },
+  { name: "Foundation",    active: 847,  color: "#F59E0B" },
+  { name: "SkillsHunt",   active: 692,  color: "#FBBF24" },
+  { name: "LightHouse",   active: 534,  color: "#60A5FA" },
   { name: "SocketRelay",  active: 312,  color: "#FB923C" },
-  { name: "ServiceCredits",active: 1203, color: COLOR      },
+  { name: "ServiceCredits",active: 1203, color: "#A855F7" },
 ];
 
 const BARS = [

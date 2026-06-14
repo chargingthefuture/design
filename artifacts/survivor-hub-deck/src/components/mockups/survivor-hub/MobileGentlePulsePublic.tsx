@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Heart, Play, Lock } from "lucide-react";
 
-const bg = "#0A0F0E", COLOR = "#14B8A6";
+const bg = "#0A0F0E", COLOR = "#34D399";
 
 const SESSIONS = [
   { title: "4-7-8 Breathing", dur: "5 min", emoji: "🌬️", plays: "47.8k" },
@@ -31,7 +31,7 @@ export function MobileGentlePulsePublic() {
       <div style={{ flex: 1, padding: "0 20px 20px", position: "relative" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, filter: "blur(4px)", pointerEvents: "none", opacity: 0.5 }}>
           {SESSIONS.map((s, i) => (
-            <div key={i} style={{ borderRadius: 12, border: "1px solid rgba(20,184,166,0.12)", padding: "12px 14px", display: "flex", gap: 12, alignItems: "center", background: "rgba(20,184,166,0.03)" }}>
+            <div key={i} style={{ borderRadius: 12, border: "1px solid rgba(52,211,153,0.12)", padding: "12px 14px", display: "flex", gap: 12, alignItems: "center", background: "rgba(52,211,153,0.03)" }}>
               <span style={{ fontSize: 22, flexShrink: 0 }}>{s.emoji}</span>
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 600, fontSize: 13 }}>{s.title}</div>

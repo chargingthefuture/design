@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Zap, Lock } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#F59E0B";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#A855F7";
 
 export function MobileServiceCreditsPublic() {
   return (

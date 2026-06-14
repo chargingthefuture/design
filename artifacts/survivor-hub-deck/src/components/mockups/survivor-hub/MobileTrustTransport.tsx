@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Car, Package, Navigation, CheckCircle, Shield, AlertCircle, Phone, Home, MessageSquare, Clock } from "lucide-react";
 
-const COLOR = "var(--app-accent, #F97316)";
+const COLOR = "var(--app-accent, #38BDF8)";
 
 const DRIVERS = [
   { id: 1, name: "Jose Martinez", rating: 4.9, trips: 847, eta: "3 min", avatar: "JM", vehicle: "Toyota Camry", credits: true },

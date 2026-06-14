@@ -1,7 +1,7 @@
 // design-sync
 import { Home, MapPin, Search, Bell, Filter, Heart, Shield, AlertCircle } from "lucide-react";
 
-const COLOR = "var(--app-accent, #EAB308)";
+const COLOR = "var(--app-accent, #60A5FA)";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

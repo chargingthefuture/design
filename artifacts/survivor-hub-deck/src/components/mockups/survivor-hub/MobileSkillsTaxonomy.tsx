@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BookOpen, Search, ChevronDown, Plus, Bell } from "lucide-react";
 
-const BRAND = "#8B5CF6";
+const BRAND = "#818CF8";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

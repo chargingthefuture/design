@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Play, Pause, Home, Star, Clock } from "lucide-react";
 
-const COLOR = "var(--app-accent, #14B8A6)";
+const COLOR = "var(--app-accent, #34D399)";
 
 const SESSIONS = [
   { id: 1, title: "4-7-8 Breathing", duration: "5 min", emoji: "🌬️", category: "Breathing", plays: 47823 },
@@ -35,7 +35,7 @@ export function MobileGentlePulse() {
       <div style={{ height: 44, background: "#060A09", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px" }}>
         <div style={{ fontSize: 13, fontWeight: 700 }}>9:41</div><div style={{ fontSize: 12, color: "#9CA3AF" }}>100%</div>
       </div>
-      <div style={{ padding: "14px 20px 12px", background: "#060A09", borderBottom: "1px solid rgba(20,184,166,0.1)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "14px 20px 12px", background: "#060A09", borderBottom: "1px solid rgba(52,211,153,0.1)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 36, height: 36, borderRadius: 10, background: `${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center" }}><Heart size={18} style={{ color: COLOR }} /></div>
           <div>
@@ -61,7 +61,7 @@ export function MobileGentlePulse() {
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                 {SESSIONS.map((s) => (
-                  <div key={s.id} onClick={() => { setPlaying(s.id); setActiveNav("playing"); }} style={{ padding: "16px 12px", borderRadius: 14, background: "rgba(20,184,166,0.03)", border: `1px solid ${COLOR}18`, cursor: "pointer" }}>
+                  <div key={s.id} onClick={() => { setPlaying(s.id); setActiveNav("playing"); }} style={{ padding: "16px 12px", borderRadius: 14, background: "rgba(52,211,153,0.03)", border: `1px solid ${COLOR}18`, cursor: "pointer" }}>
                     <div style={{ fontSize: 36, marginBottom: 8 }}>{s.emoji}</div>
                     <div style={{ fontSize: 13, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4, lineHeight: 1.3 }}>{s.title}</div>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -118,7 +118,7 @@ export function MobileGentlePulse() {
           )}
         </div>
       </ScrollArea>
-      <div style={{ height: 72, background: "#060A09", borderTop: "1px solid rgba(20,184,166,0.08)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
+      <div style={{ height: 72, background: "#060A09", borderTop: "1px solid rgba(52,211,153,0.08)", display: "flex", alignItems: "center", justifyContent: "space-around", padding: "0 8px" }}>
         {NAV.map(({ icon: Icon, label, key }) => (
           <button key={key} onClick={() => setActiveNav(key)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flex: 1, padding: "8px 4px", background: "transparent", border: "none", cursor: "pointer" }}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: activeNav === key ? `${COLOR}20` : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>

@@ -6,7 +6,7 @@ import {
   Trash2, Plus, FileText,
 } from "lucide-react";
 
-const BRAND = "#E91E8C";
+const BRAND = "#EC4899";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
@@ -169,7 +169,7 @@ export function ClickLog() {
             </div>
           ))}
         </div>
-        <div style={{ padding: "14px", borderRadius: 12, background: "rgba(233,30,140,0.05)", border: "1px solid rgba(233,30,140,0.15)", marginBottom: 14 }}>
+        <div style={{ padding: "14px", borderRadius: 12, background: "rgba(236,72,153,0.05)", border: "1px solid rgba(236,72,153,0.15)", marginBottom: 14 }}>
           <div style={{ fontSize: 12, fontWeight: 600, color: BRAND, marginBottom: 6 }}>Safety reminder</div>
           <div style={{ fontSize: 11, color: subtle, lineHeight: 1.6 }}>
             ClickLog is for personal tracking only. In an emergency, always contact local emergency services first.

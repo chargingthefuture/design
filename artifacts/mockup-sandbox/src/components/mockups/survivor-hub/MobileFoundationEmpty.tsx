@@ -6,7 +6,7 @@ const surface = "#161B27";
 const border = "#1E2A3A";
 const text = "var(--comic-text-primary, #F9FAFB)";
 const subtle = "var(--comic-text-secondary, #6B7280)";
-const COLOR = "var(--app-accent, #EF4444)";
+const COLOR = "var(--app-accent, #F59E0B)";
 
 export function MobileFoundationEmpty() {
   return (

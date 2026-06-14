@@ -1,7 +1,7 @@
 // design-sync
 import { Heart, Play, Wind, Sun, Moon, Star, Clock, Plus, Sparkles } from "lucide-react";
 
-const COLOR = "var(--app-accent, #14B8A6)";
+const COLOR = "var(--app-accent, #34D399)";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

@@ -9,7 +9,7 @@ import {
   Wind, Droplets, Sun, Moon, Volume2,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #14B8A6)";
+const COLOR = "var(--app-accent, #34D399)";
 
 const SESSIONS = [
   { id: 1, title: "4-7-8 Breathing", category: "Breathing", duration: "5 min", level: "Beginner", plays: 47823, rating: 4.9, emoji: "🌬️", description: "Inhale for 4, hold for 7, exhale for 8. Scientifically proven to reduce cortisol." },
@@ -47,7 +47,7 @@ export function GentlePulse() {
 
   return (
     <div style={{ width: "100%", height: "100%", minHeight: "100vh", background: "#0A0F0E", fontFamily: "'Inter', system-ui, sans-serif", color: "var(--comic-text-primary, #E8EAF0)", display: "flex" }}>
-      <aside style={{ width: 72, background: "#060A09", borderRight: "1px solid rgba(20,184,166,0.1)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
+      <aside style={{ width: 72, background: "#060A09", borderRight: "1px solid rgba(52,211,153,0.1)", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 16, paddingBottom: 16, gap: 8, flexShrink: 0 }}>
         <div style={{ width: 40, height: 40, borderRadius: 12, background: `${COLOR}30`, border: `1px solid ${COLOR}50`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
           <Heart size={20} style={{ color: COLOR }} />
         </div>
@@ -64,7 +64,7 @@ export function GentlePulse() {
         </Avatar>
       </aside>
 
-      <aside style={{ width: 240, background: "#080D0C", borderRight: "1px solid rgba(20,184,166,0.08)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
+      <aside style={{ width: 240, background: "#080D0C", borderRight: "1px solid rgba(52,211,153,0.08)", display: "flex", flexDirection: "column", flexShrink: 0 }}>
         <div style={{ padding: "20px 16px 12px" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 12 }}>💚 GentlePulse</div>
         </div>
@@ -88,7 +88,7 @@ export function GentlePulse() {
       </aside>
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <header style={{ height: 56, borderBottom: "1px solid rgba(20,184,166,0.1)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#080D0C", flexShrink: 0 }}>
+        <header style={{ height: 56, borderBottom: "1px solid rgba(52,211,153,0.1)", display: "flex", alignItems: "center", padding: "0 24px", gap: 16, background: "#080D0C", flexShrink: 0 }}>
           <Heart size={18} style={{ color: COLOR }} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 15, fontWeight: 600, color: "var(--comic-text-primary, #E8EAF0)" }}>💚 GentlePulse — Guided Meditation</div>
@@ -100,13 +100,13 @@ export function GentlePulse() {
         {tab === "sessions" ? (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
-              <div style={{ marginBottom: 20, padding: "20px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(20,184,166,0.03) 100%)`, border: `1px solid ${COLOR}20` }}>
+              <div style={{ marginBottom: 20, padding: "20px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(52,211,153,0.03) 100%)`, border: `1px solid ${COLOR}20` }}>
                 <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Room to Breathe</div>
                 <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)" }}>6 sessions · Trauma-informed therapists · Designed to minimize triggers · Always free</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
                 {filtered.map((s) => (
-                  <div key={s.id} onClick={() => { setPlaying(s.id); setTab("playing"); }} style={{ padding: "20px", borderRadius: 16, background: "rgba(20,184,166,0.04)", border: `1px solid ${COLOR}20`, cursor: "pointer", transition: "all 0.15s" }}>
+                  <div key={s.id} onClick={() => { setPlaying(s.id); setTab("playing"); }} style={{ padding: "20px", borderRadius: 16, background: "rgba(52,211,153,0.04)", border: `1px solid ${COLOR}20`, cursor: "pointer", transition: "all 0.15s" }}>
                     <div style={{ fontSize: 36, marginBottom: 12 }}>{s.emoji}</div>
                     <div style={{ fontSize: 15, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>{s.title}</div>
                     <div style={{ fontSize: 12, color: "#4B5563", marginBottom: 12, lineHeight: 1.5 }}>{s.description}</div>
@@ -176,7 +176,7 @@ export function GentlePulse() {
               ))}
             </ScrollArea>
             <div style={{ padding: "8px 24px 20px", flexShrink: 0 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(20,184,166,0.04)", border: `1px solid ${COLOR}20`, borderRadius: 14 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 16px", background: "rgba(52,211,153,0.04)", border: `1px solid ${COLOR}20`, borderRadius: 14 }}>
                 <Plus size={18} style={{ color: "#4B5563" }} />
                 <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send()} placeholder="How can GentlePulse help you right now?" style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 14, color: "var(--comic-text-primary, #E8EAF0)" }} />
                 <button onClick={send} style={{ width: 32, height: 32, borderRadius: 8, background: input.trim() ? COLOR : "rgba(255,255,255,0.06)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><Send size={14} style={{ color: input.trim() ? "#0A0F0E" : "#4B5563" }} /></button>
@@ -186,7 +186,7 @@ export function GentlePulse() {
         )}
       </div>
 
-      <aside style={{ width: 280, borderLeft: "1px solid rgba(20,184,166,0.08)", background: "#080D0C", padding: "20px 16px", flexShrink: 0 }}>
+      <aside style={{ width: 280, borderLeft: "1px solid rgba(52,211,153,0.08)", background: "#080D0C", padding: "20px 16px", flexShrink: 0 }}>
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 12 }}>Popular Now</div>
         {SESSIONS.sort((a, b) => b.plays - a.plays).slice(0, 4).map((s) => (
           <div key={s.id} onClick={() => { setPlaying(s.id); setTab("playing"); }} style={{ display: "flex", gap: 10, alignItems: "center", padding: "10px", borderRadius: 10, background: `${COLOR}06`, border: `1px solid ${COLOR}15`, marginBottom: 8, cursor: "pointer" }}>

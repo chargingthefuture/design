@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Home, CheckCircle, XCircle, Clock, AlertTriangle } from "lucide-react";
 
-const COLOR  = "#06B6D4";
+const COLOR  = "#60A5FA";
 const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Code2, CheckCircle, XCircle, Flag, Users } from "lucide-react";
 
-const COLOR  = "#8B5CF6";
+const COLOR  = "#6EE7B7";
 const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";

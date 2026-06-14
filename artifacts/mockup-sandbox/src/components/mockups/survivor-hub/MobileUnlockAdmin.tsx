@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Unlock, CheckCircle, XCircle, Key, Clock } from "lucide-react";
 
-const COLOR  = "#F43F5E";
+const COLOR  = "#C084FC";
 const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";

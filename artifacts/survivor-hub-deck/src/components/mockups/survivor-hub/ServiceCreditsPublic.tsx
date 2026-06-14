@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Zap, Lock, ArrowRight } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#F59E0B";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#A855F7";
 
 const EARN_WAYS = [
   { action: "Complete a GentlePulse session", credits: "+5" },

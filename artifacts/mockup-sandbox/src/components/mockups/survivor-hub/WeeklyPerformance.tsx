@@ -174,9 +174,9 @@ export function WeeklyPerformance({ isAdmin = false }: { isAdmin?: boolean }) {
         <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#4B5563", textTransform: "uppercase", marginBottom: 10 }}>Top Apps This Week</div>
         {[
           { name: "Chyme", val: "428 sessions", color: "#22C55E" },
-          { name: "LightHouse", val: "312 sessions", color: "#EAB308" },
-          { name: "SkillsHunt", val: "287 sessions", color: "#A855F7" },
-          { name: "Foundation", val: "198 sessions", color: "#EF4444" },
+          { name: "LightHouse", val: "312 sessions", color: "#60A5FA" },
+          { name: "SkillsHunt", val: "287 sessions", color: "#FBBF24" },
+          { name: "Foundation", val: "198 sessions", color: "#F59E0B" },
         ].map(({ name, val, color }) => (
           <div key={name} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 10px", borderRadius: 8, background: "rgba(255,255,255,0.02)", border: `1px solid ${border}`, marginBottom: 6 }}>
             <div style={{ width: 8, height: 8, borderRadius: "50%", background: color, flexShrink: 0 }} />

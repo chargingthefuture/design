@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Truck, CheckCircle, XCircle, AlertTriangle } from "lucide-react";
 
-const COLOR  = "#F43F5E";
+const COLOR  = "#38BDF8";
 const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";

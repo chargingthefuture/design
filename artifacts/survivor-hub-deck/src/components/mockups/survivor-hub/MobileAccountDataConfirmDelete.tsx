@@ -5,7 +5,7 @@ import {
   Shield, Trash2, Lock, AlertTriangle, CheckCircle, X, Bell,
 } from "lucide-react";
 
-const BRAND = "#E91E8C";
+const BRAND = "#D946EF";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

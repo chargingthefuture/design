@@ -6,7 +6,7 @@ import {
   CheckCircle, AlertTriangle, UserCheck, Search,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #3B82F6)";
+const COLOR = "var(--app-accent, #93C5FD)";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

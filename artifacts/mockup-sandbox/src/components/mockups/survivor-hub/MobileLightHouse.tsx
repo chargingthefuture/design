@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Home, Search, Heart, Shield, MapPin, Bed, Bath, MessageSquare, ArrowLeft, ChevronRight, Lock } from "lucide-react";
 
-const COLOR = "var(--app-accent, #EAB308)";
+const COLOR = "var(--app-accent, #60A5FA)";
 
 const LISTINGS = [
   { id: 1, title: "Private Studio — Safe & Verified", location: "Midtown Houston", price: 850, credits: true, beds: 0, baths: 1, rating: 4.9, available: "Now", emoji: "🏠" },

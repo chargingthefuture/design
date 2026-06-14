@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Smile, TrendingUp, Home, Lock, ArrowUpRight } from "lucide-react";
 
-const COLOR = "var(--app-accent, #EC4899)";
+const COLOR = "var(--app-accent, #4ADE80)";
 
 const MOODS = [
   { emoji: "😄", label: "Great", value: 5, color: "#22C55E" },
@@ -15,7 +15,7 @@ const MOODS = [
 ];
 
 const RESOURCES = [
-  { title: "4-7-8 Breathing", type: "GentlePulse", color: "#14B8A6" },
+  { title: "4-7-8 Breathing", type: "GentlePulse", color: "#34D399" },
   { title: "Crisis Text Line", type: "Emergency", color: "#EF4444" },
   { title: "Peer Chat", type: "Chyme", color: "#22C55E" },
 ];

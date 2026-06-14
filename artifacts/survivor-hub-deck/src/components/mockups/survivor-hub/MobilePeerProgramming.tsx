@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Users, Video, MessageSquare, Home, Globe } from "lucide-react";
 
-const COLOR = "var(--app-accent, #8B5CF6)";
+const COLOR = "var(--app-accent, #6EE7B7)";
 
 const COHORTS = [
   { id: 1, name: "Tech for Good — Week 4", facilitator: "Lena H.", time: "Tues 7 PM UTC", members: 12, maxMembers: 12, status: "active", skills: ["React", "Node.js"], countries: ["🇺🇸","🇳🇬","🇧🇷","🇮🇳"], joinable: false },

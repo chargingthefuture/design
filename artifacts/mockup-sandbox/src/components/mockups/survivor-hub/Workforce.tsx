@@ -9,7 +9,7 @@ import {
   Briefcase, Award, Target, CheckCircle, ChevronRight,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #B45309)";
+const COLOR = "var(--app-accent, #F97316)";
 const BG = "#0e0f30";
 
 const SKILL_GAPS = [
@@ -106,28 +106,28 @@ export function Workforce({ initialEmpty = false }: { initialEmpty?: boolean } =
         {tab === "dashboard" ? (
           emptyMode ? (
             <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 16 }}>
-              <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <BarChart2 size={32} style={{ color: "#B45309", opacity: 0.5 }} />
+              <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <BarChart2 size={32} style={{ color: "#F97316", opacity: 0.5 }} />
               </div>
               <div style={{ textAlign: "center", maxWidth: 360 }}>
                 <div style={{ fontSize: 20, fontWeight: 700, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 8 }}>No workforce data yet</div>
                 <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", lineHeight: 1.7, marginBottom: 24 }}>Once survivors complete their profile and onboarding, workforce distribution and skill gap analysis will appear here. Live data streams in real time.</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, width: "100%", maxWidth: 700 }}>
-                {[{ label: "Total Members", color: "#B45309" }, { label: "Employed", color: "#22C55E" }, { label: "In Training", color: "#F59E0B" }, { label: "Skill Gaps", color: "#EF4444" }].map(({ label, color }) => (
+                {[{ label: "Total Members", color: "#F97316" }, { label: "Employed", color: "#22C55E" }, { label: "In Training", color: "#F59E0B" }, { label: "Skill Gaps", color: "#EF4444" }].map(({ label, color }) => (
                   <div key={label} style={{ padding: "20px", borderRadius: 16, background: `${color}06`, border: `1px dashed ${color}25`, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
                     <div style={{ width: 32, height: 8, borderRadius: 4, background: `${color}20` }} />
                     <div style={{ fontSize: 12, color: "#4B5563", textAlign: "center" }}>{label}</div>
                   </div>
                 ))}
               </div>
-              <div style={{ padding: "16px 24px", borderRadius: 12, background: "rgba(99,102,241,0.06)", border: "1px dashed rgba(99,102,241,0.2)", width: "100%", maxWidth: 700 }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#B45309", marginBottom: 6, display: "flex", alignItems: "center", gap: 6 }}>
+              <div style={{ padding: "16px 24px", borderRadius: 12, background: "rgba(249,115,22,0.06)", border: "1px dashed rgba(249,115,22,0.2)", width: "100%", maxWidth: 700 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#F97316", marginBottom: 6, display: "flex", alignItems: "center", gap: 6 }}>
                   <Target size={14} /> Critical Skill Gaps
                 </div>
                 <div style={{ fontSize: 13, color: "#4B5563" }}>No skill gap data — gaps populate as workforce profiles are submitted and analyzed. Sourced from Workforce × LevelUp cross-reference.</div>
               </div>
-              <button style={{ padding: "12px 28px", borderRadius: 12, background: "#B45309", border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+              <button style={{ padding: "12px 28px", borderRadius: 12, background: "#F97316", border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
                 <Plus size={16} /> Invite Survivors to Onboard
               </button>
             </div>

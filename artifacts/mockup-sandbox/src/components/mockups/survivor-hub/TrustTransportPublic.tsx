@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Car, Shield, Star, Lock, Package, Utensils } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#F97316";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#38BDF8";
 
 export function TrustTransportPublic() {
   return (

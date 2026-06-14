@@ -1,7 +1,7 @@
 // design-sync
 import { ShieldCheck, Eye, ChevronDown, CheckCircle2 } from "lucide-react";
 
-const BRAND = "#0284C7";
+const BRAND = "#0EA5E9";
 const BRAND_DIM = "rgba(14,165,233,0.15)";
 const BRAND_BORDER = "rgba(14,165,233,0.25)";
 const CARD_BG = "rgba(14,165,233,0.06)";
@@ -20,12 +20,12 @@ function TrustHeader({ verified }: { verified: boolean }) {
     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 14px 10px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
         <ShieldCheck size={14} style={{ color: BRAND }} />
-        <span style={{ fontSize: 12, fontWeight: 700, color: "#38BDF8", letterSpacing: "0.06em", textTransform: "uppercase" }}>Trust</span>
+        <span style={{ fontSize: 12, fontWeight: 700, color: "#0EA5E9", letterSpacing: "0.06em", textTransform: "uppercase" }}>Trust</span>
       </div>
       <div style={{
         display: "flex", alignItems: "center", gap: 4,
         background: verified ? BRAND_DIM : "rgba(255,255,255,0.05)",
-        color: verified ? "#38BDF8" : "var(--comic-text-secondary, #6B7280)",
+        color: verified ? "#0EA5E9" : "var(--comic-text-secondary, #6B7280)",
         border: `1px solid ${verified ? BRAND_BORDER : "rgba(255,255,255,0.08)"}`,
         fontSize: 10, padding: "2px 8px", borderRadius: 20,
       }}>
@@ -67,7 +67,7 @@ function TrustEmpty() {
         </div>
 
         {/* CTA */}
-        <button style={{ width: "100%", background: BRAND_DIM, border: `1px solid ${BRAND_BORDER}`, borderRadius: 8, padding: "8px 0", fontSize: 12, fontWeight: 600, color: "#38BDF8", cursor: "pointer", marginBottom: 10 }}>
+        <button style={{ width: "100%", background: BRAND_DIM, border: `1px solid ${BRAND_BORDER}`, borderRadius: 8, padding: "8px 0", fontSize: 12, fontWeight: 600, color: "#0EA5E9", cursor: "pointer", marginBottom: 10 }}>
           Request Verification
         </button>
 
@@ -106,7 +106,7 @@ function TrustVerified() {
         <div style={{ display: "flex", flexDirection: "column", gap: 5, marginBottom: 12 }}>
           {steps.map(({ label, done }) => (
             <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 9px", background: "rgba(255,255,255,0.02)", borderRadius: 8, border: "1px solid rgba(255,255,255,0.05)" }}>
-              <CheckCircle2 size={14} style={{ color: done ? "#38BDF8" : "rgba(255,255,255,0.12)", flexShrink: 0 }} />
+              <CheckCircle2 size={14} style={{ color: done ? "#0EA5E9" : "rgba(255,255,255,0.12)", flexShrink: 0 }} />
               <span style={{ fontSize: 11, color: done ? "#CBD5E1" : "var(--comic-text-secondary, #6B7280)", textDecoration: done ? "none" : "none" }}>{label}</span>
             </div>
           ))}
@@ -166,7 +166,7 @@ export function Trust() {
 
       {/* State transition note */}
       <div style={{ maxWidth: 560, background: "rgba(14,165,233,0.05)", border: "1px solid rgba(14,165,233,0.15)", borderRadius: 10, padding: "12px 16px", textAlign: "center" }}>
-        <div style={{ fontSize: 12, color: "#38BDF8", fontWeight: 600, marginBottom: 4 }}>State logic</div>
+        <div style={{ fontSize: 12, color: "#0EA5E9", fontWeight: 600, marginBottom: 4 }}>State logic</div>
         <div style={{ fontSize: 11, color: "#4B5563", lineHeight: 1.7 }}>
           Show <strong style={{ color: "#9CA3AF" }}>empty state</strong> when <code style={{ background: "rgba(255,255,255,0.06)", padding: "1px 5px", borderRadius: 4, fontSize: 10 }}>trustProfile === null</code> or <code style={{ background: "rgba(255,255,255,0.06)", padding: "1px 5px", borderRadius: 4, fontSize: 10 }}>signalCount === 0</code>.{" "}
           Show <strong style={{ color: "#9CA3AF" }}>verified state</strong> once the user has at least one trust signal.

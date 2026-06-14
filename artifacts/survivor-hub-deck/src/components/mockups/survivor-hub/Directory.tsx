@@ -9,7 +9,7 @@ import {
   Plus, Briefcase, Globe, Shield, Bell, Settings, Link2,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #3B82F6)";
+const COLOR = "var(--app-accent, #93C5FD)";
 
 // Spec §2.2 / §4.2: @handle routing
 // Production: firstName + lastName (no display_name field)
@@ -261,7 +261,7 @@ export function Directory({
           emptyMode ? (
             /* Empty state — two variants: filter-active (Browse All visible) vs genuine zero (no Browse All) */
             <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 16 }}>
-              <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: 72, height: 72, borderRadius: 20, background: "rgba(147,197,253,0.1)", border: "1px solid rgba(147,197,253,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <Users size={32} style={{ color: COLOR, opacity: 0.5 }} />
               </div>
               <div style={{ textAlign: "center", maxWidth: 400 }}>
@@ -278,8 +278,8 @@ export function Directory({
                 <>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, width: "100%", maxWidth: 540 }}>
                     {["Therapists", "Housing", "Legal", "Employment", "Finance", "Tech"].map(cat => (
-                      <div key={cat} style={{ padding: "12px", borderRadius: 10, background: "rgba(59,130,246,0.04)", border: "1px dashed rgba(59,130,246,0.2)", textAlign: "center" }}>
-                        <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(59,130,246,0.08)", margin: "0 auto 6px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div key={cat} style={{ padding: "12px", borderRadius: 10, background: "rgba(147,197,253,0.04)", border: "1px dashed rgba(147,197,253,0.2)", textAlign: "center" }}>
+                        <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(147,197,253,0.08)", margin: "0 auto 6px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                           <Briefcase size={14} style={{ color: COLOR, opacity: 0.4 }} />
                         </div>
                         <div style={{ fontSize: 12, color: "#4B5563" }}>{cat}</div>
@@ -290,7 +290,7 @@ export function Directory({
                     <button style={{ padding: "12px 24px", borderRadius: 12, background: COLOR, border: "none", color: "#fff", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
                       <Globe size={16} /> Browse All Providers
                     </button>
-                    <button style={{ padding: "12px 24px", borderRadius: 12, background: "rgba(59,130,246,0.12)", border: "1px solid rgba(59,130,246,0.3)", color: COLOR, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+                    <button style={{ padding: "12px 24px", borderRadius: 12, background: "rgba(147,197,253,0.12)", border: "1px solid rgba(147,197,253,0.3)", color: COLOR, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
                       Clear Filters
                     </button>
                   </div>

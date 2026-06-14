@@ -25,7 +25,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #EF4444)";
+const COLOR = "var(--app-accent, #F59E0B)";
 const BG = "#1c0505";
 
 const PROVIDERS = [
@@ -760,7 +760,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                   marginBottom: 20,
                   padding: "18px 24px",
                   borderRadius: 16,
-                  background: `linear-gradient(135deg,${COLOR}15 0%,rgba(239,68,68,0.05) 100%)`,
+                  background: `linear-gradient(135deg,${COLOR}15 0%,rgba(245,158,11,0.05) 100%)`,
                   border: `1px solid ${COLOR}25`,
                 }}
               >
@@ -944,7 +944,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
               </div>
               {emptyQuotes ? (
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "48px 24px", gap: 16 }}>
-                  <div style={{ width: 64, height: 64, borderRadius: 18, background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: 64, height: 64, borderRadius: 18, background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <FileText size={28} style={{ color: COLOR, opacity: 0.5 }} />
                   </div>
                   <div style={{ textAlign: "center", maxWidth: 360 }}>
@@ -953,7 +953,7 @@ export function Foundation({ initialEmptyQuotes = false }: { initialEmptyQuotes?
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 400 }}>
                     {["Request an electrician or plumber", "Get quotes from multiple providers", "Accept a quote and pay with Service Credits"].map((step, i) => (
-                      <div key={step} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px dashed rgba(239,68,68,0.15)" }}>
+                      <div key={step} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderRadius: 10, background: "rgba(255,255,255,0.02)", border: "1px dashed rgba(245,158,11,0.15)" }}>
                         <div style={{ width: 22, height: 22, borderRadius: "50%", background: `${COLOR}15`, border: `1px solid ${COLOR}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 11, fontWeight: 700, color: COLOR }}>{i + 1}</div>
                         <span style={{ fontSize: 13, color: "var(--comic-text-secondary, #6B7280)" }}>{step}</span>
                       </div>

@@ -6,7 +6,7 @@ import {
   X, Save, Bell, Settings, Calendar, ShieldCheck, CheckCircle,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #D946EF)";
+const COLOR = "var(--app-accent, #FBBF24)";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
