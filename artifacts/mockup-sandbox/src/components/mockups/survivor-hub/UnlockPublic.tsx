@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Unlock as UnlockIcon, UserPlus, CheckCircle, Shield, ChevronRight } from "lucide-react";
 
-const BRAND = "#10B981";
+const BRAND = "#C084FC";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

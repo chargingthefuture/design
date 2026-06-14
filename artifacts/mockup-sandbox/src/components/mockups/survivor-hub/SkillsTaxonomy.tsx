@@ -6,7 +6,7 @@ import {
   Bell, Settings, Plus, Layers, TrendingUp, Shield,
 } from "lucide-react";
 
-const BRAND = "#8B5CF6";
+const BRAND = "#818CF8";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
@@ -18,7 +18,7 @@ const SECTORS = [
   { name: "Healthcare", count: 18, color: "#10B981" },
   { name: "Trades", count: 21, color: "#F59E0B" },
   { name: "Creative", count: 15, color: "#EC4899" },
-  { name: "Education", count: 12, color: "#8B5CF6" },
+  { name: "Education", count: 12, color: "#818CF8" },
   { name: "Business & Legal", count: 14, color: "#06B6D4" },
   { name: "Food & Hospitality", count: 9, color: "#F97316" },
   { name: "Agriculture", count: 7, color: "#22C55E" },

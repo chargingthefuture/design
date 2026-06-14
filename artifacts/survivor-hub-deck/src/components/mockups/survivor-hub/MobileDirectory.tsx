@@ -8,8 +8,8 @@ import {
   Users, ChevronRight, ArrowLeft, Shield, Link2,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #3B82F6)";
-const COMMUNITY_COLOR = "#D946EF";
+const COLOR = "var(--app-accent, #93C5FD)";
+const COMMUNITY_COLOR = "#FBBF24";
 
 // Production: firstName + lastName (no display_name); auth gate removed
 // Spec §4.1: source — 'admin' | 'self' | 'community-generated'

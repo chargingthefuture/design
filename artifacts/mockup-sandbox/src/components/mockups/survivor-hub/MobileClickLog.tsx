@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AlertTriangle, Clock, FileText, Bell, MapPin, Trash2 } from "lucide-react";
 
-const BRAND = "#E91E8C";
+const BRAND = "#EC4899";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

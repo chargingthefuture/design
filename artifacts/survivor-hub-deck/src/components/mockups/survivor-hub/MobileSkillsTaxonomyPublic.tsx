@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { BookOpen, Lock, UserPlus, ChevronRight } from "lucide-react";
 
-const BRAND = "#8B5CF6";
+const BRAND = "#818CF8";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
@@ -64,7 +64,7 @@ export function MobileSkillsTaxonomyPublic() {
           <div style={{ fontSize: 12, fontWeight: 700, color: subtle, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>All Sectors</div>
           {PREVIEW_SECTORS.map((name, i) => (
             <div key={name} style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 14px", borderRadius: 10, background: surface, border: `1px solid ${border}`, marginBottom: 6 }}>
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: ["#3B82F6","#10B981","#F59E0B","#EC4899","#8B5CF6","#06B6D4"][i] }} />
+              <div style={{ width: 8, height: 8, borderRadius: "50%", background: ["#3B82F6","#10B981","#F59E0B","#EC4899","#818CF8","#06B6D4"][i] }} />
               <span style={{ fontSize: 14, fontWeight: 500, flex: 1 }}>{name}</span>
               <ChevronRight size={14} color={subtle} />
             </div>

@@ -9,7 +9,7 @@ import {
   Zap, Shield, ArrowDown, ArrowUp, RefreshCw,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #F59E0B)";
+const COLOR = "var(--app-accent, #A855F7)";
 
 const TRANSACTIONS = [
   { id: 1, type: "earned", description: "Skills Hunt — Week 3 completion bonus", amount: +200, date: "Today 9:15 AM", balance: 2420 },
@@ -21,19 +21,19 @@ const TRANSACTIONS = [
 ];
 
 const EARN_METHODS = [
-  { title: "Complete a Skills Hunt Round", credits: "+200", difficulty: "Medium", color: "#A855F7" },
-  { title: "Facilitate a Peer Programming Session", credits: "+500", difficulty: "High", color: "#8B5CF6" },
-  { title: "Verify Your Provider Profile", credits: "+50", difficulty: "Easy", color: "#3B82F6" },
+  { title: "Complete a Skills Hunt Round", credits: "+200", difficulty: "Medium", color: "#FBBF24" },
+  { title: "Facilitate a Peer Programming Session", credits: "+500", difficulty: "High", color: "#6EE7B7" },
+  { title: "Verify Your Provider Profile", credits: "+50", difficulty: "Easy", color: "#93C5FD" },
   { title: "Refer a Survivor", credits: "+100/referral", difficulty: "Easy", color: "#22C55E" },
-  { title: "Complete GentlePulse Streak (30 days)", credits: "+150", difficulty: "Medium", color: "#14B8A6" },
+  { title: "Complete GentlePulse Streak (30 days)", credits: "+150", difficulty: "Medium", color: "#34D399" },
 ];
 
 const SPEND_OPTIONS = [
-  { title: "Housing (LightHouse)", credits: "Varies", icon: "🏠", color: "#EAB308" },
-  { title: "Transport (TrustTransport)", credits: "10–50/ride", icon: "📦", color: "#F97316" },
-  { title: "Therapy Sessions (Directory)", credits: "100–300", icon: "📇", color: "#3B82F6" },
-  { title: "Trade Services (Foundation)", credits: "50–500", icon: "🪛", color: "#EF4444" },
-  { title: "Peer-to-peer (SocketRelay)", credits: "Any amount", icon: "🔂", color: "#F43F5E" },
+  { title: "Housing (LightHouse)", credits: "Varies", icon: "🏠", color: "#60A5FA" },
+  { title: "Transport (TrustTransport)", credits: "10–50/ride", icon: "📦", color: "#38BDF8" },
+  { title: "Therapy Sessions (Directory)", credits: "100–300", icon: "📇", color: "#93C5FD" },
+  { title: "Trade Services (Foundation)", credits: "50–500", icon: "🪛", color: "#F59E0B" },
+  { title: "Peer-to-peer (SocketRelay)", credits: "Any amount", icon: "🔂", color: "#FB923C" },
 ];
 
 const CHAT = [
@@ -128,8 +128,8 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
         {tab === "wallet" ? (
           emptyMode ? (
             <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", gap: 20 }}>
-              <div style={{ padding: "28px 40px", borderRadius: 20, background: "rgba(245,158,11,0.06)", border: "1px dashed rgba(245,158,11,0.2)", textAlign: "center", width: "100%", maxWidth: 420 }}>
-                <div style={{ fontSize: 12, fontWeight: 700, color: "#F59E0B", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 12 }}>Your Balance</div>
+              <div style={{ padding: "28px 40px", borderRadius: 20, background: "rgba(168,85,247,0.06)", border: "1px dashed rgba(168,85,247,0.2)", textAlign: "center", width: "100%", maxWidth: 420 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "#A855F7", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 12 }}>Your Balance</div>
                 <div style={{ fontSize: 56, fontWeight: 900, color: "#4B5563", lineHeight: 1, marginBottom: 8 }}>0 <span style={{ fontSize: 20, color: "var(--comic-text-secondary, #6B7280)", fontWeight: 700 }}>credits</span></div>
                 <div style={{ fontSize: 14, color: "#4B5563" }}>No ServiceCredits to spend yet</div>
               </div>
@@ -140,7 +140,7 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
               <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 440 }}>
                 {[
                   { action: "Complete Skills Hunt round", reward: "+200 credits", color: "#A855F7" },
-                  { action: "Verify your provider profile", reward: "+50 credits", color: "#3B82F6" },
+                  { action: "Verify your provider profile", reward: "+50 credits", color: "#93C5FD" },
                   { action: "Refer a survivor to the Hub", reward: "+100 credits", color: "#22C55E" },
                 ].map(({ action, reward, color }) => (
                   <div key={action} style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", borderRadius: 12, background: `${color}08`, border: `1px solid ${color}20` }}>
@@ -162,7 +162,7 @@ export function ServiceCredits({ initialEmpty = false }: { initialEmpty?: boolea
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
               {/* Balance card */}
-              <div style={{ marginBottom: 24, padding: "28px 32px", borderRadius: 20, background: `linear-gradient(135deg,${COLOR}25 0%,rgba(245,158,11,0.05) 100%)`, border: `1px solid ${COLOR}30` }}>
+              <div style={{ marginBottom: 24, padding: "28px 32px", borderRadius: 20, background: `linear-gradient(135deg,${COLOR}25 0%,rgba(168,85,247,0.05) 100%)`, border: `1px solid ${COLOR}30` }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>Your Balance</div>
                 <div style={{ fontSize: 56, fontWeight: 900, color: "var(--comic-text-primary, #F9FAFB)", lineHeight: 1, marginBottom: 4 }}>2,420 <span style={{ fontSize: 20, color: COLOR, fontWeight: 700 }}>credits</span></div>
                 <div style={{ fontSize: 14, color: "var(--comic-text-secondary, #6B7280)", marginBottom: 20 }}>usable across all 18 plugins</div>

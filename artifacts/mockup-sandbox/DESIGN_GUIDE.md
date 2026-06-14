@@ -18,28 +18,44 @@ All values are used as inline-style hex strings or `rgba()` — no Tailwind, no 
 
 ### App accent colors
 
-Each of the 18 plugins has its own accent color. **Do not reassign these.**
+Every app surface has its own accent color and a matching dark card background (`bg`). **These are canonical — do not reassign, share, or omit.** The first row is the **Hub** platform shell; the rest are shipped plugins. Each accent is unique across the whole table (no two surfaces share a hex).
 
-| App | Color |
-|---|---|
-| GDP | `#06B6D4` |
-| What Works | `#84CC16` |
-| Trust | `#0EA5E9` |
-| Chyme / Live | `#22C55E` |
-| Foundation | `#F59E0B` |
-| ServiceCredits | `#A855F7` |
-| ClickLog | `#EC4899` |
-| GentlePulse | `#34D399` |
-| LightHouse | `#60A5FA` |
-| SocketRelay | `#FB923C` |
-| TrustTransport | `#38BDF8` |
-| Workforce | `#F97316` |
-| Unlock | `#C084FC` |
-| Mood | `#4ADE80` |
-| Directory | `#93C5FD` |
-| SkillsHunt | `#FBBF24` |
-| SkillsTaxonomy | `#818CF8` |
-| PeerProgramming | `#6EE7B7` |
+> **Plugin-count note:** This table includes the Hub shell plus every shipped plugin (including `LevelUp`, previously missing). The public-facing "18 plugins" figure in §12 is a separate marketing count — do **not** infer it from this table's row count, and do not change §12 without explicit owner instruction.
+
+| App | Accent | Background (`bg`) |
+|---|---|---|
+| Hub *(platform shell)* | `#7C3AED` | `#0E061A` |
+| GDP | `#06B6D4` | `#011417` |
+| What Works | `#84CC16` | `#0F1602` |
+| Trust | `#0EA5E9` | `#02121A` |
+| Chyme / Live | `#22C55E` | `#04160A` |
+| Foundation | `#F59E0B` | `#1B1101` |
+| ServiceCredits | `#A855F7` | `#12091B` |
+| ClickLog | `#EC4899` | `#1A0811` |
+| GentlePulse | `#34D399` | `#061711` |
+| LightHouse | `#60A5FA` | `#0B121C` |
+| SocketRelay | `#FB923C` | `#1C1007` |
+| TrustTransport | `#38BDF8` | `#06151B` |
+| Workforce | `#F97316` | `#1B0D02` |
+| Unlock | `#C084FC` | `#150F1C` |
+| Mood | `#4ADE80` | `#08180E` |
+| Directory | `#93C5FD` | `#10161C` |
+| SkillsHunt | `#FBBF24` | `#1C1504` |
+| SkillsTaxonomy | `#818CF8` | `#0E0F1B` |
+| PeerProgramming | `#6EE7B7` | `#0C1914` |
+| LevelUp | `#10B981` | `#02140E` |
+
+#### Background (`bg`) derivation rule
+
+The `bg` column is **derived from the accent**, not hand-picked, so downstream repos can regenerate it deterministically:
+
+```
+bg = each accent RGB channel × 0.11, rounded to the nearest integer
+```
+
+This yields a near-black tint that preserves the accent's hue (e.g. Foundation accent `#F59E0B` → `bg #1B1101`). When an accent changes, recompute its `bg` with the same rule — never leave a `bg` whose hue no longer matches its accent. The `bg` is used behind app tiles and the app-open surface (e.g. `Desktop.tsx` `MINI_APPS`, the landing page app grid).
+
+> **Hub accent — resolved collision:** Hub previously carried `#38BDF8` on the landing page, which is **TrustTransport's** accent. Hub now uses the brand violet `#7C3AED` (the platform/home shell carries the brand color), keeping every row collision-free.
 
 ### Semantic
 

@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Smile, Shield, Lock } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#EC4899";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#4ADE80";
 
 export function MoodPublic() {
   return (

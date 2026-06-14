@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Hammer, Lock, Star } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#EF4444";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F59E0B";
 
 export function MobileFoundationPublic() {
   return (

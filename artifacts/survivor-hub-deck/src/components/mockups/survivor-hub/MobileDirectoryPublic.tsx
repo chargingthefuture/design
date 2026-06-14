@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { BookOpen, Lock, Search, X, ExternalLink, Send } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#93C5FD", HUNT_COLOR = "#FBBF24";
 
 export function MobileDirectoryPublic() {
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +34,7 @@ export function MobileDirectoryPublic() {
 
       {/* ── Skills Hunt pinned reward card ─────────────────────────────── */}
       {/* Spec §2.4: primary entry point for Skills Hunt submissions */}
-      <div style={{ margin: "0 16px 16px", padding: "14px 16px", borderRadius: 14, background: `linear-gradient(135deg, ${HUNT_COLOR}12 0%, rgba(59,130,246,0.05) 100%)`, border: `1px solid ${HUNT_COLOR}30` }}>
+      <div style={{ margin: "0 16px 16px", padding: "14px 16px", borderRadius: 14, background: `linear-gradient(135deg, ${HUNT_COLOR}12 0%, rgba(147,197,253,0.05) 100%)`, border: `1px solid ${HUNT_COLOR}30` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
           <div style={{ width: 28, height: 28, borderRadius: 8, background: `${HUNT_COLOR}20`, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Search size={14} style={{ color: HUNT_COLOR }} />

@@ -9,7 +9,7 @@ import {
   Globe, Clock, Star, Zap, Video, Hash,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #8B5CF6)";
+const COLOR = "var(--app-accent, #6EE7B7)";
 
 const COHORTS = [
   {
@@ -108,7 +108,7 @@ export function PeerProgramming() {
         {tab === "cohorts" ? (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
-              <div style={{ marginBottom: 20, padding: "18px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(139,92,246,0.05) 100%)`, border: `1px solid ${COLOR}25` }}>
+              <div style={{ marginBottom: 20, padding: "18px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(110,231,183,0.05) 100%)`, border: `1px solid ${COLOR}25` }}>
                 <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Weekly Global Masterminds</div>
                 <div style={{ fontSize: 14, color: "#9CA3AF" }}>Deterministic placement — you always get a cohort. No one left behind.</div>
               </div>

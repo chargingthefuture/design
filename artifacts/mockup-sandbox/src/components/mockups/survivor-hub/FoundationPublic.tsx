@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Hammer, Star, MapPin, Lock } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#EF4444";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F59E0B";
 
 const PREVIEW = [
   { name: "Carlos Rivera", trade: "Electrician", loc: "Houston, TX", price: "$85/hr", credits: true, rating: 4.9 },

@@ -10,7 +10,7 @@ import {
   Phone, Zap,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #F97316)";
+const COLOR = "var(--app-accent, #38BDF8)";
 const BG = "#1c0a03";
 
 const RIDE_TYPES = [

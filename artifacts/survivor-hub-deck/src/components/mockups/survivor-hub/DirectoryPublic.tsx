@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { BookOpen, Users, MapPin, Lock, Search, X, ExternalLink, Send } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#3B82F6", HUNT_COLOR = "#D946EF";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#93C5FD", HUNT_COLOR = "#FBBF24";
 
 const PREVIEW = [
   { name: "Maria G.",   role: "Trauma Therapist",   loc: "Houston, TX",  community: false },
@@ -64,7 +64,7 @@ export function DirectoryPublic() {
 
       {/* ── Skills Hunt pinned reward card ──────────────────────────────── */}
       {/* Spec §2.4: reward card on Directory public page with "Submit a community profile" CTA */}
-      <div style={{ margin: "0 64px 28px", padding: "20px 24px", borderRadius: 16, background: `linear-gradient(135deg, ${HUNT_COLOR}12 0%, rgba(59,130,246,0.06) 100%)`, border: `1px solid ${HUNT_COLOR}30`, display: "flex", gap: 20, alignItems: "center" }}>
+      <div style={{ margin: "0 64px 28px", padding: "20px 24px", borderRadius: 16, background: `linear-gradient(135deg, ${HUNT_COLOR}12 0%, rgba(147,197,253,0.06) 100%)`, border: `1px solid ${HUNT_COLOR}30`, display: "flex", gap: 20, alignItems: "center" }}>
         <div style={{ width: 48, height: 48, borderRadius: 14, background: `${HUNT_COLOR}20`, border: `1px solid ${HUNT_COLOR}35`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
           <Search size={22} style={{ color: HUNT_COLOR }} />
         </div>

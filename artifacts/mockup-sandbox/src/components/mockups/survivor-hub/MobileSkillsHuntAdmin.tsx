@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Target, Plus, Edit2, Trash2, CheckCircle, Clock } from "lucide-react";
 
-const COLOR  = "#A78BFA";
+const COLOR  = "#FBBF24";
 const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";

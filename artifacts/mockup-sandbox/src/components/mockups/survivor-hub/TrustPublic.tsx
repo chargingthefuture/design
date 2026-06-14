@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Shield, CheckCircle } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#0284C7";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#0EA5E9";
 
 const SIGNALS = [
   "Identity verification",

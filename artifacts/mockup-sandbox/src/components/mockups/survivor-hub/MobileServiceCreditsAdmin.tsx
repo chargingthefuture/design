@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Coins, CheckCircle, XCircle, AlertTriangle, Plus } from "lucide-react";
 
-const COLOR  = "#F59E0B";
+const COLOR  = "#A855F7";
 const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";

@@ -21,7 +21,7 @@ type VisibilityOption = "All Members" | "Verified Only" | "Only Me";
 const SIGNALS = [
   { label: "Profile verified", time: "3 days ago", icon: ShieldCheck, color: BRAND },
   { label: "First transaction made", time: "5 days ago", icon: Zap, color: "#22C55E" },
-  { label: "Joined SkillsHunt round", time: "1 week ago", icon: Star, color: "#0284C7" },
+  { label: "Joined SkillsHunt round", time: "1 week ago", icon: Star, color: "#0EA5E9" },
   { label: "Referred a survivor", time: "2 weeks ago", icon: Users, color: "#F59E0B" },
 ];
 

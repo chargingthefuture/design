@@ -4,12 +4,12 @@ import { Users, Radio, HomeIcon, Navigation, BookOpen, Hammer, Code, Globe, Coin
 
 export function LandingFeaturesPublic() {
   const features = [
-    { name: "Hub", emoji: "🏘️", icon: Users, color: "#38BDF8", desc: "AI-powered chat & safe channels" },
+    { name: "Hub", emoji: "🏘️", icon: Users, color: "#7C3AED", desc: "AI-powered chat & safe channels" },
     { name: "Chyme", emoji: "🎙️", icon: Radio, color: "#22C55E", desc: "Live social audio rooms" },
-    { name: "LightHouse", emoji: "🏠", icon: HomeIcon, color: "#EAB308", desc: "Safe housing listings" },
-    { name: "TrustTransport", emoji: "📦", icon: Navigation, color: "#F97316", desc: "Vetted transportation" },
-    { name: "Directory", emoji: "📇", icon: BookOpen, color: "#3B82F6", desc: "Skills & services" },
-    { name: "Foundation", emoji: "🪛", icon: Hammer, color: "#EF4444", desc: "Tools & infrastructure" },
+    { name: "LightHouse", emoji: "🏠", icon: HomeIcon, color: "#60A5FA", desc: "Safe housing listings" },
+    { name: "TrustTransport", emoji: "📦", icon: Navigation, color: "#38BDF8", desc: "Vetted transportation" },
+    { name: "Directory", emoji: "📇", icon: BookOpen, color: "#93C5FD", desc: "Skills & services" },
+    { name: "Foundation", emoji: "🪛", icon: Hammer, color: "#F59E0B", desc: "Tools & infrastructure" },
   ];
 
   return (

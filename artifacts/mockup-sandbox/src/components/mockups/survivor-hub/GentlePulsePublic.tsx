@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Heart, Play, Lock } from "lucide-react";
 
-const bg = "#0A0F0E", COLOR = "#14B8A6";
+const bg = "#0A0F0E", COLOR = "#34D399";
 
 const SESSIONS = [
   { title: "4-7-8 Breathing", duration: "5 min", emoji: "🌬️", plays: "47.8k" },
@@ -16,11 +16,11 @@ const SESSIONS = [
 export function GentlePulsePublic() {
   return (
     <div style={{ width: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter',system-ui", color: "var(--comic-text-primary, #F9FAFB)", display: "flex", flexDirection: "column" }}>
-      <div style={{ height: 52, borderBottom: "1px solid rgba(20,184,166,0.1)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
+      <div style={{ height: 52, borderBottom: "1px solid rgba(52,211,153,0.1)", display: "flex", alignItems: "center", padding: "0 28px", gap: 10 }}>
         <Heart size={18} color={COLOR} />
         <span style={{ fontSize: 16, fontWeight: 700 }}>GentlePulse</span>
         <div style={{ marginLeft: "auto" }}>
-          <button style={{ padding: "8px 20px", borderRadius: 8, background: "rgba(20,184,166,0.12)", border: "1px solid rgba(20,184,166,0.25)", color: "#fff", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Sign In</button>
+          <button style={{ padding: "8px 20px", borderRadius: 8, background: "rgba(52,211,153,0.12)", border: "1px solid rgba(52,211,153,0.25)", color: "#fff", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Sign In</button>
         </div>
       </div>
 
@@ -42,7 +42,7 @@ export function GentlePulsePublic() {
       <div style={{ padding: "0 64px 48px", position: "relative" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, filter: "blur(4px)", pointerEvents: "none", opacity: 0.55 }}>
           {SESSIONS.map((s, i) => (
-            <div key={i} style={{ borderRadius: 14, border: "1px solid rgba(20,184,166,0.12)", padding: "16px 18px", background: "rgba(20,184,166,0.03)", display: "flex", gap: 12, alignItems: "center" }}>
+            <div key={i} style={{ borderRadius: 14, border: "1px solid rgba(52,211,153,0.12)", padding: "16px 18px", background: "rgba(52,211,153,0.03)", display: "flex", gap: 12, alignItems: "center" }}>
               <div style={{ fontSize: 28, flexShrink: 0 }}>{s.emoji}</div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: 13 }}>{s.title}</div>

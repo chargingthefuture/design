@@ -9,7 +9,7 @@ import {
   Users, Send, ChevronDown,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #D946EF)";
+const COLOR = "var(--app-accent, #FBBF24)";
 
 // Spec §2.1: taxonomy-first skills, sourced from skills_taxonomy_skills
 const SKILL_TAXONOMY: Record<string, string[]> = {

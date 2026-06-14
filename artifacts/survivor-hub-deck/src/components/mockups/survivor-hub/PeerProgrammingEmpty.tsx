@@ -1,7 +1,7 @@
 // design-sync
 import { Users, Globe, Calendar, CheckCircle2, Plus, Bell, Zap } from "lucide-react";
 
-const COLOR = "var(--app-accent, #8B5CF6)";
+const COLOR = "var(--app-accent, #6EE7B7)";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";

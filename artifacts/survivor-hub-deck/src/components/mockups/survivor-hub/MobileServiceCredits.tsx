@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Coins, TrendingUp, ArrowDown, ArrowUp, Home, RefreshCw, CheckCircle, Shield } from "lucide-react";
 
-const COLOR = "var(--app-accent, #F59E0B)";
+const COLOR = "var(--app-accent, #A855F7)";
 
 const TRANSACTIONS = [
   { id: 1, type: "earned", description: "Skills Hunt — Week 3 bonus", amount: +200, date: "Today 9:15 AM" },
@@ -15,9 +15,9 @@ const TRANSACTIONS = [
 ];
 
 const EARN_WAYS = [
-  { title: "Complete Skills Hunt Round", credits: "+200", color: "#A855F7" },
-  { title: "Facilitate Peer Programming", credits: "+500", color: "#8B5CF6" },
-  { title: "Verify Your Profile", credits: "+50", color: "#3B82F6" },
+  { title: "Complete Skills Hunt Round", credits: "+200", color: "#FBBF24" },
+  { title: "Facilitate Peer Programming", credits: "+500", color: "#6EE7B7" },
+  { title: "Verify Your Profile", credits: "+50", color: "#93C5FD" },
   { title: "Refer a Survivor", credits: "+100", color: "#22C55E" },
 ];
 
@@ -58,7 +58,7 @@ export function MobileServiceCredits() {
           {activeNav === "wallet" && (
             <>
               {/* Balance card */}
-              <div style={{ padding: "20px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}25 0%,rgba(245,158,11,0.05) 100%)`, border: `1px solid ${COLOR}30`, marginBottom: 16, textAlign: "center" }}>
+              <div style={{ padding: "20px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}25 0%,rgba(168,85,247,0.05) 100%)`, border: `1px solid ${COLOR}30`, marginBottom: 16, textAlign: "center" }}>
                 <div style={{ fontSize: 13, fontWeight: 700, color: COLOR, marginBottom: 6 }}>YOUR BALANCE</div>
                 <div style={{ fontSize: 48, fontWeight: 900, color: "var(--comic-text-primary, #F9FAFB)", lineHeight: 1, marginBottom: 4 }}>2,420</div>
                 <div style={{ fontSize: 13, color: COLOR, marginBottom: 16 }}>ServiceCredits</div>

@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { BarChart2, Lock } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#B45309";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#F97316";
 const BARS = [37, 25, 20, 18];
 const LABELS = ["Employed", "In Training", "Seeking", "Exploring"];
 const COLORS = ["#22C55E", COLOR, "#F59E0B", "var(--comic-text-secondary, #6B7280)"];

@@ -9,7 +9,7 @@ import {
   Frown, Meh, Zap, Sun, Cloud, CloudRain,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #EC4899)";
+const COLOR = "var(--app-accent, #4ADE80)";
 
 const MOODS = [
   { emoji: "😄", label: "Great", value: 5, color: "#22C55E" },
@@ -30,10 +30,10 @@ const COMMUNITY_MOOD = [
 ];
 
 const RESOURCES = [
-  { title: "5-Minute Breathing Exercise", type: "GentlePulse", color: "#14B8A6" },
+  { title: "5-Minute Breathing Exercise", type: "GentlePulse", color: "#34D399" },
   { title: "Crisis Text Line — 24/7", type: "Emergency", color: "#EF4444" },
   { title: "Peer Support Chat", type: "Chyme", color: "#22C55E" },
-  { title: "Foundation Mental Health Providers", type: "Directory", color: "#3B82F6" },
+  { title: "Foundation Mental Health Providers", type: "Directory", color: "#93C5FD" },
 ];
 
 const CHAT = [

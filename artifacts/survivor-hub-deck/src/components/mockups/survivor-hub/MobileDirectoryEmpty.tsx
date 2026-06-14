@@ -7,7 +7,7 @@ const surface = "#161B27";
 const border  = "#1E2A3A";
 const text    = "var(--comic-text-primary, #F9FAFB)";
 const subtle  = "var(--comic-text-secondary, #6B7280)";
-const COLOR   = "#3B82F6";
+const COLOR   = "#93C5FD";
 
 export function MobileDirectoryEmpty() {
   return (

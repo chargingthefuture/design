@@ -6,7 +6,7 @@ const surface = "#161B27";
 const border = "#1E2A3A";
 const text = "var(--comic-text-primary, #F9FAFB)";
 const subtle = "var(--comic-text-secondary, #6B7280)";
-const COLOR = "var(--app-accent, #EC4899)";
+const COLOR = "var(--app-accent, #4ADE80)";
 
 const MOODS = [
   { emoji: "😔", label: "Hard" },

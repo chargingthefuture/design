@@ -2,7 +2,7 @@
 // STATE: Unauthenticated — visitor with no session
 import { Home, MapPin, Bed, Bath, Lock, Star } from "lucide-react";
 
-const bg = "var(--comic-bg, #0F1117)", COLOR = "#EAB308";
+const bg = "var(--comic-bg, #0F1117)", COLOR = "#60A5FA";
 
 const PREVIEW = [
   { title: "Private Studio — Safe & Verified", loc: "Midtown Houston, TX", price: 850, credits: true, beds: 1, rating: 4.9 },

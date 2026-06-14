@@ -6,7 +6,7 @@ import {
   XCircle, ExternalLink, ChevronRight, Shield, Users, RefreshCw,
 } from "lucide-react";
 
-const BRAND = "#10B981";
+const BRAND = "#C084FC";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
@@ -17,7 +17,7 @@ type Status = "pending" | "approved" | "rejected";
 
 const STATUS_CONFIG: Record<Status, { icon: typeof CheckCircle; color: string; bg: string; label: string }> = {
   pending: { icon: Clock, color: "#F59E0B", bg: "rgba(245,158,11,0.08)", label: "Pending Review" },
-  approved: { icon: CheckCircle, color: BRAND, bg: "rgba(16,185,129,0.08)", label: "Approved" },
+  approved: { icon: CheckCircle, color: BRAND, bg: "rgba(192,132,252,0.08)", label: "Approved" },
   rejected: { icon: XCircle, color: "#EF4444", bg: "rgba(239,68,68,0.08)", label: "Rejected" },
 };
 

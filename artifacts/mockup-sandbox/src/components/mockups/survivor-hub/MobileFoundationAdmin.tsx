@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Briefcase, CheckCircle, XCircle, Flag, ChevronRight, Shield } from "lucide-react";
 
-const COLOR  = "#22C55E";
+const COLOR  = "#F59E0B";
 const bg      = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border  = "#1E2A3A";

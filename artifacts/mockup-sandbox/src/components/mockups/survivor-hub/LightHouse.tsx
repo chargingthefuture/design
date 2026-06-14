@@ -10,7 +10,7 @@ import {
   Lock, Eye, Calendar,
 } from "lucide-react";
 
-const COLOR = "var(--app-accent, #EAB308)";
+const COLOR = "var(--app-accent, #60A5FA)";
 const BG = "#1c1407";
 
 const LISTINGS = [
@@ -148,7 +148,7 @@ export function LightHouse() {
         {tab === "browse" ? (
           <ScrollArea style={{ flex: 1 }}>
             <div style={{ padding: "24px" }}>
-              <div style={{ marginBottom: 20, padding: "18px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(234,179,8,0.05) 100%)`, border: `1px solid ${COLOR}25` }}>
+              <div style={{ marginBottom: 20, padding: "18px 24px", borderRadius: 16, background: `linear-gradient(135deg,${COLOR}15 0%,rgba(96,165,250,0.05) 100%)`, border: `1px solid ${COLOR}25` }}>
                 <div style={{ fontSize: 20, fontWeight: 800, color: "var(--comic-text-primary, #F9FAFB)", marginBottom: 4 }}>Find Safe, Verified Housing</div>
                 <div style={{ fontSize: 14, color: "#9CA3AF" }}>1,204 listings · 841 accept Service Credits · Privacy by design</div>
               </div>
