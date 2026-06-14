@@ -18,7 +18,7 @@ All values are used as inline-style hex strings or `rgba()` — no Tailwind, no 
 
 ### App accent colors
 
-Every app surface has its own accent color and a matching dark card background (`bg`). **These are canonical — do not reassign, share, or omit.** The first row is the **Hub** platform shell; the rest are shipped plugins. Each accent is unique across the whole table (no two surfaces share a hex).
+Every app surface has its own accent color and a matching dark card background (`bg`). **These are canonical — do not reassign, share, or omit.** The first row is the **Hub** platform shell; the last row is the **Account & Data** user-facing surface; the rows between are shipped plugins. Each accent is unique across the whole table (no two surfaces share a hex).
 
 > **Plugin-count note:** This table includes the Hub shell plus every shipped plugin (including `LevelUp`, previously missing). The public-facing "18 plugins" figure in §12 is a separate marketing count — do **not** infer it from this table's row count, and do not change §12 without explicit owner instruction.
 
@@ -44,6 +44,7 @@ Every app surface has its own accent color and a matching dark card background (
 | SkillsTaxonomy | `#818CF8` | `#0E0F1B` |
 | PeerProgramming | `#6EE7B7` | `#0C1914` |
 | LevelUp | `#10B981` | `#02140E` |
+| Account & Data *(user-facing surface)* | `#FB7185` | `#1C0C0F` |
 
 #### Background (`bg`) derivation rule
 

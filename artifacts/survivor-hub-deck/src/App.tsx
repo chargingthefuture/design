@@ -348,7 +348,7 @@ const SECTION_COLORS: Record<string, string> = {
   "SkillsTaxonomy":   "#818CF8",
   "Unlock":           "#C084FC",
   "What Works":       "#84CC16",
-  "Account & Data":   "#A855F7",
+  "Account & Data":   "#FB7185",
   "Admin Mobile":     "#6366F1",
   "Admin Web":        "#6366F1",
   "Comic Theme":      "#B91C1C",
