@@ -6,7 +6,7 @@ import {
   Bell, Settings, Database,
 } from "lucide-react";
 
-const BRAND = "#FB7185";
+const BRAND = "#D946EF";
 const bg = "var(--comic-bg, #0F1117)";
 const border = "#1E2A3A";
 const text = "var(--comic-text-primary, #F9FAFB)";
@@ -80,7 +80,7 @@ export function AccountDataConfirmDelete() {
           <div style={{ width: 560, borderRadius: 22, background: "var(--comic-surface, #0D0F14)", border: "1px solid rgba(239,68,68,0.3)", boxShadow: "0 28px 72px rgba(0,0,0,0.65)", overflow: "hidden" }}>
 
             {/* Header band */}
-            <div style={{ padding: "26px 30px 20px", background: "linear-gradient(135deg,rgba(239,68,68,0.1),rgba(251,113,133,0.04))", borderBottom: "1px solid rgba(239,68,68,0.12)" }}>
+            <div style={{ padding: "26px 30px 20px", background: "linear-gradient(135deg,rgba(239,68,68,0.1),rgba(217,70,239,0.04))", borderBottom: "1px solid rgba(239,68,68,0.12)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                 <div style={{ width: 46, height: 46, borderRadius: 13, background: "rgba(239,68,68,0.12)", border: "1px solid rgba(239,68,68,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <Trash2 size={21} color="#EF4444" />

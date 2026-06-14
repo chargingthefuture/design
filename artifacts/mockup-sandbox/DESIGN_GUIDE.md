@@ -44,7 +44,7 @@ Every app surface has its own accent color and a matching dark card background (
 | SkillsTaxonomy | `#818CF8` | `#0E0F1B` |
 | PeerProgramming | `#6EE7B7` | `#0C1914` |
 | LevelUp | `#10B981` | `#02140E` |
-| Account & Data *(user-facing surface)* | `#FB7185` | `#1C0C0F` |
+| Account & Data *(user-facing surface)* | `#D946EF` | `#18081A` |
 
 #### Background (`bg`) derivation rule
 

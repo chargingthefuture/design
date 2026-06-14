@@ -6,7 +6,7 @@ import {
   Bell, CheckCircle, Info, ChevronRight,
 } from "lucide-react";
 
-const BRAND = "#FB7185";
+const BRAND = "#D946EF";
 const bg = "var(--comic-bg, #0F1117)";
 const surface = "#161B27";
 const border = "#1E2A3A";
