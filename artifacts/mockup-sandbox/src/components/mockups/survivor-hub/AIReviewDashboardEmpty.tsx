@@ -1,5 +1,5 @@
 // design-sync
-// STATE: Empty — Owner Review & Correction Console (queue clear)
+// STATE: Empty — Owner Review & Correction Dashboard (queue clear)
 import {
   ShieldCheck, Inbox, Sparkles, FileText, Bell, Settings, CheckCircle2,
 } from "lucide-react";
@@ -11,7 +11,7 @@ const border = "#1E2A3A";
 const text = "var(--comic-text-primary, #F9FAFB)";
 const subtle = "var(--comic-text-secondary, #6B7280)";
 
-export function AIReviewConsoleEmpty() {
+export function AIReviewDashboardEmpty() {
   return (
     <div style={{ display: "flex", height: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, overflow: "hidden" }}>
       {/* Icon rail */}
@@ -50,7 +50,7 @@ export function AIReviewConsoleEmpty() {
         <header style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 12, background: panel, flexShrink: 0 }}>
           <Sparkles size={18} color={ACCENT} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 700 }}>Review &amp; Correction Console</div>
+            <div style={{ fontSize: 15, fontWeight: 700 }}>Review &amp; Correction Dashboard</div>
             <div style={{ fontSize: 12, color: subtle }}>Approve, correct, or reject AI Assistant answers before they reach survivors</div>
           </div>
         </header>

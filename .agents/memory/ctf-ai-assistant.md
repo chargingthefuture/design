@@ -14,7 +14,7 @@ description: Naming, label, and surface conventions for the Survivor Hub "AI Ass
 - Answered AI cards carry a rating row: helpful / not helpful / flag.
 - Pending answers render an inline "Reviewing for safety" card variant in the stream.
 - First-use consent (AIConsent web modal + MobileAIConsent bottom sheet): self-hosted, no third parties, Confirm / Not now.
-- Owner Review & Correction Console family (accent #0EA5E9): web + mobile, 4 states each (default queue / empty / loading / detail). Detail has editable corrected-text. Each item shows question, AI draft, sources, confidence; actions Approve / Edit&approve / Reject.
+- Owner Review & Correction Dashboard family (accent #0EA5E9): web + mobile, 4 states each (default queue / empty / loading / detail). Detail has editable corrected-text. Each item shows question, AI draft, sources, confidence; actions Approve / Edit&approve / Reject.
 - Deck section name "AI Assistant", SECTION_COLORS #0EA5E9.
 
 ## Survivor-safety in AI copy

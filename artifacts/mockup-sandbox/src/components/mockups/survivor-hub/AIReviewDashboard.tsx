@@ -1,5 +1,5 @@
 // design-sync
-// STATE: Populated — Owner Review & Correction Console
+// STATE: Populated — Owner Review & Correction Dashboard
 import { useState } from "react";
 import {
   ShieldCheck, Inbox, Sparkles, Check, Pencil, X,
@@ -36,7 +36,7 @@ const ANSWERS: Record<number, { draft: string; sources: string[] }> = {
   4: { draft: "Yes — the assistant can help you draft messages. Nothing is sent on your behalf…", sources: ["Assistant Capabilities"] },
 };
 
-export function AIReviewConsole() {
+export function AIReviewDashboard() {
   const [selected, setSelected] = useState(1);
   const item = QUEUE.find((q) => q.id === selected)!;
   const ans = ANSWERS[selected];
@@ -90,7 +90,7 @@ export function AIReviewConsole() {
         <header style={{ height: 56, borderBottom: `1px solid ${border}`, display: "flex", alignItems: "center", padding: "0 24px", gap: 12, background: panel, flexShrink: 0 }}>
           <Sparkles size={18} color={ACCENT} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 15, fontWeight: 700 }}>Review &amp; Correction Console</div>
+            <div style={{ fontSize: 15, fontWeight: 700 }}>Review &amp; Correction Dashboard</div>
             <div style={{ fontSize: 12, color: subtle }}>Approve, correct, or reject AI Assistant answers before they reach survivors</div>
           </div>
         </header>

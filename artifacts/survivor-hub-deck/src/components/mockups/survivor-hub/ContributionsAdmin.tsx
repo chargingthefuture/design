@@ -79,7 +79,7 @@ export function ContributionsAdmin() {
             </div>
             <span style={{ fontWeight: 700, fontSize: 14, color: text }}>Contributions</span>
           </div>
-          <div style={{ fontSize: 11, color: subtle }}>Admin console</div>
+          <div style={{ fontSize: 11, color: subtle }}>Admin dashboard</div>
         </div>
         <nav style={{ padding: "10px 8px", flex: 1 }}>
           {([

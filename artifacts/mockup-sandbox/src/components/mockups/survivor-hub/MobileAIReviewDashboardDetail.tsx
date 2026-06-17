@@ -1,5 +1,5 @@
 // design-sync
-// STATE: Single-item review-edit (mobile) — Owner Review & Correction Console
+// STATE: Single-item review-edit (mobile) — Owner Review & Correction Dashboard
 import { useState } from "react";
 import {
   Pencil, Check, X, FileText, AtSign, AlertTriangle, ArrowLeft, RotateCcw,
@@ -16,7 +16,7 @@ const QUESTION = "Is it safe to share my exact address with a host before I arri
 const AI_DRAFT = "You can share your address whenever you feel ready — most hosts ask for it once you book so they can plan your arrival.";
 const SOURCES = ["LightHouse Safety Guidelines · §3", "Trust & Safety Policy"];
 
-export function MobileAIReviewConsoleDetail() {
+export function MobileAIReviewDashboardDetail() {
   const [corrected, setCorrected] = useState(
     "Please don't share your exact address until you've completed a verified booking. A host only receives your precise location after both sides confirm — and you can always choose a nearby safe meeting point. Your safety comes first."
   );

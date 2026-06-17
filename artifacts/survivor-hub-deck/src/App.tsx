@@ -12,10 +12,10 @@ import { MobileAccountDataConfirmDelete } from "@/components/mockups/survivor-hu
 import { MobileAccountDataEmpty } from "@/components/mockups/survivor-hub/MobileAccountDataEmpty";
 import { MobileAccountDataLoading } from "@/components/mockups/survivor-hub/MobileAccountDataLoading";
 import { AIConsent } from "@/components/mockups/survivor-hub/AIConsent";
-import { AIReviewConsole } from "@/components/mockups/survivor-hub/AIReviewConsole";
-import { AIReviewConsoleDetail } from "@/components/mockups/survivor-hub/AIReviewConsoleDetail";
-import { AIReviewConsoleEmpty } from "@/components/mockups/survivor-hub/AIReviewConsoleEmpty";
-import { AIReviewConsoleLoading } from "@/components/mockups/survivor-hub/AIReviewConsoleLoading";
+import { AIReviewDashboard } from "@/components/mockups/survivor-hub/AIReviewDashboard";
+import { AIReviewDashboardDetail } from "@/components/mockups/survivor-hub/AIReviewDashboardDetail";
+import { AIReviewDashboardEmpty } from "@/components/mockups/survivor-hub/AIReviewDashboardEmpty";
+import { AIReviewDashboardLoading } from "@/components/mockups/survivor-hub/AIReviewDashboardLoading";
 import { ChymeApp } from "@/components/mockups/survivor-hub/ChymeApp";
 import { ChymeEmpty } from "@/components/mockups/survivor-hub/ChymeEmpty";
 import { ChymeLoading } from "@/components/mockups/survivor-hub/ChymeLoading";
@@ -53,10 +53,10 @@ import { LightHouseLoading } from "@/components/mockups/survivor-hub/LightHouseL
 import { LightHousePublic } from "@/components/mockups/survivor-hub/LightHousePublic";
 import { LightHouse } from "@/components/mockups/survivor-hub/LightHouse";
 import { MobileAIConsent } from "@/components/mockups/survivor-hub/MobileAIConsent";
-import { MobileAIReviewConsole } from "@/components/mockups/survivor-hub/MobileAIReviewConsole";
-import { MobileAIReviewConsoleDetail } from "@/components/mockups/survivor-hub/MobileAIReviewConsoleDetail";
-import { MobileAIReviewConsoleEmpty } from "@/components/mockups/survivor-hub/MobileAIReviewConsoleEmpty";
-import { MobileAIReviewConsoleLoading } from "@/components/mockups/survivor-hub/MobileAIReviewConsoleLoading";
+import { MobileAIReviewDashboard } from "@/components/mockups/survivor-hub/MobileAIReviewDashboard";
+import { MobileAIReviewDashboardDetail } from "@/components/mockups/survivor-hub/MobileAIReviewDashboardDetail";
+import { MobileAIReviewDashboardEmpty } from "@/components/mockups/survivor-hub/MobileAIReviewDashboardEmpty";
+import { MobileAIReviewDashboardLoading } from "@/components/mockups/survivor-hub/MobileAIReviewDashboardLoading";
 import { MobileChymeEmpty } from "@/components/mockups/survivor-hub/MobileChymeEmpty";
 import { MobileChymeLoading } from "@/components/mockups/survivor-hub/MobileChymeLoading";
 import { MobileChymePublic } from "@/components/mockups/survivor-hub/MobileChymePublic";
@@ -259,8 +259,8 @@ const COMPONENTS: Record<string, ComponentType> = {
   AccountData, AccountDataConfirmDelete, AccountDataEmpty, AccountDataLoading,
   MobileAccountData, MobileAccountDataConfirmDelete, MobileAccountDataEmpty, MobileAccountDataLoading,
   AIConsent, MobileAIConsent,
-  AIReviewConsole, AIReviewConsoleEmpty, AIReviewConsoleLoading, AIReviewConsoleDetail,
-  MobileAIReviewConsole, MobileAIReviewConsoleEmpty, MobileAIReviewConsoleLoading, MobileAIReviewConsoleDetail,
+  AIReviewDashboard, AIReviewDashboardEmpty, AIReviewDashboardLoading, AIReviewDashboardDetail,
+  MobileAIReviewDashboard, MobileAIReviewDashboardEmpty, MobileAIReviewDashboardLoading, MobileAIReviewDashboardDetail,
   ReportAProblem, ReportAProblemForm, ReportAProblemSubmitting, ReportAProblemSuccess, ReportAProblemError, ReportAProblemRateLimit,
   MobileReportAProblem, MobileReportAProblemForm, MobileReportAProblemSubmitting, MobileReportAProblemSuccess, MobileReportAProblemError, MobileReportAProblemRateLimit,
   ClickLog, ClickLogEmpty, ClickLogLoading, ClickLogPublic,
@@ -574,15 +574,15 @@ const SLIDES: Slide[] = [
 
   // ── AI ASSISTANT ──────────────────────────────────────────────────────
   web("AIConsent",                   "Web · First-Use Consent",   "AI Assistant"),
-  web("AIReviewConsole",             "Web · Review Console",       "AI Assistant"),
-  web("AIReviewConsoleDetail",       "Web · Edit & Correct",       "AI Assistant"),
-  web("AIReviewConsoleEmpty",        "Web · Queue Clear",          "AI Assistant"),
-  web("AIReviewConsoleLoading",      "Web · Loading",              "AI Assistant"),
+  web("AIReviewDashboard",             "Web · Review Dashboard",       "AI Assistant"),
+  web("AIReviewDashboardDetail",       "Web · Edit & Correct",       "AI Assistant"),
+  web("AIReviewDashboardEmpty",        "Web · Queue Clear",          "AI Assistant"),
+  web("AIReviewDashboardLoading",      "Web · Loading",              "AI Assistant"),
   mob("MobileAIConsent",             "Mobile · First-Use Consent", "AI Assistant"),
-  mob("MobileAIReviewConsole",       "Mobile · Review Console",    "AI Assistant"),
-  mob("MobileAIReviewConsoleDetail", "Mobile · Edit & Correct",    "AI Assistant"),
-  mob("MobileAIReviewConsoleEmpty",  "Mobile · Queue Clear",       "AI Assistant"),
-  mob("MobileAIReviewConsoleLoading","Mobile · Loading",           "AI Assistant"),
+  mob("MobileAIReviewDashboard",       "Mobile · Review Dashboard",    "AI Assistant"),
+  mob("MobileAIReviewDashboardDetail", "Mobile · Edit & Correct",    "AI Assistant"),
+  mob("MobileAIReviewDashboardEmpty",  "Mobile · Queue Clear",       "AI Assistant"),
+  mob("MobileAIReviewDashboardLoading","Mobile · Loading",           "AI Assistant"),
 
   // ── WHAT WORKS ────────────────────────────────────────────────────────
   web("WhatWorksPublic",       "Web · Not Signed In",  "What Works"),
