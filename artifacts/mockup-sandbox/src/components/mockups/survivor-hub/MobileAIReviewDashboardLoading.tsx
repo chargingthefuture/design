@@ -1,7 +1,7 @@
 // design-sync
 // STATE: Loading — data fetch in progress
 
-export function MobileAIReviewConsoleLoading() {
+export function MobileAIReviewDashboardLoading() {
   return (
     <div style={{ width: 390, height: 844, background: "#0F1117", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',system-ui" }}>
       <div style={{ textAlign: "center", padding: "0 32px" }}>

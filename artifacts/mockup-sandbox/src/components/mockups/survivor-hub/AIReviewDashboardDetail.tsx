@@ -1,5 +1,5 @@
 // design-sync
-// STATE: Single-item review-edit — Owner Review & Correction Console
+// STATE: Single-item review-edit — Owner Review & Correction Dashboard
 import { useState } from "react";
 import {
   ShieldCheck, Inbox, Sparkles, Check, X, FileText, Bell, Settings,
@@ -18,7 +18,7 @@ const ASKER = "Survivor #4821";
 const AI_DRAFT = "You can share your address whenever you feel ready — most hosts ask for it once you book so they can plan your arrival.";
 const SOURCES = ["LightHouse Safety Guidelines · §3 Location Privacy", "Survivor Hub Trust & Safety Policy"];
 
-export function AIReviewConsoleDetail() {
+export function AIReviewDashboardDetail() {
   const [corrected, setCorrected] = useState(
     "Please don't share your exact address until you've completed a verified booking. On LightHouse, a host only receives your precise location after both sides confirm — and you can always choose a nearby safe meeting point instead. Your safety comes first, and you're never obligated to share more than you're comfortable with."
   );

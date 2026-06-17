@@ -1,5 +1,5 @@
 // design-sync
-// STATE: Populated (mobile) — Owner Review & Correction Console
+// STATE: Populated (mobile) — Owner Review & Correction Dashboard
 import { useState } from "react";
 import {
   ShieldCheck, Sparkles, Check, Pencil, X, FileText, Clock, AtSign, AlertTriangle, ChevronRight,
@@ -27,7 +27,7 @@ const QUEUE = [
 const DRAFT = "Please don't share your exact address until you've completed a verified booking. Hosts only receive your precise location after both sides confirm — and you can choose a nearby safe meeting point instead. Your safety comes first.";
 const SOURCES = ["LightHouse Safety Guidelines · §3", "Trust & Safety Policy"];
 
-export function MobileAIReviewConsole() {
+export function MobileAIReviewDashboard() {
   const [selected, setSelected] = useState(1);
   const item = QUEUE.find((q) => q.id === selected)!;
   const conf = CONF[item.confidence];
@@ -46,7 +46,7 @@ export function MobileAIReviewConsole() {
             <ShieldCheck size={17} color={ACCENT} />
           </div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 14, fontWeight: 700 }}>Review Console</div>
+            <div style={{ fontSize: 14, fontWeight: 700 }}>Review Dashboard</div>
             <div style={{ fontSize: 11, color: subtle }}>AI Assistant answers awaiting review</div>
           </div>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 9px", borderRadius: 14, background: `${ACCENT}15`, border: `1px solid ${ACCENT}30`, fontSize: 11, color: ACCENT, fontWeight: 700 }}>

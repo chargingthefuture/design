@@ -1,6 +1,6 @@
 - [CTF mockup-sandbox conventions](ctf-mockup-conventions.md) — design-only repo; punch-list rules for phase labels, fiat parity, naming, brand voice, and standard loader format.
 - [CTF Feed consolidation](ctf-feed-consolidation.md) — FeedAnnouncements absorbed into Hub #community channel; no standalone Feed app tile anywhere.
-- [CTF AI Assistant surfaces](ctf-ai-assistant.md) — "AI Assistant" is the only user-facing label; "@comic" is the typed trigger only; single composer, rating row, pending "Reviewing for safety", consent, owner review console.
+- [CTF AI Assistant surfaces](ctf-ai-assistant.md) — "AI Assistant" is the only user-facing label; "@comic" is the typed trigger only; single composer, rating row, pending "Reviewing for safety", consent, owner review dashboard.
 - [CTF Design Guide](ctf-design-guide-location.md) — canonical front-end design guide at artifacts/mockup-sandbox/DESIGN_GUIDE.md; referenced in replit.md; agents must read before any UI change.
 - [CTF Report a Problem surface](ctf-report-problem.md) — 12 slides (web + mobile), ? nav entry, 5 form states, no GitHub in UI, calm plain copy rules.
 - [CTF Contributions plugin](ctf-contributions-plugin.md) — plugin #19, accent #F472B6 (pink); 14 mockup files; trauma-informed copy rules; no code entry in UI; admin in "Admin Web/Mobile" sections.

@@ -1,5 +1,5 @@
 // design-sync
-// STATE: Empty (mobile) — Owner Review & Correction Console
+// STATE: Empty (mobile) — Owner Review & Correction Dashboard
 import { ShieldCheck, Clock, CheckCircle2, Inbox } from "lucide-react";
 
 const ACCENT = "var(--app-accent, #0EA5E9)";
@@ -8,7 +8,7 @@ const border = "#1E2A3A";
 const text = "var(--comic-text-primary, #F9FAFB)";
 const subtle = "var(--comic-text-secondary, #6B7280)";
 
-export function MobileAIReviewConsoleEmpty() {
+export function MobileAIReviewDashboardEmpty() {
   return (
     <div style={{ width: 390, height: "100%", minHeight: "100vh", background: bg, fontFamily: "'Inter', system-ui, sans-serif", color: text, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", fontSize: 13, fontWeight: 600, flexShrink: 0 }}>
@@ -21,7 +21,7 @@ export function MobileAIReviewConsoleEmpty() {
             <ShieldCheck size={17} color={ACCENT} />
           </div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 14, fontWeight: 700 }}>Review Console</div>
+            <div style={{ fontSize: 14, fontWeight: 700 }}>Review Dashboard</div>
             <div style={{ fontSize: 11, color: subtle }}>AI Assistant answers awaiting review</div>
           </div>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 9px", borderRadius: 14, background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.25)", fontSize: 11, color: "#22C55E", fontWeight: 700 }}>

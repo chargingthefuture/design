@@ -131,70 +131,70 @@
       "notes": "Mobile first-use AI Assistant consent bottom sheet. Self-hosted AI, no third parties. Confirm / Not now."
     },
     {
-      "id": "ai-review-console",
-      "name": "AIReviewConsole",
-      "file": "src/components/mockups/survivor-hub/AIReviewConsole.tsx",
+      "id": "ai-review-dashboard",
+      "name": "AIReviewDashboard",
+      "file": "src/components/mockups/survivor-hub/AIReviewDashboard.tsx",
       "kind": "screen",
       "states": ["default"],
       "platform": "desktop",
-      "notes": "Owner Review & Correction Console. Queue of AI drafts w/ question, draft, sources, confidence. Approve / Edit&approve / Reject."
+      "notes": "Owner Review & Correction Dashboard. Queue of AI drafts w/ question, draft, sources, confidence. Approve / Edit&approve / Reject."
     },
     {
-      "id": "ai-review-console-detail",
-      "name": "AIReviewConsoleDetail",
-      "file": "src/components/mockups/survivor-hub/AIReviewConsoleDetail.tsx",
+      "id": "ai-review-dashboard-detail",
+      "name": "AIReviewDashboardDetail",
+      "file": "src/components/mockups/survivor-hub/AIReviewDashboardDetail.tsx",
       "kind": "screen",
       "states": ["detail"],
       "platform": "desktop",
       "notes": "Single AI draft review w/ editable corrected-text field."
     },
     {
-      "id": "ai-review-console-empty",
-      "name": "AIReviewConsoleEmpty",
-      "file": "src/components/mockups/survivor-hub/AIReviewConsoleEmpty.tsx",
+      "id": "ai-review-dashboard-empty",
+      "name": "AIReviewDashboardEmpty",
+      "file": "src/components/mockups/survivor-hub/AIReviewDashboardEmpty.tsx",
       "kind": "screen",
       "states": ["empty"],
       "platform": "desktop",
       "notes": "Review queue clear / nothing pending."
     },
     {
-      "id": "ai-review-console-loading",
-      "name": "AIReviewConsoleLoading",
-      "file": "src/components/mockups/survivor-hub/AIReviewConsoleLoading.tsx",
+      "id": "ai-review-dashboard-loading",
+      "name": "AIReviewDashboardLoading",
+      "file": "src/components/mockups/survivor-hub/AIReviewDashboardLoading.tsx",
       "kind": "screen",
       "states": ["loading"],
       "platform": "desktop"
     },
     {
-      "id": "mobile-ai-review-console",
-      "name": "MobileAIReviewConsole",
-      "file": "src/components/mockups/survivor-hub/MobileAIReviewConsole.tsx",
+      "id": "mobile-ai-review-dashboard",
+      "name": "MobileAIReviewDashboard",
+      "file": "src/components/mockups/survivor-hub/MobileAIReviewDashboard.tsx",
       "kind": "screen",
       "states": ["default"],
       "platform": "mobile",
-      "notes": "Mobile Owner Review & Correction Console. Queue of AI drafts. Approve / Edit&approve / Reject."
+      "notes": "Mobile Owner Review & Correction Dashboard. Queue of AI drafts. Approve / Edit&approve / Reject."
     },
     {
-      "id": "mobile-ai-review-console-detail",
-      "name": "MobileAIReviewConsoleDetail",
-      "file": "src/components/mockups/survivor-hub/MobileAIReviewConsoleDetail.tsx",
+      "id": "mobile-ai-review-dashboard-detail",
+      "name": "MobileAIReviewDashboardDetail",
+      "file": "src/components/mockups/survivor-hub/MobileAIReviewDashboardDetail.tsx",
       "kind": "screen",
       "states": ["detail"],
       "platform": "mobile",
       "notes": "Mobile single AI draft review w/ editable corrected-text field."
     },
     {
-      "id": "mobile-ai-review-console-empty",
-      "name": "MobileAIReviewConsoleEmpty",
-      "file": "src/components/mockups/survivor-hub/MobileAIReviewConsoleEmpty.tsx",
+      "id": "mobile-ai-review-dashboard-empty",
+      "name": "MobileAIReviewDashboardEmpty",
+      "file": "src/components/mockups/survivor-hub/MobileAIReviewDashboardEmpty.tsx",
       "kind": "screen",
       "states": ["empty"],
       "platform": "mobile"
     },
     {
-      "id": "mobile-ai-review-console-loading",
-      "name": "MobileAIReviewConsoleLoading",
-      "file": "src/components/mockups/survivor-hub/MobileAIReviewConsoleLoading.tsx",
+      "id": "mobile-ai-review-dashboard-loading",
+      "name": "MobileAIReviewDashboardLoading",
+      "file": "src/components/mockups/survivor-hub/MobileAIReviewDashboardLoading.tsx",
       "kind": "screen",
       "states": ["loading"],
       "platform": "mobile"
